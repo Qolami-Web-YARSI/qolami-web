@@ -15,11 +15,11 @@ const EditProfile = () => {
                   <div class="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
                   <button type="button" class="tw-bg-white tw-border-2 tw-rounded-lg tw-border-[#FF0000] tw-size-10 tw-opacity-0" disabled>
                         <div class="tw-size-full tw-flex tw-flex-col tw-justify-center tw-bg-[#FF0000]">
-                          <p class="tw-font-bold tw-text-white tw-text-xl">X</p>
+                          <img src="exit.svg"/>
                         </div>
                     </button>
                     <div class="tw-flex tw-flex-col tw-justify-center">
-                      <p class="tw-text-[#458200] tw-text-xl">EDIT PROFILE</p>
+                      <p class="tw-text-[#458200] tw-text-[40px] tw-font-bold">EDIT PROFILE</p>
                     </div>
                     <button type="button" class="tw-bg-white tw-rounded-lg tw-size-10" border="0">
                         <div class="tw-size-full tw-flex tw-flex-col tw-justify-center tw-rounded-lg tw-bg-[#FF0000]" data-bs-dismiss="modal">
@@ -53,7 +53,7 @@ const EditProfile = () => {
                   </div>
 
                   <div class="tw-flex tw-w-full tw-flex-col tw-py-4 ">
-                    <button type="button" class="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white" data-bs-dismiss="modal">Edit Profile</button>
+                    <button type="button" class="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" data-bs-dismiss="modal">Edit Profile</button>
                   </div>
 
                 </div>

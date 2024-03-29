@@ -19,8 +19,8 @@ const App = () => {
         <R1>
           <R2>
             <R3 path="/" element={<Home/>}/>
-            <R3 path="/about" element={<About/>}/>
-            <R3 path="/course" element={<Course/>}/>
+            <R3 path="/tentang" element={<About/>}/>
+            <R3 path="/kursus" element={<Course/>}/>
           </R2>
         </R1>
     </>
