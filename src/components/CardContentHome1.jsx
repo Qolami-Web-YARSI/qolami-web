@@ -3,22 +3,11 @@ import React, { useState, useEffect } from 'react'
 const CardContentHome1 = (props) => {
     return(
         <>
-            <div class="tw-flex tw-flex-col sm:tw-flex-row tw-py-5 md:tw-py-7 lg:tw-py-10 tw-gap-5 tw-mx-5 tw-justify-around">
-                <div class="tw-w-32 tw-bg-cover tw-bg-no-repeat tw-bg-center tw-justify-center tw-items-center tw-mx-auto">
-                    <img src={`${props.gambar}`} class="tw-rounded-full"/>
+            <div class="tw-flex tw-flex-col tw-pt-5 md:tw-pt-7 lg:tw-pt-10 tw-gap-5 tw-mx-5 tw-justify-between tw-bg-[#C2EF90] tw-rounded-[30px] md:tw-rounded-none">
+                <div class="tw-flex tw-h-24 xl:tw-h-40 tw-px-5 sm:tw-px-0">
+                    <p class="tw-text-[28px] md:tw-text-[35px] xl:tw-text-[45px] 2xl:tw-text-[55px] tw-font-bold tw-text-center tw-text-[#009900] tw-my-auto tw-mx-auto">{props.judul}</p>
                 </div>
-                <div class="tw-w-[100%] sm:tw-w-[60%] 
-                tw-flex tw-flex-col tw-ps-5 tw-py-1 sm:tw-py-6">
-                    <p class="md:tw-text-[22px] lg:tw-text-[25px]
-                    tw-font-bold tw-tracking-[2px] tw-mx-auto sm:tw-mx-0">{props.judul}</p>
-                    <ul class="tw-ps-5 sm:tw-ps-10
-                    tw-list-disc list-outside  tw-justify-center tw-mx-auto sm:tw-mx-0">
-                        <li class="md:tw-text-[16px] lg:tw-text-[20px] 
-                        tw-font-semibold">{props.subjudul1}</li>
-                        <li class="md:tw-text-[16px] lg:tw-text-[20px]
-                        tw-font-semibold">{props.subjudul2}</li>
-                    </ul>
-                </div>
+                <img src={`${props.gambar}`} class="tw-mx-auto"/>
             </div>
         </>
     )

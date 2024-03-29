@@ -3,27 +3,19 @@ import React, { useState, useEffect } from 'react'
 const JumbotronComponent = () => {
     return(
         <>
-            <div class="tw-h-fit tw-bg-cover tw-bg-center tw-bg-jumbotron">
-                <div class="tw-bg-gradient-to-r tw-from-transparent tw-to-black tw-size-full tw-opacity-100 tw-m-auto">
-                    <div class="tw-flex tw-justify-between">
-                        <div class="tw-w-[0%] md:tw-w-[18%]">
-                            <img src="pencil_1.png" class="tw-ps-20 tw-pt-16"/>
+            <div class="tw-h-fit tw-bg-cover tw-bg-center tw-bg-[#FFF6D9]">
+                <div class="tw-flex tw-justify-between">
+                    <div class="tw-w-[100%] md:tw-w-[50%] tw-text-[#009900] tw-px-10 tw-py-24 md:tw-ps-20 lg:tw-ps-28">
+                        <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
+                        <p class="tw-text-[16px] sm:tw-text-[18px] md:tw-text-[21px] lg:tw-text-[30px] tw-font-normal tw-py-3">Dengan Qolami, Anda dapat belajar bahasa Arab dengan mudah dan fleksibel, tanpa gangguan, sehingga memastikan integritas pembelajaran yang optimal.</p>
+                        <div class="tw-flex tw-justify-between tw-py-4 md:tw-py-5 lg:tw-py-9">
+                            <button class="tw-bg-[#009900] tw-py-3 tw-px-3 sm:tw-px-5 tw-rounded-2xl tw-text-[#C2EF90] tw-font-bold tw-text-sm md:tw-text-md lg:tw-text-xl">Mulai Belajar</button>
                         </div>
-                        <div class="tw-w-[55%] tw-text-white tw-py-24">
-                            <p class="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[30px] lg:tw-text-[60px] 
-                            tw-font-semibold 
-                            tw-tracking-[4px]">BELAJAR BAHASA ARAB LEBIH MUDAH & FLEKSIBEL</p>
-                            <p class="tw-text-[12px] sm:tw-text-[14px] md:tw-text-[18px] lg:tw-text-[25px]
-                            tw-font-medium
-                            tw-tracking-[4px]
-                            tw-py-3">Dengan <span class="tw-font-extrabold">Qolami Web</span>, Belajar bahasa arab jadi mudah, fleksibilitas dan integritas tanpa ada gangguan</p>
-                            <div class="tw-flex tw-justify-between tw-py-8 md:tw-py-12 lg:tw-py-20">
-                                <div class="tw-w-[18%]"/>
-                                <button class="tw-bg-[#C2EF90] tw-py-3 tw-px-3 sm:tw-px-7 tw-rounded-lg tw-text-black tw-tracking-[2px] tw-font-medium tw-text-sm sm:tw-text-md">GET STARTED</button>
-                                <div class="tw-w-[18%]"/>
-                            </div>
+                    </div>
+                    <div class="tw-flex tw-w-[0%] md:tw-w-[50%]">
+                        <div class="tw-flex tw-w-full tw-bg-jumbotron tw-bg-no-repeat tw-bg-contain">
+                            <img src="jumbotron1_2.svg" class="tw-m-auto"/>
                         </div>
-                        <div class="tw-w-[0%] md:tw-w-[18%]"/>
                     </div>
                 </div>
             </div> 
