@@ -11,7 +11,7 @@ const HeaderComponent2 = (props) => {
         <>
             <NavigationComponent2 nav={getNav} buttonNavX={buttonNav}/>
             <header class="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20">
-                <nav class="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-p-2 tw-px-5">
+                <nav class="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7">
                     <div class="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">
                             <img src="logo-qolami.svg" class="tw-w-[92px]"/>
