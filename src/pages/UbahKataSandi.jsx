@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const UbahPassword = () => {
+const UbahKataSandi = () => {
     const [getToggle1, setToggle1] = useState(false)
     const [getToggle2, setToggle2] = useState(false)
     const [getToggle3, setToggle3] = useState(false)
@@ -90,4 +90,4 @@ const UbahPassword = () => {
     )
 }
 
-export default UbahPassword;
+export default UbahKataSandi;

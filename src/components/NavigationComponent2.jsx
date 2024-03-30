@@ -8,8 +8,8 @@ const NavigationComponent = (props) => {
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/">Beranda</a></li>
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/tentang">Tentang</a></li>
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/kursus">Kursus</a></li>
-                        <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold tw-cursor-pointer hover:tw-bg-[#C2EF90] hover:tw-text-black" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</li>
-                        <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold tw-cursor-pointer hover:tw-bg-[#C2EF90] hover:tw-text-black" data-bs-toggle="modal" data-bs-target="#daftarModal">Daftar</li>
+                        <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/tentang">Rizal Abimanyu</a></li>
+                        <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/kursus">Keluar</a></li>
                     </ul>
                 </div>
                 <div className="tw-h-full tw-w-1/2 tw-bg-black z-50 tw-opacity-35">

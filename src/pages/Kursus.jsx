@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import HeaderComponent from '../components/HeaderComponent';
 import FooterComponent from '../components/FooterComponent';
 
-const Course = () => {
+const Kursus = () => {
     return(
         <>
             <HeaderComponent/>
@@ -11,4 +11,4 @@ const Course = () => {
     )
 }
 
-export default Course;
+export default Kursus;

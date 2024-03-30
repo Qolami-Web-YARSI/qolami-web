@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const LupaPassword = () => {
+const LupaKataSandi = () => {
     
     return(
         <>
@@ -47,4 +47,4 @@ const LupaPassword = () => {
     )
 }
 
-export default LupaPassword;
+export default LupaKataSandi;

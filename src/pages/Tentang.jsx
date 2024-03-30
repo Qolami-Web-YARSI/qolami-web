@@ -3,7 +3,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import FooterComponent from '../components/FooterComponent';
 import ContentAboutComponent from '../components/ContentAboutComponent';
 
-const About = () => {
+const Tentang = () => {
     return(
         <>
             <HeaderComponent/>
@@ -13,4 +13,4 @@ const About = () => {
     )
 }
 
-export default About;
+export default Tentang;
