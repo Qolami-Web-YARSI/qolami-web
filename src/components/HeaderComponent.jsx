@@ -10,7 +10,7 @@ const HeaderComponent = () => {
     return(
         <>
             <NavigationComponent nav={getNav} buttonNavX={buttonNav}/>
-            <header class="tw-border-b-2 tw-border-[#009900] tw-absolute tw-w-full tw-z-20">
+            <header class="tw-border-b-2 tw-border-[#009900]">
                 <nav class="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-p-2 tw-px-5">
                     <div class="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">
@@ -19,9 +19,9 @@ const HeaderComponent = () => {
                     </div>
                     <div class="tw-hidden md:tw-flex tw-flex-col tw-justify-center">
                         <ul>
-                            <li class="tw-inline tw-mx-3 lg:tw-mx-7  tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"><a href="/">Beranda</a></li>
-                            <li class="tw-inline tw-mx-3 lg:tw-mx-7 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"><a href="/tentang">Tentang</a></li>
-                            <li class="tw-inline tw-mx-3 lg:tw-mx-7 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"><a href="/kursus">Kursus</a></li>
+                            <li class="tw-inline tw-mx-3 lg:tw-mx-7  tw-font-bold tw-text-[#009900] tw-text-[15px] lg:tw-text-[20px]"><a href="/">Beranda</a></li>
+                            <li class="tw-inline tw-mx-3 lg:tw-mx-7 tw-font-bold tw-text-[#009900] tw-text-[15px] lg:tw-text-[20px]"><a href="/about">Tentang</a></li>
+                            <li class="tw-inline tw-mx-3 lg:tw-mx-7 tw-font-bold tw-text-[#009900] tw-text-[15px] lg:tw-text-[20px]"><a href="/course">Kursus</a></li>
                         </ul>
                     </div>
                     <div class="tw-hidden md:tw-flex tw-flex-row tw-justify-end tw-gap-2 tw-w-[50%] md:tw-w-[30%]">
