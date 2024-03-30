@@ -37,7 +37,7 @@ const JumbotronComponent = () => {
                 </div>
             </div> 
 
-            <div class="tw-h-full tw-pt-20 tw-bg-no-repeat tw-bg-contain tw-z-10 tw-p-32 md:tw-ps-24 md:tw-pe-16 tw-bg-[#FFF6D9]">
+            <div class="tw-h-full tw-pt-20 tw-bg-no-repeat tw-bg-contain tw-z-10 tw-p-12 md:tw-p-20 xl:tw-p-24 md:tw-ps-24 md:tw-pe-16 tw-bg-[#FFF6D9]">
                 <div class="tw-flex tw-justify-between tw-opacity-0">
                     <div class="tw-w-[100%] md:tw-w-[50%] tw-text-[#009900] tw-py-16 lg:tw-py-24">
                         <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
