@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 const JumbotronComponent = () => {
     return(
         <>
-            <div class="tw-h-full tw-ms-[15%] sm:tw-ms-[20%] md:tw-ms-[38%] tw-bg-jumbotron tw-bg-no-repeat tw-bg-contain tw-absolute tw-z-0">
+            <div class="tw-h-full tw-ms-[15%] sm:tw-ms-[20%] md:tw-ms-[33%] tw-bg-jumbotron tw-bg-no-repeat tw-bg-contain tw-absolute tw-z-0">
                 <div class="tw-flex tw-justify-between tw-opacity-0">
                     <div class="tw-w-[100%] md:tw-w-[50%] tw-text-[#009900] tw-py-24">
                         <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
@@ -20,7 +20,7 @@ const JumbotronComponent = () => {
                 </div>
             </div> 
 
-            <div class="tw-h-full tw-pt-20 tw-bg-no-repeat tw-bg-contain tw-z-10 tw-p-10 md:tw-ps-24 md:tw-pe-16 tw-absolute">
+            <div class="tw-h-full tw-pt-32 tw-bg-no-repeat tw-bg-contain tw-z-10 tw-p-10 md:tw-ps-24 md:tw-pe-16 tw-absolute">
                 <div class="tw-flex tw-justify-between">
                     <div class="tw-w-[100%] md:tw-w-[50%] tw-text-[#009900] tw-py-24">
                         <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
@@ -37,7 +37,7 @@ const JumbotronComponent = () => {
                 </div>
             </div> 
 
-            <div class="tw-h-full tw-pt-20 tw-bg-no-repeat tw-bg-contain tw-z-10 tw-p-10 md:tw-ps-24 md:tw-pe-16 tw-bg-[#FFF6D9]">
+            <div class="tw-h-full tw-pt-20 tw-bg-no-repeat tw-bg-contain tw-z-10 tw-p-32 md:tw-ps-24 md:tw-pe-16 tw-bg-[#FFF6D9]">
                 <div class="tw-flex tw-justify-between tw-opacity-0">
                     <div class="tw-w-[100%] md:tw-w-[50%] tw-text-[#009900] tw-py-16 lg:tw-py-24">
                         <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
