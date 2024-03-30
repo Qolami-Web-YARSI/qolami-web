@@ -33,7 +33,7 @@ const ContentHomeComponent = () => {
                 <div class="tw-flex tw-justify-between">
                     <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-py-1 md:tw-py-6 tw-font-bold tw-mx-auto tw-text-center tw-text-[#009900]">DIREKOMENDASIKAN UNTUK</p>
                 </div>
-                <div class="tw-flex tw-justify-between tw-border-b-4 tw-border-[#009900] tw-pb-32">
+                <div class="tw-flex tw-justify-between tw-border-b-4 tw-border-[#009900] tw-pb-10 md:tw-pb-32">
                     <div class="tw-w-[90%] lg:tw-w-[85%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-20 tw-gap-10 md:tw-gap-0">
                         <CardContentHome1 judul={judul[0]} gambar={gambar[0]}/>
                         <CardContentHome1 judul={judul[1]} gambar={gambar[1]}/>
@@ -50,7 +50,7 @@ const ContentHomeComponent = () => {
                     <p class="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-font-bold tw-py-1 md:tw-py-3 tw-pb-10 tw-mx-auto tw-text-center tw-text-[#009900]">FITUR-FITUR KURSUS</p>
                 </div>
                 <div class="tw-flex tw-justify-between">
-                    <div class="tw-w-[90%] lg:tw-w-[70%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto tw-my-20 tw-gap-10 tw-pb-28">
+                    <div class="tw-w-[90%] lg:tw-w-[70%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto tw-my-20 tw-gap-10 tw-pb-10 md:tw-pb-28">
                         <CardContentHome2 judul={judul2[0]} gambar={gambar2[0]}/>
                         <CardContentHome2 judul={judul2[1]} gambar={gambar2[1]}/>
                         <CardContentHome2 judul={judul2[2]} gambar={gambar2[2]}/>
