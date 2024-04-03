@@ -21,6 +21,11 @@ const App = () => {
             <R3 path="/" element={<Beranda/>}/>
             <R3 path="/tentang" element={<Tentang/>}/>
             <R3 path="/kursus" element={<Kursus/>}/>
+            {/* <R3 path="/masukModal" element={ <Masuk/>}/>
+            <R3 path="/daftarModal" element={<Daftar/>}/>
+            <R3 path="/lupaKataSandiModal" element={<LupaKataSandi/>}/>
+            <R3 path="/editProfileModal" element={<EditProfile/>}/>
+            <R3 path="/ubahKataSandiModal" element={<UbahKataSandi/>}/> */}
           </R2>
         </R1>
     </>
