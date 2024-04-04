@@ -8,7 +8,7 @@ const FooterComponent = () => {
                     <div className="tw-flex tw-flex-col tw-justify-center">
                         <p></p>
                     </div>
-                    <div className="tw-flex tw-flex-col tw-justify-center">
+                    <div className="tw-flex tw-flex-col tw-justify-center tw-font-poppins">
                         <p className="tw-px-7 tw-font-normal tw-text-white tw-text-[15px] sm:tw-text-[20px] tw-text-center">COPYRIGHT © QOLAMI - 2024. ALL RIGHT RESERVED</p>
                     </div>
                     <div className="tw-flex tw-flex-col tw-justify-center">

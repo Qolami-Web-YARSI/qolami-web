@@ -11,7 +11,10 @@ export default {
     extend: {
       backgroundImage: {
         'jumbotron': "url('/public/jumbotron1_1.svg')",
-      }
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

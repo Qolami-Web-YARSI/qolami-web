@@ -12,7 +12,7 @@ const ContentHomeComponent = () => {
 
     return(
         <>
-            <div className="tw-bg-[#458200] tw-size-full tw-px-10 md:tw-ps-20 lg:tw-ps-28">
+            <div className="tw-bg-[#458200] tw-size-full tw-px-10 md:tw-ps-20 lg:tw-ps-28 tw-font-poppins">
                 <div className="tw-flex tw-justify-between tw-py-12 sm:tw-py-16 md:tw-py-20 lg:tw-py-28">
                     <div className="tw-w-[0%] tw-hidden md:tw-w-[50%] md:tw-flex md:tw-justify-center">
                         <img src="logo-qolami.svg" className="tw-w-[0px] md:tw-w-[350px] lg:tw-w-[450px] tw-my-auto"/>

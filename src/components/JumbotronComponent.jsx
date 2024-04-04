@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react'
 const JumbotronComponent = () => {
     return(
         <>
-            <div className="tw-h-full tw-ms-[15%] sm:tw-ms-[20%] md:tw-ms-[33%] tw-bg-jumbotron tw-bg-no-repeat tw-bg-contain tw-absolute tw-z-0">
+            <div className="tw-h-full tw-ms-[15%] sm:tw-ms-[20%] md:tw-ms-[33%] tw-bg-jumbotron tw-bg-no-repeat tw-bg-contain tw-absolute tw-z-0 tw-font-poppins">
                 <div className="tw-flex tw-justify-between tw-opacity-0">
                     <div className="tw-w-[100%] md:tw-w-[50%] tw-text-[#009900] tw-py-24">
-                        <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
-                        <p className="tw-text-[16px] sm:tw-text-[18px] md:tw-text-[21px] lg:tw-text-[30px] tw-font-normal tw-py-3">Dengan Qolami, Anda dapat belajar bahasa Arab dengan mudah dan fleksibel, tanpa gangguan, sehingga memastikan integritas pembelajaran yang optimal.</p>
+                        <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold tw-font-poppins">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
+                        <p className="tw-text-[16px] sm:tw-text-[18px] md:tw-text-[21px] lg:tw-text-[30px] tw-font-normal tw-py-3 tw-font-poppins">Dengan Qolami, Anda dapat belajar bahasa Arab dengan mudah dan fleksibel, tanpa gangguan, sehingga memastikan integritas pembelajaran yang optimal.</p>
                         <div className="tw-flex tw-justify-between tw-py-4 md:tw-py-5 lg:tw-py-9">
-                            <button className="tw-bg-[#009900] tw-p-3 sm:tw-px-5 tw-rounded-2xl tw-text-[#C2EF90] tw-font-bold tw-text-sm md:tw-text-md lg:tw-text-xl"><a href="/kursus">Mulai Belajar</a></button>
+                            <button className="tw-bg-[#009900] tw-p-3 sm:tw-px-5 tw-rounded-2xl tw-text-[#C2EF90] tw-font-bold tw-text-sm md:tw-text-md lg:tw-text-xl tw-font-poppins"><a href="/kursus">Mulai Belajar</a></button>
                         </div>
                     </div>
                     <div className="tw-flex tw-w-[0%] md:tw-w-[50%]">
