@@ -178,13 +178,13 @@ const Daftar = () => {
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Depan</label>
                           <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} name="namaDepanDaftar" id="namaDepanDaftar" placeholder='Nama Depan'/>
-                          <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaDepan? "tw-hidden": "tw-block"}`}>Nama Depan Tidak Boleh Kosong!</p>
+                          <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaDepan? "tw-hidden": "tw-block"}`}>Nama Depan tidak boleh kosong!</p>
                       </div>
 
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Belakang</label>
                           <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" onBlur={namaBelakang.blur} onFocus={namaBelakang.focus} onChange={namaBelakang.change} name="namaBelakangDaftar" id="namaBelakang" placeholder='Nama Belakang'/>
-                          <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang Tidak Boleh Kosong!</p>
+                          <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang tidak boleh kosong!</p>
                       </div>
                     </div>
 

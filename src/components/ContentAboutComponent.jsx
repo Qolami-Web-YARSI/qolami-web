@@ -3,9 +3,6 @@ import CardContentAbout1 from './CardContentAbout1';
 import CardContentAbout2 from './CardContentAbout2';
 
 const ContentAboutComponent = () => {
-
-    const name = ['ANGGA ADITYA PUTRA PRATAMA', 'RIZAL ABIMANYU', 'TARA THANIA ANANTA']
-    const npm = ['(1402020008)', '(1402020070)', '(1402020072)']
     const image = ['cardabout_1.svg', 'cardabout_2.svg', 'cardabout_3.svg', 'cardabout_4.svg',
                     'cardabout_5.svg', 'cardabout_6.svg', 'cardabout_7.svg', 'cardabout_8.svg',]
 
@@ -22,15 +19,15 @@ const ContentAboutComponent = () => {
                     </div>
                     <div className="tw-flex tw-justify-between">
                     <p className="tw-text-[12px] sm:tw-text-[14px] md:tw-text-[18px] lg:tw-text-[23px] tw-text-[#009900]
-                            tw-font-medium
-                            tw-px-16 sm:tw-px-40 md:tw-px-48 lg:tw-px-64 tw-text-center tw-font-poppins"><span className="tw-font-extrabold">Qolami</span> adalah sebuah platform pembelajaran Bahasa Arab yang interaktif dengan media gambar, audio, dan video yang sangat mudah dipahami oleh berbagai lapisan masyarakat.</p>
+                            tw-font-normal
+                            tw-px-16 sm:tw-px-40 md:tw-px-48 lg:tw-px-64 tw-text-center tw-font-poppins tw-mx-auto"><span className="tw-font-extrabold">Qolami</span> adalah sebuah platform pembelajaran Bahasa <br className='tw-hidden xl:tw-block'/> Arab yang interaktif dengan media gambar, audio, dan <br className='tw-hidden xl:tw-block'/> video yang sangat mudah dipahami oleh berbagai <br className='tw-hidden xl:tw-block'/> lapisan masyarakat.</p>
                     </div>
                 </div>
                 <div className="tw-bg-[#FFF6D9] tw-py-10 sm:tw-py-24">
                     <div className="tw-flex tw-justify-between sm:tw-pb-7">
                         <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-py-5 tw-mx-auto">DIBUAT DENGAN</p>
                     </div>
-                    <div className="tw-grid sm:tw-grid-cols-2 md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-px-5 sm:tw-px-16 md:tw-px-24 lg:tw-px-32 tw-pt-10 tw-pb-10">
+                    <div className="tw-grid lg:tw-w-[800px] sm:tw-grid-cols-2 md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-px-5 sm:tw-px-16 md:tw-px-24 lg:tw-px-0 tw-pt-10 tw-pb-10 tw-mx-auto">
                         <CardContentAbout2 image={image[0]}/>
                         <CardContentAbout2 image={image[1]}/>
                         <CardContentAbout2 image={image[2]}/>
@@ -43,7 +40,7 @@ const ContentAboutComponent = () => {
                     
                 </div>
                 <div className="tw-flex tw-gap-5 tw-py-14 tw-px-10 sm:tw-px-20 tw-bg-[#C2EF90] tw-justify-center">
-                    <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] tw-gap-14 tw-mx-auto sm:tw-mx-0">
+                    <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] tw-gap-9 sm:tw-gap-7 md:tw-gap-10 lg:tw-gap-14 tw-mx-auto sm:tw-mx-0">
                         <div className='tw-flex tw-flex-col'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center sm:tw-text-start tw-font-poppins">TIM PENGEMBANG</p>
                             <p className='tw-text-center sm:tw-text-start tw-my-2 tw-text-[#458200] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[20px]'> © 2024, ART Team</p>
@@ -52,11 +49,11 @@ const ContentAboutComponent = () => {
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Tara Thania Anantha</p>
                         </div>
                         <div className='tw-flex tw-flex-col tw-gap-2'>
-                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
-                            tw-text-[#009900] tw-font-bold tw-py-5 tw-text-center sm:tw-text-start tw-font-poppins">SOSIAL MEDIA</p>
-                            <div className='tw-flex tw-justify-center sm:tw-justify-start tw-gap-7'>
-                                <img src="yt.svg" className='tw-w-20'/>
-                                <img src="ig.svg"/>
+                            <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
+                            tw-text-[#009900] tw-font-bold tw-pt-5 tw-pb-2 tw-text-center sm:tw-text-start tw-font-poppins">SOSIAL MEDIA</p>
+                            <div className='tw-flex tw-justify-center sm:tw-justify-start tw-gap-3'>
+                                <a href="https://www.youtube.com/@qolamichanel9019" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-cursor-pointer'><img src="yt.svg" alt="yt_qolami"/></a>
+                                <a href="https://www.instagram.com/metodeqolami/" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-flex tw-cursor-pointer'><img className='tw-size-12 sm:tw-size-14 lg:tw-size-20 tw-m-auto' src="ig.svg" alt="ig_qolami"/></a>
                             </div>
                         </div>
                     </div>

@@ -97,7 +97,7 @@ const Masuk = () => {
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                     <label htmlFor="validationCustom03" className="form-label">Email</label>
                     <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="emailMasuk" placeholder='Email' onBlur={email.blur} onFocus={email.focus} onChange={email.change} required/>
-                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Inputan Email yang dimasukkan harus valid dan tidak boleh kosong!</p>
+                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid dan tidak boleh kosong!</p>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
@@ -110,7 +110,7 @@ const Masuk = () => {
                         </div>
                       </button>
                     </div>
-                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Inputan Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
+                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
                   </div>
 
                   <div className="tw-flex tw-flex-row-reverse tw-w-full tw-py-1">
