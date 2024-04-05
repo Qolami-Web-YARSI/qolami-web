@@ -4,7 +4,7 @@ const FooterComponent = () => {
     return(
         <>
             <footer>
-                <div className="tw-flex tw-bg-[#458200] tw-justify-between tw-p-2 tw-py-12">
+                <div className="tw-flex tw-bg-[#458200] tw-justify-between tw-p-2 tw-py-12 tw-font-poppins">
                     <div className="tw-flex tw-flex-col tw-justify-center">
                         <p></p>
                     </div>

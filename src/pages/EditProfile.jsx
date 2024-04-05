@@ -53,7 +53,7 @@ const EditProfile = () => {
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-4 ">
-                    <button type="button" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" data-bs-dismiss="modal">Edit Profile</button>
+                    <button type="button" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" data-bs-dismiss="modal">Edit</button>
                   </div>
 
                 </div>

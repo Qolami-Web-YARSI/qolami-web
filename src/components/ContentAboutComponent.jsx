@@ -8,7 +8,7 @@ const ContentAboutComponent = () => {
 
     return(
         <>
-           <div className="tw-flex tw-flex-col">
+           <div className="tw-flex tw-flex-col tw-font-poppins">
                 <div className="tw-flex tw-flex-col tw-gap-5 tw-pt-36 tw-pb-14 tw-bg-[#C2EF90]">
                     <div className="tw-flex tw-justify-between">
                         <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 

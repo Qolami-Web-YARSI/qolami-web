@@ -209,7 +209,7 @@ const Daftar = () => {
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-pt-4 ">
-                      {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal">Daftar</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal" disabled>Daftar</button>}
+                      {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#] hover:tw-bg-[#009900]" data-bs-target="#masukModal" data-bs-toggle="modal">Daftar</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal" disabled>Daftar</button>}
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-py-2 tw-pt-5 tw-justify-center tw-gap-1">

@@ -1,7 +1,42 @@
 import React, { useState, useEffect } from 'react'
 
 const LupaKataSandi = () => {
-    
+    const [noticeEmail, setNoticeEmail] = useState(true)
+    const [tempEmail, setTempEmail] = useState(false)
+    const [isValidasi, setIsValidasi] = useState(false)
+    const validateEmail1 = (email) => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+    const email = {
+        change: (event) => {
+          if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+            setNoticeEmail(false);
+            setTempEmail(false)
+          } else {
+            setNoticeEmail(true);
+            setTempEmail(true)
+          }
+        },
+        focus: (event) => {
+          if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+            setNoticeEmail(false);
+          }
+        },
+        blur: (event) => {
+          if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+            setNoticeEmail(true);
+          }
+        }
+    }
+    useEffect(() => {
+        if(tempEmail){
+          setIsValidasi(true)
+        }else{
+          setIsValidasi(false)
+        }
+      }, [tempEmail]);
+
     return(
         <>
           <div className="modal fade" id="lupaPasswordModal" tabIndex="-1" aria-labelledby="lupaPasswordModalLabel" aria-hidden="true">
@@ -32,11 +67,12 @@ const LupaKataSandi = () => {
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                         <label htmlFor="validationCustom03" className="form-label">Email</label>
-                        <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="email" placeholder='Email' required/>
+                        <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="email" placeholder='Email' onBlur={email.blur} onFocus={email.focus} onChange={email.change} required/>
+                        <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid dan tidak boleh kosong!</p>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-4">
-                        <button type="button" className="tw-bg-[#458200] tw-w-full tw-h-10 tw-rounded-lg tw-text-white tw-cursor-pointer tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal">Kirim</button>
+                        {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]">Kirim</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Kirim</button>}
                     </div>
 
                     </div>

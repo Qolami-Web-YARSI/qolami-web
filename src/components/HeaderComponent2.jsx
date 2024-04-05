@@ -10,7 +10,7 @@ const HeaderComponent2 = (props) => {
     return(
         <>
             <NavigationComponent2 nav={getNav} buttonNavX={buttonNav}/>
-            <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20">
+            <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins">
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">

@@ -7,7 +7,7 @@ const Pagination =  ({totalDataKursus, postPerPage, paginate, currentPage}) => {
     }
     return(
         <>
-            <div className='tw-flex tw-bg-[#C2EF90] tw-mx-auto tw-mt-20'>
+            <div className='tw-flex tw-bg-[#C2EF90] tw-mx-auto tw-mt-20 tw-font-poppins'>
                 {currentPage === 1 ? 
                     <li className="tw-list-none tw-border-2 tw-bg-[#8a8a8a] tw-border-black tw-py-0 tw-px-3 md:tw-px-4 lg:tw-px-6 tw-text-[23px] md:tw-text-[25px] lg:tw-text-[35px] tw-font-poppins tw-border-r-0 tw-cursor-pointer" disabled>
                         &lt;

@@ -114,11 +114,11 @@ const Masuk = () => {
                   </div>
 
                   <div className="tw-flex tw-flex-row-reverse tw-w-full tw-py-1">
-                    <label htmlFor="validationCustom03" className="form-label tw-cursor-pointer tw-text-[#009900]" data-bs-target="#lupaPasswordModal" data-bs-toggle="modal">Lupa Kata Sandi?</label>
+                    <label htmlFor="validationCustom03" className="form-label tw-cursor-pointer tw-text-[#458200] hover:tw-text-[#009900]" data-bs-target="#lupaPasswordModal" data-bs-toggle="modal">Lupa Kata Sandi?</label>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-pt-4 ">
-                  {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold">Masuk</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Masuk</button>}
+                    {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]">Masuk</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Masuk</button>}
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-row tw-py-2 tw-pt-5 tw-justify-center tw-gap-1">

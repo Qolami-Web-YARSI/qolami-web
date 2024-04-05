@@ -61,6 +61,114 @@ const ContentCourse = () => {
             gambar: "img3-3.svg",
             deskripsi: "Huruf Berharakat Dhammah",
         },
+        {
+            id: 10,
+            nama: "Pelajaran 4",
+            gambar: "img4-1.svg",
+            deskripsi: "Huruf Berharakat Kasrah",
+        },
+        {
+            id: 11,
+            nama: "Latihan 4",
+            gambar: "img4-2.svg",
+            deskripsi: "Huruf Berharakat Kasrah",
+        },
+        {
+            id: 12,
+            nama: "Ujian 4",
+            gambar: "img4-3.svg",
+            deskripsi: "Huruf Berharakat Kasrah",
+        },
+        {
+            id: 13,
+            nama: "Pelajaran 5",
+            gambar: "img5-1.svg",
+            deskripsi: "Huruf Berharakat Fathatain",
+        },
+        {
+            id: 14,
+            nama: "Latihan 5",
+            gambar: "img5-2.svg",
+            deskripsi: "Huruf Berharakat Fathatain",
+        },
+        {
+            id: 15,
+            nama: "Ujian 5",
+            gambar: "img5-3.svg",
+            deskripsi: "Huruf Berharakat Fathatain",
+        },
+        {
+            id: 16,
+            nama: "Pelajaran 6",
+            gambar: "img6-1.svg",
+            deskripsi: "Huruf Berharakat Kasratain",
+        },
+        {
+            id: 17,
+            nama: "Latihan 6",
+            gambar: "img6-2.svg",
+            deskripsi: "Huruf Berharakat Kasratain",
+        },
+        {
+            id: 18,
+            nama: "Ujian 6",
+            gambar: "img6-3.svg",
+            deskripsi: "Huruf Berharakat Kasratain",
+        },
+        {
+            id: 19,
+            nama: "Pelajaran 7",
+            gambar: "img7-1.svg",
+            deskripsi: "Huruf Berharakat Dhammatain",
+        },
+        {
+            id: 2,
+            nama: "Latihan 7",
+            gambar: "img7-2.svg",
+            deskripsi: "Huruf Berharakat Dhammatain",
+        },
+        {
+            id: 20,
+            nama: "Ujian 7",
+            gambar: "img7-3.svg",
+            deskripsi: "Huruf Berharakat Dhammatain",
+        },
+        {
+            id: 21,
+            nama: "Pelajaran 8",
+            gambar: "img8-1.svg",
+            deskripsi: "Huruf Berharakat Sukun",
+        },
+        {
+            id: 22,
+            nama: "Latihan 8",
+            gambar: "img8-2.svg",
+            deskripsi: "Huruf Berharakat Sukun",
+        },
+        {
+            id: 23,
+            nama: "Ujian 8",
+            gambar: "img8-3.svg",
+            deskripsi: "Huruf Berharakat Sukun",
+        },
+        {
+            id: 24,
+            nama: "Pelajaran 9",
+            gambar: "img9-1.svg",
+            deskripsi: "Huruf Berharakat Tasydid/Syiddah",
+        },
+        {
+            id: 25,
+            nama: "Latihan 9",
+            gambar: "img9-2.svg",
+            deskripsi: "Huruf Berharakat Tasydid/Syiddah",
+        },
+        {
+            id: 26,
+            nama: "Ujian 9",
+            gambar: "img9-3.svg",
+            deskripsi: "Huruf Berharakat Tasydid/Syiddah",
+        }
     ]
     const indexOfLastPost = currentPage * postPerPage
     const indexOfFirstPost = indexOfLastPost - postPerPage
@@ -68,7 +176,7 @@ const ContentCourse = () => {
     
     return(
         <>
-            <div className='tw-flex tw-flex-col tw-py-20 tw-bg-[#FFF6D9]'>
+            <div className='tw-flex tw-flex-col tw-py-20 tw-bg-[#FFF6D9] tw-font-poppins'>
                 <div className="tw-flex tw-justify-between tw-mx-auto">
                     <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-py-16 md:tw-py-20 lg:tw-py-28 tw-mx-auto tw-font-poppins">KURSUS</p>
                 </div>
