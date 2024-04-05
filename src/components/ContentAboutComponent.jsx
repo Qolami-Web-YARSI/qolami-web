@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import CardContentAbout1 from './CardContentAbout1';
-import CardContentAbout2 from './CardContentAbout2';
+import CardContentAbout from './CardContentAbout';
 
 const ContentAboutComponent = () => {
     const image = ['cardabout_1.svg', 'cardabout_2.svg', 'cardabout_3.svg', 'cardabout_4.svg',
@@ -28,14 +27,14 @@ const ContentAboutComponent = () => {
                         <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-py-5 tw-mx-auto">DIBUAT DENGAN</p>
                     </div>
                     <div className="tw-grid lg:tw-w-[800px] sm:tw-grid-cols-2 md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-px-5 sm:tw-px-16 md:tw-px-24 lg:tw-px-0 tw-pt-10 tw-pb-10 tw-mx-auto">
-                        <CardContentAbout2 image={image[0]}/>
-                        <CardContentAbout2 image={image[1]}/>
-                        <CardContentAbout2 image={image[2]}/>
-                        <CardContentAbout2 image={image[3]}/>
-                        <CardContentAbout2 image={image[4]}/>
-                        <CardContentAbout2 image={image[5]}/>
-                        <CardContentAbout2 image={image[6]}/>
-                        <CardContentAbout2 image={image[7]}/>
+                        <CardContentAbout image={image[0]}/>
+                        <CardContentAbout image={image[1]}/>
+                        <CardContentAbout image={image[2]}/>
+                        <CardContentAbout image={image[3]}/>
+                        <CardContentAbout image={image[4]}/>
+                        <CardContentAbout image={image[5]}/>
+                        <CardContentAbout image={image[6]}/>
+                        <CardContentAbout image={image[7]}/>
                     </div>
                     
                 </div>

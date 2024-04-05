@@ -6,6 +6,7 @@ const ContentCourse = () => {
     const contentRef = useRef(null);
     const [currentPage, setCurrentPage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(15)
+    const [tempUnlock, setTempUnlock] = useState([])
     const dataKursus = [
         {
             id: 1,
@@ -122,58 +123,71 @@ const ContentCourse = () => {
             deskripsi: "Huruf Berharakat Dhammatain",
         },
         {
-            id: 2,
+            id: 20,
             nama: "Latihan 7",
             gambar: "img7-2.svg",
             deskripsi: "Huruf Berharakat Dhammatain",
         },
         {
-            id: 20,
+            id: 21,
             nama: "Ujian 7",
             gambar: "img7-3.svg",
             deskripsi: "Huruf Berharakat Dhammatain",
         },
         {
-            id: 21,
+            id: 22,
             nama: "Pelajaran 8",
             gambar: "img8-1.svg",
             deskripsi: "Huruf Berharakat Sukun",
         },
         {
-            id: 22,
+            id: 23,
             nama: "Latihan 8",
             gambar: "img8-2.svg",
             deskripsi: "Huruf Berharakat Sukun",
         },
         {
-            id: 23,
+            id: 24,
             nama: "Ujian 8",
             gambar: "img8-3.svg",
             deskripsi: "Huruf Berharakat Sukun",
         },
         {
-            id: 24,
+            id: 25,
             nama: "Pelajaran 9",
             gambar: "img9-1.svg",
             deskripsi: "Huruf Berharakat Tasydid/Syiddah",
         },
         {
-            id: 25,
+            id: 26,
             nama: "Latihan 9",
             gambar: "img9-2.svg",
             deskripsi: "Huruf Berharakat Tasydid/Syiddah",
         },
         {
-            id: 26,
+            id: 27,
             nama: "Ujian 9",
             gambar: "img9-3.svg",
             deskripsi: "Huruf Berharakat Tasydid/Syiddah",
-        }
+        },
     ]
     const indexOfLastPost = currentPage * postPerPage
     const indexOfFirstPost = indexOfLastPost - postPerPage
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
-    
+
+    useEffect(() => {
+        const tempUnlockArray = [];
+        for(let i = 0; i < dataKursus.length; i++){
+            if(dataKursus[i].id % 3 === 1){
+                tempUnlockArray.push(true);
+            }
+            if(dataKursus[i].id % 3 === 0 || dataKursus[i].id % 3 === 2){
+                tempUnlockArray.push(false);
+            }
+        }
+        setTempUnlock(tempUnlockArray);
+    }, [dataKursus.length]);
+
     return(
         <>
             <div className='tw-flex tw-flex-col tw-py-20 tw-bg-[#FFF6D9] tw-font-poppins'>
@@ -181,7 +195,7 @@ const ContentCourse = () => {
                     <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-py-16 md:tw-py-20 lg:tw-py-28 tw-mx-auto tw-font-poppins">KURSUS</p>
                 </div>
                 <div className='tw-grid tw-w-[90%] tw-grid-cols-1 md:tw-grid-cols-3 tw-bg-[#FFF6D9] tw-mx-auto tw-gap-9' ref={contentRef} id="a">
-                    <CardContentCourse dataKursus={dataKursus.slice(indexOfFirstPost, indexOfLastPost)}/>
+                    <CardContentCourse dataKursus={dataKursus.slice(indexOfFirstPost, indexOfLastPost)} tempUnlock={tempUnlock}/>
                 </div>
                 <Pagination totalDataKursus={dataKursus.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} />
             </div>
