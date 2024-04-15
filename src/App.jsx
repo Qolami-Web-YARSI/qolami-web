@@ -1,4 +1,5 @@
 import { BrowserRouter as R1, Routes as R2, Route as R3 } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
 import Masuk from './pages/Masuk.jsx'
 import Daftar from './pages/Daftar.jsx'
 import LupaKataSandi from './pages/LupaKataSandi.jsx'
@@ -7,25 +8,26 @@ import UbahKataSandi from './pages/UbahKataSandi.jsx'
 import Beranda from './pages/Beranda.jsx'
 import Tentang from './pages/Tentang.jsx'
 import Kursus from './pages/Kursus.jsx'
+import DetailKursus from './pages/DetailKursus.jsx'
+import Detail2Kursus from './pages/Detail2Kursus.jsx';
 
 const App = () => {
+  const [tempToken, setTempToken] = useState(false)
+
   return (
     <>
-        <Masuk/>
-        <Daftar/>
-        <LupaKataSandi/>
-        <EditProfile/>
-        <UbahKataSandi/>
         <R1>
+          <Masuk setTempToken={setTempToken}/>
+          <Daftar/>
+          <LupaKataSandi/>
+          <EditProfile/>
+          <UbahKataSandi/>
           <R2>
-            <R3 path="/" element={<Beranda/>}/>
-            <R3 path="/tentang" element={<Tentang/>}/>
-            <R3 path="/kursus" element={<Kursus/>}/>
-            {/* <R3 path="/masukModal" element={ <Masuk/>}/>
-            <R3 path="/daftarModal" element={<Daftar/>}/>
-            <R3 path="/lupaKataSandiModal" element={<LupaKataSandi/>}/>
-            <R3 path="/editProfileModal" element={<EditProfile/>}/>
-            <R3 path="/ubahKataSandiModal" element={<UbahKataSandi/>}/> */}
+            <R3 path="/" element={<Beranda tempToken={tempToken}/>}/>
+            <R3 path="/tentang" element={<Tentang tempToken={tempToken}/>}/>
+            <R3 path="/kursus" element={<Kursus tempToken={tempToken}/>}/>
+            <R3 path="/kursus/:id" element={<DetailKursus/>}/>
+            <R3 path="/kursus/:id/:id2" element={<Detail2Kursus/>}/>
           </R2>
         </R1>
     </>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 const Daftar = () => { 
     const [getToggle, setToggle] = useState(false)
@@ -12,6 +13,15 @@ const Daftar = () => {
     const [tempKataSandi, setTempKataSandi] = useState(false)
     const [isValidasi, setIsValidasi] = useState(false)
 
+    const users = async (data) => {
+      try {
+        const response = await axios.post('http://localhost:2002/pengguna', data)
+        console.log(response.data)
+      } catch(e) {
+        console.log(e)
+      }
+    }
+    
     const buttonToggle = () => {
       setToggle(!getToggle)
     }
@@ -120,19 +130,16 @@ const Daftar = () => {
     const handleDaftar = (event) => {
       event.preventDefault();
       const newData = {
-        id: +new Date(),
+        id: (+new Date()).toString(),
         namaDepan: event.target.namaDepanDaftar.value,
         namaBelakang: event.target.namaBelakangDaftar.value,
         email: event.target.emailDaftar.value,
-        password: event.target.passwordDaftar.value
+        password: event.target.passwordDaftar.value,
+        gambarProfile: {},
+        token: null
       };
-      const storedData = JSON.parse(localStorage.getItem('dataDaftar'));
-      if (storedData) {
-        storedData.push(newData);
-        localStorage.setItem('dataDaftar', JSON.stringify(storedData));
-      } else {
-        localStorage.setItem('dataDaftar', JSON.stringify([newData]));
-      }
+
+      users(newData)
 
       event.target.namaDepanDaftar.value = ""
       event.target.namaBelakangDaftar.value = ""
@@ -197,7 +204,7 @@ const Daftar = () => {
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                       <label className="form-label">Kata Sandi</label>
                       <div className="tw-flex tw-w-full tw-flex-row">
-                        <input type={`${getToggle? "text":"password"}`} className="form-control tw-w-[87%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA]" onBlur={kataSandi.blur} onFocus={kataSandi.focus} onChange={kataSandi.change} id="passwordDaftar" name="passwordDaftar" placeholder='Kata Sandi' required/>
+                        <input type={`${getToggle? "text":"password"}`} className="form-control tw-w-[87%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA]" onBlur={kataSandi.blur} onFocus={kataSandi.focus} onChange={kataSandi.change} id="passwordDaftar" name="passwordDaftar" placeholder='Kata Sandi' required autoComplete="password-daftar"/>
                         <button onClick={()=>buttonToggle()} type="button" className="tw-w-[13%] tw-bg-white tw-border-2 tw-border-s-0 tw-border-sd-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                           <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                             <img src={`${getToggle? "open.png":"close.png"}`} alt="buttonpng" className="tw-w-10 tw-items-end"/>
@@ -227,3 +234,26 @@ const Daftar = () => {
 }
 
 export default Daftar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const storedData = JSON.parse(localStorage.getItem('dataDaftar'));
+      // if (storedData) {
+      //   storedData.push(newData);
+      //   localStorage.setItem('dataDaftar', JSON.stringify(storedData));
+      // } else {
+      //   localStorage.setItem('dataDaftar', JSON.stringify([newData]));
+      // }

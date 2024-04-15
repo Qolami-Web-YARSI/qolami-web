@@ -5,13 +5,23 @@ import FooterComponent from '../components/FooterComponent';
 import JumbotronComponent from '../components/JumbotronComponent';
 import ContentHomeComponent from '../components/ContentHomeComponent';
 
-const Beranda = () => {
+const Beranda = ({tempToken}) => {
     return(
         <>
-            <HeaderComponent/>
-            <JumbotronComponent/>
-            <ContentHomeComponent/>
-            <FooterComponent/>
+            {tempToken ? 
+            <div>
+                <HeaderComponent2/>
+                <JumbotronComponent/>
+                <ContentHomeComponent/>
+                <FooterComponent/>
+            </div>
+            : 
+            <div>
+                <HeaderComponent/>
+                <JumbotronComponent/>
+                <ContentHomeComponent/>
+                <FooterComponent/>
+            </div>}
         </>
     )
 }

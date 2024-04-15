@@ -2,13 +2,23 @@ import React, { useState, useEffect } from 'react'
 import HeaderComponent from '../components/HeaderComponent';
 import FooterComponent from '../components/FooterComponent';
 import ContentAboutComponent from '../components/ContentAboutComponent';
+import HeaderComponent2 from '../components/HeaderComponent2';
 
-const Tentang = () => {
+const Tentang = ({tempToken}) => {
     return(
         <>
-            <HeaderComponent/>
-            <ContentAboutComponent/>
-            <FooterComponent/>
+            {tempToken ? 
+            <div>
+                <HeaderComponent2/>
+                <ContentAboutComponent/>
+                <FooterComponent/>
+            </div>
+            : 
+            <div>
+                <HeaderComponent/>
+                <ContentAboutComponent/>
+                <FooterComponent/>
+            </div>}
         </>
     )
 }
