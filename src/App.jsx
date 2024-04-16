@@ -10,6 +10,7 @@ import Tentang from './pages/Tentang.jsx'
 import Kursus from './pages/Kursus.jsx'
 import DetailKursus from './pages/DetailKursus.jsx'
 import Detail2Kursus from './pages/Detail2Kursus.jsx';
+import axios from 'axios';
 
 const App = () => {
   const [tempToken, setTempToken] = useState(false)

@@ -32,7 +32,9 @@ const DetailKursus = () => {
                 <div className='tw-flex tw-flex-col'>
                   {item.huruf.map((z)=>{
                     return(
-                      <button onClick={()=>{a(z.nama)}}>{z.nama}</button>
+                      <Link to={`/kursus/${item.id}/${z.id}`}>
+                        {z.nama}
+                      </Link>
                     )
                   })}
                 </div>

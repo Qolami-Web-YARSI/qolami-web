@@ -135,7 +135,7 @@ const Daftar = () => {
         namaBelakang: event.target.namaBelakangDaftar.value,
         email: event.target.emailDaftar.value,
         password: event.target.passwordDaftar.value,
-        gambarProfile: {},
+        gambarProfile: "profile.jpeg",
         token: null
       };
 

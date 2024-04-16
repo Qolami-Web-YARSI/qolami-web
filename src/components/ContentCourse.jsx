@@ -33,8 +33,7 @@ const ContentCourse = ({tempToken}) => {
             console.log(e)
         }
     }
-
-    
+  
     useEffect(() => {
         datas()
     }, []);

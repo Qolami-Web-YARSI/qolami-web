@@ -17,32 +17,6 @@ const EditProfile = () => {
     const [data, setData] = useState(null);
     const [files, setFiles] = useState()
 
-    const [selectedFile, setSelectedFile] = useState(null);
-
-    const handleFileChange = (event) => {
-      setSelectedFile(event.target.files[0]);
-    };
-
-    const handleUpload = async () => {
-      if (selectedFile) {
-        const formData = new FormData();
-        formData.append('file', selectedFile);
-
-        try {
-          const response = await axios.post('http://localhost:2002/upload_image', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
-          console.log('File uploaded successfully:', response);
-        } catch (error) {
-          console.error('Error uploading file:', error);
-        }
-      } else {
-        console.log('No file selected.');
-      }
-    };
-
     const validasiTrigger = () => {
       setIsValidasi4(true)
     }
@@ -52,7 +26,8 @@ const EditProfile = () => {
       const selectedFiles = fileInputRef.current.files || [];
       console.log(selectedFiles)
       if(selectedFiles && selectedFiles.length > 0){
-        const fileName = selectedFiles[0];
+        const fileName = selectedFiles[0].name;
+        localStorage.setItem("gambar-profile-2", fileName)
         setFiles(fileName)
         setIsValidasi5(true)
       }else{
@@ -78,7 +53,7 @@ const EditProfile = () => {
                 namaBelakang: valueNamaBelakangEdit,
                 email: a.email,
                 password: a.password,
-                gambarProfile: "",
+                gambarProfile: a.gambarProfile,
                 token: a.token
               });
             window.location.reload();
@@ -100,36 +75,36 @@ const EditProfile = () => {
         }
 
         //KONDISI MEMILIH FILE
-        // if(selectedFiles && selectedFiles.length > 0){
-        //   response.data.map(a => {
-        //     axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-        //       { 
-        //         id: localStorage.getItem('id').toString(),
-        //         namaDepan: a.namaDepan,
-        //         namaBelakang: a.namaBelakang,
-        //         email: a.email,
-        //         password: a.password,
-        //         gambarProfile: "",
-        //         token: a.token
-        //       });
-        //     window.location.reload();
-        //   })
-        // }
-        // if(selectedFiles.length === 0){
-        //   response.data.map(a => {
-        //     axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-        //       { 
-        //         id: localStorage.getItem('id').toString(),
-        //         namaDepan: a.namaDepan,
-        //         namaBelakang: a.namaBelakang,
-        //         email: a.email,
-        //         password: a.password,
-        //         gambarProfile: a.gambarProfile,
-        //         token: a.token
-        //       });
-        //     window.location.reload();
-        //   })
-        // }
+        if(selectedFiles && selectedFiles.length > 0){
+          response.data.map(a => {
+            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+              { 
+                id: localStorage.getItem('id').toString(),
+                namaDepan: a.namaDepan,
+                namaBelakang: a.namaBelakang,
+                email: a.email,
+                password: a.password,
+                gambarProfile: localStorage.getItem('gambar-profile-2') ,
+                token: a.token
+              });
+            window.location.reload();
+          })
+        }
+        if(selectedFiles.length === 0){
+          response.data.map(a => {
+            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+              { 
+                id: localStorage.getItem('id').toString(),
+                namaDepan: a.namaDepan,
+                namaBelakang: a.namaBelakang,
+                email: a.email,
+                password: a.password,
+                gambarProfile: a.gambarProfile,
+                token: a.token
+              });
+            window.location.reload();
+          })
+        }
       } catch(e) {
         console.log(e)
       }
@@ -203,13 +178,13 @@ const EditProfile = () => {
   }, [])
 
     return(
-        <form>
+        <form onSubmit={handleSubmitEditProfile}>
           <div className="modal fade" id="editProfileModal" tabIndex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content tw-rounded-[15px]">
                 <div className="modal-body tw-px-[50px] tw-bg-[#FFF6D9] tw-rounded-[15px]">
 
-                  {/* <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
+                  <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
                   <button type="button" className="tw-bg-white tw-border-2 tw-rounded-lg tw-border-[#FF0000] tw-size-10 tw-opacity-0" disabled>
                         <div className="tw-size-full tw-flex tw-flex-col tw-justify-center tw-bg-[#FF0000]">
                           <img src="exit.svg"/>
@@ -262,12 +237,12 @@ const EditProfile = () => {
 
                   <div className='tw-size-0 tw-opacity-0'>
                     <input className='tw-size-0 tw-opacity-0' type="file" id="fileInput" accept="image/*" ref={fileInputRef} src="fdf.svg" onChange={handleFiles}/>
-                  </div> */}
+                  </div>
 
-                  <div>
+                  {/* <div>
                     <input type="file" onChange={handleFileChange} />
                     <button onClick={handleUpload}>Upload</button>
-                  </div>
+                  </div> */}
 
                 </div>
               </div>
