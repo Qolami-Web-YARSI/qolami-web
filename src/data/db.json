@@ -4,29 +4,7 @@
       "id": "1",
       "nama": "Pelajaran 1",
       "gambar": "img1-1.svg",
-      "deskripsi": "Huruf Hijaiyah",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Hijaiyah"
     },
     {
       "id": "2",
@@ -44,29 +22,7 @@
       "id": "4",
       "nama": "Pelajaran 2",
       "gambar": "img2-1.svg",
-      "deskripsi": "Huruf Berharakat Fathah",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Fathah"
     },
     {
       "id": "5",
@@ -84,29 +40,7 @@
       "id": "7",
       "nama": "Pelajaran 3",
       "gambar": "img3-1.svg",
-      "deskripsi": "Huruf Berharakat Dhammah",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Dhammah"
     },
     {
       "id": "8",
@@ -124,29 +58,7 @@
       "id": "10",
       "nama": "Pelajaran 4",
       "gambar": "img4-1.svg",
-      "deskripsi": "Huruf Berharakat Kasrah",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Kasrah"
     },
     {
       "id": "11",
@@ -164,29 +76,7 @@
       "id": "13",
       "nama": "Pelajaran 5",
       "gambar": "img5-1.svg",
-      "deskripsi": "Huruf Berharakat Fathatain",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Fathatain"
     },
     {
       "id": "14",
@@ -204,29 +94,7 @@
       "id": "16",
       "nama": "Pelajaran 6",
       "gambar": "img6-1.svg",
-      "deskripsi": "Huruf Berharakat Kasratain",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Kasratain"
     },
     {
       "id": "17",
@@ -244,29 +112,7 @@
       "id": "19",
       "nama": "Pelajaran 7",
       "gambar": "img7-1.svg",
-      "deskripsi": "Huruf Berharakat Dhammatain",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Dhammatain"
     },
     {
       "id": "20",
@@ -284,29 +130,7 @@
       "id": "22",
       "nama": "Pelajaran 8",
       "gambar": "img8-1.svg",
-      "deskripsi": "Huruf Berharakat Sukun",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Sukun"
     },
     {
       "id": "23",
@@ -324,29 +148,7 @@
       "id": "25",
       "nama": "Pelajaran 9",
       "gambar": "img9-1.svg",
-      "deskripsi": "Huruf Berharakat Tasydid Syidah",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        },
-        {
-          "id": "tsa",
-          "nama": "TSA"
-        },
-        {
-          "id": "jim",
-          "nama": "JIM"
-        }
-      ]
+      "deskripsi": "Huruf Berharakat Tasydid Syidah"
     },
     {
       "id": "26",
@@ -397,6 +199,44 @@
       "password": "hirohirohiro",
       "gambarProfile": "cardabout_2.svg",
       "token": "MEt.B6rJ.p4SY8BlVCPlUDQj88b2pwEllTIYB2aBu4SZx8SHhl341ikPPnPib0gEIoB4MwLdTfEKKk6txsxJrMFKZauf9PIo.QGb"
+    }
+  ],
+  "kursusDetail": [
+    {
+      "id": "1",
+      "idKursus":"1",
+      "huruf": [
+        {
+          "id": "alif",
+          "nama": "ALIF"
+        },
+        {
+          "id": "ba",
+          "nama": "BA"
+        },
+        {
+          "id": "ta",
+          "nama": "TA"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "idKursus":"4",
+      "huruf": [
+        {
+          "id": "alif",
+          "nama": "ALIF"
+        },
+        {
+          "id": "ba",
+          "nama": "BA"
+        },
+        {
+          "id": "ta",
+          "nama": "TA"
+        }
+      ]
     }
   ]
 }

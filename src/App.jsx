@@ -28,7 +28,7 @@ const App = () => {
             <R3 path="/tentang" element={<Tentang tempToken={tempToken}/>}/>
             <R3 path="/kursus" element={<Kursus tempToken={tempToken}/>}/>
             <R3 path="/kursus/:id" element={<DetailKursus/>}/>
-            <R3 path="/kursus/:id/:id2" element={<Detail2Kursus/>}/>
+            <R3 path="/kursusDetail?idKursus=:idKursus" element={<Detail2Kursus/>}/>
           </R2>
         </R1>
     </>

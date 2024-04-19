@@ -34,7 +34,7 @@ const ContentHomeComponent = () => {
                     <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-py-1 md:tw-py-0 tw-font-bold tw-mx-auto tw-text-center tw-text-[#009900]">DIREKOMENDASIKAN UNTUK</p>
                 </div>
                 <div className="tw-flex tw-justify-between tw-border-b-4 tw-border-[#009900] tw-pb-10 md:tw-pb-16">
-                    <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-10 tw-gap-10 md:tw-gap-0">
+                    <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-10 tw-gap-10 md:tw-gap-0 tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]">
                         <CardContentHome1 judul={judul[0]} gambar={gambar[0]}/>
                         <CardContentHome1 judul={judul[1]} gambar={gambar[1]}/>
                         <CardContentHome1 judul={judul[2]} gambar={gambar[2]}/>
