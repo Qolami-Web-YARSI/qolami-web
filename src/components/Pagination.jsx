@@ -29,9 +29,9 @@ const Pagination =  ({totaltempDatas, postPerPage, paginate, currentPage}) => {
                         &gt;
                     </li>
                     : 
-                        <li className="tw-list-none tw-border-2 hover:tw-bg-[#009900] tw-border-black tw-text-[23px] md:tw-text-[25px] lg:tw-text-[35px] tw-font-poppins tw-cursor-pointer">
-                            <a onClick={()=> paginate(currentPage + 1)} className='tw-cursor-pointer tw-px-3 md:tw-px-4 lg:tw-px-6'>&gt;</a>
-                        </li>
+                    <li className="tw-list-none tw-border-2 hover:tw-bg-[#009900] tw-border-black tw-text-[23px] md:tw-text-[25px] lg:tw-text-[35px] tw-font-poppins tw-cursor-pointer">
+                        <a onClick={()=> paginate(currentPage + 1)} className='tw-cursor-pointer tw-px-3 md:tw-px-4 lg:tw-px-6'>&gt;</a>
+                    </li>
                 }
             </div>
         </>

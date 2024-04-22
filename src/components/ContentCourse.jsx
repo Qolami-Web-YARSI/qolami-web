@@ -17,7 +17,7 @@ const ContentCourse = ({tempToken}) => {
         try {
             const response = await axios.get('http://localhost:2002/kursus')
             tempDatas.push(...response.data)
-            console.log(tempDatas)
+            //console.log(tempDatas)
             
             const tempUnlockArray = [];
             for(let i = 0; i < tempDatas.length; i++){
@@ -28,6 +28,7 @@ const ContentCourse = ({tempToken}) => {
                     tempUnlockArray.push(false);
                 }
             }
+            //console.log(tempUnlockArray)
             setTempUnlock(tempUnlockArray);
         } catch(e) {
             console.log(e)

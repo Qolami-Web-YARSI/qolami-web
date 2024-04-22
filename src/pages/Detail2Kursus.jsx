@@ -1,36 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import HeaderComponent from '../components/HeaderComponent';
+import FooterComponent from '../components/FooterComponent';
+import HeaderComponent2 from '../components/HeaderComponent2';
+import ContentDetail2Kursus from '../components/ContentDetail2Kursus';
 
-const Detail2Kursus = () => {
-    // const [item, setItem] = useState(null);
-    // const { idKursus, idHuruf } = useParams();
-
-    // useEffect(() => {
-    //     const detail2Api = async () => {
-    //         try{
-    //             const response = await axios.get(`http://localhost:2002/kursus/${idKursus}`)
-    //             const data = response.data;
-    //             const hurufDetail = data.huruf.find(huruf => huruf.id === idHuruf);
-    //             setItem(hurufDetail);
-    //         }catch(e){
-    //             console.log(e)
-    //         }
-    //     }
-    //     detail2Api();
-    // }, [idKursus, idHuruf]);
-
-
-    // return(
-    //     <>
-    //         {item && (
-    //             <div>
-    //                 <h2>{item.nama}</h2>
-    //                 {/* Tampilkan detail huruf di sini */}
-    //             </div>
-    //         )}
-    //     </>
-    // )
+const Detail2Kursus = ({tempToken}) => {
+    return(
+        <>
+            {tempToken ? 
+            <div>
+                <HeaderComponent2/>
+                <ContentDetail2Kursus/>
+                <FooterComponent/>
+            </div>
+            : 
+            <div>
+                <HeaderComponent/>
+                <ContentDetail2Kursus/>
+                <FooterComponent/>
+            </div>}
+        </>
+    )
 }
 
 export default Detail2Kursus;

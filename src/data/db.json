@@ -1,166 +1,142 @@
 {
   "kursus": [
     {
-      "id": "1",
+      "id": "pelajaran1",
       "nama": "Pelajaran 1",
       "gambar": "img1-1.svg",
-      "deskripsi": "Huruf Hijaiyah"
+      "deskripsi": "Huruf Hijaiyah",
+      "huruf": [
+        {
+          "id": "alif1",
+          "nama": "ALIF"
+        },
+        {
+          "id": "ba1",
+          "nama": "BA"
+        },
+        {
+          "id": "ta1",
+          "nama": "TA"
+        }
+      ]
     },
     {
-      "id": "2",
+      "id": "latihan1",
       "nama": "Latihan 1",
       "gambar": "img1-2.svg",
-      "deskripsi": "Huruf Hijaiyah"
+      "deskripsi": "Huruf Hijaiyah",
+      "jenis": [
+        {
+          "id": "gambar1",
+          "nama": "GAMBAR 1"
+        },
+        {
+          "id": "audio1",
+          "nama": "AUDIO 1"
+        },
+        {
+          "id": "video1",
+          "nama": "VIDEO 1"
+        }
+      ]
     },
     {
-      "id": "3",
+      "id": "ujian1",
       "nama": "Ujian 1",
       "gambar": "img1-3.svg",
       "deskripsi": "Huruf Hijaiyah"
     },
     {
-      "id": "4",
+      "id": "pelajaran2",
       "nama": "Pelajaran 2",
       "gambar": "img2-1.svg",
-      "deskripsi": "Huruf Berharakat Fathah"
+      "deskripsi": "Huruf Berharakat Fathah",
+      "huruf": [
+        {
+          "id": "alif2",
+          "nama": "ALIF"
+        },
+        {
+          "id": "ba2",
+          "nama": "BA"
+        },
+        {
+          "id": "ta2",
+          "nama": "TA"
+        }
+      ]
     },
     {
-      "id": "5",
+      "id": "latihan2",
       "nama": "Latihan 2",
       "gambar": "img2-2.svg",
-      "deskripsi": "Huruf Berharakat Fathah"
+      "deskripsi": "Huruf Berharakat Fathah",
+      "jenis": [
+        {
+          "id": "gambar2",
+          "nama": "GAMBAR 2"
+        },
+        {
+          "id": "audio2",
+          "nama": "AUDIO 2"
+        },
+        {
+          "id": "video2",
+          "nama": "VIDEO 2"
+        }
+      ]
     },
     {
-      "id": "6",
+      "id": "ujian2",
       "nama": "Ujian 2",
       "gambar": "img2-3.svg",
       "deskripsi": "Huruf Berharakat Fathah"
     },
     {
-      "id": "7",
+      "id": "pelajaran3",
       "nama": "Pelajaran 3",
       "gambar": "img3-1.svg",
-      "deskripsi": "Huruf Berharakat Dhammah"
+      "deskripsi": "Huruf Berharakat Dhammah",
+      "huruf": [
+        {
+          "id": "alif3",
+          "nama": "ALIF"
+        },
+        {
+          "id": "ba3",
+          "nama": "BA"
+        },
+        {
+          "id": "ta3",
+          "nama": "TA"
+        }
+      ]
     },
     {
-      "id": "8",
+      "id": "latihan3",
       "nama": "Latihan 3",
       "gambar": "img3-2.svg",
-      "deskripsi": "Huruf Berharakat Dhammah"
+      "deskripsi": "Huruf Berharakat Dhammah",
+      "jenis": [
+        {
+          "id": "gambar3",
+          "nama": "GAMBAR 3"
+        },
+        {
+          "id": "audio3",
+          "nama": "AUDIO 3"
+        },
+        {
+          "id": "video3",
+          "nama": "VIDEO 3"
+        }
+      ]
     },
     {
-      "id": "9",
+      "id": "ujian3",
       "nama": "Ujian 3",
       "gambar": "img3-3.svg",
       "deskripsi": "Huruf Berharakat Dhammah"
-    },
-    {
-      "id": "10",
-      "nama": "Pelajaran 4",
-      "gambar": "img4-1.svg",
-      "deskripsi": "Huruf Berharakat Kasrah"
-    },
-    {
-      "id": "11",
-      "nama": "Latihan 4",
-      "gambar": "img4-2.svg",
-      "deskripsi": "Huruf Berharakat Kasrah"
-    },
-    {
-      "id": "12",
-      "nama": "Ujian 4",
-      "gambar": "img4-3.svg",
-      "deskripsi": "Huruf Berharakat Kasrah"
-    },
-    {
-      "id": "13",
-      "nama": "Pelajaran 5",
-      "gambar": "img5-1.svg",
-      "deskripsi": "Huruf Berharakat Fathatain"
-    },
-    {
-      "id": "14",
-      "nama": "Latihan 5",
-      "gambar": "img5-2.svg",
-      "deskripsi": "Huruf Berharakat Fathatain"
-    },
-    {
-      "id": "15",
-      "nama": "Ujian 5",
-      "gambar": "img5-3.svg",
-      "deskripsi": "Huruf Berharakat Fathatain"
-    },
-    {
-      "id": "16",
-      "nama": "Pelajaran 6",
-      "gambar": "img6-1.svg",
-      "deskripsi": "Huruf Berharakat Kasratain"
-    },
-    {
-      "id": "17",
-      "nama": "Latihan 6",
-      "gambar": "img6-2.svg",
-      "deskripsi": "Huruf Berharakat Kasratain"
-    },
-    {
-      "id": "18",
-      "nama": "Ujian 6",
-      "gambar": "img6-3.svg",
-      "deskripsi": "Huruf Berharakat Kasratain"
-    },
-    {
-      "id": "19",
-      "nama": "Pelajaran 7",
-      "gambar": "img7-1.svg",
-      "deskripsi": "Huruf Berharakat Dhammatain"
-    },
-    {
-      "id": "20",
-      "nama": "Latihan 7",
-      "gambar": "img7-2.svg",
-      "deskripsi": "Huruf Berharakat Dhammatain"
-    },
-    {
-      "id": "21",
-      "nama": "Ujian 7",
-      "gambar": "img7-3.svg",
-      "deskripsi": "Huruf Berharakat Dhammatain"
-    },
-    {
-      "id": "22",
-      "nama": "Pelajaran 8",
-      "gambar": "img8-1.svg",
-      "deskripsi": "Huruf Berharakat Sukun"
-    },
-    {
-      "id": "23",
-      "nama": "Latihan 8",
-      "gambar": "img8-2.svg",
-      "deskripsi": "Huruf Berharakat Sukun"
-    },
-    {
-      "id": "24",
-      "nama": "Ujian 8",
-      "gambar": "img8-3.svg",
-      "deskripsi": "Huruf Berharakat Sukun"
-    },
-    {
-      "id": "25",
-      "nama": "Pelajaran 9",
-      "gambar": "img9-1.svg",
-      "deskripsi": "Huruf Berharakat Tasydid Syidah"
-    },
-    {
-      "id": "26",
-      "nama": "Latihan 9",
-      "gambar": "img9-2.svg",
-      "deskripsi": "Huruf Berharakat Tasydid Syidah"
-    },
-    {
-      "id": "27",
-      "nama": "Ujian 9",
-      "gambar": "img9-3.svg",
-      "deskripsi": "Huruf Berharakat Tasydid Syidah"
     }
   ],
   "pengguna": [
@@ -171,7 +147,7 @@
       "email": "rizal@gmail.com",
       "password": "asdasdadsdadads",
       "gambarProfile": "",
-      "token": "mi2PGi8uR0W9kmeDdqbngtf1UgDUe9Ln9Qgv2e7.h4FrNx6ZhQEs38tHStB8hscAVUMWbskrNTST87IlHYYfSWxhSLxYqN38ozsh"
+      "token": "va7VABGx73nEeAghRfLqM0V.Y7dl7WM79ctHCcGHZBQMHQ0fSe84gYZc0zcnOwTGDpf5z76hCYhfZcKStCxrL9IjjPb63R.JidyO"
     },
     {
       "id": "1712971068083",
@@ -201,42 +177,118 @@
       "token": "MEt.B6rJ.p4SY8BlVCPlUDQj88b2pwEllTIYB2aBu4SZx8SHhl341ikPPnPib0gEIoB4MwLdTfEKKk6txsxJrMFKZauf9PIo.QGb"
     }
   ],
-  "kursusDetail": [
+  "detailPelajaran": [
     {
-      "id": "1",
-      "idKursus":"1",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        }
-      ]
+      "id": "alif2",
+      "judul": "Pelajaran 2",
+      "nama": "Alif Berharakat Fathah",
+      "video": "asdasdad",
+      "gambar": "img1-1.svg",
+      "detail1": "Huruf Alif",
+      "detail2": "biru",
+      "detail3": "harakat fathah"
     },
     {
-      "id": "2",
-      "idKursus":"4",
-      "huruf": [
-        {
-          "id": "alif",
-          "nama": "ALIF"
-        },
-        {
-          "id": "ba",
-          "nama": "BA"
-        },
-        {
-          "id": "ta",
-          "nama": "TA"
-        }
-      ]
+      "id": "ba2",
+      "judul": "Pelajaran 2",
+      "nama": "Ba Berharakat Fathah",
+      "video": "asdasdad",
+      "gambar": "img1-1.svg",
+      "detail1": "Huruf Ba",
+      "detail2": "biru",
+      "detail3": "harakat fathah"
+    },
+    {
+      "id": "ta2",
+      "judul": "Pelajaran 2",
+      "nama": "Ta Berharakat Fathah",
+      "video": "asdasdad",
+      "gambar": "img1-1.svg",
+      "detail1": "Huruf Ta",
+      "detail2": "biru",
+      "detail3": "harakat fathah"
+    },
+    {
+      "id": "alif3",
+      "judul": "Pelajaran 3",
+      "nama": "Alif Huruf Berharakat Dhammah",
+      "video": "asdasdad",
+      "gambar": "img1-1.svg",
+      "detail1": "Huruf Alif",
+      "detail2": "biru",
+      "detail3": "huruf berharakat dhammah"
+    },
+    {
+      "id": "ba3",
+      "judul": "Pelajaran 3",
+      "nama": "Ba Huruf Berharakat Dhammah",
+      "video": "asdasdad",
+      "gambar": "img1-1.svg",
+      "detail1": "Huruf Ba",
+      "detail2": "biru",
+      "detail3": "huruf berharakat dhammah"
+    },
+    {
+      "id": "ta3",
+      "judul": "Pelajaran 3",
+      "nama": "Ta Huruf Berharakat Dhammah",
+      "video": "asdasdad",
+      "gambar": "img1-1.svg",
+      "detail1": "Huruf Ta",
+      "detail2": "biru",
+      "detail3": "huruf berharakat dhammah"
+    }
+  ],
+  "detailLatihan": [
+    {
+      "id": "gambar1",
+      "judul": "LATIHAN GAMBAR 1"
+    },
+    {
+      "id": "audio1",
+      "judul": "LATIHAN AUDIO 1"
+    },
+    {
+      "id": "video1",
+      "judul": "LATIHAN VIDEO 1"
+    },
+    {
+      "id": "gambar1",
+      "judul": "GAMBAR 1"
+    },
+    {
+      "id": "audio2",
+      "judul": "AUDIO 2"
+    },
+    {
+      "id": "video2",
+      "judul": "VIDEO 2"
+    },
+    {
+      "id": "gambar3",
+      "judul": "GAMBAR 3"
+    },
+    {
+      "id": "audio3",
+      "judul": "AUDIO 3"
+    },
+    {
+      "id": "video3",
+      "judul": "VIDEO 3"
+    }
+  ],
+  "detailUjian": [
+    {
+      "id": "ujian1",
+      "judul": "UJIAN 1"
+    },
+    {
+      "id": "ujian2",
+      "judul": "UJIAN 2"
+    },
+    {
+      "id": "ujian3",
+      "judul": "UJIAN 3"
     }
   ]
 }

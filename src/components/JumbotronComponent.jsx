@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const JumbotronComponent = () => {
+    const navigate = useNavigate()
     return(
         <>
             {/* <div className="tw-h-full tw-ms-[15%] sm:tw-ms-[20%] md:tw-ms-[33%] tw-bg-jumbotron tw-bg-no-repeat tw-bg-contain tw-z-0 tw-font-poppins">
@@ -26,7 +28,7 @@ const JumbotronComponent = () => {
                         <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[45px] tw-font-bold">BELAJAR BAHASA ARAB LEBIH MUDAH DAN FLEKSIBEL</p>
                         <p className="tw-text-[16px] sm:tw-text-[18px] md:tw-text-[21px] lg:tw-text-[30px] tw-font-normal tw-py-4">Dengan Qolami, Anda dapat belajar bahasa Arab dengan mudah dan fleksibel, tanpa gangguan, sehingga memastikan integritas pembelajaran yang optimal.</p>
                         <div className="tw-flex tw-justify-between tw-py-4 md:tw-py-5 lg:tw-py-9">
-                            <button className="tw-bg-[#009900] tw-py-3 tw-px-7 sm:tw-py-4 sm:tw-px-12 tw-rounded-[25px] sm:tw-rounded-[50px] tw-text-[#C2EF90] tw-font-bold tw-text-sm md:tw-text-md lg:tw-text-xl hover:tw-bg-[#C2EF90] hover:tw-text-[#458200] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]"><a href="/kursus">Mulai Belajar</a></button>
+                            <button className="tw-bg-[#009900] tw-py-3 tw-px-7 sm:tw-py-4 sm:tw-px-12 tw-rounded-[25px] sm:tw-rounded-[50px] tw-text-[#C2EF90] tw-font-bold tw-text-sm md:tw-text-md lg:tw-text-xl hover:tw-bg-[#C2EF90] hover:tw-text-[#458200] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]" onClick={()=>{navigate("/kursus")}}>Mulai Belajar</button>
                         </div>
                     </div>
                     <div className="tw-flex tw-w-[0%] md:tw-w-[50%]">

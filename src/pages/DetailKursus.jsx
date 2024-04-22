@@ -1,47 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import HeaderComponent from '../components/HeaderComponent';
+import FooterComponent from '../components/FooterComponent';
+import HeaderComponent2 from '../components/HeaderComponent2';
+import ContentDetailKursus from '../components/ContentDetailKursus';
 
-const DetailKursus = () => {
-  const [item, setItem] = useState(null);
-  const { id } = useParams();
-
-  const a = (nama) => {
-    console.log(nama)
-  }
-  useEffect(() => {
-    const detailApi = async () => {
-        try{
-            const response = await axios.get(`http://localhost:2002/kursus/${id}`)
-            console.log(response.data)
-            setItem(response.data)
-        }catch(e){
-            console.log(e)
-        }
-    }
-    detailApi()
-  }, [id]);
-
-
-  return (
-    <>
-        {item && (
+const DetailKursus = ({tempToken}) => {
+    return(
+        <>
+            {tempToken ? 
             <div>
-                <h2>{item.nama}</h2>
-                <p>{item.deskripsi}</p>
-                <div className='tw-flex tw-flex-col'>
-                  {item.huruf.map((z)=>{
-                    return(
-                      <Link to={`/kursus/${item.id}/${z.id}`}>
-                        {z.nama}
-                      </Link>
-                    )
-                  })}
-                </div>
+                <HeaderComponent2/>
+                <ContentDetailKursus/>
+                <FooterComponent/>
             </div>
-        )}
-    </>
-  );
+            : 
+            <div>
+                <HeaderComponent/>
+                <ContentDetailKursus/>
+                <FooterComponent/>
+            </div>}
+        </>
+    )
 }
 
 export default DetailKursus;
