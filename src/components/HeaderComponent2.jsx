@@ -30,7 +30,7 @@ const HeaderComponent2 = () => {
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">
-                            <img src="logo-qolami.svg" className="tw-w-[92px] tw-mx-0"/>
+                            <img src="logo_qolami.svg" className="tw-w-[92px] tw-mx-0"/>
                         </a>
                     </div>
                     <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">

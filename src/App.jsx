@@ -10,6 +10,7 @@ import Tentang from './pages/Tentang.jsx'
 import Kursus from './pages/Kursus.jsx'
 import DetailKursus from './pages/DetailKursus.jsx'
 import Detail2Kursus from './pages/Detail2Kursus.jsx';
+import DialogBerhasil from './pages/DialogBerhasil.jsx';
 
 const App = () => {
   const [tempToken, setTempToken] = useState(false)
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <>
         <R1>
+          <DialogBerhasil text={"Selamat Akun anda berhasil dibuat"} location={"#masukModal"}/>
           <Masuk setTempToken={setTempToken}/>
           <Daftar/>
           <LupaKataSandi/>

@@ -14,7 +14,18 @@ export default {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        'adelia': ["ADELIA", "serif"],
+        'poppinsmedium': ["Poppins-Medium", "sans-serif"],
+        'poppinbolditaclic': ["Poppins-BoldItalic", "sans-serif"],
+        'sans': ['Open Sans', 'sans-serif'],
       },
+      screens: {
+        'xs': '420px',
+        '2xs': '280px',
+      },
+      brightness: {
+        80: '.8',
+      }
     },
   },
   plugins: [],

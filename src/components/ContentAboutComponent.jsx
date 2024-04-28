@@ -59,8 +59,8 @@ const ContentAboutComponent = () => {
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
                             tw-text-[#009900] tw-font-bold tw-pt-5 tw-pb-2 tw-text-center sm:tw-text-start tw-font-poppins">SOSIAL MEDIA</p>
                             <div className='tw-flex tw-justify-center sm:tw-justify-start tw-gap-1'>
-                                <a href="https://www.youtube.com/@qolamichanel9019" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-cursor-pointer'><img src="yt.svg" alt="yt_qolami"/></a>
-                                <a href="https://www.instagram.com/metodeqolami/" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-flex tw-cursor-pointer'><img className='tw-size-12 sm:tw-size-14 lg:tw-size-20 tw-m-auto' src="ig.svg" alt="ig_qolami"/></a>
+                                <a href="https://www.youtube.com/@qolamichanel9019" target="_blank" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-cursor-pointer'><img src="yt.svg" alt="yt_qolami"/></a>
+                                <a href="https://www.instagram.com/metodeqolami/" target="_blank" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-flex tw-cursor-pointer'><img className='tw-size-12 sm:tw-size-14 lg:tw-size-20 tw-m-auto' src="ig.svg" alt="ig_qolami"/></a>
                             </div>
                         </div>
                     </div>

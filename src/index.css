@@ -8,3 +8,18 @@
   padding: 0;
   margin: 0;
 }
+
+@font-face {
+  font-family: 'ADELIA';
+  src: url("./adelia.ttf");
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url("./Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: 'Poppins-BoldItalic';
+  src: url("./Poppins-BoldItalic.ttf");
+}

@@ -8,15 +8,193 @@
       "huruf": [
         {
           "id": "alif1",
-          "nama": "ALIF"
+          "nama": "ا",
+          "color": "[#663200]",
+          "hover": "[#924C07]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/1-Alif.m4a"
         },
         {
           "id": "ba1",
-          "nama": "BA"
+          "nama": "ب",
+          "color": "[#663200]",
+          "hover": "[#924C07]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/2-Ba.m4a"
         },
         {
           "id": "ta1",
-          "nama": "TA"
+          "nama": "ت",
+          "color": "[#663200]",
+          "hover": "[#924C07]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/3-Ta.m4a"
+        },
+        {
+          "id": "tsa1",
+          "nama": "ث",
+          "color": "[#663200]",
+          "hover": "[#924C07]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/4-Tsa.m4a"
+        },
+        {
+          "id": "jim1",
+          "nama": "ج",
+          "color": "[#663200]",
+          "hover": "[#924C07]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/5-Jim.m4a"
+        },
+        {
+          "id": "ha1",
+          "nama": "ح",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/6-Ha.m4a"
+        },
+        {
+          "id": "kha1",
+          "nama": "خ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/7-Kho.m4a"
+        },
+        {
+          "id": "dal1",
+          "nama": "د",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/8-Dal.m4a"
+        },
+        {
+          "id": "dzal1",
+          "nama": "ذ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/9-Dzal.m4a"
+        },
+        {
+          "id": "ra1",
+          "nama": "ر",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]",
+          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/10-Ra.m4a"
+        },
+        {
+          "id": "za1",
+          "nama": "ز",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "sin1",
+          "nama": "س",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "syin1",
+          "nama": "ش",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "shad1",
+          "nama": "ص",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "dhad1",
+          "nama": "ض",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "tha1",
+          "nama": "ط",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "zha1",
+          "nama": "ظ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "ain1",
+          "nama": "ع",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "ghain1",
+          "nama": "غ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "fa1",
+          "nama": "ف",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "qaf1",
+          "nama": "ق",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "kaf1",
+          "nama": "ك",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "lam1",
+          "nama": "ل",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "mim1",
+          "nama": "م",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "nun1",
+          "nama": "ن",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "waw1",
+          "nama": "و",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "ha1_2",
+          "nama": "ه",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "lamalif1",
+          "nama": "لا",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "hamzah1",
+          "nama": "ء",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "ya1",
+          "nama": "ي",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
         }
       ]
     },
@@ -54,15 +232,171 @@
       "huruf": [
         {
           "id": "alif2",
-          "nama": "ALIF"
+          "nama": "اَ",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
         },
         {
           "id": "ba2",
-          "nama": "BA"
+          "nama": "بَ",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
         },
         {
           "id": "ta2",
-          "nama": "TA"
+          "nama": "تَ",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
+        },
+        {
+          "id": "tsa2",
+          "nama": "ثَ",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
+        },
+        {
+          "id": "jim2",
+          "nama": "جَ",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
+        },
+        {
+          "id": "ha2",
+          "nama": "حَ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "kha2",
+          "nama": "خَ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "dal2",
+          "nama": "دَ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "dzal2",
+          "nama": "ذَ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "ra2",
+          "nama": "رَ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "za2",
+          "nama": "زَ",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "sin2",
+          "nama": "سَ",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "syin2",
+          "nama": "شَ",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "shad2",
+          "nama": "صَ",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "dhad2",
+          "nama": "ضَ",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "tha2",
+          "nama": "طَ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "zha2",
+          "nama": "ظَ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "ain2",
+          "nama": "عَ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "ghain2",
+          "nama": "غَ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "fa2",
+          "nama": "فَ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "qaf2",
+          "nama": "قَ",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "kaf2",
+          "nama": "كَ",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "lam2",
+          "nama": "لَ",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "mim2",
+          "nama": "مَ",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "nun2",
+          "nama": "نَ",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "waw2",
+          "nama": "وَ",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "ha2_2",
+          "nama": "هَ",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "lamalif2",
+          "nama": "يَ",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
         }
       ]
     },
@@ -99,16 +433,184 @@
       "deskripsi": "Huruf Berharakat Dhammah",
       "huruf": [
         {
-          "id": "alif3",
-          "nama": "ALIF"
+          "id": "alif1",
+          "nama": "ا",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
         },
         {
-          "id": "ba3",
-          "nama": "BA"
+          "id": "ba1",
+          "nama": "ب",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
         },
         {
-          "id": "ta3",
-          "nama": "TA"
+          "id": "ta1",
+          "nama": "ت",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
+        },
+        {
+          "id": "tsa1",
+          "nama": "ث",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
+        },
+        {
+          "id": "jim1",
+          "nama": "ج",
+          "color": "[#663200]",
+          "hover": "[#924C07]"
+        },
+        {
+          "id": "ha1",
+          "nama": "ح",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "kha1",
+          "nama": "خ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "dal1",
+          "nama": "د",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "dzal1",
+          "nama": "ذ",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "ra1",
+          "nama": "ر",
+          "color": "[#CC6601]",
+          "hover": "[#F69536]"
+        },
+        {
+          "id": "za1",
+          "nama": "ز",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "sin1",
+          "nama": "س",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "syin1",
+          "nama": "ش",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "shad1",
+          "nama": "ص",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "dhad1",
+          "nama": "ض",
+          "color": "[#1F4E78]",
+          "hover": "[#388AD4]"
+        },
+        {
+          "id": "tha1",
+          "nama": "ط",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "zha1",
+          "nama": "ظ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "ain1",
+          "nama": "ع",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "ghain",
+          "nama": "غ",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "fa1",
+          "nama": "ف",
+          "color": "[#009900]",
+          "hover": "[#06D805]"
+        },
+        {
+          "id": "qaf1",
+          "nama": "ق",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "kaf1",
+          "nama": "ك",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "lam1",
+          "nama": "ل",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "mim1",
+          "nama": "م",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "nun1",
+          "nama": "ن",
+          "color": "[#7030A0]",
+          "hover": "[#BB65FA]"
+        },
+        {
+          "id": "waw1",
+          "nama": "و",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "ha1_2",
+          "nama": "ه",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "lamalif1",
+          "nama": "لا",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "hamzah1",
+          "nama": "ء",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
+        },
+        {
+          "id": "ya1",
+          "nama": "ي",
+          "color": "[#800000]",
+          "hover": "[#FF4948]"
         }
       ]
     },
@@ -147,7 +649,7 @@
       "email": "rizal@gmail.com",
       "password": "asdasdadsdadads",
       "gambarProfile": "",
-      "token": "va7VABGx73nEeAghRfLqM0V.Y7dl7WM79ctHCcGHZBQMHQ0fSe84gYZc0zcnOwTGDpf5z76hCYhfZcKStCxrL9IjjPb63R.JidyO"
+      "token": "yeCwuqiH5cJ4wUJyWk7ZV9kdHonexynwVvBBrvuZwz.aM0nJKLvxscpuYfls7igibybMcVHmuJbefFx9SmRooYcVbR6mGKpbewdg"
     },
     {
       "id": "1712971068083",
@@ -156,7 +658,7 @@
       "email": "hiro@gmail.com",
       "password": "hirohirohiro",
       "gambarProfile": {},
-      "token": "ssLmOAm05JbXXuIEN6DRv4FA.W19s1JQxQGrrEjp2sDNjoqTskYBFO3r41ctTcfnLhU5.rcTjbjBUKhy1caZeV7ubtRSOaHy9xw5"
+      "token": "JSR92ZJYRaeB.Z2.7NwUnuh0KqWtQ8kJMbAIBBFzcdmFjoCpWSM8SNdbeJcA.ksgtqrnzM2wROlaPDgPusw7pT73YKVMPzfnlWlr"
     },
     {
       "id": "1713048105270",
@@ -174,7 +676,124 @@
       "email": "hiro@gmail.com",
       "password": "hirohirohiro",
       "gambarProfile": "cardabout_2.svg",
-      "token": "MEt.B6rJ.p4SY8BlVCPlUDQj88b2pwEllTIYB2aBu4SZx8SHhl341ikPPnPib0gEIoB4MwLdTfEKKk6txsxJrMFKZauf9PIo.QGb"
+      "token": "JSR92ZJYRaeB.Z2.7NwUnuh0KqWtQ8kJMbAIBBFzcdmFjoCpWSM8SNdbeJcA.ksgtqrnzM2wROlaPDgPusw7pT73YKVMPzfnlWlr"
+    },
+    {
+      "id": "1713798651120",
+      "namaDepan": "angga",
+      "namaBelakang": "aditya",
+      "email": "angga@gmail.com",
+      "password": "anggaangga",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713798801196",
+      "namaDepan": "aaaa",
+      "namaBelakang": "aaaaa",
+      "email": "aaa@gmail.com",
+      "password": "aaaaaaaaa",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713800617706",
+      "namaDepan": "asdad",
+      "namaBelakang": "asasdsdasd",
+      "email": "asdada@gmail.com",
+      "password": "dskfnsodafdafdsf",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713802224476",
+      "namaDepan": "fdgdfgdfgdfg",
+      "namaBelakang": "fdgdfgdfgdg",
+      "email": "hhf@gmail.com",
+      "password": "fsgfdgfdgdfg",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713802396915",
+      "namaDepan": "aadadadad",
+      "namaBelakang": "adsadadad",
+      "email": "saas@gmail.com",
+      "password": "ddsfdsdfsdfs",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713827404977",
+      "namaDepan": "sdsd",
+      "namaBelakang": "sdsdsd",
+      "email": "dws@gmail.com",
+      "password": "ksdfnsuofsdfsfsdf",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713827459427",
+      "namaDepan": "sdfsdfsf",
+      "namaBelakang": "sdfdsfds",
+      "email": "fsfsdfsdf@gmail.com",
+      "password": "fdssdfsddsffsdsfd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713827517358",
+      "namaDepan": "asdasda",
+      "namaBelakang": "dsadadas",
+      "email": "sda@gmail.com",
+      "password": "sdhifbsyfsfsd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713827826112",
+      "namaDepan": "asdasd",
+      "namaBelakang": "adasdadsdsa",
+      "email": "asd@gmail.com",
+      "password": "kslvnsfsfdf",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713827857870",
+      "namaDepan": "sdfsdfsdfs",
+      "namaBelakang": "dfsfsff",
+      "email": "sfsdf@gmail.com",
+      "password": "dsfsfsfsfdfsdffd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713828220563",
+      "namaDepan": "sdfsdf",
+      "namaBelakang": "sdfsdfsdfs",
+      "email": "dfdf@gmail.com",
+      "password": "dsffsddsf",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713829114491",
+      "namaDepan": "asdasd",
+      "namaBelakang": "asdasdasdas",
+      "email": "dsad@gmail.com",
+      "password": "jdsfnuifsfsdf",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1713863865978",
+      "namaDepan": "dsfdsfsfs",
+      "namaBelakang": "fsdf",
+      "email": "dfs@gmailc.com",
+      "password": "sfvsfsfdfsdfs",
+      "gambarProfile": "profile.jpeg",
+      "token": null
     }
   ],
   "detailPelajaran": [

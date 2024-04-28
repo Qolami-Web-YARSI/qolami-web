@@ -84,7 +84,7 @@ const Masuk = ({setTempToken}) => {
       change: async (event) => {
         try{
           const response = await axios.get(`http://localhost:2002/pengguna`)
-          if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+          if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
             setNoticeEmail(false);
             setTempEmail(false)
           } else {
@@ -225,7 +225,7 @@ const Masuk = ({setTempToken}) => {
                       isValidasi2 ? 
                       <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]">Ubah</button> 
                       : 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" onClick={() => validasiTrigger()}>Ubah</button> 
+                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" onClick={() => validasiTrigger()}>Masuk</button> 
                       :
                       <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Ubah</button> 
                     }

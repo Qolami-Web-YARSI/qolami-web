@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 
 const Daftar = () => { 
@@ -77,7 +77,7 @@ const Daftar = () => {
 
     const email = {
       change: (event) => {
-        if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+        if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
           setNoticeEmail(false);
           setTempEmail(false)
         } else {
@@ -86,12 +86,12 @@ const Daftar = () => {
         }
       },
       focus: (event) => {
-        if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+        if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
           setNoticeEmail(false);
         }
       },
       blur: (event) => {
-        if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
+        if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
           setNoticeEmail(true);
         }
       }
@@ -216,14 +216,20 @@ const Daftar = () => {
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-pt-4 ">
-                      {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#] hover:tw-bg-[#009900]" data-bs-target="#masukModal" data-bs-toggle="modal">Daftar</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal" disabled>Daftar</button>}
+                      {isValidasi ? 
+                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#] hover:tw-bg-[#009900]" data-bs-target="#dialogBerhasil" data-bs-toggle="modal">
+                        Daftar
+                      </button> 
+                      : 
+                      <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>
+                        Daftar
+                      </button>}
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-py-2 tw-pt-5 tw-justify-center tw-gap-1">
                     <label className="form-label tw-text-black">Udah Punya Akun?</label>
                       <label className="form-label tw-text-[#009900] tw-cursor-pointer tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal">Masuk</label>
                     </div>
-
                   </div>
                 </div>
               </div>
