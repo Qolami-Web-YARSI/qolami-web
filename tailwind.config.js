@@ -13,8 +13,7 @@ export default {
         'jumbotron': "url('/public/jumbotron1_1.svg')",
       },
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        'adelia': ["ADELIA", "serif"],
+        'poppins': ["Poppins", "sans-serif"],
         'poppinsmedium': ["Poppins-Medium", "sans-serif"],
         'poppinbolditaclic': ["Poppins-BoldItalic", "sans-serif"],
         'sans': ['Open Sans', 'sans-serif'],

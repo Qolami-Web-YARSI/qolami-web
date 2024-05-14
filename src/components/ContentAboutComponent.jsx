@@ -46,21 +46,23 @@ const ContentAboutComponent = () => {
 
 
 
-                <div className="tw-flex tw-gap-5 tw-py-14 tw-px-10 sm:tw-px-20 tw-bg-[#C2EF90] tw-justify-center">
-                    <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] 2xl:tw-w-[700px] tw-gap-9 sm:tw-gap-7 md:tw-gap-10 lg:tw-gap-3 tw-mx-auto sm:tw-mx-0">
-                        <div className='tw-flex tw-flex-col'>
+                <div className="tw-flex tw-gap-5 tw-py-14 tw-px-10 sm:tw-px-20 2xl:tw-px-20 tw-bg-[#C2EF90] tw-justify-center">
+                    <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] 2xl:tw-w-[700px] tw-gap-2 md:tw-gap-3 tw-mx-auto sm:tw-mx-0">
+                        <div className='tw-flex tw-flex-col tw-ps-4'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center sm:tw-text-start tw-font-poppins">TIM PENGEMBANG</p>
                             <p className='tw-text-center sm:tw-text-start tw-my-2 tw-text-[#458200] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[20px] tw-py-2'> © 2024, ART Team</p>
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Angga Aditya Putra Pratama</p>
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Rizal Abimanyu</p>
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Tara Thania Anantha</p>
+                            <p className='tw-text-center sm:tw-text-start tw-text-[#458200] tw-text-[14px] sm:tw-text-[13px] md:tw-text-[15px] lg:tw-text-[18px] xl:tw-text-[17px] 2xl:tw-text-[20px] tw-font-normal tw-font-poppins tw-py-7'>Thanks support designed Muhammad Farhan Al Anzhari</p>
                         </div>
-                        <div className='tw-flex tw-flex-col tw-gap-2'>
+                        <div className='tw-flex tw-flex-col tw-gap-1'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
-                            tw-text-[#009900] tw-font-bold tw-pt-5 tw-pb-2 tw-text-center sm:tw-text-start tw-font-poppins">SOSIAL MEDIA</p>
-                            <div className='tw-flex tw-justify-center sm:tw-justify-start tw-gap-1'>
-                                <a href="https://www.youtube.com/@qolamichanel9019" target="_blank" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-cursor-pointer'><img src="yt.svg" alt="yt_qolami"/></a>
-                                <a href="https://www.instagram.com/metodeqolami/" target="_blank" className='tw-size-16 sm:tw-size-20 lg:tw-size-28 tw-flex tw-cursor-pointer'><img className='tw-size-12 sm:tw-size-14 lg:tw-size-20 tw-m-auto' src="ig.svg" alt="ig_qolami"/></a>
+                            tw-text-[#009900] tw-font-bold tw-pt-5 tw-pb-2 tw-text-center sm:tw-text-start tw-font-poppins tw-ps-4">SOSIAL MEDIA</p>
+                            <div className='tw-flex tw-justify-center sm:tw-justify-start tw-gap-3'>
+                                <a href="https://www.youtube.com/@qolamichanel9019" target="_blank" className='tw-flex'><img className=' tw-my-auto tw-drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)]' src="yt.svg" alt="yt_qolami"/></a>
+                                <a href="https://www.instagram.com/metodeqolami/" target="_blank" className='tw-flex'><img className=' tw-my-auto tw-drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)]' src="ig.svg" alt="ig_qolami"/></a>
+                                <a href="https://www.tiktok.com/@metode_qolami" target="_blank" className='tw-flex'><img className='tw-my-auto tw-drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)]' src="tiktok.svg" alt="tiktok_qolami"/></a>
                             </div>
                         </div>
                     </div>

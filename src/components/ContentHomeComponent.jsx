@@ -13,9 +13,9 @@ const ContentHomeComponent = () => {
     return(
         <>
             <div className="tw-bg-[#458200] tw-size-full tw-px-10 md:tw-px-12 xl:tw-pe-24 xl:tw-ps-16 tw-font-poppins">
-                <div className="tw-flex tw-justify-between tw-py-16 md:tw-py-14 lg:tw-py-20">
+                <div className="tw-flex tw-justify-between tw-py-16 md:tw-py-14 lg:tw-py-20 tw-gap-4">
                     <div className="tw-w-[0%] tw-hidden md:tw-w-[50%] md:tw-flex md:tw-justify-center">
-                        <img src="logo-qolami-large.svg" className="tw-w-[0px] md:tw-w-[350px] lg:tw-w-[500px] tw-my-auto"/>
+                        <img src="logo-qolami-large.svg" className="tw-w-[0px] md:tw-w-[350px] lg:tw-w-[400px] tw-my-auto tw-rounded-full tw-bg-white"/>
                     </div>
                     <div className="tw-w-[100%] md:tw-w-[50%]">
                         <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-font-bold tw-mb-7 md:tw-mb-16 lg:tw-mb-12 tw-text-[#FFF6D9]">SELAMAT DATANG</p>
@@ -34,7 +34,7 @@ const ContentHomeComponent = () => {
                     <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-py-1 md:tw-py-0 tw-font-bold tw-mx-auto tw-text-center tw-text-[#009900]">DIREKOMENDASIKAN UNTUK</p>
                 </div>
                 <div className="tw-flex tw-justify-between tw-border-b-4 tw-border-[#009900] tw-pb-10 md:tw-pb-16">
-                    <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-10 tw-gap-10 md:tw-gap-0 tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]">
+                    <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-10 tw-gap-10 md:tw-gap-0 md:tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]">
                         <CardContentHome1 judul={judul[0]} gambar={gambar[0]}/>
                         <CardContentHome1 judul={judul[1]} gambar={gambar[1]}/>
                         <CardContentHome1 judul={judul[2]} gambar={gambar[2]}/>

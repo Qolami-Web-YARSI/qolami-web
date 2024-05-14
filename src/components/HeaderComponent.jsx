@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { FiMenu } from "react-icons/fi";
 import NavigationComponent from './NavigationComponent'
 
 const HeaderComponent = () => {
@@ -14,7 +15,7 @@ const HeaderComponent = () => {
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">
-                            <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihYCDTFRs7L1ZfZKwcM4xNlSYjpOLwpAmT6CRHkkkjftqfmOEWOXHZA3_udtDgsicaxGNVD8CskyFxRuVeMmdXTLHZ8KCTFtZAs=w1920-h868" className="tw-w-[92px] tw-mx-0"/>
+                            <img src="logo-qolami-large.svg" className="tw-w-[92px] tw-mx-0"/>
                         </a>
                     </div>
                     <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">
@@ -29,7 +30,7 @@ const HeaderComponent = () => {
                         <button type="button" className="tw-bg-[#458200] hover:tw-bg-[#C2EF90] tw-px-8 tw-py-2 tw-my-5 tw-rounded-[50px] tw-font-bold tw-text-[#C2EF90] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-text-right" data-bs-toggle="modal" data-bs-target="#daftarModal">Daftar</button>
                     </div>
                     <div className="tw-flex tw-mx-4 md:tw-hidden tw-flex-row tw-justify-end tw-w-[50%] md:tw-w-[30%] ">
-                        <button onClick={()=>buttonNav()}><img className="tw-w-14 inline" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="hamburger"/></button>
+                        <button onClick={()=>buttonNav()} className='tw-text-[40px] sm:tw-text-[60px] hover:tw-text-[#90C963]'><FiMenu /></button>
                     </div>
                 </nav>
             </header>

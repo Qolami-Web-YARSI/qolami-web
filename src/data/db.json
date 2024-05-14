@@ -1,646 +1,397 @@
+
 {
-  "kursus": [
+  "lesson-one" : [
     {
-      "id": "pelajaran1",
-      "nama": "Pelajaran 1",
-      "gambar": "img1-1.svg",
-      "deskripsi": "Huruf Hijaiyah",
-      "huruf": [
-        {
-          "id": "alif1",
-          "nama": "ا",
-          "color": "[#663200]",
-          "hover": "[#924C07]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/1-Alif.m4a"
-        },
-        {
-          "id": "ba1",
-          "nama": "ب",
-          "color": "[#663200]",
-          "hover": "[#924C07]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/2-Ba.m4a"
-        },
-        {
-          "id": "ta1",
-          "nama": "ت",
-          "color": "[#663200]",
-          "hover": "[#924C07]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/3-Ta.m4a"
-        },
-        {
-          "id": "tsa1",
-          "nama": "ث",
-          "color": "[#663200]",
-          "hover": "[#924C07]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/4-Tsa.m4a"
-        },
-        {
-          "id": "jim1",
-          "nama": "ج",
-          "color": "[#663200]",
-          "hover": "[#924C07]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/5-Jim.m4a"
-        },
-        {
-          "id": "ha1",
-          "nama": "ح",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/6-Ha.m4a"
-        },
-        {
-          "id": "kha1",
-          "nama": "خ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/7-Kho.m4a"
-        },
-        {
-          "id": "dal1",
-          "nama": "د",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/8-Dal.m4a"
-        },
-        {
-          "id": "dzal1",
-          "nama": "ذ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/9-Dzal.m4a"
-        },
-        {
-          "id": "ra1",
-          "nama": "ر",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]",
-          "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/10-Ra.m4a"
-        },
-        {
-          "id": "za1",
-          "nama": "ز",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "sin1",
-          "nama": "س",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "syin1",
-          "nama": "ش",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "shad1",
-          "nama": "ص",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "dhad1",
-          "nama": "ض",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "tha1",
-          "nama": "ط",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "zha1",
-          "nama": "ظ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "ain1",
-          "nama": "ع",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "ghain1",
-          "nama": "غ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "fa1",
-          "nama": "ف",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "qaf1",
-          "nama": "ق",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "kaf1",
-          "nama": "ك",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "lam1",
-          "nama": "ل",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "mim1",
-          "nama": "م",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "nun1",
-          "nama": "ن",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "waw1",
-          "nama": "و",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "ha1_2",
-          "nama": "ه",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "lamalif1",
-          "nama": "لا",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "hamzah1",
-          "nama": "ء",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "ya1",
-          "nama": "ي",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        }
-      ]
+      "id": "alif1",
+      "hurufHijaiyah": "ا",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/1-Alif.m4a"
     },
     {
-      "id": "latihan1",
-      "nama": "Latihan 1",
-      "gambar": "img1-2.svg",
-      "deskripsi": "Huruf Hijaiyah",
-      "jenis": [
-        {
-          "id": "gambar1",
-          "nama": "GAMBAR 1"
-        },
-        {
-          "id": "audio1",
-          "nama": "AUDIO 1"
-        },
-        {
-          "id": "video1",
-          "nama": "VIDEO 1"
-        }
-      ]
+      "id": "ba1",
+      "hurufHijaiyah": "ب",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/2-Ba.m4a"
     },
     {
-      "id": "ujian1",
-      "nama": "Ujian 1",
-      "gambar": "img1-3.svg",
-      "deskripsi": "Huruf Hijaiyah"
+      "id": "ta1",
+      "hurufHijaiyah": "ت",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/3-Ta.m4a"
     },
     {
-      "id": "pelajaran2",
-      "nama": "Pelajaran 2",
-      "gambar": "img2-1.svg",
-      "deskripsi": "Huruf Berharakat Fathah",
-      "huruf": [
-        {
-          "id": "alif2",
-          "nama": "اَ",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "ba2",
-          "nama": "بَ",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "ta2",
-          "nama": "تَ",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "tsa2",
-          "nama": "ثَ",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "jim2",
-          "nama": "جَ",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "ha2",
-          "nama": "حَ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "kha2",
-          "nama": "خَ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "dal2",
-          "nama": "دَ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "dzal2",
-          "nama": "ذَ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "ra2",
-          "nama": "رَ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "za2",
-          "nama": "زَ",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "sin2",
-          "nama": "سَ",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "syin2",
-          "nama": "شَ",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "shad2",
-          "nama": "صَ",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "dhad2",
-          "nama": "ضَ",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "tha2",
-          "nama": "طَ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "zha2",
-          "nama": "ظَ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "ain2",
-          "nama": "عَ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "ghain2",
-          "nama": "غَ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "fa2",
-          "nama": "فَ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "qaf2",
-          "nama": "قَ",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "kaf2",
-          "nama": "كَ",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "lam2",
-          "nama": "لَ",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "mim2",
-          "nama": "مَ",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "nun2",
-          "nama": "نَ",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "waw2",
-          "nama": "وَ",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "ha2_2",
-          "nama": "هَ",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "lamalif2",
-          "nama": "يَ",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        }
-      ]
+      "id": "tsa1",
+      "hurufHijaiyah": "ث",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/4-Tsa.m4a"
     },
     {
-      "id": "latihan2",
-      "nama": "Latihan 2",
-      "gambar": "img2-2.svg",
-      "deskripsi": "Huruf Berharakat Fathah",
-      "jenis": [
-        {
-          "id": "gambar2",
-          "nama": "GAMBAR 2"
-        },
-        {
-          "id": "audio2",
-          "nama": "AUDIO 2"
-        },
-        {
-          "id": "video2",
-          "nama": "VIDEO 2"
-        }
-      ]
+      "id": "jim1",
+      "hurufHijaiyah": "ج",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/5-Jim.m4a"
     },
     {
-      "id": "ujian2",
-      "nama": "Ujian 2",
-      "gambar": "img2-3.svg",
-      "deskripsi": "Huruf Berharakat Fathah"
+      "id": "ha1",
+      "hurufHijaiyah": "ح",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/6-Ha.m4a"
     },
     {
-      "id": "pelajaran3",
-      "nama": "Pelajaran 3",
-      "gambar": "img3-1.svg",
-      "deskripsi": "Huruf Berharakat Dhammah",
-      "huruf": [
-        {
-          "id": "alif1",
-          "nama": "ا",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "ba1",
-          "nama": "ب",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "ta1",
-          "nama": "ت",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "tsa1",
-          "nama": "ث",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "jim1",
-          "nama": "ج",
-          "color": "[#663200]",
-          "hover": "[#924C07]"
-        },
-        {
-          "id": "ha1",
-          "nama": "ح",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "kha1",
-          "nama": "خ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "dal1",
-          "nama": "د",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "dzal1",
-          "nama": "ذ",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "ra1",
-          "nama": "ر",
-          "color": "[#CC6601]",
-          "hover": "[#F69536]"
-        },
-        {
-          "id": "za1",
-          "nama": "ز",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "sin1",
-          "nama": "س",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "syin1",
-          "nama": "ش",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "shad1",
-          "nama": "ص",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "dhad1",
-          "nama": "ض",
-          "color": "[#1F4E78]",
-          "hover": "[#388AD4]"
-        },
-        {
-          "id": "tha1",
-          "nama": "ط",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "zha1",
-          "nama": "ظ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "ain1",
-          "nama": "ع",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "ghain",
-          "nama": "غ",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "fa1",
-          "nama": "ف",
-          "color": "[#009900]",
-          "hover": "[#06D805]"
-        },
-        {
-          "id": "qaf1",
-          "nama": "ق",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "kaf1",
-          "nama": "ك",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "lam1",
-          "nama": "ل",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "mim1",
-          "nama": "م",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "nun1",
-          "nama": "ن",
-          "color": "[#7030A0]",
-          "hover": "[#BB65FA]"
-        },
-        {
-          "id": "waw1",
-          "nama": "و",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "ha1_2",
-          "nama": "ه",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "lamalif1",
-          "nama": "لا",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "hamzah1",
-          "nama": "ء",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        },
-        {
-          "id": "ya1",
-          "nama": "ي",
-          "color": "[#800000]",
-          "hover": "[#FF4948]"
-        }
-      ]
+      "id": "kha1",
+      "hurufHijaiyah": "خ",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/7-Kho.m4a"
     },
     {
-      "id": "latihan3",
-      "nama": "Latihan 3",
-      "gambar": "img3-2.svg",
-      "deskripsi": "Huruf Berharakat Dhammah",
-      "jenis": [
-        {
-          "id": "gambar3",
-          "nama": "GAMBAR 3"
-        },
-        {
-          "id": "audio3",
-          "nama": "AUDIO 3"
-        },
-        {
-          "id": "video3",
-          "nama": "VIDEO 3"
-        }
-      ]
+      "id": "dal1",
+      "hurufHijaiyah": "د",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/8-Dal.m4a"
     },
     {
-      "id": "ujian3",
-      "nama": "Ujian 3",
-      "gambar": "img3-3.svg",
-      "deskripsi": "Huruf Berharakat Dhammah"
+      "id": "dzal1",
+      "hurufHijaiyah": "ذ",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/9-Dzal.m4a"
+    },
+    {
+      "id": "ra1",
+      "hurufHijaiyah": "ر",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]",
+      "audio": "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/audio/10-Ra.m4a"
+    },
+    {
+      "id": "za1",
+      "hurufHijaiyah": "ز",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "sin1",
+      "hurufHijaiyah": "س",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "syin1",
+      "hurufHijaiyah": "ش",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "shad1",
+      "hurufHijaiyah": "ص",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "dhad1",
+      "hurufHijaiyah": "ض",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "tha1",
+      "hurufHijaiyah": "ط",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "zha1",
+      "hurufHijaiyah": "ظ",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "ain1",
+      "hurufHijaiyah": "ع",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "ghain1",
+      "hurufHijaiyah": "غ",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "fa1",
+      "hurufHijaiyah": "ف",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "qaf1",
+      "hurufHijaiyah": "ق",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "kaf1",
+      "hurufHijaiyah": "ك",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "lam1",
+      "hurufHijaiyah": "ل",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "mim1",
+      "hurufHijaiyah": "م",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "nun1",
+      "hurufHijaiyah": "ن",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "waw1",
+      "hurufHijaiyah": "و",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    },
+    {
+      "id": "ha1_2",
+      "hurufHijaiyah": "ه",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    },
+    {
+      "id": "lamalif1",
+      "hurufHijaiyah": "لا",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    },
+    {
+      "id": "hamzah1",
+      "hurufHijaiyah": "ء",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    },
+    {
+      "id": "ya1",
+      "hurufHijaiyah": "ي",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
     }
   ],
+
+  "lesson-two": [
+    {
+      "id": "alif2",
+      "hurufBerharakatFathah": "اَ",
+      "hurufBerharakatFathahName": "Alif",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]"
+    },
+    {
+      "id": "ba2",
+      "hurufBerharakatFathah": "بَ",
+      "hurufBerharakatFathahName": "Ba",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]"
+    },
+    {
+      "id": "ta2",
+      "hurufBerharakatFathah": "تَ",
+      "hurufBerharakatFathahName": "Ta",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]"
+    },
+    {
+      "id": "tsa2",
+      "hurufBerharakatFathah": "ثَ",
+      "hurufBerharakatFathahName": "Tsa",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]"
+    },
+    {
+      "id": "jim2",
+      "hurufBerharakatFathah": "جَ",
+      "hurufBerharakatFathahName": "Jim",
+      "colorCard": "[#663200]",
+      "hoverCard": "[#924C07]"
+    },
+    {
+      "id": "ha2",
+      "hurufBerharakatFathah": "حَ",
+      "hurufBerharakatFathahName": "Ha",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]"
+    },
+    {
+      "id": "kha2",
+      "hurufBerharakatFathah": "خَ",
+      "hurufBerharakatFathahName": "Kha",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]"
+    },
+    {
+      "id": "dal2",
+      "hurufBerharakatFathah": "دَ",
+      "hurufBerharakatFathahName": "Dal",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]"
+    },
+    {
+      "id": "dzal2",
+      "hurufBerharakatFathah": "ذَ",
+      "hurufBerharakatFathahName": "Dzal",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]"
+    },
+    {
+      "id": "ra2",
+      "hurufBerharakatFathah": "رَ",
+      "hurufBerharakatFathahName": "Ra",
+      "colorCard": "[#CC6601]",
+      "hoverCard": "[#F69536]"
+    },
+    {
+      "id": "za2",
+      "hurufBerharakatFathah": "زَ",
+      "hurufBerharakatFathahName": "Za",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "sin2",
+      "hurufBerharakatFathah": "سَ",
+      "hurufBerharakatFathahName": "Sin",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "syin2",
+      "hurufBerharakatFathah": "شَ",
+      "hurufBerharakatFathahName": "Syin",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "shad2",
+      "hurufBerharakatFathah": "صَ",
+      "hurufBerharakatFathahName": "Shad",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "dhad2",
+      "hurufBerharakatFathah": "ضَ",
+      "hurufBerharakatFathahName": "Dhad",
+      "colorCard": "[#1F4E78]",
+      "hoverCard": "[#388AD4]"
+    },
+    {
+      "id": "tha2",
+      "hurufBerharakatFathah": "طَ",
+      "hurufBerharakatFathahName": "Tha",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "zha2",
+      "hurufBerharakatFathah": "ظَ",
+      "hurufBerharakatFathahName": "Zha",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "ain2",
+      "hurufBerharakatFathah": "عَ",
+      "hurufBerharakatFathahName": "Ain",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "ghain2",
+      "hurufBerharakatFathah": "غَ",
+      "hurufBerharakatFathahName": "Ghain",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "fa2",
+      "hurufBerharakatFathah": "فَ",
+      "hurufBerharakatFathahName": "Fa",
+      "colorCard": "[#009900]",
+      "hoverCard": "[#06D805]"
+    },
+    {
+      "id": "qaf2",
+      "hurufBerharakatFathah": "قَ",
+      "hurufBerharakatFathahName": "Qaf",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "kaf2",
+      "hurufBerharakatFathah": "كَ",
+      "hurufBerharakatFathahName": "Kaf",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "lam2",
+      "hurufBerharakatFathah": "لَ",
+      "hurufBerharakatFathahName": "Lam",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "mim2",
+      "hurufBerharakatFathah": "مَ",
+      "hurufBerharakatFathahName": "Mim",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "nun2",
+      "hurufBerharakatFathah": "نَ",
+      "hurufBerharakatFathahName": "Nun",
+      "colorCard": "[#7030A0]",
+      "hoverCard": "[#BB65FA]"
+    },
+    {
+      "id": "waw2",
+      "hurufBerharakatFathah": "وَ",
+      "hurufBerharakatFathahName": "Wa",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    },
+    {
+      "id": "ha2_2",
+      "hurufBerharakatFathah": "هَ",
+      "hurufBerharakatFathahName": "Ha",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    },
+    {
+      "id": "ya2",
+      "hurufBerharakatFathah": "يَ",
+      "hurufBerharakatFathahName": "Ya",
+      "colorCard": "[#800000]",
+      "hoverCard": "[#FF4948]"
+    }
+  ],
+
   "pengguna": [
     {
       "id": "1712828076700",
@@ -649,7 +400,7 @@
       "email": "rizal@gmail.com",
       "password": "asdasdadsdadads",
       "gambarProfile": "",
-      "token": "yeCwuqiH5cJ4wUJyWk7ZV9kdHonexynwVvBBrvuZwz.aM0nJKLvxscpuYfls7igibybMcVHmuJbefFx9SmRooYcVbR6mGKpbewdg"
+      "token": "SliX8StvtNPCMeguo08KrLWB2v5rmBWtLWNskTS4l8.zDexWYfaXFrfQ4VxaL1u3qlRamtJeYrnkQDcbVSTtUw07tQJ.2EbuerD1"
     },
     {
       "id": "1712971068083",
@@ -794,23 +545,111 @@
       "password": "sfvsfsfdfsdfs",
       "gambarProfile": "profile.jpeg",
       "token": null
+    },
+    {
+      "id": "1715382756639",
+      "namaDepan": "sasasas",
+      "namaBelakang": "asasas",
+      "email": "assaaa@gmail.com",
+      "password": "josdanfioanfioanfad",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715383079552",
+      "namaDepan": "sadsa",
+      "namaBelakang": "dasdad",
+      "email": "sasad@gmail.com",
+      "password": "dfdsfdsfsd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715383877385",
+      "namaDepan": "sdffsf",
+      "namaBelakang": "sff",
+      "email": "ddfs@gmail.com",
+      "password": "dsdfsfds",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715384042550",
+      "namaDepan": "sss",
+      "namaBelakang": "sss",
+      "email": "ssasas@gmail.com",
+      "password": "asdsdcdfd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715384104670",
+      "namaDepan": "asdsad",
+      "namaBelakang": "adsasa",
+      "email": "dada@gg.com",
+      "password": "adadadfd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715384262120",
+      "namaDepan": "asda",
+      "namaBelakang": "dadada",
+      "email": "asd@hh.com",
+      "password": "trtreerewrrewwer",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715384327698",
+      "namaDepan": "asdsad",
+      "namaBelakang": "asdasdasd",
+      "email": "weom@gmail.com",
+      "password": "sdvsfsfsdfds",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715385070488",
+      "namaDepan": "asdasd",
+      "namaBelakang": "sadads",
+      "email": "sdfdsniof@gmail.com",
+      "password": "iosnfiuosnfsfdd",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715385193479",
+      "namaDepan": "dads",
+      "namaBelakang": "dadas",
+      "email": "dsa@gmail.com",
+      "password": "sdkfnsiofnsdf",
+      "gambarProfile": "profile.jpeg",
+      "token": null
+    },
+    {
+      "id": "1715589607656",
+      "namaDepan": "asdasdas",
+      "namaBelakang": "dasdasdsa",
+      "email": "rizal@gmail.com",
+      "password": "sdsdaadsdsadsadsadsaads",
+      "gambarProfile": "profile.jpeg",
+      "token": null
     }
   ],
-  "detailPelajaran": [
+
+  "detail-lesson-two": [
     {
       "id": "alif2",
       "judul": "Pelajaran 2",
-      "nama": "Alif Berharakat Fathah",
+      "hurufHijaiyah": "Alif Berharakat Fathah",
       "video": "asdasdad",
-      "gambar": "img1-1.svg",
-      "detail1": "Huruf Alif",
-      "detail2": "biru",
-      "detail3": "harakat fathah"
+      "gambar": "img1-1.svg"
     },
     {
       "id": "ba2",
       "judul": "Pelajaran 2",
-      "nama": "Ba Berharakat Fathah",
+      "hurufHijaiyah": "Ba Berharakat Fathah",
       "video": "asdasdad",
       "gambar": "img1-1.svg",
       "detail1": "Huruf Ba",
@@ -820,7 +659,7 @@
     {
       "id": "ta2",
       "judul": "Pelajaran 2",
-      "nama": "Ta Berharakat Fathah",
+      "hurufHijaiyah": "Ta Berharakat Fathah",
       "video": "asdasdad",
       "gambar": "img1-1.svg",
       "detail1": "Huruf Ta",
@@ -830,7 +669,7 @@
     {
       "id": "alif3",
       "judul": "Pelajaran 3",
-      "nama": "Alif Huruf Berharakat Dhammah",
+      "hurufHijaiyah": "Alif Huruf Berharakat Dhammah",
       "video": "asdasdad",
       "gambar": "img1-1.svg",
       "detail1": "Huruf Alif",
@@ -840,7 +679,7 @@
     {
       "id": "ba3",
       "judul": "Pelajaran 3",
-      "nama": "Ba Huruf Berharakat Dhammah",
+      "hurufHijaiyah": "Ba Huruf Berharakat Dhammah",
       "video": "asdasdad",
       "gambar": "img1-1.svg",
       "detail1": "Huruf Ba",
@@ -850,7 +689,7 @@
     {
       "id": "ta3",
       "judul": "Pelajaran 3",
-      "nama": "Ta Huruf Berharakat Dhammah",
+      "hurufHijaiyah": "Ta Huruf Berharakat Dhammah",
       "video": "asdasdad",
       "gambar": "img1-1.svg",
       "detail1": "Huruf Ta",
@@ -858,6 +697,7 @@
       "detail3": "huruf berharakat dhammah"
     }
   ],
+
   "detailLatihan": [
     {
       "id": "gambar1",
@@ -896,6 +736,7 @@
       "judul": "VIDEO 3"
     }
   ],
+
   "detailUjian": [
     {
       "id": "ujian1",

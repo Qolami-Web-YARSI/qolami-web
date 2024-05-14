@@ -6,7 +6,7 @@ const PaginationDetail2 = ({id, tempIdDetail}) => {
     const load = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Optional: Smooth scroll animation
+            behavior: 'smooth'
         });
     }
     

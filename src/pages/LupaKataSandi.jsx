@@ -41,7 +41,7 @@ const LupaKataSandi = () => {
         <>
           <div className="modal fade" id="lupaPasswordModal" tabIndex="-1" aria-labelledby="lupaPasswordModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content fixed">
+                <div className="modal-content tw-rounded-[15px]">
                     <div className="modal-body tw-px-[50px] tw-bg-[#FFF6D9] tw-rounded-[15px]">
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
                         <button type="button" className="tw-bg-white tw-border-2 tw-rounded-lg tw-border-[#FF0000] tw-size-10 tw-opacity-0" disabled>
@@ -72,7 +72,7 @@ const LupaKataSandi = () => {
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-4">
-                        {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]">Kirim</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Kirim</button>}
+                        {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" data-bs-target="#dialogBerhasilLupaKataSandi" data-bs-toggle="modal">Kirim</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Kirim</button>}
                     </div>
 
                     </div>

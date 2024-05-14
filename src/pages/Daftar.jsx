@@ -76,13 +76,28 @@ const Daftar = () => {
     }
 
     const email = {
-      change: (event) => {
-        if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
-          setNoticeEmail(false);
-          setTempEmail(false)
-        } else {
-          setNoticeEmail(true);
-          setTempEmail(true)
+      change: async (event) => {
+        try{
+          const response = await axios.get(`http://localhost:2002/pengguna`)
+          if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
+            setNoticeEmail(false);
+            setTempEmail(false)
+          } else {
+            setNoticeEmail(true);
+            setTempEmail(true)
+          }
+
+          response.data.map((a)=>{
+            if(a.email === event.target.value){
+              setNoticeEmail(false);
+              setTempEmail(false)
+            }else{
+              setNoticeEmail(true);
+              setTempEmail(true)
+            }
+          })
+        }catch(e){
+          console.log(e)
         }
       },
       focus: (event) => {
@@ -198,7 +213,7 @@ const Daftar = () => {
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                       <label className="form-label">Email</label>
                       <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" onBlur={email.blur} onFocus={email.focus} onChange={email.change} name="emailDaftar" id="emailDaftar" placeholder='Email' required/>
-                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid!</p>
+                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid dan belum terdaftar!</p>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
@@ -217,7 +232,7 @@ const Daftar = () => {
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-pt-4 ">
                       {isValidasi ? 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#] hover:tw-bg-[#009900]" data-bs-target="#dialogBerhasil" data-bs-toggle="modal">
+                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" data-bs-target="#dialogBerhasilDaftar" data-bs-toggle="modal">
                         Daftar
                       </button> 
                       : 
