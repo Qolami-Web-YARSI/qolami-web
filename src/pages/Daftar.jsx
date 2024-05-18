@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
+import DialogBerhasil from './DialogBerhasil';
 
-const Daftar = () => { 
+const Daftar = () => {
+    const [htmlString, setHtmlString] = useState('');
     const [getToggle, setToggle] = useState(false)
     const [noticeNamaDepan, setNoticeNamaDepan] = useState(true)
     const [noticeNamaBelakang, setNoticeNamaBelakang] = useState(true)
@@ -12,15 +14,6 @@ const Daftar = () => {
     const [tempEmail, setTempEmail] = useState(false)
     const [tempKataSandi, setTempKataSandi] = useState(false)
     const [isValidasi, setIsValidasi] = useState(false)
-
-    const users = async (data) => {
-      try {
-        const response = await axios.post('http://localhost:2002/pengguna', data)
-        console.log(response.data)
-      } catch(e) {
-        console.log(e)
-      }
-    }
     
     const buttonToggle = () => {
       setToggle(!getToggle)
@@ -76,29 +69,36 @@ const Daftar = () => {
     }
 
     const email = {
-      change: async (event) => {
-        try{
-          const response = await axios.get(`http://localhost:2002/pengguna`)
-          if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
-            setNoticeEmail(false);
-            setTempEmail(false)
-          } else {
-            setNoticeEmail(true);
-            setTempEmail(true)
-          }
-
-          response.data.map((a)=>{
-            if(a.email === event.target.value){
-              setNoticeEmail(false);
-              setTempEmail(false)
-            }else{
-              setNoticeEmail(true);
-              setTempEmail(true)
-            }
-          })
-        }catch(e){
-          console.log(e)
+      change: (event) => {
+        if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
+          setNoticeEmail(false);
+          setTempEmail(false)
+        } else {
+          setNoticeEmail(true);
+          setTempEmail(true)
         }
+        // try{
+        //   const response = await axios.get(`http://localhost:2002/pengguna`)
+        //   if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
+        //     setNoticeEmail(false);
+        //     setTempEmail(false)
+        //   } else {
+        //     setNoticeEmail(true);
+        //     setTempEmail(true)
+        //   }
+
+        //   response.data.map((a)=>{
+        //     if(a.email === event.target.value){
+        //       setNoticeEmail(false);
+        //       setTempEmail(false)
+        //     }else{
+        //       setNoticeEmail(true);
+        //       setTempEmail(true)
+        //     }
+        //   })
+        // }catch(e){
+        //   console.log(e)
+        // }
       },
       focus: (event) => {
         if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
@@ -142,29 +142,37 @@ const Daftar = () => {
       }
     }, [tempNamaDepan, tempNamaBelakang, tempEmail, tempKataSandi]);
 
-    const handleDaftar = (event) => {
-      event.preventDefault();
-      const newData = {
-        id: (+new Date()).toString(),
-        namaDepan: event.target.namaDepanDaftar.value,
-        namaBelakang: event.target.namaBelakangDaftar.value,
-        email: event.target.emailDaftar.value,
-        password: event.target.passwordDaftar.value,
-        gambarProfile: "profile.jpeg",
-        token: null
-      };
+    const handleDaftar = async (event) => {
+      try {
+        event.preventDefault();
+        const response = await axios.post('http://localhost:2024/users/register', {
+          firstName: event.target.namaDepanDaftar.value,
+          lastName: event.target.namaBelakangDaftar.value,
+          email: event.target.emailDaftar.value,
+          password: event.target.passwordDaftar.value
+        })
 
-      users(newData)
+        event.target.namaDepanDaftar.value = ""
+        event.target.namaBelakangDaftar.value = ""
+        event.target.emailDaftar.value = ""
+        event.target.passwordDaftar.value = ""
 
-      event.target.namaDepanDaftar.value = ""
-      event.target.namaBelakangDaftar.value = ""
-      event.target.emailDaftar.value = ""
-      event.target.passwordDaftar.value = ""
+        setTempNamaDepan(false)
+        setTempNamaBelakang(false)
+        setTempEmail(false)
+        setTempKataSandi(false)
 
-      setTempNamaDepan(false)
-      setTempNamaBelakang(false)
-      setTempEmail(false)
-      setTempKataSandi(false)
+        console.log(response.data)
+        const myModal = new window.bootstrap.Modal(document.getElementById('dialogBerhasilDaftar'));
+        myModal.show();
+        const myModal2 = window.bootstrap.Modal.getInstance(document.getElementById('daftarModal'));
+        myModal2.hide();
+        setHtmlString("")
+      } catch(e) {
+        console.log(e)
+        setHtmlString(`Email yang dimasukkan sudah terdaftar`)
+      }
+      
     }
 
     return(
@@ -199,6 +207,7 @@ const Daftar = () => {
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between">
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Depan</label>
+                          
                           <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} name="namaDepanDaftar" id="namaDepanDaftar" placeholder='Nama Depan'/>
                           <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaDepan? "tw-hidden": "tw-block"}`}>Nama Depan tidak boleh kosong!</p>
                       </div>
@@ -213,7 +222,8 @@ const Daftar = () => {
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                       <label className="form-label">Email</label>
                       <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" onBlur={email.blur} onFocus={email.focus} onChange={email.change} name="emailDaftar" id="emailDaftar" placeholder='Email' required/>
-                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid dan belum terdaftar!</p>
+                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid</p>
+                      {htmlString && <p className="tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic">{htmlString}</p>}
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
@@ -232,7 +242,7 @@ const Daftar = () => {
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-pt-4 ">
                       {isValidasi ? 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" data-bs-target="#dialogBerhasilDaftar" data-bs-toggle="modal">
+                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]">
                         Daftar
                       </button> 
                       : 
@@ -242,7 +252,7 @@ const Daftar = () => {
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-py-2 tw-pt-5 tw-justify-center tw-gap-1">
-                    <label className="form-label tw-text-black">Udah Punya Akun?</label>
+                      <label className="form-label tw-text-black">Udah Punya Akun?</label>
                       <label className="form-label tw-text-[#009900] tw-cursor-pointer tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal">Masuk</label>
                     </div>
                   </div>
@@ -250,31 +260,10 @@ const Daftar = () => {
               </div>
             </div>
           </form>
+
+          <DialogBerhasil location2={"dialogBerhasilDaftar"} text={"Pendaftaran berhasil! Akun Anda telah berhasil dibuat"} location={"#masukModal"}/>
         </>
     )
 }
 
 export default Daftar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const storedData = JSON.parse(localStorage.getItem('dataDaftar'));
-      // if (storedData) {
-      //   storedData.push(newData);
-      //   localStorage.setItem('dataDaftar', JSON.stringify(storedData));
-      // } else {
-      //   localStorage.setItem('dataDaftar', JSON.stringify([newData]));
-      // }

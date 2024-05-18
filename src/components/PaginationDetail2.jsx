@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom';
+import { FiMenu } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
+import { FiArrowLeft } from "react-icons/fi";
 
 const PaginationDetail2 = ({id, tempIdDetail}) => {
 
     const load = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.location.reload()
     }
+
+    useEffect(()=>{
+        console.log(Number(id))
+        console.log(tempIdDetail)
+        console.log(tempIdDetail.indexOf(Number(id)))
+        console.log(tempIdDetail.length - 1)
+    },[])
     
     return(
         <>
-            <div>
-                {tempIdDetail.indexOf(id) === 0 ? (
-                    <button onClick={load}><Link to={`/detailPelajaran/${tempIdDetail[tempIdDetail.length - 1]}`}><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbxrncc9AZwYGCDR4S9eMMbJBw243BWIF9XCVjS0SAYwF0iTDvxBNYYz0RPmopFKSFRWdtYCKETgi4Rpt-pGE4LA8JAaeRhJ_M=w1920-h868" className='tw-rotate-180 tw-w-[60px] tw-filter tw-hue-rotate-120'/></Link></button>
+            <div className='tw-flex tw-mx-auto tw-justify-between tw-w-[100%] tw-py-16 tw-px-10 md:tw-px-40' dir="ltr">
+                {tempIdDetail.indexOf(Number(id)) === 0 ? (
+                    <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[tempIdDetail.length - 1]}`}><FiArrowLeft /></Link></button>
                 ) : (
-                    <button onClick={load}><Link to={`/detailPelajaran/${tempIdDetail[tempIdDetail.indexOf(id) - 1]}`}><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbxrncc9AZwYGCDR4S9eMMbJBw243BWIF9XCVjS0SAYwF0iTDvxBNYYz0RPmopFKSFRWdtYCKETgi4Rpt-pGE4LA8JAaeRhJ_M=w1920-h868" className='tw-rotate-180 tw-w-[60px] tw-filter tw-hue-rotate-120'/></Link></button>
+                    <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[(tempIdDetail.indexOf(Number(id))) - 1]}`}><FiArrowLeft /></Link></button>
                 )}
-                    <button className='tw-px-20'><Link to={`/kursus/pelajaran${id.split('').pop()}`}><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3AHamburger_icon.svg&psig=AOvVaw1oXzGKjMvmsbLaC9xa3tbC&ust=1714220354392000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMj0wtDu34UDFQAAAAAdAAAAABAE" className='tw-rotate-0 tw-w-[60px]'/></Link></button>
-                {tempIdDetail.indexOf(id) === tempIdDetail.indexOf(tempIdDetail[tempIdDetail.length - 1]) ? (
-                    <button onClick={load} ><Link to={`/detailPelajaran/${tempIdDetail[0]}`}><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbxrncc9AZwYGCDR4S9eMMbJBw243BWIF9XCVjS0SAYwF0iTDvxBNYYz0RPmopFKSFRWdtYCKETgi4Rpt-pGE4LA8JAaeRhJ_M=w1920-h868" className=' tw-rotate-0 tw-w-[60px]'/></Link></button>
+                <button className='tw-text-[40px] md:tw-text-[60px] hover:tw-text-[#90C963]'><Link to={`/lessons-two`}><FiMenu /></Link></button>
+                {tempIdDetail.indexOf(Number(id)) === tempIdDetail.length - 1 ? (
+                    <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[0]}`}><FiArrowRight /></Link></button>
                 ) : (
-                    <button onClick={load}><Link to={`/detailPelajaran/${tempIdDetail[tempIdDetail.indexOf(id) + 1]}`}><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbxrncc9AZwYGCDR4S9eMMbJBw243BWIF9XCVjS0SAYwF0iTDvxBNYYz0RPmopFKSFRWdtYCKETgi4Rpt-pGE4LA8JAaeRhJ_M=w1920-h868" className=' tw-rotate-0 tw-w-[60px]'/></Link></button>
+                    <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[(tempIdDetail.indexOf(Number(id))) + 1]}`}><FiArrowRight /></Link></button>
                 )}
             </div>
         </>

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { FiMenu } from "react-icons/fi";
-import { FiArrowRight } from "react-icons/fi";
-import { FiArrowLeft } from "react-icons/fi";
 import Kursus from '../data/Kursus';
 import PaginationDetail from './PaginationDetail';
 
@@ -30,7 +27,7 @@ const ContentDetailKursus = () => {
 
   const detailApiPelajaran1 = async () => {
     try {
-      const response = await axios.get(`http://localhost:2024/lesson-one`);
+      const response = await axios.get(`http://localhost:2024/lessons-one`);
       setPelajaran1(response.data.data);
       //console.log(pelajaran1)
     } catch (e) {
@@ -40,7 +37,7 @@ const ContentDetailKursus = () => {
 
   const detailApiPelajaran2 = async () => {
     try {
-      const response = await axios.get(`http://localhost:2024/lesson-two`);
+      const response = await axios.get(`http://localhost:2024/lessons-two`);
       setPelajaran2(response.data.data);
       console.log(pelajaran2)
     } catch (e) {
@@ -70,7 +67,7 @@ const ContentDetailKursus = () => {
           {id && (
             <div>
               {(() => {
-                if (id.includes("pelajaran1")) {
+                if (id.includes("lessons-one")) {
                   return(
                     <>
                       {pelajaran1 && (
@@ -81,7 +78,7 @@ const ContentDetailKursus = () => {
                             </div>
                             <div className='tw-flex tw-w-[100%]'>
                               <div className='tw-flex tw-flex-col tw-mx-auto tw-w-[100%]' dir="rtl" key={id}>
-                                <div className='tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-adelia'>
+                                <div className='tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif'>
                                   {pelajaran1.map((a, index)=> {
                                       if(a.hurufHijaiyah.includes("ج") || a.hurufHijaiyah.includes("ح") || a.hurufHijaiyah.includes("خ") || a.hurufHijaiyah.includes("ر")){
                                         return(
@@ -140,43 +137,69 @@ const ContentDetailKursus = () => {
                             </div>
                             <div className='tw-flex tw-w-[100%]'>
                               <div className='tw-flex tw-flex-col tw-mx-auto tw-w-[100%]' dir="rtl">
-                                <div className='tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-adelia'>
+                                <div className='tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif'>
                                   {pelajaran2.map((a, index)=> {
                                       if(a.hurufBerharakatFathah.includes("ج") || a.hurufBerharakatFathah.includes("ح") || a.hurufBerharakatFathah.includes("خ") || a.hurufBerharakatFathah.includes("ر")){
                                         return(
-                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]`} onClick={() => audioPlay(a.audio)}>
-                                            <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>{a.hurufBerharakatFathah}</p>
-                                          </button>
+                                          <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                            <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                              <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
+                                                  {a.hurufBerharakatFathah}
+                                              </p>
+                                            </button>
+                                          </Link>
                                         );
                                       }else if(a.hurufBerharakatFathah.includes("د") || a.hurufBerharakatFathah.includes("ذ") || a.hurufBerharakatFathah.includes("ك") || a.hurufBerharakatFathah.includes("ا") || a.hurufBerharakatFathah.includes("ط") || a.hurufBerharakatFathah.includes("ظ") || a.hurufBerharakatFathah.includes("ف") ){
                                         return(
-                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]`} onClick={() => audioPlay(a.audio)}>
-                                          <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>{a.hurufBerharakatFathah}</p>
+                                          <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                            <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
+                                                {a.hurufBerharakatFathah}
+                                            </p>
                                           </button>
+                                          </Link>
                                         );
                                       }else if(a.hurufBerharakatFathah.includes("ي")){
                                         return(
-                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]`} onClick={() => audioPlay(a.audio)}>
-                                            <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>{a.hurufBerharakatFathah}</p>
-                                          </button>
+                                          <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                            <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                              <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
+                                                  {a.hurufBerharakatFathah}
+                                              </p>
+                                            </button>
+                                          </Link>
                                         );
                                       }else if(a.hurufBerharakatFathah.includes("ن") || a.hurufBerharakatFathah.includes("ق") || a.hurufBerharakatFathah.includes("ع") || a.hurufBerharakatFathah.includes("غ") || a.hurufBerharakatFathah.includes("و")){
                                         return(
-                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]`} onClick={() => audioPlay(a.audio)}>
-                                            <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>{a.hurufBerharakatFathah}</p>
-                                          </button>
+                                          <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                            <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                              <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
+                                                {a.hurufBerharakatFathah}
+                                              </p>
+                                            </button>
+                                          </Link>
                                         );
                                       }else if(a.hurufBerharakatFathah.includes("م")){
                                         return(
-                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]`} onClick={() => audioPlay(a.audio)}>
-                                            <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>{a.hurufBerharakatFathah}</p>
-                                          </button>
+                                          <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                            <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                              <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
+                                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                                  {a.hurufBerharakatFathah}
+                                                </Link>
+                                              </p>
+                                            </button>
+                                          </Link>
                                         );
                                       } else {
                                         return(
-                                          <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]`} onClick={() => audioPlay(a.audio)}>
-                                            <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>{a.hurufBerharakatFathah}</p>
-                                          </button>
+                                          <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                            <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                              <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
+                                                {a.hurufBerharakatFathah}
+                                              </p>
+                                            </button>
+                                          </Link>
                                         )
                                       }
                                     })}

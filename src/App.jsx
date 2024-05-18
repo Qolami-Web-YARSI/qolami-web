@@ -33,7 +33,11 @@ const App = () => {
             <R3 path="/tentang" element={<Tentang tempToken={tempToken}/>}/>
             <R3 path="/kursus" element={<Kursus tempToken={tempToken}/>}/>
             <R3 path="/:id" element={<DetailKursus tempToken={tempToken} />}/>
-            <R3 path="/detailPelajaran/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
+            <R3 path="/lessons-two/contents/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
+
+
+
+
             <R3 path="/detailLatihan/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
             <R3 path="/detailUjian/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
 

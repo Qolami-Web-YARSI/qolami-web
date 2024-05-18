@@ -81,26 +81,33 @@ const Masuk = ({setTempToken}) => {
     }
 
     const email = {
-      change: async (event) => {
-        try{
-          const response = await axios.get(`http://localhost:2002/pengguna`)
-          if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
-            setNoticeEmail(false);
-            setTempEmail(false)
-          } else {
-            setNoticeEmail(true);
-            setTempEmail(true)
-          }
-          response.data.map((a)=>{
-            if(a.email === event.target.value){
-              setTempEmail2(true)
-            }else{
-              setTempEmail2(false)
-            }
-          })
-        }catch(e){
-          console.log(e)
+      change: (event) => {
+        if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
+          setNoticeEmail(false);
+          setTempEmail(false)
+        } else {
+          setNoticeEmail(true);
+          setTempEmail(true)
         }
+        // try{
+        //   const response = await axios.get(`http://localhost:2002/pengguna`)
+        //   if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
+        //     setNoticeEmail(false);
+        //     setTempEmail(false)
+        //   } else {
+        //     setNoticeEmail(true);
+        //     setTempEmail(true)
+        //   }
+        //   response.data.map((a)=>{
+        //     if(a.email === event.target.value){
+        //       setTempEmail2(true)
+        //     }else{
+        //       setTempEmail2(false)
+        //     }
+        //   })
+        // }catch(e){
+        //   console.log(e)
+        // }
       },
       focus: (event) => {
         if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {

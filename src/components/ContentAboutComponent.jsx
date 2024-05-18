@@ -54,7 +54,7 @@ const ContentAboutComponent = () => {
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Angga Aditya Putra Pratama</p>
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Rizal Abimanyu</p>
                             <p className='tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins'>Tara Thania Anantha</p>
-                            <p className='tw-text-center sm:tw-text-start tw-text-[#458200] tw-text-[14px] sm:tw-text-[13px] md:tw-text-[15px] lg:tw-text-[18px] xl:tw-text-[17px] 2xl:tw-text-[20px] tw-font-normal tw-font-poppins tw-py-7'>Thanks support designed Muhammad Farhan Al Anzhari</p>
+                            <p className='tw-text-center sm:tw-text-start tw-text-[#458200] tw-text-[14px] sm:tw-text-[13px] md:tw-text-[15px] lg:tw-text-[18px] xl:tw-text-[17px] 2xl:tw-text-[19px] tw-font-normal tw-font-poppins tw-py-7'>Terima kasih atas dukungan desain oleh Muhammad Farhan Al Anzhari</p>
                         </div>
                         <div className='tw-flex tw-flex-col tw-gap-1'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 

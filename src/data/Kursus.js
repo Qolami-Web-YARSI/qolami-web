@@ -1,6 +1,6 @@
 const Kursus = [
     {
-      "id": "pelajaran1",
+      "id": "lessons-one",
       "nama": "Pelajaran 1",
       "gambar": "img1-1.svg",
       "deskripsi": "Huruf Hijaiyah"
@@ -18,7 +18,7 @@ const Kursus = [
       "deskripsi": "Huruf Hijaiyah"
     },
     {
-      "id": "pelajaran2",
+      "id": "lessons-two",
       "nama": "Pelajaran 2",
       "gambar": "img2-1.svg",
       "deskripsi": "Huruf Berharakat Fathah"
