@@ -13,15 +13,25 @@ const HeaderComponent2 = () => {
         console.log(!getNav)
     }
 
-    useEffect(()=>{
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`)
-                setData(response.data);
-            }catch(e){
-                console.log(e)
-            }
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:2024/users/${localStorage.getItem('id')}`, 
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                  },
+            })
+            setData(response.data.data);
+            console.log(response.data.data)
+            console.log(response.data.data.firstName)
+            console.log(response.data.data.lastName)
+        }catch(e){
+            console.log(e)
         }
+    }
+
+    useEffect(()=>{
         fetchData()
     }, [])
 
@@ -44,9 +54,9 @@ const HeaderComponent2 = () => {
                     </div>
                     <div className="tw-hidden md:tw-flex tw-flex-row tw-justify-end tw-gap-2 tw-w-[50%] md:tw-w-[30%] tw-cursor-pointer tw-me-10">
                         <div className="md:tw-flex tw-my-auto tw-gap-3 tw-text-[#009900] hover:tw-text-black" onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
-                            <p className="tw-my-auto tw-text-[15px] lg:tw-text-[20px] tw-font-bold">{data && data.namaDepan+" "+data.namaBelakang}</p>
-                            <button type="button" data-bs-toggle="modal" className=' tw-bg-red-500 tw-rounded-full' data-bs-target="#editProfileModal">
-                                <img src={data && data.gambarProfile} className="tw-size-[50px] tw-my-auto tw-rounded-[50px] tw-border-black"/>
+                            <p className="tw-my-auto tw-text-[15px] lg:tw-text-[20px] tw-font-bold">{data && data.firstName+" "+data.lastName}</p>
+                            <button type="button" data-bs-toggle="modal" className='tw-rounded-full' data-bs-target="#lupaPasswordModal">
+                                <img src={data && data.profileUrl} className="tw-size-[50px] tw-my-auto tw-rounded-[50px] tw-border-black"/>
                             </button>
                         </div>
                     </div>
@@ -55,7 +65,7 @@ const HeaderComponent2 = () => {
                     </div>
                 </nav>
             </header>
-            <div className={`tw-w-full tw-z-30 tw-font-poppins ${getNav2? 'tw-fixed' : 'tw-hidden'}`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
+            {/* <div className={`tw-w-full tw-z-30 tw-font-poppins ${getNav2? 'tw-fixed' : 'tw-hidden'}`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
                 <div className='tw-w-full tw-flex tw-flex-row-reverse tw-px-36'>
                     <ul className={`${getNav2? 'tw-block' : 'tw-hidden'} tw-size-[200px] tw-mt-4 tw-rounded-[15px]`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
                         <ul className={`${getNav2? 'tw-block' : 'tw-hidden'} tw-bg-[#FFF6D9] tw-w-[200px] tw-mt-20 tw-rounded-[10px] tw-mx-auto tw-border-[#009900] tw-border-2 tw-cursor-pointer  tw-shadow-[6px_6px_6px_0px_rgba(0,0,0,0.3)]`} >
@@ -74,7 +84,7 @@ const HeaderComponent2 = () => {
                         </ul>
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

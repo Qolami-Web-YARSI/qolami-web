@@ -21,7 +21,7 @@ const App = () => {
     <>
         <R1>
           <DialogBerhasil location2={"dialogBerhasilDaftar"} text={"Pendaftaran berhasil! Akun Anda telah berhasil dibuat"} location={"#masukModal"}/>
-          <DialogBerhasil location2={"dialogBerhasilLupaKataSandi"} text={"Bila email ada, maka email untuk mengubah kata sandi akan dikirim ke email yang Anda masukkan"} location={"#lupaPasswordModal"}/>
+          <DialogBerhasil location2={"dialogBerhasilLupaKataSandi"} text={"Bila email ada, maka email untuk mengubah kata sandi akan dikirim ke email yang Anda masukkan"} location={"#masukModal"}/>
           <Masuk setTempToken={setTempToken}/>
           <Daftar/>
           <LupaKataSandi/>

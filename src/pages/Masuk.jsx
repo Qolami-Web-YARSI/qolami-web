@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Masuk = ({setTempToken}) => {
+    const [htmlString, setHtmlString] = useState('');
     const [getToggle, setToggle] = useState(false)
 
     const [noticeEmail, setNoticeEmail] = useState(true)
@@ -36,36 +37,47 @@ const Masuk = ({setTempToken}) => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await axios.get('http://localhost:2002/pengguna')
-        const valueEmailMasuk = event.target.emailMasuk.value
-        const valuePasswordMasuk = event.target.passwordMasuk.value
-        console.log(valueEmailMasuk)
-        const token = generateRandomString(100)
-        response.data.map(a => {
-          const id = a.id.toString()
-          if(a.email === valueEmailMasuk && a.password === valuePasswordMasuk){
-            setIsValidasi3(false)
-            setIsValidasi4(true)
-            console.log("KAMU BERHASIL LOGIN")
-            a.token = token
-            axios.put(`http://localhost:2002/pengguna/${a.id}`, 
-            { 
-              id: id,
-              namaDepan: a.namaDepan,
-              namaBelakang: a.namaBelakang,
-              email: a.email,
-              password: a.password,
-              gambarProfile: a.gambarProfile,
-              token: token 
-            });
-            localStorage.setItem('token', a.token);
-            if(localStorage.getItem('token') !== null){
-              setTempToken(true)
-              localStorage.setItem('id', a.id);
-              window.location.reload();
-            }
-          }
+        const response = await axios.post('http://localhost:2024/users/login',
+        {
+          email: event.target.emailMasuk.value,
+          password: event.target.passwordMasuk.value
         })
+        setIsValidasi3(false)
+        setIsValidasi4(true)
+        console.log(response.data.data.accessToken)
+        localStorage.setItem('token', response.data.data.accessToken);
+        if(localStorage.getItem('token') !== null){
+          setTempToken(true)
+          localStorage.setItem('id', response.data.data.user.id);
+          window.location.reload();
+        }
+        // console.log(valueEmailMasuk)
+        // const token = generateRandomString(100)
+        // response.data.map(a => {
+        //   const id = a.id.toString()
+        //   if(a.email === valueEmailMasuk && a.password === valuePasswordMasuk){
+        //     setIsValidasi3(false)
+        //     setIsValidasi4(true)
+        //     console.log("KAMU BERHASIL LOGIN")
+        //     a.token = token
+        //     axios.put(`http://localhost:2002/pengguna/${a.id}`, 
+        //     { 
+        //       id: id,
+        //       namaDepan: a.namaDepan,
+        //       namaBelakang: a.namaBelakang,
+        //       email: a.email,
+        //       password: a.password,
+        //       gambarProfile: a.gambarProfile,
+        //       token: token 
+        //     });
+        //     localStorage.setItem('token', a.token);
+        //     if(localStorage.getItem('token') !== null){
+        //       setTempToken(true)
+        //       localStorage.setItem('id', a.id);
+        //       window.location.reload();
+        //     }
+        //   }
+        // })
       } catch(e) {
         console.log(e)
       }
@@ -89,25 +101,6 @@ const Masuk = ({setTempToken}) => {
           setNoticeEmail(true);
           setTempEmail(true)
         }
-        // try{
-        //   const response = await axios.get(`http://localhost:2002/pengguna`)
-        //   if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
-        //     setNoticeEmail(false);
-        //     setTempEmail(false)
-        //   } else {
-        //     setNoticeEmail(true);
-        //     setTempEmail(true)
-        //   }
-        //   response.data.map((a)=>{
-        //     if(a.email === event.target.value){
-        //       setTempEmail2(true)
-        //     }else{
-        //       setTempEmail2(false)
-        //     }
-        //   })
-        // }catch(e){
-        //   console.log(e)
-        // }
       },
       focus: (event) => {
         if (!(validateEmail1(event.target.value) && event.target.value.includes('.com') && event.target.value.length > 0)) {
@@ -122,26 +115,33 @@ const Masuk = ({setTempToken}) => {
     }
 
     const kataSandi = {
-      change: async (event) => {
-        try {
-          const response = await axios.get(`http://localhost:2002/pengguna`)
-          if(event.target.value.length < 8){
-            setNoticeKataSandi(false);
-            setTempKataSandi(false)
-          } else {
-            setNoticeKataSandi(true);
-            setTempKataSandi(true)
-          }
-          response.data.map((a)=>{
-            if(a.email === event.target.value){
-              setTempKataSandi2(true)
-            }else{
-              setTempKataSandi2(false)
-            }
-          })
-        }catch(e){
-          console.log(e)
+      change: (event) => {
+        if(event.target.value.length < 8){
+          setNoticeKataSandi(false);
+          setTempKataSandi(false)
+        } else {
+          setNoticeKataSandi(true);
+          setTempKataSandi(true)
         }
+        // try {
+        //   const response = await axios.get(`http://localhost:2002/pengguna`)
+        //   if(event.target.value.length < 8){
+        //     setNoticeKataSandi(false);
+        //     setTempKataSandi(false)
+        //   } else {
+        //     setNoticeKataSandi(true);
+        //     setTempKataSandi(true)
+        //   }
+        //   response.data.map((a)=>{
+        //     if(a.email === event.target.value){
+        //       setTempKataSandi2(true)
+        //     }else{
+        //       setTempKataSandi2(false)
+        //     }
+        //   })
+        // }catch(e){
+        //   console.log(e)
+        // }
       },
       focus: (event) => {
         if(event.target.value.length < 8){

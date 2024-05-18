@@ -5,38 +5,28 @@ const NavigationComponent2 = (props) => {
     const [data, setData] = useState(null);
 
     const klik = async () => {
-      try {
-        const response = await axios.get('http://localhost:2002/pengguna')
-        response.data.map(a => {
-          if(a.id == localStorage.getItem('id')){
-            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-            { 
-              id: localStorage.getItem('id').toString(),
-              namaDepan: a.namaDepan,
-              namaBelakang: a.namaBelakang,
-              email: a.email,
-              password: a.password,
-              gambarProfile: a.gambarProfile,
-              token: null
-            });
-            localStorage.removeItem('id')
-            localStorage.removeItem('token')
-            window.location.reload()
-          }
-        })
-      } catch(e) {
-        console.log(e)
-      }
+      localStorage.removeItem('id')
+      localStorage.removeItem('token')
+      window.location.reload()
     }
 
     useEffect(()=>{
       const fetchData = async () => {
-          try {
-              const response = await axios.get(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`)
-              setData(response.data);
-          }catch(e){
-              console.log(e)
-          }
+        try {
+          const response = await axios.get(`http://localhost:2024/users/${localStorage.getItem('id')}`, 
+          {
+              headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+          })
+          setData(response.data.data);
+          console.log(response.data.data)
+          console.log(response.data.data.firstName)
+          console.log(response.data.data.lastName)
+        }catch(e){
+            console.log(e)
+        }
       }
       fetchData()
   }, [])
@@ -50,7 +40,7 @@ const NavigationComponent2 = (props) => {
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/">Beranda</a></li>
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/tentang">Tentang</a></li>
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/kursus">Kursus</a></li>
-                        <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/profile">{data && data.namaDepan+" "+data.namaBelakang}</a></li>
+                        <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><a href="/profile">{data && data.firstName+" "+data.lastName}</a></li>
                         <li className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"><button type="submit">Keluar</button></li>
                     </ul>
                 </div>

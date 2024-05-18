@@ -21,93 +21,111 @@ const EditProfile = () => {
       setIsValidasi4(true)
     }
 
-    const handleFiles = () => {
-      fileInputRef.current.click();
-      const selectedFiles = fileInputRef.current.files || [];
-      console.log(selectedFiles)
-      if(selectedFiles && selectedFiles.length > 0){
-        const fileName = selectedFiles[0].name;
-        localStorage.setItem("gambar-profile-2", fileName)
-        setFiles(fileName)
-        setIsValidasi5(true)
-      }else{
-        setIsValidasi5(false)
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:2024/users/${localStorage.getItem('id')}`, 
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+              },
+        })
+        setData(response.data.data);
+        console.log(response.data.data)
+        console.log(response.data.data.firstName)
+        console.log(response.data.data.lastName)
+      }catch(e){
+          console.log(e)
       }
+    }
+
+    const handleFiles = () => {
+      // fileInputRef.current.click();
+      // const selectedFiles = fileInputRef.current.files || [];
+      // console.log(selectedFiles)
+      // if(selectedFiles && selectedFiles.length > 0){
+      //   const fileName = selectedFiles[0].name;
+      //   localStorage.setItem("gambar-profile-2", fileName)
+      //   setFiles(fileName)
+      //   setIsValidasi5(true)
+      // }else{
+      //   setIsValidasi5(false)
+      // }
     }
 
     const handleSubmitEditProfile = async (event) => {
       event.preventDefault();
-      try {
-        const response = await axios.get(`http://localhost:2002/pengguna`)
-        const valueNamaDepanEdit = event.target.namaDepanEdit.value
-        const valueNamaBelakangEdit = event.target.namaBelakangEdit.value
-        const selectedFiles = fileInputRef.current.files || [];
+      // try {
+      //   const response = await axios.get(`http://localhost:2002/pengguna`)
+      //   const valueNamaDepanEdit = event.target.namaDepanEdit.value
+      //   const valueNamaBelakangEdit = event.target.namaBelakangEdit.value
+      //   const selectedFiles = fileInputRef.current.files || [];
 
-        //KONDISI INPUTAN NAMA DEPAN DAN NAMA BELAKANG
-        if(valueNamaDepanEdit.length !== 0 && valueNamaBelakangEdit.length !== 0){
-          response.data.map(a => {
-            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-              { 
-                id: localStorage.getItem('id').toString(),
-                namaDepan: valueNamaDepanEdit,
-                namaBelakang: valueNamaBelakangEdit,
-                email: a.email,
-                password: a.password,
-                gambarProfile: a.gambarProfile,
-                token: a.token
-              });
-            window.location.reload();
-          })
-        }else{
-          response.data.map(a => {
-            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-              { 
-                id: localStorage.getItem('id').toString(),
-                namaDepan: a.namaDepan,
-                namaBelakang: a.namaBelakang,
-                email: a.email,
-                password: a.password,
-                gambarProfile: a.gambarProfile,
-                token: a.token
-              });
-            window.location.reload();
-          })
-        }
+      //   //KONDISI INPUTAN NAMA DEPAN DAN NAMA BELAKANG
+      //   if(valueNamaDepanEdit.length !== 0 && valueNamaBelakangEdit.length !== 0){
+      //     response.data.map(a => {
+      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+      //         { 
+      //           id: localStorage.getItem('id').toString(),
+      //           namaDepan: valueNamaDepanEdit,
+      //           namaBelakang: valueNamaBelakangEdit,
+      //           email: a.email,
+      //           password: a.password,
+      //           gambarProfile: a.gambarProfile,
+      //           token: a.token
+      //         });
+      //       window.location.reload();
+      //     })
+      //   }else{
+      //     response.data.map(a => {
+      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+      //         { 
+      //           id: localStorage.getItem('id').toString(),
+      //           namaDepan: a.namaDepan,
+      //           namaBelakang: a.namaBelakang,
+      //           email: a.email,
+      //           password: a.password,
+      //           gambarProfile: a.gambarProfile,
+      //           token: a.token
+      //         });
+      //       window.location.reload();
+      //     })
+      //   }
 
-        //KONDISI MEMILIH FILE
-        if(selectedFiles && selectedFiles.length > 0){
-          response.data.map(a => {
-            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-              { 
-                id: localStorage.getItem('id').toString(),
-                namaDepan: a.namaDepan,
-                namaBelakang: a.namaBelakang,
-                email: a.email,
-                password: a.password,
-                gambarProfile: localStorage.getItem('gambar-profile-2') ,
-                token: a.token
-              });
-            window.location.reload();
-          })
-        }
-        if(selectedFiles.length === 0){
-          response.data.map(a => {
-            axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-              { 
-                id: localStorage.getItem('id').toString(),
-                namaDepan: a.namaDepan,
-                namaBelakang: a.namaBelakang,
-                email: a.email,
-                password: a.password,
-                gambarProfile: a.gambarProfile,
-                token: a.token
-              });
-            window.location.reload();
-          })
-        }
-      } catch(e) {
-        console.log(e)
-      }
+      //   //KONDISI MEMILIH FILE
+      //   if(selectedFiles && selectedFiles.length > 0){
+      //     response.data.map(a => {
+      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+      //         { 
+      //           id: localStorage.getItem('id').toString(),
+      //           namaDepan: a.namaDepan,
+      //           namaBelakang: a.namaBelakang,
+      //           email: a.email,
+      //           password: a.password,
+      //           gambarProfile: localStorage.getItem('gambar-profile-2') ,
+      //           token: a.token
+      //         });
+      //       window.location.reload();
+      //     })
+      //   }
+      //   if(selectedFiles.length === 0){
+      //     response.data.map(a => {
+      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+      //         { 
+      //           id: localStorage.getItem('id').toString(),
+      //           namaDepan: a.namaDepan,
+      //           namaBelakang: a.namaBelakang,
+      //           email: a.email,
+      //           password: a.password,
+      //           gambarProfile: a.gambarProfile,
+      //           token: a.token
+      //         });
+      //       window.location.reload();
+      //     })
+      //   }
+      // } catch(e) {
+      //   console.log(e)
+      // }
     }
 
     const namaDepan = {
@@ -166,14 +184,6 @@ const EditProfile = () => {
 
 
     useEffect(()=>{
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`)
-          setData(response.data);
-        }catch(e){
-          console.log(e)
-        }
-      }
       fetchData()
   }, [])
 
@@ -203,7 +213,7 @@ const EditProfile = () => {
                   <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
                     <h1 className="modal-title fs-5 tw-opacity-0" id="editProfileModalLabel">X</h1>
                     <div className='tw-flex tw-size-[200px] tw-rounded-full tw-ms-5'>
-                        <img src={isValidasi5 ? localStorage.getItem('tempGambarProfile') : data && data.gambarProfile} className='tw-w-[190px] tw-rounded-full tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-absolute'/>
+                        <img src={isValidasi5 ? localStorage.getItem('tempGambarProfile') : data && data.profileUrl} className='tw-w-[190px] tw-rounded-full tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-absolute'/>
                         <div className='tw-absolute tw-w-[173px] tw-flex tw-flex-row-revers tw-justify-between tw-pb-20 tw-mt-[155px]'>
                           <button className='tw-opacity-0' disabled>
                             <img className='tw-size-8 tw-opacity-0' src="edit.svg" disabled/>
@@ -219,13 +229,13 @@ const EditProfile = () => {
                   <div className="tw-flex tw-w-full tw-flex-row tw-justify-between">
                     <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                         <label htmlFor="validationCustom03" className="form-label">Nama Depan</label>
-                        <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="namaDepanEdit" placeholder={data && data.namaDepan} onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} required/>
+                        <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="namaDepanEdit" placeholder={data && data.firstName} onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} required/>
                         <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaDepan? "tw-hidden": "tw-block"}`}>Nama Depan tidak boleh kosong!</p>
                     </div>
 
                     <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                         <label htmlFor="validationCustom03" className="form-label">Nama Belakang</label>
-                        <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="namaBelakangEdit" placeholder={data && data.namaBelakang} onBlur={namaBelakang.blur} onFocus={namaBelakang.focus} onChange={namaBelakang.change} required/>
+                        <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="namaBelakangEdit" placeholder={data && data.lastName} onBlur={namaBelakang.blur} onFocus={namaBelakang.focus} onChange={namaBelakang.change} required/>
                         <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang tidak boleh kosong!</p>
                     </div>
                   </div>
@@ -235,9 +245,9 @@ const EditProfile = () => {
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi4? "tw-block": "tw-hidden"}`}>Edit Profile Berhasil!</p>
                   </div>
 
-                  <div className='tw-size-0 tw-opacity-0'>
+                  {/* <div className='tw-size-0 tw-opacity-0'>
                     <input className='tw-size-0 tw-opacity-0' type="file" id="fileInput" accept="image/*" ref={fileInputRef} src="fdf.svg" onChange={handleFiles}/>
-                  </div>
+                  </div> */}
 
                   {/* <div>
                     <input type="file" onChange={handleFileChange} />
