@@ -13,6 +13,12 @@ const HeaderComponent2 = () => {
         console.log(!getNav)
     }
 
+    const klik = async () => {
+        localStorage.removeItem('id')
+        localStorage.removeItem('token')
+        window.location.reload()
+      }
+
     const fetchData = async () => {
         try {
             const response = await axios.get(`http://localhost:2024/users/${localStorage.getItem('id')}`, 
@@ -23,9 +29,9 @@ const HeaderComponent2 = () => {
                   },
             })
             setData(response.data.data);
-            console.log(response.data.data)
-            console.log(response.data.data.firstName)
-            console.log(response.data.data.lastName)
+            // console.log(response.data.data)
+            // console.log(response.data.data.firstName)
+            // console.log(response.data.data.lastName)
         }catch(e){
             console.log(e)
         }
@@ -55,7 +61,7 @@ const HeaderComponent2 = () => {
                     <div className="tw-hidden md:tw-flex tw-flex-row tw-justify-end tw-gap-2 tw-w-[50%] md:tw-w-[30%] tw-cursor-pointer tw-me-10">
                         <div className="md:tw-flex tw-my-auto tw-gap-3 tw-text-[#009900] hover:tw-text-black" onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
                             <p className="tw-my-auto tw-text-[15px] lg:tw-text-[20px] tw-font-bold">{data && data.firstName+" "+data.lastName}</p>
-                            <button type="button" data-bs-toggle="modal" className='tw-rounded-full' data-bs-target="#lupaPasswordModal">
+                            <button type="button" data-bs-toggle="modal" className='tw-rounded-full' data-bs-target="#ubahPasswordModal">
                                 <img src={data && data.profileUrl} className="tw-size-[50px] tw-my-auto tw-rounded-[50px] tw-border-black"/>
                             </button>
                         </div>
@@ -65,26 +71,28 @@ const HeaderComponent2 = () => {
                     </div>
                 </nav>
             </header>
-            {/* <div className={`tw-w-full tw-z-30 tw-font-poppins ${getNav2? 'tw-fixed' : 'tw-hidden'}`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
+            <div className={`tw-w-full tw-z-30 tw-font-poppins ${getNav2? 'tw-fixed' : 'tw-hidden'}`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)} onSubmit={klik}>
                 <div className='tw-w-full tw-flex tw-flex-row-reverse tw-px-36'>
                     <ul className={`${getNav2? 'tw-block' : 'tw-hidden'} tw-size-[200px] tw-mt-4 tw-rounded-[15px]`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
                         <ul className={`${getNav2? 'tw-block' : 'tw-hidden'} tw-bg-[#FFF6D9] tw-w-[200px] tw-mt-20 tw-rounded-[10px] tw-mx-auto tw-border-[#009900] tw-border-2 tw-cursor-pointer  tw-shadow-[6px_6px_6px_0px_rgba(0,0,0,0.3)]`} >
-                            <li className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2 tw-rounded-t-[8px]'>
+                            <button className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2 tw-rounded-t-[8px] tw-w-full' data-bs-target="#editProfileModal" data-bs-toggle="modal">
                                 <img src="activity.svg" className='tw-size-6 tw-my-auto'/>
                                 <p className='tw-text-[19px] tw-my-auto'>Aktivitas</p>
-                            </li>
-                            <li className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-py-2 tw-px-6'>
+                            </button>
+                            <button className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-py-2 tw-px-6 tw-w-full' data-bs-target="#ubahPasswordModal" data-bs-toggle="modal">
                                 <img src="settings.svg" className='tw-size-6 tw-my-auto'/>
                                 <p className='tw-text-[19px] tw-my-auto'>Pengaturan</p>
-                            </li>
-                            <li className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2 tw-rounded-b-[8px]'>
-                                <img src="log-out.svg" className='tw-size-6 tw-my-auto'/>
-                                <p className='tw-text-[19px] tw-my-auto'>Keluar</p>
-                            </li>
+                            </button>
+                            <form onSubmit={klik}>
+                                <button className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2 tw-rounded-b-[8px] tw-w-full' type="submit">
+                                    <img src="log-out.svg" className='tw-size-6 tw-my-auto'/>
+                                    <p className='tw-text-[19px] tw-my-auto'>Keluar</p>
+                                </button>
+                            </form>
                         </ul>
                     </ul>
                 </div>
-            </div> */}
+            </div>
         </>
     )
 }

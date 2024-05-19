@@ -19,7 +19,7 @@ const PaginationDetail2 = ({id, tempIdDetail}) => {
     
     return(
         <>
-            <div className='tw-flex tw-mx-auto tw-justify-between tw-w-[100%] tw-py-16 tw-px-10 md:tw-px-40' dir="ltr">
+            <div className='tw-flex tw-mx-auto tw-justify-between tw-w-[100%] tw-pb-16 tw-px-10 md:tw-px-40' dir="ltr">
                 {tempIdDetail.indexOf(Number(id)) === 0 ? (
                     <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[tempIdDetail.length - 1]}`}><FiArrowLeft /></Link></button>
                 ) : (

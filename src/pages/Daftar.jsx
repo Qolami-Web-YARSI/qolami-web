@@ -46,27 +46,27 @@ const Daftar = () => {
       }
     }
 
-    const namaBelakang = {
-      change: (event) => {
-        if(event.target.value.trim() === ''){
-          setNoticeNamaBelakang(false);
-          setTempNamaBelakang(false)
-        } else {
-          setNoticeNamaBelakang(true);
-          setTempNamaBelakang(true)
-        }
-      },
-      focus: (event) => {
-        if(event.target.value.trim() === ''){
-          setNoticeNamaBelakang(false);
-        }
-      },
-      blur: (event) => {
-        if(event.target.value.trim() === ''){
-          setNoticeNamaBelakang(true);
-        }
-      }
-    }
+    // const namaBelakang = {
+    //   change: (event) => {
+    //     if(event.target.value.trim() === ''){
+    //       setNoticeNamaBelakang(false);
+    //       setTempNamaBelakang(false)
+    //     } else {
+    //       setNoticeNamaBelakang(true);
+    //       setTempNamaBelakang(true)
+    //     }
+    //   },
+    //   focus: (event) => {
+    //     if(event.target.value.trim() === ''){
+    //       setNoticeNamaBelakang(false);
+    //     }
+    //   },
+    //   blur: (event) => {
+    //     if(event.target.value.trim() === ''){
+    //       setNoticeNamaBelakang(true);
+    //     }
+    //   }
+    // }
 
     const email = {
       change: (event) => {
@@ -135,12 +135,12 @@ const Daftar = () => {
     }
 
     useEffect(() => {
-      if(tempNamaDepan && tempNamaBelakang && tempEmail && tempKataSandi){
+      if(tempNamaDepan && tempEmail && tempKataSandi){
         setIsValidasi(true)
       }else{
         setIsValidasi(false)
       }
-    }, [tempNamaDepan, tempNamaBelakang, tempEmail, tempKataSandi]);
+    }, [tempNamaDepan, tempEmail, tempKataSandi]);
 
     const handleDaftar = async (event) => {
       try {
@@ -214,7 +214,7 @@ const Daftar = () => {
 
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Belakang</label>
-                          <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" onBlur={namaBelakang.blur} onFocus={namaBelakang.focus} onChange={namaBelakang.change} name="namaBelakangDaftar" id="namaBelakang" placeholder='Nama Belakang'/>
+                          <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" name="namaBelakangDaftar" id="namaBelakang" placeholder='Nama Belakang'/>
                           <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang tidak boleh kosong!</p>
                       </div>
                     </div>

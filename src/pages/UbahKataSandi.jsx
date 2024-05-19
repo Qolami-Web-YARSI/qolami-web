@@ -7,26 +7,18 @@ const UbahKataSandi = () => {
     const [getToggle3, setToggle3] = useState(false)
 
     const [noticeKataSandiLama, setNoticeKataSandiLama] = useState(true)
+    const [noticeKataSandiLama2, setNoticeKataSandiLama2] = useState(true)
     const [tempKataSandiLama, setTempKataSandiLama] = useState(false)
-    const [tempKataSandiLama2, setTempKataSandiLama2] = useState(false)
 
     const [noticeKataSandiBaru, setNoticeKataSandiBaru] = useState(true)
     const [tempKataSandiBaru, setTempKataSandiBaru] = useState(false)
-    const [tempKataSandiBaru2, setTempKataSandiBaru2] = useState(false)
 
     const [noticeKonfirmasiKataSandiBaru, setNoticeKonfirmasiKataSandiBaru] = useState(true)
+    const [noticeKonfirmasiKataSandiBaru2, setNoticeKonfirmasiKataSandiBaru2] = useState(true)
     const [tempKonfirmasiKataSandiBaru, setKonfirmasiTempKataSandiBaru] = useState(false)
-    const [tempKonfirmasiKataSandiBaru2, setKonfirmasiTempKataSandiBaru2] = useState(false)
 
     const [isValidasi, setIsValidasi] = useState(false)
     const [isValidasi2, setIsValidasi2] = useState(false)
-    const [isValidasi3, setIsValidasi3] = useState(false)
-    const [isValidasi4, setIsValidasi4] = useState(false)
-
-    const validasiTrigger = () => {
-      setIsValidasi3(true)
-      setIsValidasi4(false)
-    }
 
     const buttonToggle1 = () => {
       setToggle1(!getToggle1)
@@ -42,79 +34,47 @@ const UbahKataSandi = () => {
 
     const handleSubmitPassword = async (event) => {
       event.preventDefault();
-      try {
-        const response = await axios.get(`http://localhost:2002/pengguna`)
-        const responseDetail = await axios.get(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`)
-        console.log(responseDetail.data.password)
-        const valuePasswordLama = event.target.passwordLama.value
-        const valuePasswordBaru = event.target.passwordBaru.value
-        const valueKonfirmasiPasswordBaru = event.target.konfirmasiPasswordBaru.value
-        console.log(valuePasswordLama)
-        if(responseDetail.data.password === valuePasswordLama){
-          if(valuePasswordBaru.length > 8){
-            if(responseDetail.data.password !== valueKonfirmasiPasswordBaru && responseDetail.data.password !== valuePasswordBaru){
-              if(valuePasswordBaru === valueKonfirmasiPasswordBaru){
-                console.log("UBAH PASSWORD BERHASIL")
-                response.data.map(a => {
-                  setIsValidasi3(false)
-                  setIsValidasi4(true)
-                  if(a.id == localStorage.getItem('id')){
-                    axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-                    { 
-                      id: localStorage.getItem('id').toString(),
-                      namaDepan: a.namaDepan,
-                      namaBelakang: a.namaBelakang,
-                      email: a.email,
-                      password: valueKonfirmasiPasswordBaru,
-                      gambarProfile: a.gambarProfile,
-                      token: a.token
-                    });
-                  }
-                  event.target.passwordLama.value = ""
-                  event.target.passwordBaru.value = ""
-                  event.target.konfirmasiPasswordBaru.value = ""
-                  localStorage.removeItem('kata-sandi-lama-value')
-                  localStorage.removeItem('kata-sandi-baru-value')
-                  window.location.reload();
-                })
-              }else{
-                //console.log("PASSWORD HARUS SAMA DENGAN INPUTAN SEBELUMNYA")
-              }
-            }else{
-              //console.log("PASSWORD TIDAK BOLEH SAMA DENGAN YANG LAMA")
-            }
-          }else{
-            //console.log("PASSWORD HARUS MEMILIKI PANJANG LEBIH DARI 8")
-          }
+      try{
+        const response = await axios.post(`http://localhost:2024/users/settings/change-password`,{
+          id: localStorage.getItem('id'),
+          oldPassword: event.target.passwordLama.value,
+          newPassword: event.target.passwordBaru.value,
+          confirmNewPassword: event.target.konfirmasiPasswordBaru.value
+        },{
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+        console.log(response.data)
+        setNoticeKataSandiLama2(true)
+        setNoticeKonfirmasiKataSandiBaru2(true)
+        setIsValidasi2(true)
+        window.location.reload()
+      }catch(e){
+        console.log(e.response.data)
+        if(e.response.data.includes('Invalid old password.')){
+          setNoticeKataSandiLama2(false)
         }else{
-          //console.log("PASSWORD LAMA YANG ANDA MASUKKAN SALAH")
+          setNoticeKataSandiLama2(true)
         }
-      } catch(e) {
-        console.log(e)
+
+        if(event.target.passwordBaru.value === event.target.konfirmasiPasswordBaru.value){
+          setNoticeKonfirmasiKataSandiBaru2(true)
+        }else{
+          setNoticeKonfirmasiKataSandiBaru2(false)
+        }
       }
     }
 
     const kataSandiLama = {
-      change: async (event) => {
-        try{
-          const responseDetail = await axios.get(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`)
-          if(event.target.value.length < 8){
-            setNoticeKataSandiLama(false);
-            setTempKataSandiLama(false);
-          }else{
-            setNoticeKataSandiLama(true);
-            setTempKataSandiLama(true)
-          }
-          
-          if(responseDetail.data.password === event.target.value){
-            setTempKataSandiLama2(true)
-            localStorage.setItem('kata-sandi-lama-value', event.target.value)
-          }else{
-            setTempKataSandiLama2(false)
-            localStorage.setItem('kata-sandi-lama-value', '')
-          }
-        }catch(e){
-          console.log(e)
+      change: (event) => {
+        if(event.target.value.length < 8){
+          setNoticeKataSandiLama(false);
+          setTempKataSandiLama(false);
+        }else{
+          setNoticeKataSandiLama(true);
+          setTempKataSandiLama(true)
         }
       },
       focus: (event) => {
@@ -130,26 +90,7 @@ const UbahKataSandi = () => {
     }
 
     const kataSandiBaru = {
-      change: async (event) => {
-        try{
-          if(localStorage.getItem('kata-sandi-lama-value') !== event.target.value){
-            setTempKataSandiBaru2(true)
-            localStorage.setItem('kata-sandi-baru-value', event.target.value)
-          }else{
-            setTempKataSandiBaru2(false)
-            localStorage.setItem('kata-sandi-baru-value', '')
-          }
-
-          if(event.target.value.length < 8){
-            setNoticeKataSandiBaru(false);
-            setTempKataSandiBaru(false)
-          } else {
-            setNoticeKataSandiBaru(true);
-            setTempKataSandiBaru(true)
-          }
-        }catch(e){
-          console.log(e)
-        }
+      change: (event) => {
         if(event.target.value.length < 8){
           setNoticeKataSandiBaru(false);
           setTempKataSandiBaru(false)
@@ -172,12 +113,6 @@ const UbahKataSandi = () => {
 
     const konfirmasiKataSandiBaru = {
       change: (event) => {
-        if(localStorage.getItem('kata-sandi-baru-value') === event.target.value){
-          setKonfirmasiTempKataSandiBaru2(true)
-        }else{
-          setKonfirmasiTempKataSandiBaru2(false)
-        }
-
         if(event.target.value.length < 8){
           setNoticeKonfirmasiKataSandiBaru(false);
           setKonfirmasiTempKataSandiBaru(false)
@@ -199,18 +134,12 @@ const UbahKataSandi = () => {
     }
     
     useEffect(() => {
-      if(tempKataSandiLama){
+      if(tempKataSandiLama && tempKataSandiBaru && tempKonfirmasiKataSandiBaru){
         setIsValidasi(true)
       }else{
         setIsValidasi(false)
       }
-
-      if(tempKataSandiLama2 && tempKataSandiBaru2 && tempKonfirmasiKataSandiBaru2){
-        setIsValidasi2(true)
-      }else{
-        setIsValidasi2(false)
-      }
-    }, [tempKataSandiLama, tempKataSandiBaru, tempKonfirmasiKataSandiBaru, tempKataSandiLama2, tempKataSandiBaru2, tempKonfirmasiKataSandiBaru2]);
+    }, [tempKataSandiLama, tempKataSandiBaru, tempKonfirmasiKataSandiBaru]);
 
 
     return(
@@ -253,6 +182,7 @@ const UbahKataSandi = () => {
                       </button>
                     </div>
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
+                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama2? "tw-hidden": "tw-block"}`}>Password harus sama dengan yang lama!</p>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
@@ -279,20 +209,17 @@ const UbahKataSandi = () => {
                       </button>
                     </div>
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
+                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru2? "tw-hidden": "tw-block"}`}>Password yang dimasukkan tidak cocok dengan yang baru!</p>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-4 ">
                     {
                       isValidasi ? 
-                      isValidasi2 ? 
                       <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]">Ubah</button> 
-                      : 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold hover:tw-bg-[#009900]" onClick={() => validasiTrigger()}>Ubah</button> 
                       :
                       <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-lg tw-text-white tw-font-bold" disabled>Ubah</button> 
                     }
-                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${isValidasi3? "tw-block": "tw-hidden"}`}>Menggubah Password Gagal!</p>
-                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi4? "tw-block": "tw-hidden"}`}>Menggubah Password Berhasil!</p>
+                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi2? "tw-block": "tw-hidden"}`}>Menggubah Password Berhasil!</p>
                   </div>
 
                 </div>

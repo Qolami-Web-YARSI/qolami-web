@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
 
 const EditProfile = () => {
-    const fileInputRef = useRef(null);
+    // const fileInputRef = useRef(null);;
+    // const [file, setFile] = useState(null);
 
     const [noticeNamaDepan, setNoticeNamaDepan] = useState(true)
     const [noticeNamaBelakang, setNoticeNamaBelakang] = useState(true)
@@ -15,8 +16,11 @@ const EditProfile = () => {
     const [isValidasi5, setIsValidasi5] = useState(false)
 
     const [data, setData] = useState(null);
-    const [files, setFiles] = useState()
 
+    // const handleFileChange = (event) => {
+    //   setFile(event.target.files[0]);
+    // };
+    
     const validasiTrigger = () => {
       setIsValidasi4(true)
     }
@@ -31,9 +35,9 @@ const EditProfile = () => {
               },
         })
         setData(response.data.data);
-        console.log(response.data.data)
-        console.log(response.data.data.firstName)
-        console.log(response.data.data.lastName)
+        // console.log(response.data.data)
+        // console.log(response.data.data.firstName)
+        // console.log(response.data.data.lastName)
       }catch(e){
           console.log(e)
       }
@@ -53,79 +57,103 @@ const EditProfile = () => {
       // }
     }
 
+    // const handleSubmitEditProfile = async (event) => {
+    //   event.preventDefault();
+    //   // try {
+    //   //   const response = await axios.get(`http://localhost:2002/pengguna`)
+    //   //   const valueNamaDepanEdit = event.target.namaDepanEdit.value
+    //   //   const valueNamaBelakangEdit = event.target.namaBelakangEdit.value
+    //   //   const selectedFiles = fileInputRef.current.files || [];
+
+    //   //   //KONDISI INPUTAN NAMA DEPAN DAN NAMA BELAKANG
+    //   //   if(valueNamaDepanEdit.length !== 0 && valueNamaBelakangEdit.length !== 0){
+    //   //     response.data.map(a => {
+    //   //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+    //   //         { 
+    //   //           id: localStorage.getItem('id').toString(),
+    //   //           namaDepan: valueNamaDepanEdit,
+    //   //           namaBelakang: valueNamaBelakangEdit,
+    //   //           email: a.email,
+    //   //           password: a.password,
+    //   //           gambarProfile: a.gambarProfile,
+    //   //           token: a.token
+    //   //         });
+    //   //       window.location.reload();
+    //   //     })
+    //   //   }else{
+    //   //     response.data.map(a => {
+    //   //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+    //   //         { 
+    //   //           id: localStorage.getItem('id').toString(),
+    //   //           namaDepan: a.namaDepan,
+    //   //           namaBelakang: a.namaBelakang,
+    //   //           email: a.email,
+    //   //           password: a.password,
+    //   //           gambarProfile: a.gambarProfile,
+    //   //           token: a.token
+    //   //         });
+    //   //       window.location.reload();
+    //   //     })
+    //   //   }
+
+    //   //   //KONDISI MEMILIH FILE
+    //   //   if(selectedFiles && selectedFiles.length > 0){
+    //   //     response.data.map(a => {
+    //   //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+    //   //         { 
+    //   //           id: localStorage.getItem('id').toString(),
+    //   //           namaDepan: a.namaDepan,
+    //   //           namaBelakang: a.namaBelakang,
+    //   //           email: a.email,
+    //   //           password: a.password,
+    //   //           gambarProfile: localStorage.getItem('gambar-profile-2') ,
+    //   //           token: a.token
+    //   //         });
+    //   //       window.location.reload();
+    //   //     })
+    //   //   }
+    //   //   if(selectedFiles.length === 0){
+    //   //     response.data.map(a => {
+    //   //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
+    //   //         { 
+    //   //           id: localStorage.getItem('id').toString(),
+    //   //           namaDepan: a.namaDepan,
+    //   //           namaBelakang: a.namaBelakang,
+    //   //           email: a.email,
+    //   //           password: a.password,
+    //   //           gambarProfile: a.gambarProfile,
+    //   //           token: a.token
+    //   //         });
+    //   //       window.location.reload();
+    //   //     })
+    //   //   }
+    //   // } catch(e) {
+    //   //   console.log(e)
+    //   // }
+    // }
+
     const handleSubmitEditProfile = async (event) => {
+      // const formData = new FormData();
+      // formData.append('profileImage', file);
+      // formData.append('firstName', event.target.namaDepanEdit.value);
+      // formData.append('lastName', event.target.namaBelakangEdit.value);
       event.preventDefault();
-      // try {
-      //   const response = await axios.get(`http://localhost:2002/pengguna`)
-      //   const valueNamaDepanEdit = event.target.namaDepanEdit.value
-      //   const valueNamaBelakangEdit = event.target.namaBelakangEdit.value
-      //   const selectedFiles = fileInputRef.current.files || [];
-
-      //   //KONDISI INPUTAN NAMA DEPAN DAN NAMA BELAKANG
-      //   if(valueNamaDepanEdit.length !== 0 && valueNamaBelakangEdit.length !== 0){
-      //     response.data.map(a => {
-      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-      //         { 
-      //           id: localStorage.getItem('id').toString(),
-      //           namaDepan: valueNamaDepanEdit,
-      //           namaBelakang: valueNamaBelakangEdit,
-      //           email: a.email,
-      //           password: a.password,
-      //           gambarProfile: a.gambarProfile,
-      //           token: a.token
-      //         });
-      //       window.location.reload();
-      //     })
-      //   }else{
-      //     response.data.map(a => {
-      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-      //         { 
-      //           id: localStorage.getItem('id').toString(),
-      //           namaDepan: a.namaDepan,
-      //           namaBelakang: a.namaBelakang,
-      //           email: a.email,
-      //           password: a.password,
-      //           gambarProfile: a.gambarProfile,
-      //           token: a.token
-      //         });
-      //       window.location.reload();
-      //     })
-      //   }
-
-      //   //KONDISI MEMILIH FILE
-      //   if(selectedFiles && selectedFiles.length > 0){
-      //     response.data.map(a => {
-      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-      //         { 
-      //           id: localStorage.getItem('id').toString(),
-      //           namaDepan: a.namaDepan,
-      //           namaBelakang: a.namaBelakang,
-      //           email: a.email,
-      //           password: a.password,
-      //           gambarProfile: localStorage.getItem('gambar-profile-2') ,
-      //           token: a.token
-      //         });
-      //       window.location.reload();
-      //     })
-      //   }
-      //   if(selectedFiles.length === 0){
-      //     response.data.map(a => {
-      //       axios.put(`http://localhost:2002/pengguna/${localStorage.getItem('id')}`, 
-      //         { 
-      //           id: localStorage.getItem('id').toString(),
-      //           namaDepan: a.namaDepan,
-      //           namaBelakang: a.namaBelakang,
-      //           email: a.email,
-      //           password: a.password,
-      //           gambarProfile: a.gambarProfile,
-      //           token: a.token
-      //         });
-      //       window.location.reload();
-      //     })
-      //   }
-      // } catch(e) {
-      //   console.log(e)
-      // }
+      try {
+          const response = await axios.patch(`http://localhost:2024/users/settings/profile/${localStorage.getItem('id')}`,{
+          firstName: event.target.namaDepanEdit.value,
+          lastName: event.target.namaBelakangEdit.value,
+          profileUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSieffL3g0ISx2Q1xdCWgHnZtDap-U7eI9T_dQGJujvsg&s"
+        },{
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+        console.log(response);
+        window.location.reload()
+      } catch(e) {
+        console.log(e)
+      }
     }
 
     const namaDepan = {
@@ -152,35 +180,13 @@ const EditProfile = () => {
       }
     }
 
-    const namaBelakang = {
-      change: (event) => {
-        if(event.target.value.trim() === ''){
-          setNoticeNamaBelakang(false);
-          setTempNamaBelakang(false)
-        } else {
-          setNoticeNamaBelakang(true);
-          setTempNamaBelakang(true)
-        }
-      },
-      focus: (event) => {
-        if(event.target.value.trim() === ''){
-          setNoticeNamaBelakang(false);
-        }
-      },
-      blur: (event) => {
-        if(event.target.value.trim() === ''){
-          setNoticeNamaBelakang(true);
-        }
-      }
-    }
-
     useEffect(() => {
-      if(tempNamaDepan && tempNamaBelakang){
+      if(tempNamaDepan){
         setIsValidasi(true)
       }else{
         setIsValidasi(false)
       }
-    }, [tempNamaDepan, tempNamaBelakang]);
+    }, [tempNamaDepan]);
 
 
     useEffect(()=>{
@@ -235,7 +241,7 @@ const EditProfile = () => {
 
                     <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                         <label htmlFor="validationCustom03" className="form-label">Nama Belakang</label>
-                        <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="namaBelakangEdit" placeholder={data && data.lastName} onBlur={namaBelakang.blur} onFocus={namaBelakang.focus} onChange={namaBelakang.change} required/>
+                        <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="namaBelakangEdit" placeholder={data && data.lastName}/>
                         <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang tidak boleh kosong!</p>
                     </div>
                   </div>
@@ -245,6 +251,8 @@ const EditProfile = () => {
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi4? "tw-block": "tw-hidden"}`}>Edit Profile Berhasil!</p>
                   </div>
 
+                  {/* <input type="file" onChange={handleFileChange} /> */}
+
                   {/* <div className='tw-size-0 tw-opacity-0'>
                     <input className='tw-size-0 tw-opacity-0' type="file" id="fileInput" accept="image/*" ref={fileInputRef} src="fdf.svg" onChange={handleFiles}/>
                   </div> */}
@@ -253,6 +261,12 @@ const EditProfile = () => {
                     <input type="file" onChange={handleFileChange} />
                     <button onClick={handleUpload}>Upload</button>
                   </div> */}
+
+{/* <div>
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
+      {fileUrl && <img src={fileUrl} alt="Profile" />}
+    </div> */}
 
                 </div>
               </div>

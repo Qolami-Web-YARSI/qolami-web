@@ -21,9 +21,9 @@ const NavigationComponent2 = (props) => {
                 },
           })
           setData(response.data.data);
-          console.log(response.data.data)
-          console.log(response.data.data.firstName)
-          console.log(response.data.data.lastName)
+        //   console.log(response.data.data)
+        //   console.log(response.data.data.firstName)
+        //   console.log(response.data.data.lastName)
         }catch(e){
             console.log(e)
         }

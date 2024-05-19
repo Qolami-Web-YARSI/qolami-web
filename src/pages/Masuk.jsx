@@ -45,7 +45,7 @@ const Masuk = ({setTempToken}) => {
         setIsValidasi3(false)
         setIsValidasi4(true)
         console.log(response.data.data.accessToken)
-        localStorage.setItem('token', response.data.data.accessToken);
+        localStorage.setItem('token', `${response.data.data.accessToken}`);
         if(localStorage.getItem('token') !== null){
           setTempToken(true)
           localStorage.setItem('id', response.data.data.user.id);
