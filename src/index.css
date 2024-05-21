@@ -22,3 +22,7 @@
 #a:hover ~ #b {
   display: block;
 }
+
+#emailEdit {
+  background-color: #E9ECEF;
+}

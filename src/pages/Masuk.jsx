@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { IoMdClose } from "react-icons/io";
+import { BsEye } from "react-icons/bs";
+import { BsEyeSlash } from "react-icons/bs";
 
 const Masuk = ({setTempToken}) => {
     const style = { color: "#FFF6D9" }
@@ -180,17 +181,17 @@ const Masuk = ({setTempToken}) => {
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                     <label htmlFor="validationCustom03" className="form-label">Email</label>
-                    <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA]" id="emailMasuk" placeholder='Email' onBlur={email.blur} onFocus={email.focus} onChange={email.change} required/>
+                    <input type="email" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="emailMasuk" placeholder='Email' onBlur={email.blur} onFocus={email.focus} onChange={email.change} required/>
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid dan tidak boleh kosong!</p>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                     <label htmlFor="validationCustom03" className="form-label">Kata Sandi</label>
                     <div className="tw-flex tw-w-full tw-flex-row">
-                      <input type={`${getToggle? "text":"password"}`} className="form-control tw-w-[87%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base" id="passwordMasuk" placeholder='Kata Sandi' onBlur={kataSandi.blur} onFocus={kataSandi.focus} onChange={kataSandi.change} required autoComplete="password-masuk"/>
+                      <input type={`${getToggle? "password":"text"}`} className="form-control tw-w-[87%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordMasuk" placeholder='Kata Sandi' onBlur={kataSandi.blur} onFocus={kataSandi.focus} onChange={kataSandi.change} required autoComplete="password-masuk"/>
                       <button onClick={()=>buttonToggle()} type="button" className="tw-w-[13%] tw-bg-white tw-border-2 tw-border-s-0 tw-border-sd-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                         <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
-                          <img src={`${getToggle? "open.png":"close.png"}`} alt="buttonpng" className="tw-w-10 tw-items-end"/>
+                          {getToggle? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
                         </div>
                       </button>
                     </div>

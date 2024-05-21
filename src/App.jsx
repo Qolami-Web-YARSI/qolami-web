@@ -12,7 +12,6 @@ import DetailKursus from './pages/DetailKursus.jsx'
 import Detail2Kursus from './pages/Detail2Kursus.jsx';
 import DialogBerhasil from './pages/DialogBerhasil.jsx';
 import Pengaturan from './pages/Pengaturan.jsx'
-import Testing from './pages/Testing.jsx';
 
 const App = () => {
   const [tempToken, setTempToken] = useState(false)
@@ -34,15 +33,8 @@ const App = () => {
             <R3 path="/kursus" element={<Kursus tempToken={tempToken}/>}/>
             <R3 path="/:id" element={<DetailKursus tempToken={tempToken} />}/>
             <R3 path="/lessons-two/contents/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
-
-
-
-
             <R3 path="/detailLatihan/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
             <R3 path="/detailUjian/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
-
-
-            <R3 path="/testing" element={<Testing/>}/>
           </R2>
         </R1>
     </>
