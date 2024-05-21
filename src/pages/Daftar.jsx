@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import DialogBerhasil from './DialogBerhasil';
+import { IoMdClose } from "react-icons/io";
 
 const Daftar = () => {
+    const style = { color: "#FFF6D9" }
     const [htmlString, setHtmlString] = useState('');
     const [getToggle, setToggle] = useState(false)
     const [noticeNamaDepan, setNoticeNamaDepan] = useState(true)
@@ -183,25 +185,25 @@ const Daftar = () => {
                 <div className="modal-content tw-rounded-[15px]">
                   <div className="modal-body tw-px-[50px] tw-bg-[#FFF6D9] tw-rounded-[15px]">
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
-                    <button type="button" className="tw-bg-white tw-border-2 tw-rounded-lg tw-border-[#FF0000] tw-size-10 tw-opacity-0" disabled>
-                          <div className="tw-size-full tw-flex tw-flex-col tw-justify-center tw-bg-[#FF0000]">
-                            <p className="tw-font-bold tw-text-white tw-text-xl">X</p>
-                          </div>
+                      <button type="button" className="tw-opacity-0 tw-flex tw-rounded-lg tw-size-7" data-bs-dismiss="modal" disabled>
+                        <div className="tw-bg-red-500 tw-rounded-md tw-m-auto tw-text-[35px]">
+                          <IoMdClose style={style} />
+                        </div>
                       </button>
                       <div className="tw-flex tw-flex-col tw-justify-center">
                         <p className="tw-text-[#009900] tw-text-[40px] tw-font-bold tw-text-center">DAFTAR</p>
                       </div>
-                      <button type="button" className="close tw-bg-white tw-rounded-lg tw-size-7" data-bs-dismiss="modal">
-                          <div className="tw-size-full tw-flex tw-flex-col tw-justify-center tw-rounded-lg">
-                            <img src="exit.svg"/>
-                          </div>
+                      <button type="button" className="tw-flex tw-rounded-lg tw-size-7" data-bs-dismiss="modal">
+                        <div className="tw-bg-red-500 tw-rounded-md tw-m-auto tw-text-[35px]">
+                          <IoMdClose style={style} />
+                        </div>
                       </button>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-pt-2">
-                      <h1 className="modal-title fs-5 tw-opacity-0" id="daftarModalLabel">X</h1>
-                      <img src="logo-qolami.svg" alt="buttonpng" border="0" className="tw-w-[160px]" />
-                      <h1 className="modal-title fs-5 tw-opacity-0" id="daftarModalLabel">X</h1>
+                      <h1 className="modal-title fs-5 tw-opacity-0" id="daftarModalLabel"><IoMdClose style={style} /></h1>
+                      <img src="https://storage.googleapis.com/qolami-web/img/logo-qolami.svg" alt="buttonpng" border="0" className="tw-w-[160px]" />
+                      <h1 className="modal-title fs-5 tw-opacity-0" id="daftarModalLabel"><IoMdClose style={style} /></h1>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between">

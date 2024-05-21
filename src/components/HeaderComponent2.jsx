@@ -7,6 +7,7 @@ const HeaderComponent2 = () => {
     const [getNav, setNav] = useState(false)
     const [getNav2, setNav2] = useState(false)
     const [data, setData] = useState(null);
+    const [profileUrl, setProfileUrl] = useState('');
 
     const buttonNav = () => {
         setNav(!getNav)
@@ -29,9 +30,15 @@ const HeaderComponent2 = () => {
                   },
             })
             setData(response.data.data);
-            // console.log(response.data.data)
-            // console.log(response.data.data.firstName)
-            // console.log(response.data.data.lastName)
+            if(response.data.data.profileUrl.includes("/uploads/")){
+                response.data.data.profileUrl = `http://localhost:2024${response.data.data.profileUrl}`
+                console.log(response.data.data.profileUrl)
+                
+            }else{
+                response.data.data.profileUrl = response.data.data.profileUrl
+                console.log(response.data.data.profileUrl)
+            }
+            //setProfileUrl(`http://localhost:2024${response.data.data.profileUrl}`)
         }catch(e){
             console.log(e)
         }
@@ -40,7 +47,7 @@ const HeaderComponent2 = () => {
     useEffect(()=>{
         fetchData()
     }, [])
-
+    
     return(
         <>
             <NavigationComponent2 nav={getNav} buttonNavX={buttonNav}/>
@@ -61,8 +68,8 @@ const HeaderComponent2 = () => {
                     <div className="tw-hidden md:tw-flex tw-flex-row tw-justify-end tw-gap-2 tw-w-[50%] md:tw-w-[30%] tw-cursor-pointer tw-me-10">
                         <div className="md:tw-flex tw-my-auto tw-gap-3 tw-text-[#009900] hover:tw-text-black" onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
                             <p className="tw-my-auto tw-text-[15px] lg:tw-text-[20px] tw-font-bold">{data && data.firstName+" "+data.lastName}</p>
-                            <button type="button" data-bs-toggle="modal" className='tw-rounded-full' data-bs-target="#ubahPasswordModal">
-                                <img src={data && data.profileUrl} className="tw-size-[50px] tw-my-auto tw-rounded-[50px] tw-border-black"/>
+                            <button type="button" className='tw-rounded-full'>
+                                <img src={data && data.profileUrl} className="tw-size-[50px] tw-my-auto tw-rounded-[50px] tw-border-black tw-object-cover tw-object-center"/>
                             </button>
                         </div>
                     </div>

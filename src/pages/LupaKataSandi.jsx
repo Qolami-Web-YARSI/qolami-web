@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { IoMdClose } from "react-icons/io";
 
 const LupaKataSandi = () => {
+    const style = { color: "#FFF6D9" }
     const [noticeEmail, setNoticeEmail] = useState(true)
     const [tempEmail, setTempEmail] = useState(false)
     const [isValidasi, setIsValidasi] = useState(false)
@@ -40,35 +42,7 @@ const LupaKataSandi = () => {
         })
 
         console.log(response.data)
-        
         event.target.emailLupaPassword.value = ""
-        // console.log(valueEmailMasuk)
-        // const token = generateRandomString(100)
-        // response.data.map(a => {
-        //   const id = a.id.toString()
-        //   if(a.email === valueEmailMasuk && a.password === valuePasswordMasuk){
-        //     setIsValidasi3(false)
-        //     setIsValidasi4(true)
-        //     console.log("KAMU BERHASIL LOGIN")
-        //     a.token = token
-        //     axios.put(`http://localhost:2002/pengguna/${a.id}`, 
-        //     { 
-        //       id: id,
-        //       namaDepan: a.namaDepan,
-        //       namaBelakang: a.namaBelakang,
-        //       email: a.email,
-        //       password: a.password,
-        //       gambarProfile: a.gambarProfile,
-        //       token: token 
-        //     });
-        //     localStorage.setItem('token', a.token);
-        //     if(localStorage.getItem('token') !== null){
-        //       setTempToken(true)
-        //       localStorage.setItem('id', a.id);
-        //       window.location.reload();
-        //     }
-        //   }
-        // })
       } catch(e) {
         console.log(e)
       }
@@ -89,24 +63,24 @@ const LupaKataSandi = () => {
                 <div className="modal-content tw-rounded-[15px]">
                     <div className="modal-body tw-px-[50px] tw-bg-[#FFF6D9] tw-rounded-[15px]">
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-py-3">
-                        <button type="button" className="tw-bg-white tw-border-2 tw-rounded-lg tw-border-[#FF0000] tw-size-10 tw-opacity-0" disabled>
-                            <div className="tw-size-full tw-flex tw-flex-col tw-justify-center tw-bg-[#FF0000]">
-                            <p className="tw-font-bold tw-text-white tw-text-xl">X</p>
+                        <button type="button" className="tw-opacity-0 tw-flex tw-rounded-lg tw-size-7" data-bs-dismiss="modal" disabled>
+                            <div className="tw-bg-red-500 tw-rounded-md tw-m-auto tw-text-[35px]">
+                              <IoMdClose style={style} />
                             </div>
                         </button>
                         <div className="tw-flex tw-flex-col tw-justify-center">
                             <p className="tw-text-[#009900] tw-text-[30px] tw-pt-2 tw-font-bold tw-text-center">LUPA KATA SANDI</p>
                         </div>
-                        <button type="button" className="close tw-bg-white tw-rounded-lg tw-size-7" data-bs-dismiss="modal">
-                        <div className="tw-size-full tw-flex tw-flex-col tw-justify-center tw-rounded-lg">
-                          <img src="exit.svg"/>
-                        </div>
+                        <button type="button" className="tw-flex tw-rounded-md tw-size-7" data-bs-dismiss="modal">
+                            <div className="tw-bg-red-500 tw-rounded-md tw-m-auto tw-text-[35px]">
+                              <IoMdClose style={style} />
+                            </div>
                         </button>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-pt-2">
                         <h1 className="modal-title fs-5 tw-opacity-0" id="lupaPasswordModalLabel">X</h1>
-                        <img src="logo-qolami.svg" alt="buttonpng" border="0" className="tw-w-[160px]" />
+                        <img src="https://storage.googleapis.com/qolami-web/img/logo-qolami.svg" alt="buttonpng" border="0" className="tw-w-[160px]" />
                         <h1 className="modal-title fs-5 tw-opacity-0" id="lupaPasswordModalLabel">X</h1>
                     </div>
 

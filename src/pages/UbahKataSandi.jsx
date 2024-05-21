@@ -167,7 +167,7 @@ const UbahKataSandi = () => {
 
                   <div className="tw-flex tw-w-full tw-flex-row tw-justify-between tw-pt-2">
                     <h1 className="modal-title fs-5 tw-opacity-0" id="ubahPasswordModalLabel">X</h1>
-                    <img src="logo-qolami.svg" alt="buttonpng" border="0" className="tw-w-[160px]" />
+                    <img src="https://storage.googleapis.com/qolami-web/img/logo-qolami.svg" alt="buttonpng" border="0" className="tw-w-[160px]" />
                     <h1 className="modal-title fs-5 tw-opacity-0" id="ubahPasswordModalLabel">X</h1>
                   </div>
 
