@@ -11,10 +11,10 @@ const PaginationDetail2 = ({id, tempIdDetail}) => {
     }
 
     useEffect(()=>{
-        console.log(Number(id))
-        console.log(tempIdDetail)
-        console.log(tempIdDetail.indexOf(Number(id)))
-        console.log(tempIdDetail.length - 1)
+        // console.log(Number(id))
+        // console.log(tempIdDetail)
+        // console.log(tempIdDetail.indexOf(Number(id)))
+        // console.log(tempIdDetail.length - 1)
     },[])
     
     return(

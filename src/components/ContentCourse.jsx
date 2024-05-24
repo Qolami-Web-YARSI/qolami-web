@@ -34,6 +34,10 @@ const ContentCourse = ({tempToken}) => {
         datas()
     }, []);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return(
         <>
             <div className='tw-flex tw-flex-col tw-py-5 tw-bg-[#FFF6D9] tw-font-poppins'>

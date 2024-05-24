@@ -25,9 +25,9 @@ const HeaderComponent = () => {
                             <li className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"><a href="/tentang">Tentang</a></li>
                         </ul>
                     </div>
-                    <div className="tw-hidden md:tw-flex tw-flex-row tw-justify-end tw-gap-2 tw-w-[50%] md:tw-w-[30%]">
-                        <button type="button" className="tw-mx-3 lg:tw-mx-2 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-text-right" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</button>
-                        <button type="button" className="tw-bg-[#458200] hover:tw-bg-[#C2EF90] tw-px-8 tw-py-2 tw-my-5 tw-rounded-[50px] tw-font-bold tw-text-[#C2EF90] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-text-right" data-bs-toggle="modal" data-bs-target="#daftarModal">Daftar</button>
+                    <div className="tw-hidden md:tw-flex tw-flex-row tw-justify-end tw-gap-2 lg:tw-gap-3 xl:tw-gap-5 tw-w-[50%] md:tw-w-[30%]">
+                        <button type="button" className="hover:tw-bg-[#007100] tw-border-[3px] tw-border-[#009900] hover:tw-border-[#007100] tw-px-6 lg:tw-px-8 tw-py-2 tw-my-7 lg:tw-my-5 tw-rounded-[50px] tw-font-bold tw-text-[#009900] hover:tw-text-white tw-text-[15px] lg:tw-text-[20px] tw-text-right" data-bs-toggle="modal" data-bs-target="#masukModal">Masuk</button>
+                        <button type="button" className="tw-bg-[#009900] hover:tw-bg-[#007100]                                             tw-px-8 lg:tw-px-10 tw-py-2 tw-my-7 lg:tw-my-5 tw-rounded-[50px] tw-font-bold tw-text-white tw-text-[15px] lg:tw-text-[20px] tw-text-right" data-bs-toggle="modal" data-bs-target="#daftarModal">Daftar</button>
                     </div>
                     <div className="tw-flex tw-mx-4 md:tw-hidden tw-flex-row tw-justify-end tw-w-[50%] md:tw-w-[30%] ">
                         <button onClick={()=>buttonNav()} className='tw-text-[40px] sm:tw-text-[60px] hover:tw-text-[#90C963]'><FiMenu /></button>

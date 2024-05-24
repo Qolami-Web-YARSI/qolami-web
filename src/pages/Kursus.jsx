@@ -5,6 +5,15 @@ import ContentCourse from '../components/ContentCourse';
 import HeaderComponent2 from '../components/HeaderComponent2';
 
 const Kursus = ({tempToken}) => {
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+       }, [])
+    
+    useEffect(()=>{
+        localStorage.setItem('settings', 'profile')
+    },[])
+
     return(
         <>
             {tempToken ? 

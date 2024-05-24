@@ -6,6 +6,14 @@ import JumbotronComponent from '../components/JumbotronComponent';
 import ContentHomeComponent from '../components/ContentHomeComponent';
 
 const Beranda = ({tempToken}) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+       }, [])
+
+    useEffect(()=>{
+        localStorage.setItem('settings', 'profile')
+    },[])
+    
     return(
         <>
             {tempToken ? 

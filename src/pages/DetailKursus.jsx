@@ -5,6 +5,14 @@ import HeaderComponent2 from '../components/HeaderComponent2';
 import ContentDetailKursus from '../components/ContentDetailKursus';
 
 const DetailKursus = ({tempToken}) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
+    useEffect(()=>{
+        localStorage.setItem('settings', 'profile')
+    },[])
+    
     return(
         <>
             {tempToken ? 
