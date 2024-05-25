@@ -36,6 +36,12 @@ const Daftar = () => {
       return emailPattern.test(email);
     }
 
+    const handleNameInput = (event) => {
+      const value = event.target.value;
+      const filteredValue = value.replace(/[^A-Za-z]/g, '');
+      event.target.value = filteredValue;
+  }
+    
     const namaDepan = {
       change: (event) => {
         if(event.target.value.length == 0){
@@ -220,13 +226,13 @@ const Daftar = () => {
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Depan</label>
                           
-                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} name="namaDepanDaftar" id="namaDepanDaftar" placeholder='Nama Depan'/>
+                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} onInput={handleNameInput} name="namaDepanDaftar" id="namaDepanDaftar" placeholder='Nama Depan'/>
                           <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaDepan? "tw-hidden": "tw-block"}`}>Nama Depan tidak boleh kosong!</p>
                       </div>
 
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Belakang</label>
-                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" name="namaBelakangDaftar" id="namaBelakang" placeholder='Nama Belakang'/>
+                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" name="namaBelakangDaftar" id="namaBelakang" placeholder='Nama Belakang' onInput={handleNameInput}/>
                           <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang tidak boleh kosong!</p>
                       </div>
                     </div>
@@ -254,7 +260,7 @@ const Daftar = () => {
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-pt-4 ">
                       {isValidasi ? 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#009900]">
+                      <button type="submit" className="tw-bg-[#009900] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#007100]">
                         Daftar
                       </button> 
                       : 
@@ -264,7 +270,7 @@ const Daftar = () => {
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-row tw-py-2 tw-pt-5 tw-justify-center tw-gap-1">
-                      <label className="form-label tw-text-black">Udah Punya Akun?</label>
+                      <label className="form-label tw-text-[#979797]">Sudah punya akun?</label>
                       <label className="form-label tw-text-[#009900] tw-cursor-pointer tw-font-bold" data-bs-target="#masukModal" data-bs-toggle="modal">Masuk</label>
                     </div>
                   </div>

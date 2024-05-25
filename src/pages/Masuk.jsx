@@ -203,25 +203,25 @@ const Masuk = ({setTempToken}) => {
                   </div>
 
                   <div className="tw-flex tw-flex-row-reverse tw-w-full tw-py-1">
-                    <label htmlFor="validationCustom03" className="form-label tw-cursor-pointer tw-text-[#458200] hover:tw-text-[#009900]" data-bs-target="#lupaPasswordModal" data-bs-toggle="modal">Lupa Kata Sandi?</label>
+                    <label htmlFor="validationCustom03" className="form-label tw-cursor-pointer tw-text-[#009900] hover:tw-text-[#007100]" data-bs-target="#lupaPasswordModal" data-bs-toggle="modal">Lupa Kata Sandi?</label>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-col tw-py-4 ">
                     {
                       isValidasi ? 
                       isValidasi2 ? 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#009900]">Ubah</button> 
+                      <button type="submit" className="tw-bg-[#009900] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#007100]">Masuk</button> 
                       : 
-                      <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#009900]" onClick={() => validasiTrigger()}>Masuk</button> 
+                      <button type="submit" className="tw-bg-[#009900] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#007100]" onClick={() => validasiTrigger()}>Masuk</button> 
                       :
-                      <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold" disabled>Ubah</button> 
+                      <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold" disabled>Masuk</button> 
                     }
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${isValidasi3? "tw-block": "tw-hidden"}`}>Login Gagal! Periksa Apakah Email dan Password sudah sesuai!</p>
                     <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi4? "tw-block": "tw-hidden"}`}>Login Berhasil!</p>
                   </div>
 
                   <div className="tw-flex tw-w-full tw-flex-row tw-py-2 tw-pt-5 tw-justify-center tw-gap-1">
-                    <label htmlFor="validationCustom03" className="form-label tw-text-black">Belum Punya Akun?</label>
+                    <label htmlFor="validationCustom03" className="form-label tw-text-[#979797]">Belum punya akun?</label>
                     <label htmlFor="validationCustom03" className="form-label tw-text-[#009900] tw-cursor-pointer tw-font-bold" data-bs-target="#daftarModal" data-bs-toggle="modal">Daftar</label>
                   </div>
                 </div>

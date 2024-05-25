@@ -9,7 +9,7 @@ const DialogBerhasil = ({text, location, location2}) => {
                                 <div className="tw-flex tw-bg-[#DBF9F9] tw-border-[3px] tw-border-[#81DEDF] tw-rounded-[23px] tw-py-10 tw-px-12">
                                     <p className="tw-mx-auto sm:tw-text-[20px] lg:tw-text-[23px] tw-text-[#628478]">{text}</p>
                                 </div>
-                                <button type="button" className="btn btn-secondary tw-text-[23px] tw-bg-[#458200] hover:tw-bg-[#009900] tw-text-white tw-w-[100px] tw-mx-auto tw-rounded-[30px] tw-font-bold" data-bs-target={location} data-bs-toggle="modal">OK</button>
+                                <button type="button" className="btn btn-secondary tw-text-[23px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px] tw-mx-auto tw-rounded-[30px] tw-font-bold" data-bs-target={location} data-bs-toggle="modal">OK</button>
                             </div>
                         </div>
                     </div>

@@ -93,12 +93,12 @@ const LupaKataSandi = () => {
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                         <label htmlFor="validationCustom03" className="form-label">Email</label>
-                        <input type="email" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" id="emailLupaPassword" placeholder='Email' onBlur={email.blur} onFocus={email.focus} onChange={email.change} required/>
+                        <input type="email" className="form-control tw-border-2 tw-rounded-none border-[#BABABA] tw-py-3 tw-px-4" id="emailLupaPassword" placeholder='Email' onBlur={email.blur} onFocus={email.focus} onChange={email.change} required/>
                         <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid dan tidak boleh kosong!</p>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-4">
-                        {isValidasi ? <button type="submit" className="tw-bg-[#458200] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#009900]" data-bs-target="#dialogBerhasilLupaSandi" data-bs-toggle="modal">Kirim Permintaan</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold" disabled>Kirim Permintaan</button>}
+                        {isValidasi ? <button type="submit" className="tw-bg-[#009900] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold hover:tw-bg-[#007100]" data-bs-target="#dialogBerhasilLupaSandi" data-bs-toggle="modal">Kirim Permintaan</button> : <button type="submit" className="tw-bg-[#8a8a8a] tw-w-full tw-h-12 tw-rounded-full tw-text-white tw-font-bold" disabled>Kirim Permintaan</button>}
                     </div>
                     </div>
                 </div>

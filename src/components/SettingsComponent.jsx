@@ -40,6 +40,12 @@ const ContentComponent = ({ activeTab }) => {
         console.log(URL.createObjectURL(selectedFile))
     };
 
+    const handleNameInput = (event) => {
+      const value = event.target.value;
+      const filteredValue = value.replace(/[^A-Za-z]/g, '');
+      event.target.value = filteredValue;
+  }
+
     const handleFiles = () => {
       fileInputRef.current.click()
     };
@@ -238,11 +244,11 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-gap-6 tw-pt-5">
               <div className="tw-flex tw-w-[30%] tw-flex-col tw-py-2">
                 <label htmlFor="namaDepanEdit" className="form-label">Nama Depan</label>
-                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaDepanEdit" placeholder={data && data.firstName} defaultValue={data && data.firstName} />
+                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaDepanEdit" placeholder={data && data.firstName} defaultValue={data && data.firstName} onInput={handleNameInput} />
               </div>
               <div className="tw-flex tw-w-[30%] tw-flex-col tw-py-2">
                 <label htmlFor="namaBelakangEdit" className="form-label">Nama Belakang</label>
-                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaBelakangEdit" placeholder={data && data.lastName} defaultValue={data && data.lastName} />
+                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaBelakangEdit" placeholder={data && data.lastName} defaultValue={data && data.lastName} onInput={handleNameInput} />
               </div>
             </div>
             <div className="tw-flex tw-w-full tw-gap-6">
@@ -264,7 +270,7 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Kata Sandi Lama</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle1? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordLama" placeholder='Kata Sandi Lama' onBlur={kataSandiLama.blur} onFocus={kataSandiLama.focus} onChange={kataSandiLama.change} autoComplete="password-lama" required/>
+                <input type={`${getToggle1? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordLama" placeholder='Masukkan kata sandi lama' onBlur={kataSandiLama.blur} onFocus={kataSandiLama.focus} onChange={kataSandiLama.change} autoComplete="password-lama" required/>
                 <button onClick={()=>buttonToggle1()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle1? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
@@ -278,7 +284,7 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Kata Sandi Baru</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle2? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordBaru" placeholder='Kata Sandi Baru' onBlur={kataSandiBaru.blur} onFocus={kataSandiBaru.focus} onChange={kataSandiBaru.change} autoComplete="password-baru" required/>
+                <input type={`${getToggle2? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordBaru" placeholder='Masukkan kata sandi baru' onBlur={kataSandiBaru.blur} onFocus={kataSandiBaru.focus} onChange={kataSandiBaru.change} autoComplete="password-baru" required/>
                 <button onClick={()=>buttonToggle2()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle2? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
@@ -291,7 +297,7 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Konfirmasi Kata Sandi Baru</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle3? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="konfirmasiPasswordBaru" placeholder='Konfirmasi Kata Sandi Baru' onBlur={konfirmasiKataSandiBaru.blur} onFocus={konfirmasiKataSandiBaru.focus} onChange={konfirmasiKataSandiBaru.change} autoComplete="konfrimasi-password-baru" required/>
+                <input type={`${getToggle3? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="konfirmasiPasswordBaru" placeholder='Konfirmasi kata sandi baru' onBlur={konfirmasiKataSandiBaru.blur} onFocus={konfirmasiKataSandiBaru.focus} onChange={konfirmasiKataSandiBaru.change} autoComplete="konfrimasi-password-baru" required/>
                 <button onClick={()=>buttonToggle3()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle3? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
@@ -304,9 +310,9 @@ const ContentComponent = ({ activeTab }) => {
 
             <div>
               {isValidasi ? 
-              <button type="submit" className="tw-bg-[#009900] tw-p-3 tw-px-6 tw-text-white tw-font-bold hover:tw-bg-[#009900] tw-mt-4">Simpan Perubahan</button> 
+              <button type="submit" className="tw-bg-[#009900] tw-p-3 tw-px-6 tw-text-white tw-font-bold hover:tw-bg-[#007100] tw-mt-4">Simpan Perubahan</button> 
                 :
-              <button className="tw-bg-[#8a8a8a] tw-p-3 tw-px-6 tw-text-white tw-font-bold hover:tw-bg-[#009900] tw-mt-4" disabled>Simpan Perubahan</button> 
+              <button className="tw-bg-[#8a8a8a] tw-p-3 tw-px-6 tw-text-white tw-font-bold tw-mt-4" disabled>Simpan Perubahan</button> 
               }
               <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi2? "tw-block": "tw-hidden"}`}>Menggubah Password Berhasil!</p>
             </div>
