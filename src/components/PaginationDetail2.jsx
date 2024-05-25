@@ -25,7 +25,7 @@ const PaginationDetail2 = ({id, tempIdDetail}) => {
                 ) : (
                     <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[(tempIdDetail.indexOf(Number(id))) - 1]}`}><FiArrowLeft /></Link></button>
                 )}
-                <button className='tw-text-[40px] md:tw-text-[60px] hover:tw-text-[#90C963]'><Link to={`/lessons-two`}><FiMenu /></Link></button>
+                <button className='tw-text-[40px] md:tw-text-[60px] hover:tw-text-[#90C963]'><Link to={`/${localStorage.getItem('idDetail')}`}><FiMenu /></Link></button>
                 {tempIdDetail.indexOf(Number(id)) === tempIdDetail.length - 1 ? (
                     <button className=' tw-bg-[#C2EF90] hover:tw-bg-[#90C963] tw-my-5 tw-p-2 tw-rounded-full tw-text-[40px] md:tw-text-[60px]' onClick={load}><Link to={`/lessons-two/contents/${tempIdDetail[0]}`}><FiArrowRight /></Link></button>
                 ) : (

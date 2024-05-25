@@ -73,15 +73,15 @@ const ContentDetail2Kursus = () => {
                                 {item && (
                                     <div className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%] tw-font-poppins'>
                                     <div className="tw-flex tw-flex-col tw-pt-20 sm:tw-pt-28 lg:tw-pt-40 tw-pb-8 sm:tw-pb-14">
-                                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Pelajaran 2</p>
-                                        <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{`${item.hurufName} Berharakat Fathah`}</p>
+                                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Pelajaran 1</p>
+                                        <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{`${item.hurufName} Huruf Hijaiyah`}</p>
                                     </div>
                                     <div className='tw-flex tw-gap-4 tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32'>
                                         <button className='tw-flex tw-text-[10px] md:tw-text-[20px] lg:tw-text-[30px] tw-invert tw-bg-white tw-rounded-full tw-p-2 tw-my-auto'>
                                             <IoVolumeHigh />
                                         </button>
                                         <div className='tw-flex tw-my-auto'>
-                                            <p className='tw-text-[10px] sm:tw-text-[14px] md:tw-text-[25px] 2xl:tw-text-[30px] tw-font-bold'>Perhatikan pengucapan huruf berharakat! </p>
+                                            <p className='tw-text-[10px] sm:tw-text-[14px] md:tw-text-[25px] 2xl:tw-text-[30px] tw-font-bold'>Perhatikan pengucapan huruf hijaiyah! </p>
                                         </div>
                                     </div>
                                     <div className='tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32'>
@@ -100,7 +100,7 @@ const ContentDetail2Kursus = () => {
                                                     <RiPencilFill />
                                                 </button>
                                                 <div className='tw-flex tw-my-auto'>
-                                                    <p className='tw-text-[13px] sm:tw-text-[16px] md:tw-text-[20px] lg:tw-text-[25px] 2xl:tw-text-[35px] tw-font-bold sm:tw-leading-4 md:tw-leading-7 lg:tw-leading-8 xl:tw-leading-10'>Perhatikan huruf <br></br> berharakat di samping!</p>
+                                                    <p className='tw-text-[13px] sm:tw-text-[16px] md:tw-text-[20px] lg:tw-text-[25px] 2xl:tw-text-[35px] tw-font-bold sm:tw-leading-4 md:tw-leading-7 lg:tw-leading-8 xl:tw-leading-10'>Perhatikan huruf <br></br> hijaiyah di samping!</p>
                                                 </div>
                                             </div>
                                             <div className='tw-flex tw-gap-4'>

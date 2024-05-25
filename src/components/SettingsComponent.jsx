@@ -264,7 +264,7 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Kata Sandi Lama</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle1? "password":"text"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordLama" placeholder='Kata Sandi Lama' onBlur={kataSandiLama.blur} onFocus={kataSandiLama.focus} onChange={kataSandiLama.change} autoComplete="password-lama" required/>
+                <input type={`${getToggle1? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordLama" placeholder='Kata Sandi Lama' onBlur={kataSandiLama.blur} onFocus={kataSandiLama.focus} onChange={kataSandiLama.change} autoComplete="password-lama" required/>
                 <button onClick={()=>buttonToggle1()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle1? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
@@ -278,7 +278,7 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Kata Sandi Baru</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle2? "password":"text"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordBaru" placeholder='Kata Sandi Baru' onBlur={kataSandiBaru.blur} onFocus={kataSandiBaru.focus} onChange={kataSandiBaru.change} autoComplete="password-baru" required/>
+                <input type={`${getToggle2? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordBaru" placeholder='Kata Sandi Baru' onBlur={kataSandiBaru.blur} onFocus={kataSandiBaru.focus} onChange={kataSandiBaru.change} autoComplete="password-baru" required/>
                 <button onClick={()=>buttonToggle2()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle2? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
@@ -291,7 +291,7 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Konfirmasi Kata Sandi Baru</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle3? "password":"text"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="konfirmasiPasswordBaru" placeholder='Konfirmasi Kata Sandi Baru' onBlur={konfirmasiKataSandiBaru.blur} onFocus={konfirmasiKataSandiBaru.focus} onChange={konfirmasiKataSandiBaru.change} autoComplete="konfrimasi-password-baru" required/>
+                <input type={`${getToggle3? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="konfirmasiPasswordBaru" placeholder='Konfirmasi Kata Sandi Baru' onBlur={konfirmasiKataSandiBaru.blur} onFocus={konfirmasiKataSandiBaru.focus} onChange={konfirmasiKataSandiBaru.change} autoComplete="konfrimasi-password-baru" required/>
                 <button onClick={()=>buttonToggle3()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle3? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
