@@ -17,9 +17,14 @@ const DialogBerhasil3 = ({id, id2}) => {
                                     <p className="tw-mx-auto sm:tw-text-[20px] lg:tw-text-[23px] tw-text-[#628478]">Apakah Anda yakin ingin memulai latihan?</p>
                                 </div>
                                 <div className='tw-flex tw-mx-auto tw-gap-10'>
-                                    <button className="btn btn-secondary tw-text-[20px] tw-bg-[#E9ECEF] hover:tw-bg-[#E0E0E3] tw-border-2 tw-border-[#BABABA] hover:tw-border-[#BABABA] tw-text-black hover:tw-text-black tw-w-[100px] tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Batal</button>
+                                    <button 
+                                    className="btn btn-secondary tw-text-[20px] tw-bg-[#E9ECEF] hover:tw-bg-[#E0E0E3] 
+                                    tw-border-2 tw-border-[#BABABA] hover:tw-border-[#BABABA] tw-text-black hover:tw-text-black tw-w-[100px] 
+                                    tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Batal</button>
                                     <Link to={`/${id}/exercise/${id2}`}>
-                                        <button className="btn btn-secondary tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px] tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Mulai</button>
+                                        <button 
+                                        className="btn btn-secondary tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px] tw-rounded-none tw-font-bold" 
+                                        data-bs-dismiss="modal">Mulai</button>
                                     </Link>
                                 </div>
                             </div>

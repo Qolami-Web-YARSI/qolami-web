@@ -22,32 +22,30 @@ const ContentHomeComponent = () => {
                         <p className="sm:tw-text-[35px] md:tw-text-[45px] lg:tw-text-[55px]
                          tw-text-[#458200] tw-bg-[#C2EF90] tw-w-fit tw-my-5 tw-rounded-[20px] tw-rounded-ee-none tw-font-bold tw-px-8">Qolami</p>
                         <p className="tw-text-[16px] tw-text-[#C2EF90] sm:tw-text-[22px] md:tw-text-[24px] lg:tw-text-[32px] 
-                        md:tw-pe-10 tw-text-justify">Bacaan <span className="tw-font-bold">Qolami</span> atau seni tulisan khat adalah semi tulisan Arab yang khas dengan nilai estetika dan spiritual yang tinggi. Selain itu, seni tulisan khat merupakan bagian penting yang menjadi bagian integral dari warisan budaya Islam.</p>
+                        md:tw-pe-10 tw-text-justify">Bacaan <span 
+                        className="tw-font-bold">Qolami</span> atau seni tulisan khat adalah semi tulisan Arab yang khas 
+                        dengan nilai estetika dan spiritual yang tinggi. Selain itu, seni tulisan khat merupakan bagian penting yang menjadi bagian integral dari warisan budaya Islam.</p>
                     </div>
                 </div>
             </div>
-
-
-
             <div className="tw-flex tw-flex-col tw-w-full tw-bg-[#FFF6D9] tw-pt-14 tw-pb-10 sm:tw-pt-20">
                 <div className="tw-flex tw-justify-between">
-                    <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-py-1 md:tw-py-0 tw-font-bold tw-mx-auto tw-text-center tw-text-[#009900]">DIREKOMENDASIKAN UNTUK</p>
+                    <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-py-1 
+                    md:tw-py-0 tw-font-bold tw-mx-auto tw-text-center tw-text-[#009900]">DIREKOMENDASIKAN UNTUK</p>
                 </div>
                 <div className="tw-flex tw-justify-between tw-border-b-4 tw-border-[#009900] tw-pb-10 md:tw-pb-16">
-                    <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-10 tw-gap-10 md:tw-gap-0 md:tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]">
+                    <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3
+                     tw-justify-around tw-m-auto md:tw-bg-[#C2EF90] tw-rounded-[30px] tw-my-10 tw-gap-10 md:tw-gap-0 md:tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)]">
                         <CardContentHome1 judul={judul[0]} gambar={gambar[0]}/>
                         <CardContentHome1 judul={judul[1]} gambar={gambar[1]}/>
                         <CardContentHome1 judul={judul[2]} gambar={gambar[2]}/>
                     </div>
                 </div>
             </div>
-
-
-
-
             <div className="tw-flex tw-flex-col tw-w-full tw-bg-[#FFF6D9]">
                 <div className="tw-flex tw-justify-between">
-                    <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] tw-font-bold tw-py-1 md:tw-py-3 tw-pb-1 sm:tw-pb-10 tw-mx-auto tw-text-center tw-text-[#009900]">FITUR-FITUR KURSUS</p>
+                    <p className="tw-text-[28px] sm:tw-text-[35px] md:tw-text-[40px] lg:tw-text-[55px] 
+                    tw-font-bold tw-py-1 md:tw-py-3 tw-pb-1 sm:tw-pb-10 tw-mx-auto tw-text-center tw-text-[#009900]">FITUR-FITUR KURSUS</p>
                 </div>
                 <div className="tw-flex tw-justify-between">
                     <div className="tw-w-[90%] lg:tw-w-[80%] tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-3 tw-justify-around tw-m-auto tw-my-10 tw-gap-10 tw-pb-10 md:tw-pb-12">

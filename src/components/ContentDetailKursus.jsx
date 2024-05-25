@@ -87,7 +87,8 @@ const ContentDetailKursus = () => {
                                 if(["ج", "ح", "خ", "ر"].includes(a.hurufHijaiyah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                             {a.hurufHijaiyah}
                                         </p>
@@ -97,7 +98,8 @@ const ContentDetailKursus = () => {
                                 }else if(["د", "ذ", "ك", "ط", "ظ", "ف"].includes(a.hurufHijaiyah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                    <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                    <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                    2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                       <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufHijaiyah}
                                       </p>
@@ -107,7 +109,8 @@ const ContentDetailKursus = () => {
                                 }else if(["ي"].includes(a.hurufHijaiyah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                             {a.hurufHijaiyah}
                                         </p>
@@ -117,7 +120,8 @@ const ContentDetailKursus = () => {
                                 }else if(["ن", "ق", "ع", "غ", "و"].includes(a.hurufHijaiyah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufHijaiyah}
                                         </p>
@@ -127,7 +131,8 @@ const ContentDetailKursus = () => {
                                 }else if(["م"].includes(a.hurufHijaiyah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufHijaiyah}
                                         </p>
@@ -137,7 +142,8 @@ const ContentDetailKursus = () => {
                                 } else {
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufHijaiyah}
                                         </p>
@@ -170,7 +176,8 @@ const ContentDetailKursus = () => {
                                 if(["ج", "ح", "خ", "ر"].includes(a.hurufBerharakatFathah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                             {a.hurufBerharakatFathah}
                                         </p>
@@ -180,7 +187,8 @@ const ContentDetailKursus = () => {
                                 }else if(["د", "ذ", "ك", "ط", "ظ", "ف"].includes(a.hurufBerharakatFathah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                    <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                    <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
+                                    lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                       <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufBerharakatFathah}
                                       </p>
@@ -190,7 +198,8 @@ const ContentDetailKursus = () => {
                                 }else if(["ي"].includes(a.hurufBerharakatFathah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                             {a.hurufBerharakatFathah}
                                         </p>
@@ -200,7 +209,8 @@ const ContentDetailKursus = () => {
                                 }else if(["ن", "ق", "ع", "غ", "و"].includes(a.hurufBerharakatFathah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufBerharakatFathah}
                                         </p>
@@ -210,7 +220,8 @@ const ContentDetailKursus = () => {
                                 }else if(["م"].includes(a.hurufBerharakatFathah)){
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufBerharakatFathah}
                                         </p>
@@ -220,7 +231,8 @@ const ContentDetailKursus = () => {
                                 } else {
                                   return(
                                     <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`} onClick={() => audioPlay(a.audio)}>
+                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
                                         <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
                                           {a.hurufBerharakatFathah}
                                         </p>

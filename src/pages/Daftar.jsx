@@ -226,20 +226,23 @@ const Daftar = () => {
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Depan</label>
                           
-                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={namaDepan.blur} onFocus={namaDepan.focus} onChange={namaDepan.change} onInput={handleNameInput} name="namaDepanDaftar" id="namaDepanDaftar" placeholder='Nama Depan'/>
+                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={namaDepan.blur} 
+                          onFocus={namaDepan.focus} onChange={namaDepan.change} onInput={handleNameInput} name="namaDepanDaftar" id="namaDepanDaftar" placeholder='Nama Depan'/>
                           <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaDepan? "tw-hidden": "tw-block"}`}>Nama Depan tidak boleh kosong!</p>
                       </div>
 
                       <div className="tw-flex tw-w-[47%] tw-flex-col tw-py-2">
                           <label className="form-label">Nama Belakang</label>
-                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" name="namaBelakangDaftar" id="namaBelakang" placeholder='Nama Belakang' onInput={handleNameInput}/>
+                          <input type="text" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" name="namaBelakangDaftar" id="namaBelakang" 
+                          placeholder='Nama Belakang' onInput={handleNameInput}/>
                           <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeNamaBelakang? "tw-hidden": "tw-block"}`}>Nama Belakang tidak boleh kosong!</p>
                       </div>
                     </div>
 
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                       <label className="form-label">Email</label>
-                      <input type="email" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={email.blur} onFocus={email.focus} onChange={email.change} name="emailDaftar" id="emailDaftar" placeholder='Email' required/>
+                      <input type="email" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={email.blur} onFocus={email.focus} 
+                      onChange={email.change} name="emailDaftar" id="emailDaftar" placeholder='Email' required/>
                       <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid</p>
                       {htmlString && <p className="tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic">{htmlString}</p>}
                     </div>
@@ -247,14 +250,18 @@ const Daftar = () => {
                     <div className="tw-flex tw-w-full tw-flex-col tw-py-2">
                       <label className="form-label">Kata Sandi</label>
                       <div className="tw-flex tw-w-full tw-flex-row">
-                        <input type={`${getToggle? "text":"password"}`} className="form-control tw-w-[87%] tw-border-2 tw-border-e-0 tw-rounded-none tw-rounded-e-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={kataSandi.blur} onFocus={kataSandi.focus} onChange={kataSandi.change} id="passwordDaftar" name="passwordDaftar" placeholder='Kata Sandi' required autoComplete="password-daftar"/>
-                        <button onClick={()=>buttonToggle()} type="button" className="tw-w-[13%] tw-bg-white tw-border-2 tw-border-s-0 tw-border-sd-0 tw-rounded-none tw-rounded-s-none tw-border-[#BABABA]">
+                        <input type={`${getToggle? "text":"password"}`} 
+                        className="form-control tw-w-[87%] tw-border-2 tw-border-e-0 tw-rounded-none tw-rounded-e-none tw-border-[#BABABA] tw-py-3 tw-px-4" 
+                        onBlur={kataSandi.blur} onFocus={kataSandi.focus} onChange={kataSandi.change} 
+                        id="passwordDaftar" name="passwordDaftar" placeholder='Kata Sandi' required autoComplete="password-daftar"/>
+                        <button onClick={()=>buttonToggle()} type="button" 
+                        className="tw-w-[13%] tw-bg-white tw-border-2 tw-border-s-0 tw-border-sd-0 tw-rounded-none tw-rounded-s-none tw-border-[#BABABA]">
                           <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                             {getToggle? <BsEyeSlash style={{fontSize: "20px"}}/> : <BsEye style={{fontSize: "20px"}} />}
                           </div>
                         </button>
                       </div>
-                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8</p>
+                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 karakter</p>
                       
                     </div>
 

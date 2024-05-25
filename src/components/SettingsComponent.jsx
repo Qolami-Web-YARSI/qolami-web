@@ -235,7 +235,8 @@ const ContentComponent = ({ activeTab }) => {
           <form onSubmit={handleSubmitEditProfile} className='tw-pt-5'>
             <div className="tw-flex tw-w-full tw-flex-row tw-py-3 tw-gap-11">
               <div className='tw-flex tw-size-[200px] tw-rounded-full'>
-                <img src={previewUrl || (data && data.profileUrl)} className='tw-size-[200px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-rounded-full tw-object-cover tw-object-center tw-mx-auto' alt="profile" />
+                <img src={previewUrl || (data && data.profileUrl)} className='tw-size-[200px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-rounded-full 
+                tw-object-cover tw-object-center tw-mx-auto' alt="profile" />
               </div>
               <div className="tw-flex tw-flex-col tw-my-auto">
                 <button type="button" onClick={handleFiles} className="tw-bg-[#009900] tw-p-3 tw-text-white tw-font-bold hover:tw-bg-[#007100]">Pilih Foto</button>
@@ -244,17 +245,20 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-gap-6 tw-pt-5">
               <div className="tw-flex tw-w-[30%] tw-flex-col tw-py-2">
                 <label htmlFor="namaDepanEdit" className="form-label">Nama Depan</label>
-                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaDepanEdit" placeholder={data && data.firstName} defaultValue={data && data.firstName} onInput={handleNameInput} />
+                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaDepanEdit" 
+                placeholder={data && data.firstName} defaultValue={data && data.firstName} onInput={handleNameInput} />
               </div>
               <div className="tw-flex tw-w-[30%] tw-flex-col tw-py-2">
                 <label htmlFor="namaBelakangEdit" className="form-label">Nama Belakang</label>
-                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaBelakangEdit" placeholder={data && data.lastName} defaultValue={data && data.lastName} onInput={handleNameInput} />
+                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-py-3" id="namaBelakangEdit" 
+                placeholder={data && data.lastName} defaultValue={data && data.lastName} onInput={handleNameInput} />
               </div>
             </div>
             <div className="tw-flex tw-w-full tw-gap-6">
               <div className="tw-flex tw-w-[63%] tw-flex-col tw-py-2">
                 <label htmlFor="emailEdit" className="form-label">Email</label>
-                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-placeholder-[#979797] tw-py-3" id="emailEdit" placeholder={data && data.email} disabled/>
+                <input type="text" className="form-control tw-border-2 tw-rounded-lg tw-border-[#BABABA] tw-placeholder-[#979797] tw-py-3" id="emailEdit" 
+                placeholder={data && data.email} disabled/>
               </div>
             </div>
             <button type="submit" className="tw-bg-[#009900] tw-p-3 tw-px-6 tw-text-white tw-font-bold hover:tw-bg-[#007100] tw-mt-4">Simpan Perubahan</button>
@@ -270,42 +274,54 @@ const ContentComponent = ({ activeTab }) => {
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Kata Sandi Lama</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle1? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordLama" placeholder='Masukkan kata sandi lama' onBlur={kataSandiLama.blur} onFocus={kataSandiLama.focus} onChange={kataSandiLama.change} autoComplete="password-lama" required/>
+                <input type={`${getToggle1? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg 
+                tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordLama" placeholder='Masukkan kata sandi lama' 
+                onBlur={kataSandiLama.blur} onFocus={kataSandiLama.focus} onChange={kataSandiLama.change} autoComplete="password-lama" required/>
                 <button onClick={()=>buttonToggle1()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle1? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
                   </div>
                 </button>
               </div>
-              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
-              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama2? "tw-hidden": "tw-block"}`}>Password harus sama dengan yang lama!</p>
+              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama? "tw-hidden": "tw-block"}`}>
+                Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
+              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama2? "tw-hidden": "tw-block"}`}>
+                Password harus sama dengan yang lama!</p>
             </div>
 
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Kata Sandi Baru</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle2? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordBaru" placeholder='Masukkan kata sandi baru' onBlur={kataSandiBaru.blur} onFocus={kataSandiBaru.focus} onChange={kataSandiBaru.change} autoComplete="password-baru" required/>
+                <input type={`${getToggle2? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg 
+                tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="passwordBaru" placeholder='Masukkan kata sandi baru' 
+                onBlur={kataSandiBaru.blur} onFocus={kataSandiBaru.focus} onChange={kataSandiBaru.change} autoComplete="password-baru" required/>
                 <button onClick={()=>buttonToggle2()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle2? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
                   </div>
                 </button>
               </div>
-              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiBaru? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
+              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiBaru? "tw-hidden": "tw-block"}`}>
+                Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
             </div>
 
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
               <label htmlFor="validationCustom03" className="form-label">Konfirmasi Kata Sandi Baru</label>
               <div className="tw-flex tw-w-full tw-flex-row">
-                <input type={`${getToggle3? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="konfirmasiPasswordBaru" placeholder='Konfirmasi kata sandi baru' onBlur={konfirmasiKataSandiBaru.blur} onFocus={konfirmasiKataSandiBaru.focus} onChange={konfirmasiKataSandiBaru.change} autoComplete="konfrimasi-password-baru" required/>
-                <button onClick={()=>buttonToggle3()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg tw-rounded-s-none tw-border-[#BABABA]">
+                <input type={`${getToggle3? "text":"password"}`} className="form-control tw-w-[57%] tw-border-2 tw-border-e-0 tw-rounded-lg 
+                tw-rounded-e-none tw-border-[#BABABA] tw-text-base tw-py-3" id="konfirmasiPasswordBaru" placeholder='Konfirmasi kata sandi baru' 
+                onBlur={konfirmasiKataSandiBaru.blur} onFocus={konfirmasiKataSandiBaru.focus} onChange={konfirmasiKataSandiBaru.change} autoComplete="konfrimasi-password-baru" required/>
+                <button onClick={()=>buttonToggle3()} type="button" className="tw-w-[7%] tw-bg-white tw-border-2 tw-border-s-0 tw-rounded-lg 
+                tw-rounded-s-none tw-border-[#BABABA]">
                   <div className="tw-w-full tw-flex tw-flex-row tw-justify-center">
                     {getToggle3? <BsEyeSlash style={{fontSize: "35px"}}/> : <BsEye style={{fontSize: "35px"}} />}
                   </div>
                 </button>
               </div>
-              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 dan tidak boleh kosong!</p>
-              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru2? "tw-hidden": "tw-block"}`}>Password yang dimasukkan tidak cocok dengan yang baru!</p>
+              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru? "tw-hidden": "tw-block"}`}>
+                Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
+              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru2? "tw-hidden": "tw-block"}`}>
+                Password yang dimasukkan tidak cocok dengan yang baru!</p>
             </div>
 
             <div>
@@ -343,8 +359,10 @@ const SettingsComponent = () => {
       <div className="tw-flex tw-pt-48 tw-pb-20 tw-px-36 tw-font-poppins tw-mx-auto tw-bg-[#FFF6D9]">
         <ul className="tw-flex tw-flex-col tw-w-[25%]">
           <li className="tw-text-[35px] tw-pb-6">Pengaturan</li>
-          <li className={`tw-text-[21px] tw-flex tw-gap-3 tw-ps-10 tw-py-4 hover:tw-bg-[#C2EF90] ${activeTab === 'profile' ? 'tw-bg-[#C2EF90]' : ''}`} onClick={() => handleTabClick('profile')}><FiUser style={{fontSize : "38px"}}/><button className='tw-text-start' >Profil</button></li>
-          <li className={`tw-text-[21px] tw-flex tw-gap-3 tw-ps-10 tw-py-4 hover:tw-bg-[#C2EF90] ${activeTab === 'ubahSandi' ? 'tw-bg-[#C2EF90]' : ''}`} onClick={() => handleTabClick('ubahSandi')}><FiLock style={{fontSize : "38px"}}/><button className='tw-text-start'>Ubah Kata Sandi</button></li>
+          <li className={`tw-text-[21px] tw-flex tw-gap-3 tw-ps-10 tw-py-4 hover:tw-bg-[#C2EF90] ${activeTab === 'profile' ? 'tw-bg-[#C2EF90]' : ''}`} 
+          onClick={() => handleTabClick('profile')}><FiUser style={{fontSize : "38px"}}/><button className='tw-text-start' >Profil</button></li>
+          <li className={`tw-text-[21px] tw-flex tw-gap-3 tw-ps-10 tw-py-4 hover:tw-bg-[#C2EF90] ${activeTab === 'ubahSandi' ? 'tw-bg-[#C2EF90]' : ''}`} 
+          onClick={() => handleTabClick('ubahSandi')}><FiLock style={{fontSize : "38px"}}/><button className='tw-text-start'>Ubah Kata Sandi</button></li>
         </ul>
         <div className='tw-w-[75%] tw-mt-7'>
           <ContentComponent activeTab={activeTab} />

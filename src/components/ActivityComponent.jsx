@@ -42,7 +42,9 @@ const ActivityComponent = () => {
                     <p className="tw-text-[35px] tw-pb-6">Aktifitas</p>
                     <div className='tw-flex tw-flex-col tw-gap-6'>
                         <div className='tw-flex tw-size-[200px] tw-rounded-full tw-mx-auto'>
-                            <img src={previewUrl || (data && data.profileUrl)} className='tw-size-[200px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-rounded-full tw-object-cover tw-object-center tw-mx-auto' alt="profile" />
+                            <img src={previewUrl || (data && data.profileUrl)} 
+                            className='tw-size-[200px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-rounded-full tw-object-cover 
+                            tw-object-center tw-mx-auto' alt="profile" />
                         </div>
                         <p className="tw-mx-auto tw-text-[35px] tw-pb-6 tw-text-center">{data && data.firstName+" "+data.lastName}</p>
                     </div>
