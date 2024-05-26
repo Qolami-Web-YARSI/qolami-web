@@ -8,10 +8,8 @@ import { RiPencilFill } from "react-icons/ri";
 
 const ContentDetail2Kursus = () => {
     const [item, setItem] = useState(null);
-    const [item2, setItem2] = useState(null);
-    const [item3, setItem3] = useState(null);
-    const [tempIdDetail, setTempIdDetail] = useState([])
-    const [latihanContent, setLatihanContent] =useState(null)
+    const [tempIdDetail, setTempIdDetail] = useState([]);
+    const [latihanContent, setLatihanContent] =useState(null);
     const [selectedButton, setSelectedButton] = useState(null);
     const { id } = useParams();
 
@@ -19,7 +17,6 @@ const ContentDetail2Kursus = () => {
         try{
             const response = await axios.get(`http://localhost:2024/${localStorage.getItem("idDetail")}/contents/${id}`)
             setItem(response.data.data[0])
-            //console.log(item)
         }catch(e){
             console.log(e)
         }
@@ -41,23 +38,21 @@ const ContentDetail2Kursus = () => {
                 if(b.id.includes(id)){
                     setLatihanContent(b)
                 }
-                
             })
-            
         })
-        console.log(latihanContent)
     }
 
     const handleButtonClick = (a) => {
-        setSelectedButton(a);
+        setSelectedButton(a)
+        // Kursus.map((b) => {
+        //     b.detail.map((c) => {
+        //         c.soalJawaban.map((d) => {
+        //             // setSelectedButton(a);
+        //             console.log(d)
+        //         })
+        //     })
+        // })
     };
-
-    const buttons = [
-        { id: 1, text: "A", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
-        { id: 2, text: "B", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
-        { id: 3, text: "C", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
-        { id: 4, text: "D", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
-    ];
 
     useEffect(()=>{
         detailApi()
@@ -201,15 +196,28 @@ const ContentDetail2Kursus = () => {
                                         <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{latihanContent.deskripsi}</p>
                                     </div>
                                     <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32 tw-font-poppins'>
-                                        <div className='tw-bg-red-500 tw-h-[500px] tw-w-[100%]'>
+                                        <div className='tw-bg-red-500 tw-h-[650px] tw-w-[100%]'>
                                             <ul>
                                                 <div className='tw-flex tw-flex-col tw-gap-5'>
-                                                    {latihanContent.soalJawaban.map((a, index) => (
-                                                        <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
-                                                        // {a.opsi.map((b) => (
-                                                            
-                                                        // ))}
-                                                    ))}
+                                                    {latihanContent.soalJawaban.map((a, index) => {
+                                                        return(
+                                                            <>
+                                                                <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
+                                                                <div className='tw-flex tw-gap-8 tw-justify-between' key={a.id}>
+                                                                    {a.opsi.map((b) => (
+                                                                        <div className='tw-flex tw-gap-4' key={b.id}>
+                                                                            <button onClick={() => {handleButtonClick(b.id)} } className={`tw-flex 
+                                                                            ${selectedButton === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'}
+                                                                            hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                                <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                                                                            </button>
+                                                                            <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </>
+                                                        )
+                                                    })}
                                                 </div>
                                             </ul>
                                         </div>

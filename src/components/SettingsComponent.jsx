@@ -330,7 +330,7 @@ const ContentComponent = ({ activeTab }) => {
                 :
               <button className="tw-bg-[#8a8a8a] tw-p-3 tw-px-6 tw-text-white tw-font-bold tw-mt-4" disabled>Simpan Perubahan</button> 
               }
-              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi2? "tw-block": "tw-hidden"}`}>Menggubah Password Berhasil!</p>
+              <p className={`tw-text-[13px] tw-ms-2 tw-text-[#458200] tw-italic ${isValidasi2? "tw-block": "tw-hidden"}`}>Mengubah password berhasil!</p>
             </div>
           </form>
         </div>
