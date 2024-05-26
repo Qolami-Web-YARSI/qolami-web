@@ -12,6 +12,7 @@ const ContentDetail2Kursus = () => {
     const [item3, setItem3] = useState(null);
     const [tempIdDetail, setTempIdDetail] = useState([])
     const [latihanContent, setLatihanContent] =useState(null)
+    const [selectedButton, setSelectedButton] = useState(null);
     const { id } = useParams();
 
     const detail2Api = async () => {
@@ -46,6 +47,17 @@ const ContentDetail2Kursus = () => {
         })
         console.log(latihanContent)
     }
+
+    const handleButtonClick = (a) => {
+        setSelectedButton(a);
+    };
+
+    const buttons = [
+        { id: 1, text: "A", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
+        { id: 2, text: "B", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
+        { id: 3, text: "C", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
+        { id: 4, text: "D", imgSrc: "https://i.pinimg.com/1200x/52/92/00/52920073b5817fe0787666612607ed5a.jpg" },
+    ];
 
     useEffect(()=>{
         detailApi()
@@ -188,9 +200,18 @@ const ContentDetail2Kursus = () => {
                                         tw-text-center tw-pt-5 tw-mx-auto">{latihanContent.nama}</p>
                                         <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{latihanContent.deskripsi}</p>
                                     </div>
-                                    <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
+                                    <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32 tw-font-poppins'>
                                         <div className='tw-bg-red-500 tw-h-[500px] tw-w-[100%]'>
-                                            <p>ssd</p>
+                                            <ul>
+                                                <div className='tw-flex tw-flex-col tw-gap-5'>
+                                                    {latihanContent.soalJawaban.map((a, index) => (
+                                                        <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
+                                                        // {a.opsi.map((b) => (
+                                                            
+                                                        // ))}
+                                                    ))}
+                                                </div>
+                                            </ul>
                                         </div>
                                     </div>
                                     </div>
