@@ -44,14 +44,15 @@ const ContentDetail2Kursus = () => {
 
     const handleButtonClick = (a) => {
         setSelectedButton(a)
-        // Kursus.map((b) => {
-        //     b.detail.map((c) => {
-        //         c.soalJawaban.map((d) => {
-        //             // setSelectedButton(a);
-        //             console.log(d)
-        //         })
-        //     })
-        // })
+        Kursus.map((b) => {
+            b.detail.map((c) => {
+                console.log(c.soalJawaban.id)
+                // c.soalJawaban.map((d) => {
+                //     // setSelectedButton(a);
+                //     console.log(d)
+                // })
+            })
+        })
     };
 
     useEffect(()=>{
@@ -237,9 +238,31 @@ const ContentDetail2Kursus = () => {
                                         <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{latihanContent.deskripsi}</p>
                                     </div>
                                     <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
-                                        <div className='tw-bg-green-500 tw-h-[500px] tw-w-[100%]'>
+                                        <div className='tw-bg-green-500 tw-h-[650px] tw-w-[100%]'>
                                             <div className='tw-flex'>
-                                                <ol></ol>
+                                            <ul>
+                                                <div className='tw-flex tw-flex-col tw-gap-5'>
+                                                    {latihanContent.soalJawaban.map((a, index) => {
+                                                        return(
+                                                            <>
+                                                                <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
+                                                                <div className='tw-flex tw-gap-8 tw-justify-between' key={a.id}>
+                                                                    {a.opsi.map((b) => (
+                                                                        <div className='tw-flex tw-gap-4' key={b.id}>
+                                                                            <button onClick={() => {handleButtonClick(b.id)} } className={`tw-flex 
+                                                                            ${selectedButton === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'}
+                                                                            hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                                <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                                                                            </button>
+                                                                            <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -257,8 +280,30 @@ const ContentDetail2Kursus = () => {
                                         <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{latihanContent.deskripsi}</p>
                                     </div>
                                     <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
-                                        <div className='tw-bg-blue-500 tw-h-[500px] tw-w-[100%]'>
-                                            <p>ssd</p>
+                                        <div className='tw-bg-blue-500 tw-h-[650px] tw-w-[100%]'>
+                                        <ul>
+                                                <div className='tw-flex tw-flex-col tw-gap-5'>
+                                                    {latihanContent.soalJawaban.map((a, index) => {
+                                                        return(
+                                                            <>
+                                                                <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
+                                                                <div className='tw-flex tw-gap-8 tw-justify-between' key={a.id}>
+                                                                    {a.opsi.map((b) => (
+                                                                        <div className='tw-flex tw-gap-4' key={b.id}>
+                                                                            <button onClick={() => {handleButtonClick(b.id)} } className={`tw-flex 
+                                                                            ${selectedButton === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'}
+                                                                            hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                                <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                                                                            </button>
+                                                                            <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </ul>
                                         </div>
                                     </div>
                                     </div>
