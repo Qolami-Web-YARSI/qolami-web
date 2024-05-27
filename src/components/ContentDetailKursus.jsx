@@ -269,7 +269,7 @@ const ContentDetailKursus = () => {
                     {tempExercise1.map((a) => {
                       return(
                         <>
-                          <li data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal">
+                          <li data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal" className='tw-cursor-pointer'>
                               <div className='tw-flex tw-flex-col'>
                                 <img src={`${a.gambar}`}/>
                                 <p className='tw-text-[30px] tw-font-bold tw-mx-auto'>{a.nama2}</p>
@@ -300,14 +300,13 @@ const ContentDetailKursus = () => {
                         {tempExercise2.map((a) => {
                           return(
                             <>
-                              <li data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal">
+                              <li data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal" className='tw-cursor-pointer'>
                                   <div className='tw-flex tw-flex-col'>
                                     <img src={`${a.gambar}`}/>
                                     <p className='tw-text-[30px] tw-font-bold tw-mx-auto'>{a.nama2}</p>
                                   </div>
                                   <DialogBerhasil3 id={id} id2={a.id}/>
                               </li>
-                              
                             </>
                           )
                         })}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PaginationDetail2 from './PaginationDetail2';
 import Kursus from '../data/Kursus';
@@ -12,6 +12,23 @@ const ContentDetail2Kursus = () => {
     const [latihanContent, setLatihanContent] =useState(null);
     const [selectedButton, setSelectedButton] = useState(null);
     const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handlePopState = () => {
+          console.log("hahaha");
+          navigate(`/${localStorage.getItem('idDetail')}`, {replace: true})
+          window.location.reload()
+        };
+        window.addEventListener('popstate', handlePopState);
+        const addHistoryEntry = () => {
+          window.history.pushState(null, '', window.location.pathname);
+        };
+        addHistoryEntry();
+        return () => {
+          window.removeEventListener('popstate', handlePopState);
+        };
+      }, [navigate]);
 
     const detail2Api = async () => {
         try{
