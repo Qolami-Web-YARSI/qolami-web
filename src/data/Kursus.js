@@ -225,7 +225,7 @@ const Kursus = [
           "nama2": 'Gambar',
           "soalJawaban": [
             {
-              "id:": "gambar1_soal1",
+              "id:": "gambar2_soal1",
               "soal": `Yang manakah huruf <b>"Ba"</b>?`,
               "audio": "",
               "video": "",
@@ -238,7 +238,7 @@ const Kursus = [
               ],
             },
             {
-              "id:": "gambar1_soal2",
+              "id:": "gambar2_soal2",
               "soal": `Yang manakah huruf <b>"Ba"</b>?`,
               "audio": "",
               "video": "",
@@ -251,7 +251,7 @@ const Kursus = [
               ],
             },
             {
-              "id:": "gambar1_soal3",
+              "id:": "gambar2_soal3",
               "soal": `Yang manakah huruf <b>"Ba"</b>?`,
               "audio": "",
               "video": "",
@@ -264,7 +264,7 @@ const Kursus = [
               ],
             },
             {
-              "id:": "gambar1_soal4",
+              "id:": "gambar2_soal4",
               "soal": `Yang manakah huruf <b>"Ba"</b>?`,
               "audio": "",
               "video": "",

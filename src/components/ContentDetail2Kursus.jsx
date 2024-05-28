@@ -6,29 +6,25 @@ import Kursus from '../data/Kursus';
 import { IoVolumeHigh } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
 
+const createFunctions = (length, handleButtonClick) => {
+    const functions = [];
+    for (let i = 0; i < length; i++) {
+      functions.push(() => handleButtonClick(i));
+    }
+    return functions;
+  };
+  
 const ContentDetail2Kursus = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [item, setItem] = useState(null);
     const [tempIdDetail, setTempIdDetail] = useState([]);
     const [latihanContent, setLatihanContent] =useState(null);
-    const [selectedButton, setSelectedButton] = useState(null);
-    const { id } = useParams();
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const handlePopState = () => {
-          console.log("hahaha");
-          navigate(`/${localStorage.getItem('idDetail')}`, {replace: true})
-          window.location.reload()
-        };
-        window.addEventListener('popstate', handlePopState);
-        const addHistoryEntry = () => {
-          window.history.pushState(null, '', window.location.pathname);
-        };
-        addHistoryEntry();
-        return () => {
-          window.removeEventListener('popstate', handlePopState);
-        };
-      }, [navigate]);
+    const [selectedButton1, setSelectedButton1] = useState(null);
+    const [selectedButton2, setSelectedButton2] = useState(null);
+    const [selectedButton3, setSelectedButton3] = useState(null);
+    const [selectedButton4, setSelectedButton4] = useState(null);
+    const [tempSelectedButton, setTempSelectedButton] = useState([selectedButton1, selectedButton2, selectedButton3, selectedButton4])
 
     const detail2Api = async () => {
         try{
@@ -59,18 +55,27 @@ const ContentDetail2Kursus = () => {
         })
     }
 
-    const handleButtonClick = (a) => {
-        setSelectedButton(a)
-        Kursus.map((b) => {
-            b.detail.map((c) => {
-                console.log(c.soalJawaban.id)
-                // c.soalJawaban.map((d) => {
-                //     // setSelectedButton(a);
-                //     console.log(d)
-                // })
-            })
-        })
+    const handleButtonClickSoal1Latihan = (a) => {
+        setSelectedButton1(a)
+        console.log("HAHAHAHA")
     };
+
+    const handleButtonClickSoal2Latihan = (a) => {
+        setSelectedButton2(a)
+        console.log("HIHIHIHI")
+    };
+
+    const handleButtonClickSoal3Latihan = (a) => {
+        setSelectedButton3(a)
+        console.log("HUHUHUHU")
+    };
+
+    const handleButtonClickSoal4Latihan = (a) => {
+        setSelectedButton4(a)
+        console.log("HEHEHEHE")
+    };
+
+    const [handleOption, setHandleOption] = useState([handleButtonClickSoal1Latihan, handleButtonClickSoal2Latihan, handleButtonClickSoal3Latihan, handleButtonClickSoal4Latihan]);
 
     useEffect(()=>{
         detailApi()
@@ -81,12 +86,24 @@ const ContentDetail2Kursus = () => {
     }, [])
 
     useEffect(()=>{
-        console.log(id)
-    },[])
-
-    useEffect(()=>{
         takeLatihanContent()
     },[id, latihanContent])
+
+    useEffect(() => {
+        const handlePopState = () => {
+          console.log("hahaha");
+          navigate(`/${localStorage.getItem('idDetail')}`, {replace: true})
+          window.location.reload()
+        };
+        window.addEventListener('popstate', handlePopState);
+        const addHistoryEntry = () => {
+          window.history.pushState(null, '', window.location.pathname);
+        };
+        addHistoryEntry();
+        return () => {
+          window.removeEventListener('popstate', handlePopState);
+        };
+    }, [navigate]);
 
     return(
         <>
@@ -217,25 +234,33 @@ const ContentDetail2Kursus = () => {
                                         <div className='tw-bg-red-500 tw-h-[650px] tw-w-[100%]'>
                                             <ul>
                                                 <div className='tw-flex tw-flex-col tw-gap-5'>
-                                                    {latihanContent.soalJawaban.map((a, index) => {
+                                                    {/* {latihanContent.soalJawaban.map((a, index1) => {
                                                         return(
                                                             <>
-                                                                <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
+                                                                <p dangerouslySetInnerHTML={{ __html: (index1+1)+". "+a.soal }} />
                                                                 <div className='tw-flex tw-gap-8 tw-justify-between' key={a.id}>
-                                                                    {a.opsi.map((b) => (
-                                                                        <div className='tw-flex tw-gap-4' key={b.id}>
-                                                                            <button onClick={() => {handleButtonClick(b.id)} } className={`tw-flex 
-                                                                            ${selectedButton === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'}
-                                                                            hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
-                                                                                <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
-                                                                            </button>
-                                                                            <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
-                                                                        </div>
-                                                                    ))}
+                                                                    {a.opsi.map((b) => {
+                                                                        return(
+                                                                            <div className='tw-flex tw-gap-4' key={b.id}>
+                                                                                <button onClick={() => {handleOption[index1](b.id)}} className={`tw-flex ${tempSelectedButton[index1] === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'} hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                                    <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                                                                                </button>
+                                                                                <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
+                                                                            </div>
+                                                                        )
+                                                                        // <div className='tw-flex tw-gap-4' key={b.id}>
+                                                                        //     <button onClick={handleTombolSoal} className={`tw-flex 
+                                                                        //     ${selectedButton === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'}
+                                                                        //     hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                        //         <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                                                                        //     </button>
+                                                                        //     <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
+                                                                        // </div>
+                                                                    })}
                                                                 </div>
                                                             </>
                                                         )
-                                                    })}
+                                                    })} */}
                                                 </div>
                                             </ul>
                                         </div>
@@ -259,7 +284,7 @@ const ContentDetail2Kursus = () => {
                                             <div className='tw-flex'>
                                             <ul>
                                                 <div className='tw-flex tw-flex-col tw-gap-5'>
-                                                    {latihanContent.soalJawaban.map((a, index) => {
+                                                    {/* {latihanContent.soalJawaban.map((a, index) => {
                                                         return(
                                                             <>
                                                                 <p dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
@@ -277,7 +302,7 @@ const ContentDetail2Kursus = () => {
                                                                 </div>
                                                             </>
                                                         )
-                                                    })}
+                                                    })} */}
                                                 </div>
                                             </ul>
                                             </div>
@@ -290,7 +315,7 @@ const ContentDetail2Kursus = () => {
                     } else if (id.includes("audio")) {
                         return(
                             <>
-                                {latihanContent && (
+                                {/* {latihanContent && (
                                     <div className='tw-flex tw-flex-col tw-mx-auto tw-h-[1000px] tw-bg-[#FFF6D9] tw-w-[100%]'>
                                     <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
                                         <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">{latihanContent.nama}</p>
@@ -324,7 +349,7 @@ const ContentDetail2Kursus = () => {
                                         </div>
                                     </div>
                                     </div>
-                                )}
+                                )} */}
                             </>
                         )
                     }

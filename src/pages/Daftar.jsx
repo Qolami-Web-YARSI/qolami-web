@@ -188,7 +188,7 @@ const Daftar = () => {
         // setHtmlString("")
       } catch(e) {
         console.log(e)
-        setHtmlString(`Email yang dimasukkan sudah terdaftar`)
+        setHtmlString(`Email yang dimasukkan sudah terdaftar!`)
       }
       
     }
@@ -243,7 +243,7 @@ const Daftar = () => {
                       <label className="form-label">Email</label>
                       <input type="email" className="form-control tw-border-2 tw-rounded-none tw-border-[#BABABA] tw-py-3 tw-px-4" onBlur={email.blur} onFocus={email.focus} 
                       onChange={email.change} name="emailDaftar" id="emailDaftar" placeholder='Email' required/>
-                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid</p>
+                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeEmail? "tw-hidden": "tw-block"}`}>Email yang dimasukkan harus valid!</p>
                       {htmlString && <p className="tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic">{htmlString}</p>}
                     </div>
 
@@ -261,7 +261,7 @@ const Daftar = () => {
                           </div>
                         </button>
                       </div>
-                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 karakter</p>
+                      <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password harus lebih dari 8 karakter!</p>
                       
                     </div>
 

@@ -33,11 +33,27 @@ const ContentComponent = ({ activeTab }) => {
     const [isValidasi, setIsValidasi] = useState(false)
     const [isValidasi2, setIsValidasi2] = useState(false)
 
+    // const handleFileChange = (event) => {
+    //     const selectedFile = event.target.files[0];
+    //     setFile(selectedFile);
+    //     setPreviewUrl(URL.createObjectURL(selectedFile));
+    //     console.log(URL.createObjectURL(selectedFile))
+    // };
+
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
-        setFile(selectedFile);
-        setPreviewUrl(URL.createObjectURL(selectedFile));
-        console.log(URL.createObjectURL(selectedFile))
+        if (selectedFile) {
+            if (previewUrl) {
+                URL.revokeObjectURL(previewUrl);
+            }
+            const newPreviewUrl = URL.createObjectURL(selectedFile);
+            setFile(selectedFile);
+            setPreviewUrl(newPreviewUrl);
+            console.log(newPreviewUrl);
+        } else {
+            setFile(null);
+            setPreviewUrl(null);
+        }
     };
 
     const handleNameInput = (event) => {
@@ -262,7 +278,7 @@ const ContentComponent = ({ activeTab }) => {
               </div>
             </div>
             <button type="submit" className="tw-bg-[#009900] tw-p-3 tw-px-6 tw-text-white tw-font-bold hover:tw-bg-[#007100] tw-mt-4">Simpan Perubahan</button>
-            <input type="file" ref={fileInputRef} onChange={handleFileChange} className='tw-size-0' style={{display: 'none'}} />
+            <input type="file" ref={fileInputRef} accept="image/*" onChange={handleFileChange} className='tw-size-0' style={{display: 'none'}} />
           </form>
         </div>
       }
@@ -284,7 +300,7 @@ const ContentComponent = ({ activeTab }) => {
                 </button>
               </div>
               <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama? "tw-hidden": "tw-block"}`}>
-                Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
+                Password harus lebih dari 8 karakter dan tidak boleh kosong!</p>
               <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiLama2? "tw-hidden": "tw-block"}`}>
                 Password harus sama dengan yang lama!</p>
             </div>
@@ -302,7 +318,7 @@ const ContentComponent = ({ activeTab }) => {
                 </button>
               </div>
               <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandiBaru? "tw-hidden": "tw-block"}`}>
-                Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
+                Password harus lebih dari 8 karakter dan tidak boleh kosong!</p>
             </div>
 
             <div className="tw-flex tw-w-full tw-flex-col tw-py-3">
@@ -319,7 +335,7 @@ const ContentComponent = ({ activeTab }) => {
                 </button>
               </div>
               <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru? "tw-hidden": "tw-block"}`}>
-                Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
+                Password harus lebih dari 8 karakter dan tidak boleh kosong!</p>
               <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKonfirmasiKataSandiBaru2? "tw-hidden": "tw-block"}`}>
                 Password yang dimasukkan tidak cocok dengan yang baru!</p>
             </div>

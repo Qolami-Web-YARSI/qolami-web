@@ -203,7 +203,7 @@ const Masuk = ({setTempToken}) => {
                         </div>
                       </button>
                     </div>
-                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password anda harus lebih dari 8 karakter dan tidak boleh kosong!</p>
+                    <p className={`tw-text-[13px] tw-ms-2 tw-text-[#FF0000] tw-italic ${noticeKataSandi? "tw-hidden": "tw-block"}`}>Password harus lebih dari 8 karakter dan tidak boleh kosong!</p>
                   </div>
 
                   <div className="tw-flex tw-flex-row-reverse tw-w-full tw-py-1">

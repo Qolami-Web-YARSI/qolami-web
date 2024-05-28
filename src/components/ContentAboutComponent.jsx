@@ -43,7 +43,7 @@ const ContentAboutComponent = () => {
                     </div>
                     
                 </div>
-                <div className="tw-flex tw-gap-5 tw-py-14 tw-px-10 sm:tw-px-20 2xl:tw-px-20 tw-bg-[#C2EF90] tw-justify-center">
+                <div className="tw-flex tw-gap-0 tw-py-14 tw-px-10 sm:tw-px-20 2xl:tw-px-20 tw-bg-[#C2EF90] tw-justify-center">
                     <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] 2xl:tw-w-[700px] tw-gap-2 md:tw-gap-3 tw-mx-auto sm:tw-mx-0">
                         <div className='tw-flex tw-flex-col tw-ps-4'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] 
@@ -59,7 +59,7 @@ const ContentAboutComponent = () => {
                         </div>
                         <div className='tw-flex tw-flex-col tw-gap-0'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
-                            tw-text-[#009900] tw-font-bold tw-pt-14 tw-text-center sm:tw-text-start tw-font-poppins tw-ps-4">SOSIAL MEDIA</p>
+                            tw-text-[#009900] tw-font-bold tw-pt-5 tw-text-center sm:tw-text-start tw-font-poppins tw-ps-4">SOSIAL MEDIA</p>
                             <div className='tw-flex tw-justify-center sm:tw-justify-start tw-gap-3'>
                                 <a href="https://www.youtube.com/@qolamichanel9019" target="_blank" 
                                 className='tw-flex'><img className=' tw-my-auto tw-drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)]' src="yt.svg" alt="yt_qolami"/></a>
