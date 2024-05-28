@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import { FiActivity } from "react-icons/fi";
 import { FiSettings } from "react-icons/fi";
 import { RxExit } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 const HeaderComponent2 = () => {
@@ -11,6 +12,7 @@ const HeaderComponent2 = () => {
     const [getNav2, setNav2] = useState(false)
     const [data, setData] = useState(null);
     const [profileUrl, setProfileUrl] = useState('');
+    const navigate = useNavigate();
 
     const buttonNav = () => {
         setNav(!getNav)
@@ -21,7 +23,9 @@ const HeaderComponent2 = () => {
         localStorage.removeItem('id')
         localStorage.removeItem('token')
         localStorage.setItem('isLogIn', false);
+        navigate('/')
         window.location.reload()
+        window.scrollTo(0,0)
       }
 
     const fetchData = async () => {
