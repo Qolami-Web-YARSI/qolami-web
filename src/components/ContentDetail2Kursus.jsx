@@ -5,8 +5,10 @@ import PaginationDetail2 from './PaginationDetail2';
 import Kursus from '../data/Kursus';
 import { IoVolumeHigh } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
+import DialogAkhir from '../pages/DialogAkhir';
+import DialogHasilNilai from '../pages/DialogHasilNilai';
   
-const ContentDetail2Kursus = () => {
+const ContentDetail2Kursus = ({tempToken, img}) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [item, setItem] = useState(null);
@@ -57,6 +59,7 @@ const ContentDetail2Kursus = () => {
         detailApi()
         detail2Api()
         takeLatihanContent()
+        localStorage.setItem('a', 0)
     },[id, latihanContent, item, tempNilaiSoal])
 
     useEffect(() => {
@@ -234,6 +237,7 @@ const ContentDetail2Kursus = () => {
                                                                                         return accumulator + currentValue
                                                                                     },0);
                                                                                     console.log(sum)
+                                                                                    localStorage.setItem('a', sum)
                                                                                 }}
                                                                                 className={`tw-flex ${qaz[index] === b.id ?  'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'} hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
                                                                                     <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
@@ -251,6 +255,7 @@ const ContentDetail2Kursus = () => {
                                             </ul>
                                             <button data-bs-target={`#dialogHasilNilaiLatihan`} data-bs-toggle="modal" className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Selesaikan</button>
                                         </div>
+                                        <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={img} score={localStorage.getItem('a')}/>
                                     </div>
                                     </div>
                                 )}

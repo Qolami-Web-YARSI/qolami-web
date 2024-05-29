@@ -33,7 +33,7 @@ const App = () => {
           <DialogBerhasil2 location={"dialogBerhasilProfile"} text={"Profil berhasil disimpan"}/>
           <DialogAkhir id={"dialogAkhirLatihan"} id2={"dialogHasilNilaiLatihan"} text={"Apakah Anda yakin ingin mengakhiri latihan ini?"} text2={"Akhiri Latihan"}/>
           <DialogAkhir id={"dialogAkhirUjian"} id2={"dialogHasilNilaiUjian"} text={"Apakah Anda yakin ingin mengakhiri ujian ini?"} text2={"Akhiri Ujian"}/>
-          <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={imageUrlPencil}/>
+          <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={imageUrlPencil} score={localStorage.getItem('a')}/>
           <DialogHasilNilai id={"dialogHasilNilaiUjian"}/>
           <Masuk img={imageUrlLogo} setTempToken={setTempToken}/>
           <Daftar img={imageUrlLogo}/>
@@ -46,7 +46,7 @@ const App = () => {
             <R3 path="/:id" element={<DetailKursus tempToken={tempToken} img={imageUrlLogo} />}/>
             <R3 path="/:id/contents/:id" element={<Detail2Kursus tempToken={tempToken} img={imageUrlLogo}/>}/>
             <R3 path="/:id/exercise/:id" element={<Detail2Kursus tempToken={tempToken} img={imageUrlLogo}/>}/>
-            <R3 path="/aktifitas" element={<Aktifitas tempToken={tempToken} />}/>
+            <R3 path="/aktifitas" element={<Aktifitas tempToken={tempToken} img={imageUrlLogo} />}/>
           </R2>
         </R1>
     </>

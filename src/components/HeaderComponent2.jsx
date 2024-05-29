@@ -97,7 +97,7 @@ const HeaderComponent2 = ({img}) => {
                             <a href="/aktifitas" className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2.5 tw-rounded-t-[8px] tw-w-full'>
                                 {/* <img src="activity.svg" className='tw-size-6 tw-my-auto'/> */}
                                 <FiActivity className='tw-size-6 tw-my-auto'/>
-                                <p className='tw-text-[19px] tw-my-auto'>Aktifitas</p>
+                                <p className='tw-text-[19px] tw-my-auto'>Aktivitas</p>
                             </a>
                             <a href="/pengaturan" className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-py-2.5 tw-px-6 tw-w-full'>
                                 {/* <img src="settings.svg" className='tw-size-6 tw-my-auto'/> */}

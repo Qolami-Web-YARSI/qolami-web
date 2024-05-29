@@ -39,7 +39,7 @@ const ActivityComponent = () => {
         <>
             <div className='tw-flex tw-flex-col tw-py-5 tw-bg-[#FFF6D9] tw-font-poppins'>
                 <div className='tw-flex tw-pt-44 tw-justify-between tw-mx-36 tw-pb-3'>
-                    <p className="tw-text-[35px] tw-pb-6">Aktifitas</p>
+                    <p className="tw-text-[35px] tw-pb-6">Aktivitas</p>
                     <div className='tw-flex tw-flex-col tw-gap-6'>
                         <div className='tw-flex tw-size-[200px] tw-rounded-full tw-mx-auto'>
                             <img src={previewUrl || (data && data.profileUrl)} 
@@ -48,12 +48,12 @@ const ActivityComponent = () => {
                         </div>
                         <p className="tw-mx-auto tw-text-[35px] tw-pb-6 tw-text-center">{data && data.firstName+" "+data.lastName}</p>
                     </div>
-                    <p className="tw-text-[35px] tw-pb-6 tw-opacity-0">Aktiftas</p>
+                    <p className="tw-text-[35px] tw-pb-6 tw-opacity-0">Aktivitas</p>
                 </div>
                 <hr className='tw-border-2 tw-border-[#000000]'></hr>
                 <table className='tw-w-full table-fixed tw-mx-auto tw-my-6'>
                     <tr>
-                        <th className='tw-text-center'>Aktiftas</th>
+                        <th className='tw-text-center'>Aktivitas</th>
                         <th className='tw-text-center'>Tanggal</th>
                         <th className='tw-text-center'>Nilai</th>
                         <th className='tw-text-center'>Status</th>
