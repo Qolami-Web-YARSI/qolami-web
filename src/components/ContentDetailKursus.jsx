@@ -268,15 +268,13 @@ const ContentDetailKursus = () => {
                   <ul className='tw-flex tw-mx-auto tw-justify-between tw-w-full'>
                     {tempExercise1.map((a) => {
                       return(
-                        <>
-                          <li data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal" className='tw-cursor-pointer'>
-                              <div className='tw-flex tw-flex-col'>
-                                <img src={`${a.gambar}`}/>
-                                <p className='tw-text-[30px] tw-font-bold tw-mx-auto'>{a.nama2}</p>
-                              </div>
-                              <DialogBerhasil3 id={id} id2={a.id}/>
-                          </li>
-                        </>
+                        <li key={a.id} data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal" className='tw-cursor-pointer'>
+                            <div className='tw-flex tw-flex-col'>
+                              <img src={`${a.gambar}`}/>
+                              <p className='tw-text-[30px] tw-font-bold tw-mx-auto'>{a.nama2}</p>
+                            </div>
+                            <DialogBerhasil3 id={id} id2={a.id}/>
+                        </li>
                       )
                     })}
                   </ul>

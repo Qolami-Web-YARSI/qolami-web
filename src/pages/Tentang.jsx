@@ -5,7 +5,7 @@ import ContentAboutComponent from '../components/ContentAboutComponent';
 import HeaderComponent2 from '../components/HeaderComponent2';
 import JumbotronComponent from '../components/JumbotronComponent';
 
-const Tentang = ({tempToken}) => {
+const Tentang = ({tempToken, img}) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [])
@@ -18,13 +18,13 @@ const Tentang = ({tempToken}) => {
         <>
             {tempToken ? 
             <div>
-                <HeaderComponent2/>
+                <HeaderComponent2 img={img}/>
                 <ContentAboutComponent/>
                 <FooterComponent/>
             </div>
             : 
             <div>
-                <HeaderComponent/>
+                <HeaderComponent img={img}/>
                 <ContentAboutComponent/>
                 <FooterComponent/>
             </div>}

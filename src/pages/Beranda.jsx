@@ -5,7 +5,7 @@ import FooterComponent from '../components/FooterComponent';
 import JumbotronComponent from '../components/JumbotronComponent';
 import ContentHomeComponent from '../components/ContentHomeComponent';
 
-const Beranda = ({tempToken}) => {
+const Beranda = ({tempToken, img}) => {
     useEffect(() => {
         window.scrollTo(0, 0);
        }, [])
@@ -18,14 +18,14 @@ const Beranda = ({tempToken}) => {
         <>
             {tempToken ? 
             <div>
-                <HeaderComponent2/>
+                <HeaderComponent2 img={img}/>
                 <JumbotronComponent/>
                 <ContentHomeComponent/>
                 <FooterComponent/>
             </div>
             : 
             <div>
-                <HeaderComponent/>
+                <HeaderComponent img={img}/>
                 <JumbotronComponent/>
                 <ContentHomeComponent/>
                 <FooterComponent/>

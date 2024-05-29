@@ -4,7 +4,7 @@ import FooterComponent from '../components/FooterComponent';
 import HeaderComponent2 from '../components/HeaderComponent2';
 import ActivityComponent from '../components/ActivityComponent';
 
-const Aktifitas = ({tempToken}) => {
+const Aktifitas = ({tempToken, img}) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [])
@@ -15,7 +15,7 @@ const Aktifitas = ({tempToken}) => {
 
     return(
         <>
-            <HeaderComponent2/>
+            <HeaderComponent2 img={img}/>
             <ActivityComponent/>
             <FooterComponent/>
         </>

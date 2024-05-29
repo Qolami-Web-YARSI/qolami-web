@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FiMenu } from "react-icons/fi";
 import NavigationComponent from './NavigationComponent'
 
-const HeaderComponent = () => {
+const HeaderComponent = ({img}) => {
     const [getNav, setNav] = useState(false)
     const buttonNav = () => {
         setNav(!getNav)
@@ -15,7 +15,7 @@ const HeaderComponent = () => {
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">
-                            <img src="https://storage.googleapis.com/qolami-web/img/logo-qolami.svg" className="tw-w-[92px] tw-mx-0"/>
+                            <img src={img} className="tw-w-[92px] tw-mx-0" alt="logo_qolami"/>
                         </a>
                     </div>
                     <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">

@@ -7,7 +7,7 @@ import { RxExit } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
-const HeaderComponent2 = () => {
+const HeaderComponent2 = ({img}) => {
     const [getNav, setNav] = useState(false)
     const [getNav2, setNav2] = useState(false)
     const [data, setData] = useState(null);
@@ -43,7 +43,7 @@ const HeaderComponent2 = () => {
                 console.log(response.data.data.profileUrl)
                 
             }else{
-                response.data.data.profileUrl = response.data.data.profileUrl
+                response.data.data.profileUrl = response.data.data.profileUrl;
                 console.log(response.data.data.profileUrl)
             }
             //setProfileUrl(`http://localhost:2024${response.data.data.profileUrl}`)
@@ -63,7 +63,7 @@ const HeaderComponent2 = () => {
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">
-                            <img src="https://storage.googleapis.com/qolami-web/img/logo-qolami.svg" className="tw-w-[92px] tw-mx-0"/>
+                            <img src={img} className="tw-w-[92px] tw-mx-0" alt="logo_qolami"/>
                         </a>
                     </div>
                     <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">

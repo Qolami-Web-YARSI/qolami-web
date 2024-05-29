@@ -12,9 +12,14 @@ import DialogBerhasil from './pages/DialogBerhasil.jsx';
 import Pengaturan from './pages/Pengaturan.jsx'
 import DialogBerhasil2 from './pages/DialogBerhasil2.jsx';
 import Aktifitas from './pages/Aktifitas.jsx';
+import DialogAkhir from './pages/DialogAkhir.jsx';
+import DialogHasilNilai from './pages/DialogHasilNilai.jsx';
 
 const App = () => {
   const [tempToken, setTempToken] = useState(false)
+  const imageUrlPencil = `${process.env.PUBLIC_URL}/pensil_2.svg`;
+  const imageUrlLogo = `${process.env.PUBLIC_URL}/logo-qolami.svg`;
+
   useEffect(()=>{
     console.log(tempToken)
   }, [tempToken])
@@ -26,17 +31,21 @@ const App = () => {
           <DialogBerhasil location2={"dialogBerhasilDaftar"} text={"Pendaftaran berhasil! Akun Anda telah berhasil dibuat"} location={"#masukModal"}/>
           <DialogBerhasil2 location={"dialogBerhasilUbahSandi"} text={"Kata Sandi berhasil disimpan"}/>
           <DialogBerhasil2 location={"dialogBerhasilProfile"} text={"Profil berhasil disimpan"}/>
-          <Masuk setTempToken={setTempToken}/>
-          <Daftar/>
-          <LupaKataSandi/>
+          <DialogAkhir id={"dialogAkhirLatihan"} id2={"dialogHasilNilaiLatihan"} text={"Apakah Anda yakin ingin mengakhiri latihan ini?"} text2={"Akhiri Latihan"}/>
+          <DialogAkhir id={"dialogAkhirUjian"} id2={"dialogHasilNilaiUjian"} text={"Apakah Anda yakin ingin mengakhiri ujian ini?"} text2={"Akhiri Ujian"}/>
+          <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={imageUrlPencil}/>
+          <DialogHasilNilai id={"dialogHasilNilaiUjian"}/>
+          <Masuk img={imageUrlLogo} setTempToken={setTempToken}/>
+          <Daftar img={imageUrlLogo}/>
+          <LupaKataSandi img={imageUrlLogo}/>
           <R2>
-            <R3 path="/" element={<Beranda tempToken={tempToken}/>}/>
-            <R3 path="/pengaturan" element={<Pengaturan tempToken={tempToken}/>}/>
-            <R3 path="/tentang" element={<Tentang tempToken={tempToken}/>}/>
-            <R3 path="/kursus" element={<Kursus tempToken={tempToken}/>}/>
-            <R3 path="/:id" element={<DetailKursus tempToken={tempToken} />}/>
-            <R3 path="/:id/contents/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
-            <R3 path="/:id/exercise/:id" element={<Detail2Kursus tempToken={tempToken}/>}/>
+            <R3 path="/" element={<Beranda tempToken={tempToken} img={imageUrlLogo}/>}/>
+            <R3 path="/pengaturan" element={<Pengaturan tempToken={tempToken} img={imageUrlLogo}/>}/>
+            <R3 path="/tentang" element={<Tentang tempToken={tempToken} img={imageUrlLogo}/>}/>
+            <R3 path="/kursus" element={<Kursus tempToken={tempToken} img={imageUrlLogo}/>}/>
+            <R3 path="/:id" element={<DetailKursus tempToken={tempToken} img={imageUrlLogo} />}/>
+            <R3 path="/:id/contents/:id" element={<Detail2Kursus tempToken={tempToken} img={imageUrlLogo}/>}/>
+            <R3 path="/:id/exercise/:id" element={<Detail2Kursus tempToken={tempToken} img={imageUrlLogo}/>}/>
             <R3 path="/aktifitas" element={<Aktifitas tempToken={tempToken} />}/>
           </R2>
         </R1>

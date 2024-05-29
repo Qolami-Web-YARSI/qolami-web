@@ -11,7 +11,7 @@ const DialogBerhasil = ({text, location, location2}) => {
                                 </div>
                                 <button type="button" 
                                 className="btn btn-secondary tw-text-[23px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px] tw-mx-auto tw-rounded-[30px] tw-font-bold"
-                                s data-bs-target={location} data-bs-toggle="modal">OK</button>
+                                data-bs-target={location} data-bs-toggle="modal">OK</button>
                             </div>
                         </div>
                     </div>

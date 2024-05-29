@@ -5,14 +5,6 @@ import PaginationDetail2 from './PaginationDetail2';
 import Kursus from '../data/Kursus';
 import { IoVolumeHigh } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
-
-const createFunctions = (length, handleButtonClick) => {
-    const functions = [];
-    for (let i = 0; i < length; i++) {
-      functions.push(() => handleButtonClick(i));
-    }
-    return functions;
-  };
   
 const ContentDetail2Kursus = () => {
     const { id } = useParams();
@@ -20,11 +12,14 @@ const ContentDetail2Kursus = () => {
     const [item, setItem] = useState(null);
     const [tempIdDetail, setTempIdDetail] = useState([]);
     const [latihanContent, setLatihanContent] =useState(null);
+    const [score, setScore] = useState(0);
     const [selectedButton1, setSelectedButton1] = useState(null);
     const [selectedButton2, setSelectedButton2] = useState(null);
     const [selectedButton3, setSelectedButton3] = useState(null);
     const [selectedButton4, setSelectedButton4] = useState(null);
-    const [tempSelectedButton, setTempSelectedButton] = useState([selectedButton1, selectedButton2, selectedButton3, selectedButton4])
+    const [tempNilaiSoal, setTempNilaiSoal] = useState([]);
+    const [qaz, setQaz] = useState([selectedButton1, selectedButton2, selectedButton3, selectedButton4])
+    const [wsx, setWsx] = useState([setSelectedButton1, setSelectedButton2, setSelectedButton3, setSelectedButton4])
 
     const detail2Api = async () => {
         try{
@@ -46,48 +41,28 @@ const ContentDetail2Kursus = () => {
     }
 
     const takeLatihanContent = () => {
-        Kursus.map((a) => {
-            a.detail.map((b)=>{
-                if(b.id.includes(id)){
-                    setLatihanContent(b)
+        Kursus.forEach((a) => {
+            a.detail.forEach((b) => {
+                if (b.id.includes(id)) {
+                    setLatihanContent(b);
                 }
-            })
-        })
+                b.soalJawaban.forEach((c, index) => {
+                    localStorage.setItem(`soal_${index + 1}`, 0);
+                });
+            });
+        });
     }
-
-    const handleButtonClickSoal1Latihan = (a) => {
-        setSelectedButton1(a)
-        console.log("HAHAHAHA")
-    };
-
-    const handleButtonClickSoal2Latihan = (a) => {
-        setSelectedButton2(a)
-        console.log("HIHIHIHI")
-    };
-
-    const handleButtonClickSoal3Latihan = (a) => {
-        setSelectedButton3(a)
-        console.log("HUHUHUHU")
-    };
-
-    const handleButtonClickSoal4Latihan = (a) => {
-        setSelectedButton4(a)
-        console.log("HEHEHEHE")
-    };
-
-    const [handleOption, setHandleOption] = useState([handleButtonClickSoal1Latihan, handleButtonClickSoal2Latihan, handleButtonClickSoal3Latihan, handleButtonClickSoal4Latihan]);
 
     useEffect(()=>{
         detailApi()
-    }, [tempIdDetail])
-
-    useEffect(()=>{
         detail2Api()
-    }, [])
-
-    useEffect(()=>{
         takeLatihanContent()
-    },[id, latihanContent])
+    },[id, latihanContent, item, tempNilaiSoal])
+
+    useEffect(() => {
+        setQaz(prevQaz => [selectedButton1, selectedButton2, selectedButton3, selectedButton4]);
+        setWsx(prevWsx => [setSelectedButton1, setSelectedButton2, setSelectedButton3, setSelectedButton4]);
+    }, [selectedButton1, selectedButton2, selectedButton3, selectedButton4]);
 
     useEffect(() => {
         const handlePopState = () => {
@@ -224,45 +199,57 @@ const ContentDetail2Kursus = () => {
                         return(
                             <>
                                 {latihanContent && (
-                                    <div className='tw-flex tw-flex-col tw-mx-auto tw-h-[1000px] tw-bg-[#FFF6D9] tw-w-[100%]'>
+                                    <div className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
                                     <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
                                         <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold 
                                         tw-text-center tw-pt-5 tw-mx-auto">{latihanContent.nama}</p>
                                         <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>{latihanContent.deskripsi}</p>
                                     </div>
                                     <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32 tw-font-poppins'>
-                                        <div className='tw-bg-red-500 tw-h-[650px] tw-w-[100%]'>
+                                        <div className='tw-flex tw-flex-col tw-w-[100%]'>
                                             <ul>
                                                 <div className='tw-flex tw-flex-col tw-gap-5'>
-                                                    {/* {latihanContent.soalJawaban.map((a, index1) => {
+                                                    {latihanContent.soalJawaban.map((a, index) => {
                                                         return(
-                                                            <>
-                                                                <p dangerouslySetInnerHTML={{ __html: (index1+1)+". "+a.soal }} />
-                                                                <div className='tw-flex tw-gap-8 tw-justify-between' key={a.id}>
+                                                            <div className='tw-pb-5' key={a.id}>
+                                                                <p className='tw-text-[24px]' dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
+                                                                <div className='tw-flex tw-mx-auto tw-gap-8' key={a.id}>
+                                                                    <div className='tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between'>
                                                                     {a.opsi.map((b) => {
                                                                         return(
-                                                                            <div className='tw-flex tw-gap-4' key={b.id}>
-                                                                                <button onClick={() => {handleOption[index1](b.id)}} className={`tw-flex ${tempSelectedButton[index1] === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'} hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                            <div className='tw-flex'>
+                                                                                <button onClick={() => {
+                                                                                    wsx[index](b.id);
+                                                                                    if (b.id === a.jawabanBenar) {
+                                                                                        localStorage.setItem(`soal_${index+1}`, Number(100/latihanContent.soalJawaban.length))
+                                                                                        console.log(latihanContent.soalJawaban.length)
+                                                                                        tempNilaiSoal[index] = Number(localStorage.getItem(`soal_${index+1}`))
+                                                                                        console.log(tempNilaiSoal)
+                                                                                    } else {
+                                                                                        localStorage.setItem(`soal_${index+1}`, Number(0))
+                                                                                        tempNilaiSoal[index] = Number(localStorage.getItem(`soal_${index+1}`))
+                                                                                        console.log(tempNilaiSoal)
+                                                                                    }
+                                                                                    var sum = tempNilaiSoal.reduce((accumulator, currentValue) => {
+                                                                                        return accumulator + currentValue
+                                                                                    },0);
+                                                                                    console.log(sum)
+                                                                                }}
+                                                                                className={`tw-flex ${qaz[index] === b.id ?  'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'} hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
                                                                                     <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
                                                                                 </button>
-                                                                                <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
+                                                                                <img src={b.imgSrc} className='tw-w-[200px] tw-rounded-lg' alt={b.id}/>
                                                                             </div>
                                                                         )
-                                                                        // <div className='tw-flex tw-gap-4' key={b.id}>
-                                                                        //     <button onClick={handleTombolSoal} className={`tw-flex 
-                                                                        //     ${selectedButton === b.id ? 'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'}
-                                                                        //     hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-size-12 tw-border-[3px] tw-rounded-lg`}>
-                                                                        //         <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
-                                                                        //     </button>
-                                                                        //     <img src={b.imgSrc} className='tw-w-32 tw-border-[#BABABA] tw-border-[3px] tw-rounded-lg'/>
-                                                                        // </div>
-                                                                    })}
+                                                                    })};
+                                                                    </div>
                                                                 </div>
-                                                            </>
+                                                            </div>
                                                         )
-                                                    })} */}
+                                                    })}
                                                 </div>
                                             </ul>
+                                            <button data-bs-target={`#dialogHasilNilaiLatihan`} data-bs-toggle="modal" className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Selesaikan</button>
                                         </div>
                                     </div>
                                     </div>

@@ -4,7 +4,7 @@ import FooterComponent from '../components/FooterComponent';
 import HeaderComponent2 from '../components/HeaderComponent2';
 import ContentDetail2Kursus from '../components/ContentDetail2Kursus';
 
-const Detail2Kursus = ({tempToken}) => {
+const Detail2Kursus = ({tempToken, img}) => {
     useEffect(() => {
         window.scrollTo(0, 0);
        }, [])
@@ -17,13 +17,13 @@ const Detail2Kursus = ({tempToken}) => {
         <>
             {tempToken ? 
             <div>
-                <HeaderComponent2/>
+                <HeaderComponent2 img={img}/>
                 <ContentDetail2Kursus/>
                 <FooterComponent/>
             </div>
             : 
             <div>
-                <HeaderComponent/>
+                <HeaderComponent img={img}/>
                 <ContentDetail2Kursus/>
                 <FooterComponent/>
             </div>}

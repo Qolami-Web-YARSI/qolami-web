@@ -4,7 +4,7 @@ import HeaderComponent2 from '../components/HeaderComponent2';
 import FooterComponent from '../components/FooterComponent';
 import SettingsComponents from '../components/SettingsComponent';
 
-const Pengaturan = ({ tempToken }) => {
+const Pengaturan = ({ tempToken, img }) => {
   // const navigate = useNavigate();
 
   // useEffect(() => {
@@ -23,7 +23,7 @@ const Pengaturan = ({ tempToken }) => {
 
   return (
     <div>
-      <HeaderComponent2 />
+      <HeaderComponent2 img={img}/>
       <SettingsComponents />
       <FooterComponent />
     </div>
