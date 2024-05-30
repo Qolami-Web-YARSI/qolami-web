@@ -5,21 +5,27 @@ import PaginationDetail2 from './PaginationDetail2';
 import Kursus from '../data/Kursus';
 import { IoVolumeHigh } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
-import DialogAkhir from '../pages/DialogAkhir';
 import DialogHasilNilai from '../pages/DialogHasilNilai';
+import DialogAkhir from '../pages/DialogAkhir';
   
-const ContentDetail2Kursus = ({tempToken, img}) => {
+const ContentDetail2Kursus = () => {
+    const imageUrlPencil = `${process.env.PUBLIC_URL}/pensil_2.svg`;
     const { id } = useParams();
     const navigate = useNavigate();
     const [item, setItem] = useState(null);
     const [tempIdDetail, setTempIdDetail] = useState([]);
     const [latihanContent, setLatihanContent] =useState(null);
+    
+    //USESTATE LATIHAN
     const [score, setScore] = useState(0);
     const [selectedButton1, setSelectedButton1] = useState(null);
     const [selectedButton2, setSelectedButton2] = useState(null);
     const [selectedButton3, setSelectedButton3] = useState(null);
     const [selectedButton4, setSelectedButton4] = useState(null);
     const [tempNilaiSoal, setTempNilaiSoal] = useState([]);
+    const initialTemp = JSON.parse(localStorage.getItem('temps')) || [];
+    const [temp, setTemp] = useState(initialTemp);
+    const [panjangSoalJawaban, setPanjangSoalJawaban] = useState([]);
     const [qaz, setQaz] = useState([selectedButton1, selectedButton2, selectedButton3, selectedButton4])
     const [wsx, setWsx] = useState([setSelectedButton1, setSelectedButton2, setSelectedButton3, setSelectedButton4])
 
@@ -47,9 +53,10 @@ const ContentDetail2Kursus = ({tempToken, img}) => {
             a.detail.forEach((b) => {
                 if (b.id.includes(id)) {
                     setLatihanContent(b);
+                    setPanjangSoalJawaban(b.soalJawaban.length)
                 }
                 b.soalJawaban.forEach((c, index) => {
-                    localStorage.setItem(`soal_${index + 1}`, 0);
+                    //localStorage.setItem(`IsFillSoal_${index + 1}`, false);
                 });
             });
         });
@@ -59,10 +66,43 @@ const ContentDetail2Kursus = ({tempToken, img}) => {
         detailApi()
         detail2Api()
         takeLatihanContent()
-        localStorage.setItem('a', 0)
     },[id, latihanContent, item, tempNilaiSoal])
 
+    const handleButtonClick = (index, optionId, correctAnswerId) => {
+        let sum = 0;
+        wsx[index](optionId);
+        localStorage.setItem(`opsiSoal_${index+1}`, Number(optionId));
+        if(temp[index] === null){
+            temp.push(JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)));
+            localStorage.setItem(`temps`, JSON.stringify(temp.filter(item => item !== undefined || item !== null)));
+        }else{
+            temp[index] = JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`))
+            localStorage.setItem(`temps`, JSON.stringify(temp.filter(item => item !== undefined || item !== null)));
+        }
+        let filteredArray = temp.filter(item => item !== undefined || item !== null);
+        console.log(filteredArray)
+
+        if(filteredArray.length === panjangSoalJawaban){
+            console.log("aaa 4")
+            localStorage.setItem(`semuaSoalTelahDiisi`, true)
+        }else{
+            console.log("bbb yaahh");
+            localStorage.setItem(`semuaSoalTelahDiisi`, false)
+        }
+
+        if (optionId === correctAnswerId) {
+            const updatedScore = 100 / latihanContent.soalJawaban.length;
+            tempNilaiSoal[index] = updatedScore;
+        } else {
+            tempNilaiSoal[index] = 0;
+        }
+        sum = tempNilaiSoal.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        setScore(sum);
+    };
+
     useEffect(() => {
+        //console.log(tempIsFill)
+        //console.log(JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)));
         setQaz(prevQaz => [selectedButton1, selectedButton2, selectedButton3, selectedButton4]);
         setWsx(prevWsx => [setSelectedButton1, setSelectedButton2, setSelectedButton3, setSelectedButton4]);
     }, [selectedButton1, selectedButton2, selectedButton3, selectedButton4]);
@@ -221,25 +261,13 @@ const ContentDetail2Kursus = ({tempToken, img}) => {
                                                                     {a.opsi.map((b) => {
                                                                         return(
                                                                             <div className='tw-flex'>
-                                                                                <button onClick={() => {
-                                                                                    wsx[index](b.id);
-                                                                                    if (b.id === a.jawabanBenar) {
-                                                                                        localStorage.setItem(`soal_${index+1}`, Number(100/latihanContent.soalJawaban.length))
-                                                                                        console.log(latihanContent.soalJawaban.length)
-                                                                                        tempNilaiSoal[index] = Number(localStorage.getItem(`soal_${index+1}`))
-                                                                                        console.log(tempNilaiSoal)
-                                                                                    } else {
-                                                                                        localStorage.setItem(`soal_${index+1}`, Number(0))
-                                                                                        tempNilaiSoal[index] = Number(localStorage.getItem(`soal_${index+1}`))
-                                                                                        console.log(tempNilaiSoal)
-                                                                                    }
-                                                                                    var sum = tempNilaiSoal.reduce((accumulator, currentValue) => {
-                                                                                        return accumulator + currentValue
-                                                                                    },0);
-                                                                                    console.log(sum)
-                                                                                    localStorage.setItem('a', sum)
-                                                                                }}
-                                                                                className={`tw-flex ${qaz[index] === b.id ?  'tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white' : 'tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black'} hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
+                                                                                <button onClick={() => {handleButtonClick(index, b.id, a.jawabanBenar)}}
+                                                                                className={`tw-flex ${Number(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id ?
+                                                                                ('tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white')
+                                                                                : 
+                                                                                ('tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black')
+                                                                                }
+                                                                                 hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
                                                                                     <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
                                                                                 </button>
                                                                                 <img src={b.imgSrc} className='tw-w-[200px] tw-rounded-lg' alt={b.id}/>
@@ -253,9 +281,14 @@ const ContentDetail2Kursus = ({tempToken, img}) => {
                                                     })}
                                                 </div>
                                             </ul>
-                                            <button data-bs-target={`#dialogHasilNilaiLatihan`} data-bs-toggle="modal" className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Selesaikan</button>
+                                            {JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)) === true ?
+                                                <button data-bs-target={`#dialogAkhirLatihan`} data-bs-toggle="modal" className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Selesaikan</button> 
+                                                :
+                                                <button className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold" disabled>Selesaikan</button>
+                                                }
                                         </div>
-                                        <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={img} score={localStorage.getItem('a')}/>
+                                        <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={imageUrlPencil} score={score}/>
+                                        <DialogAkhir id={"dialogAkhirLatihan"} id2={"dialogHasilNilaiLatihan"} text={"Apakah Anda yakin ingin mengakhiri latihan ini?"} text2={"Akhiri Latihan"}/>
                                     </div>
                                     </div>
                                 )}

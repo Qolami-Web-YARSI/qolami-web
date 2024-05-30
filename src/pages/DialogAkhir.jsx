@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import DialogHasilNilai from './DialogHasilNilai';
 
-const DialogAkhir = ({id, id2, text, text2}) => {
+const DialogAkhir = ({id, id2, text, text2, img, score}) => {
+
     useEffect(() => {
      window.scrollTo(0, 0);
     }, [])
 
     return(
         <>
-            <div className="modal fade" id={`${id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade" id={id} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-lg">
                     <div className="modal-content tw-rounded-[25px]">
                         <div className="modal-body tw-px-[50px] tw-rounded-[25px] tw-bg-[#FFF6D9]">
@@ -22,8 +23,9 @@ const DialogAkhir = ({id, id2, text, text2}) => {
                                     tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Batal</button>
                                     <button className="btn btn-secondary 
                                         tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[180px] 
-                                        tw-rounded-none tw-font-bold" data-bs-target={`${id2}`} data-bs-toggle="modal">{text2}</button>
+                                        tw-rounded-none tw-font-bold" data-bs-target={`#${id2}`} data-bs-toggle="modal">{text2}</button>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

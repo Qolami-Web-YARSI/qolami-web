@@ -94,7 +94,7 @@ const HeaderComponent2 = ({img}) => {
                     <ul className={`${getNav2? 'tw-block' : 'tw-hidden'} tw-size-[220px] tw-mt-4 tw-rounded-[15px]`} onMouseEnter={() => setNav2(true)} onMouseLeave={() => setNav2(false)}>
                         <ul className={`${getNav2? 'tw-block' : 'tw-hidden'} tw-bg-[#FFF6D9] tw-w-[220px] tw-mt-20 tw-rounded-[10px] tw-mx-auto tw-border-[#009900] 
                         tw-border-2 tw-cursor-pointer tw-shadow-[6px_6px_6px_0px_rgba(0,0,0,0.3)]`} >
-                            <a href="/aktifitas" className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2.5 tw-rounded-t-[8px] tw-w-full'>
+                            <a href="/aktivitas" className='tw-flex tw-gap-5 hover:tw-bg-[#90C963] tw-px-6 tw-py-2.5 tw-rounded-t-[8px] tw-w-full'>
                                 {/* <img src="activity.svg" className='tw-size-6 tw-my-auto'/> */}
                                 <FiActivity className='tw-size-6 tw-my-auto'/>
                                 <p className='tw-text-[19px] tw-my-auto'>Aktivitas</p>
