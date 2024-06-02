@@ -26,7 +26,7 @@ const ContentAboutComponent = () => {
                             className='tw-hidden xl:tw-block'/> video yang sangat mudah dipahami oleh berbagai <br className='tw-hidden xl:tw-block'/> lapisan masyarakat.</p>
                     </div>
                 </div>
-                <div className="tw-bg-[#FFF6D9] tw-pt-24 md:tw-pt-20 lg:tw-pt-11">
+                {/* <div className="tw-bg-[#FFF6D9] tw-pt-24 md:tw-pt-20 lg:tw-pt-11">
                     <div className="tw-flex tw-justify-between tw-py-3">
                         <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-mx-auto">DIBUAT DENGAN</p>
                     </div>
@@ -42,8 +42,8 @@ const ContentAboutComponent = () => {
                         <CardContentAbout image={image[7]}/>
                     </div>
                     
-                </div>
-                <div className="tw-flex tw-gap-0 tw-py-14 tw-px-10 sm:tw-px-20 2xl:tw-px-20 tw-bg-[#C2EF90] tw-justify-center">
+                </div> */}
+                <div className="tw-flex tw-gap-0 tw-py-14 tw-px-10 sm:tw-px-20 2xl:tw-px-20 tw-bg-[#FFF6D9] tw-justify-center">
                     <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] 2xl:tw-w-[700px] tw-gap-2 md:tw-gap-3 tw-mx-auto sm:tw-mx-0">
                         <div className='tw-flex tw-flex-col tw-ps-4'>
                             <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] 

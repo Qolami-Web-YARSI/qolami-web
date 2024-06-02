@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react'
 const FooterComponent = () => {
     return(
         <>
-            <footer>
+            <footer 
+            hidden={localStorage.getItem('idDetail') !== null && localStorage.getItem('idDetail').includes("exam") ?
+                true
+                : 
+                false
+        }>
                 <div className="tw-flex tw-bg-[#458200] tw-justify-between tw-p-2 tw-py-12 tw-font-poppins">
                     <div className="tw-flex tw-flex-col tw-justify-center">
                         <p></p>

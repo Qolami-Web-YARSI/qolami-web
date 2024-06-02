@@ -8,10 +8,18 @@ const HeaderComponent = ({img}) => {
         setNav(!getNav)
         console.log(!getNav)
     }
+
+    
+
     return(
         <>
             <NavigationComponent nav={getNav} buttonNavX={buttonNav}/>
-            <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins">
+            <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins"
+            hidden={localStorage.getItem('idDetail') !== null ?
+            false
+            : 
+            true
+        }>
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">

@@ -46,7 +46,6 @@ const HeaderComponent2 = ({img}) => {
                 response.data.data.profileUrl = response.data.data.profileUrl;
                 console.log(response.data.data.profileUrl)
             }
-            //setProfileUrl(`http://localhost:2024${response.data.data.profileUrl}`)
         }catch(e){
             console.log(e)
         }
@@ -59,7 +58,12 @@ const HeaderComponent2 = ({img}) => {
     return(
         <>
             <NavigationComponent2 nav={getNav} buttonNavX={buttonNav}/>
-            <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins">
+            <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins" 
+            hidden={localStorage.getItem('idDetail').includes("exam") ?
+            true
+            : 
+            false
+        }>
                 <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
                     <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
                         <a href="/">

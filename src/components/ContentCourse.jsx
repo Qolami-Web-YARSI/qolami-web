@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CardContentCourse from './CardContentCourse';
 import Pagination from './Pagination';
-import Kursus from "../data/Kursus"
+import KursusData from "../data/KursusData"
 
 const ContentCourse = ({tempToken}) => {
     const contentRef = useRef(null);
@@ -14,7 +14,7 @@ const ContentCourse = ({tempToken}) => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     const datas = () => {
-            tempDatas.push(...Kursus)
+            tempDatas.push(...KursusData)
             //console.log(tempDatas)
             
             const tempUnlockArray = [];

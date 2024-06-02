@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 const DialogBerhasil4 = ({id}) => {
+
     useEffect(() => {
      window.scrollTo(0, 0);
-    }, [])
+     console.log(id)
+    },[id]);
 
     return(
         <>
@@ -21,8 +23,8 @@ const DialogBerhasil4 = ({id}) => {
                                     tw-border-2 tw-border-[#BABABA] hover:tw-border-[#BABABA] tw-text-black hover:tw-text-black tw-w-[100px] 
                                     tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Batal</button>
                                     <Link to={`/${id}`}>
-                                        <button className="btn btn-secondary 
-                                        tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px] 
+                                        <button className="btn btn-secondary
+                                        tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px]  
                                         tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Mulai</button>
                                     </Link>
                                 </div>

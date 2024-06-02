@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react'
-import DialogHasilNilai from './DialogHasilNilai';
+import React, { useEffect, useState, useRef } from 'react'
 
-const DialogAkhir = ({id, id2, text, text2, img, score}) => {
+const DialogAkhir = ({id, id2, text, text2}) => {
 
     useEffect(() => {
-     window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, [])
+        
+    const handleSubmit = () => {
+        localStorage.setItem('IsSubmit', true);
+        localStorage.setItem('TimeStop', true);
+        window.location.reload()
+    };
 
     return(
         <>
@@ -21,11 +26,11 @@ const DialogAkhir = ({id, id2, text, text2, img, score}) => {
                                     <button className="btn btn-secondary tw-text-[20px] tw-bg-[#E9ECEF] hover:tw-bg-[#E0E0E3] 
                                     tw-border-2 tw-border-[#BABABA] hover:tw-border-[#BABABA] tw-text-black hover:tw-text-black tw-w-[180px]
                                     tw-rounded-none tw-font-bold" data-bs-dismiss="modal">Batal</button>
-                                    <button className="btn btn-secondary 
+                                    <button onClick={handleSubmit} className="btn btn-secondary 
                                         tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[180px] 
-                                        tw-rounded-none tw-font-bold" data-bs-target={`#${id2}`} data-bs-toggle="modal">{text2}</button>
+                                        tw-rounded-none tw-font-bold" data-bs-dismiss="modal">{text2}
+                                    </button>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
