@@ -6,8 +6,10 @@ import PaginationDetail from "./PaginationDetail";
 import DialogBerhasil3 from "../pages/DialogBerhasil3";
 import DialogHasilNilai from "../pages/DialogHasilNilai";
 import DialogAkhir from "../pages/DialogAkhir";
+import HeaderComponent2 from "./HeaderComponent2";
+import FooterComponent from "./FooterComponent";
 
-const ContentDetailKursus = ({ img2, img3 }) => {
+const ContentDetailKursus = ({ img, img2, img3 }) => {
   const { id } = useParams();
   localStorage.setItem(`id2`, id);
   const navigate = useNavigate();
@@ -178,7 +180,7 @@ const ContentDetailKursus = ({ img2, img3 }) => {
       const remainingTime = Math.floor((endTime - currentTime) / 1000);
       return remainingTime > 0 ? remainingTime : 0;
     }
-    return 180; // 600 detik = 10 menit
+    return 60; // 180 detik = 3 menit
   };
 
   useEffect(() => {
@@ -265,26 +267,26 @@ const ContentDetailKursus = ({ img2, img3 }) => {
             const newTime = prevTime - 1;
             if (newTime === 0) {
               clearInterval(intervalRef.current);
-              localStorage.setItem("IsSubmit", true);
-              localStorage.setItem(`semuaSoalTelahDiisi`, true);
               setTimeout(() => {
                 window.location.reload();
               }, 1000);
+              localStorage.setItem("IsSubmit", true);
+              localStorage.setItem(`semuaSoalTelahDiisi`, true);
+              localStorage.setItem("TimeStop", true);
+            } else {
+              localStorage.setItem("TimeStop", false);
             }
-            if (newTime <= 120) {
+            if (newTime <= 30) {
               localStorage.setItem("timeUnders2Minutes", true);
             } else {
               localStorage.setItem("timeUnders2Minutes", false);
             }
-            if (newTime === 178) {
-              window.location.reload();
-            }
-            return newTime >= 0 ? newTime : 0;
+            return newTime;
           });
         }, 1000);
-        return () => clearInterval(intervalRef.current);
       }
     }
+    return () => clearInterval(intervalRef.current);
   }, [time]);
 
   useEffect(() => {
@@ -315,8 +317,15 @@ const ContentDetailKursus = ({ img2, img3 }) => {
         document.getElementById("dialogHasilNilaiLatihan")
       );
       myModal.show();
+      clearInterval(intervalRef.current);
     }
   }, []);
+
+  // useEffect(() => {
+  //   if (JSON.parse(localStorage.getItem("TimeStop")) === false) {
+  //     navigate(`/${id}`);
+  //   }
+  // });
 
   return (
     <>
@@ -326,126 +335,151 @@ const ContentDetailKursus = ({ img2, img3 }) => {
             return (
               <>
                 {pelajaran && (
-                  <div
-                    dir="ltr"
-                    className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
-                  >
-                    <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-pb-11">
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
-                        Pelajaran 1
-                      </p>
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
-                        Huruf Hijaiyah
-                      </p>
-                    </div>
-                    <div className="tw-flex tw-w-[100%]">
-                      <div
-                        className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
-                        dir="rtl"
-                      >
-                        <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
-                          {pelajaran.map((a, index) => {
-                            if (
-                              ["ج", "ح", "خ", "ر"].includes(a.hurufHijaiyah)
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                  <>
+                    {/* <HeaderComponent2 img={img} /> */}
+                    <div
+                      dir="ltr"
+                      className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                    >
+                      <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-pb-11">
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                          Pelajaran 1
+                        </p>
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                          Huruf Hijaiyah
+                        </p>
+                      </div>
+                      <div className="tw-flex tw-w-[100%]">
+                        <div
+                          className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
+                          dir="rtl"
+                        >
+                          <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
+                            {pelajaran.map((a, index) => {
+                              if (
+                                ["ج", "ح", "خ", "ر"].includes(a.hurufHijaiyah)
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufHijaiyah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (
-                              ["د", "ذ", "ك", "ط", "ظ", "ف"].includes(
-                                a.hurufHijaiyah
-                              )
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufHijaiyah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (
+                                ["د", "ذ", "ك", "ط", "ظ", "ف"].includes(
+                                  a.hurufHijaiyah
+                                )
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
+                                  >
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                     2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufHijaiyah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (["ي"].includes(a.hurufHijaiyah)) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufHijaiyah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (["ي"].includes(a.hurufHijaiyah)) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufHijaiyah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (
+                                ["ن", "ق", "ع", "غ", "و"].includes(
+                                  a.hurufHijaiyah
+                                )
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufHijaiyah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (
-                              ["ن", "ق", "ع", "غ", "و"].includes(
-                                a.hurufHijaiyah
-                              )
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufHijaiyah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (["م"].includes(a.hurufHijaiyah)) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufHijaiyah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (["م"].includes(a.hurufHijaiyah)) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufHijaiyah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufHijaiyah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
-                                  >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufHijaiyah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            }
-                          })}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufHijaiyah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              }
+                            })}
+                          </div>
+                          <PaginationDetail
+                            id={id}
+                            tempIdCourse={tempIdCourse}
+                          />
                         </div>
-                        <PaginationDetail id={id} tempIdCourse={tempIdCourse} />
                       </div>
                     </div>
-                  </div>
+                    {/* <FooterComponent /> */}
+                  </>
                 )}
               </>
             );
@@ -453,132 +487,157 @@ const ContentDetailKursus = ({ img2, img3 }) => {
             return (
               <>
                 {pelajaran && (
-                  <div
-                    dir="ltr"
-                    className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
-                  >
-                    <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-pb-11">
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
-                        Pelajaran 2
-                      </p>
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
-                        Huruf Berharakat Fathah
-                      </p>
-                    </div>
-                    <div className="tw-flex tw-w-[100%]">
-                      <div
-                        className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
-                        dir="rtl"
-                      >
-                        <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
-                          {pelajaran.map((a, index) => {
-                            if (
-                              ["ج", "ح", "خ", "ر"].includes(
-                                a.hurufBerharakatFathah
-                              )
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
-                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                  <>
+                    {/* <HeaderComponent2 img={img} /> */}
+                    <div
+                      dir="ltr"
+                      className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                    >
+                      <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-pb-11">
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                          Pelajaran 2
+                        </p>
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                          Huruf Berharakat Fathah
+                        </p>
+                      </div>
+                      <div className="tw-flex tw-w-[100%]">
+                        <div
+                          className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
+                          dir="rtl"
+                        >
+                          <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
+                            {pelajaran.map((a, index) => {
+                              if (
+                                ["ج", "ح", "خ", "ر"].includes(
+                                  a.hurufBerharakatFathah
+                                )
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufBerharakatFathah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (
-                              ["د", "ذ", "ك", "ط", "ظ", "ف"].includes(
-                                a.hurufBerharakatFathah
-                              )
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufBerharakatFathah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (
+                                ["د", "ذ", "ك", "ط", "ظ", "ف"].includes(
+                                  a.hurufBerharakatFathah
+                                )
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
+                                  >
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
                                     lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufBerharakatFathah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (
+                                ["ي"].includes(a.hurufBerharakatFathah)
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufBerharakatFathah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (
-                              ["ي"].includes(a.hurufBerharakatFathah)
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
                                       lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufBerharakatFathah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (
+                                ["ن", "ق", "ع", "غ", "و"].includes(
+                                  a.hurufBerharakatFathah
+                                )
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufBerharakatFathah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (
-                              ["ن", "ق", "ع", "غ", "و"].includes(
-                                a.hurufBerharakatFathah
-                              )
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufBerharakatFathah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else if (
+                                ["م"].includes(a.hurufBerharakatFathah)
+                              ) {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufBerharakatFathah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else if (
-                              ["م"].includes(a.hurufBerharakatFathah)
-                            ) {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufBerharakatFathah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              } else {
+                                return (
+                                  <Link
+                                    to={`/${id}/contents/${a.id}`}
+                                    key={a.id}
                                   >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufBerharakatFathah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            } else {
-                              return (
-                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                  <button
-                                    key={index}
-                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                    <button
+                                      key={index}
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
-                                  >
-                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
-                                      {a.hurufBerharakatFathah}
-                                    </p>
-                                  </button>
-                                </Link>
-                              );
-                            }
-                          })}
+                                    >
+                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                        {a.hurufBerharakatFathah}
+                                      </p>
+                                    </button>
+                                  </Link>
+                                );
+                              }
+                            })}
+                          </div>
+                          <PaginationDetail
+                            id={id}
+                            tempIdCourse={tempIdCourse}
+                          />
                         </div>
-                        <PaginationDetail id={id} tempIdCourse={tempIdCourse} />
                       </div>
                     </div>
-                  </div>
+                    {/* <FooterComponent /> */}
+                  </>
                 )}
               </>
             );
@@ -587,52 +646,59 @@ const ContentDetailKursus = ({ img2, img3 }) => {
           }
         } else if (id.includes("exercise")) {
           if (id.includes("one")) {
+            console.log("Rendering Exercise One", tempExercise1);
             return (
               <>
                 {tempExercise1 && (
-                  <div
-                    dir="ltr"
-                    className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
-                  >
-                    <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
-                        Latihan 1
-                      </p>
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
-                        Huruf Hijaiyah
-                      </p>
+                  <>
+                    {/* <HeaderComponent2 img={img} /> */}
+                    <div
+                      dir="ltr"
+                      className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                    >
+                      <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                          Latihan 1
+                        </p>
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                          Huruf Hijaiyah
+                        </p>
+                      </div>
+                      <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
+                        <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
+                          {tempExercise1.map((a) => {
+                            return (
+                              <li
+                                key={a.id}
+                                data-bs-target={`#dialogMulaiLatihan${a.id}`}
+                                data-bs-toggle="modal"
+                                className="tw-cursor-pointer"
+                              >
+                                <div className="tw-flex tw-flex-col">
+                                  <img src={a.gambar} alt={a.gambar} />
+                                  <p className="tw-text-[30px] tw-font-bold tw-mx-auto">
+                                    {a.nama2}
+                                  </p>
+                                </div>
+                                <DialogBerhasil3 id={id} id2={a.id} />
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
-                      <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
-                        {tempExercise1.map((a) => {
-                          return (
-                            <li
-                              key={a.id}
-                              data-bs-target={`#dialogMulaiLatihan${a.id}`}
-                              data-bs-toggle="modal"
-                              className="tw-cursor-pointer"
-                            >
-                              <div className="tw-flex tw-flex-col">
-                                <img src={a.gambar} alt={a.gambar} />
-                                <p className="tw-text-[30px] tw-font-bold tw-mx-auto">
-                                  {a.nama2}
-                                </p>
-                              </div>
-                              <DialogBerhasil3 id={id} id2={a.id} />
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </div>
+                    {/* <FooterComponent /> */}
+                  </>
                 )}
               </>
             );
           } else if (id.includes("two")) {
+            console.log("Rendering Exercise Two", tempExercise2);
             return (
               <>
                 {tempExercise2 && (
                   <>
+                    {/* <HeaderComponent2 img={img} /> */}
                     <div
                       dir="ltr"
                       className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
@@ -651,6 +717,7 @@ const ContentDetailKursus = ({ img2, img3 }) => {
                             return (
                               <>
                                 <li
+                                  key={a.id}
                                   data-bs-target={`#dialogMulaiLatihan${a.id}`}
                                   data-bs-toggle="modal"
                                   className="tw-cursor-pointer"
@@ -669,6 +736,7 @@ const ContentDetailKursus = ({ img2, img3 }) => {
                         </ul>
                       </div>
                     </div>
+                    {/* <FooterComponent /> */}
                   </>
                 )}
               </>
@@ -897,7 +965,6 @@ const ContentDetailKursus = ({ img2, img3 }) => {
                           <button
                             onClick={() => {
                               navigate(`/kursus`);
-                              window.location.reload();
                               tempExam1.soalJawaban2.forEach((_, index) => {
                                 localStorage.removeItem(
                                   `opsiSoal_${index + 1}`
@@ -935,9 +1002,6 @@ const ContentDetailKursus = ({ img2, img3 }) => {
                       </button>
                     )}
                   </div>
-                  {/* {localStorage.setItem(`score`, score)}
-                  {localStorage.setItem(`panjangSoal`, panjangSoalJawaban)} */}
-                  {/* <DialogAkhir id={"dialogAkhirUjian"} id2={"dialogHasilNilaiUjian"} text={"Apakah Anda yakin ingin mengakhiri ujian ini?"} text2={"Akhiri Ujian"}/> */}
                 </div>
               </>
             );
