@@ -74,6 +74,7 @@ const App = () => {
           id={"dialogHasilNilaiUjian"}
           img={imageUrlPencil}
           graduate={75}
+          text={"ujian"}
           panjangSoal={localStorage.getItem(`panjangSoal`)}
           score={JSON.parse(localStorage.getItem(`score`))}
         />
@@ -81,6 +82,7 @@ const App = () => {
           id={"dialogHasilNilaiLatihan"}
           img={imageUrlPencil}
           graduate={75}
+          text={"latihan"}
           panjangSoal={localStorage.getItem(`panjangSoal`)}
           score={localStorage.getItem(`score`)}
         />

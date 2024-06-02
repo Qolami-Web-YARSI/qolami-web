@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const DialogHasilNilai = ({ id, img, graduate, panjangSoal, score }) => {
+const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
   const [isGraduate, setIsGraduate] = useState(false);
 
   useEffect(() => {
@@ -63,10 +63,14 @@ const DialogHasilNilai = ({ id, img, graduate, panjangSoal, score }) => {
                   </p>
                 </div>
               </div>
-              <p className="tw-mx-auto tw-py-5 tw-pb-7 tw-text-[20px] tw-text-center">
-                {isGraduate === true
-                  ? "Selamat! Anda telah Lulus dari latihan ini"
-                  : "Nilai Anda belum memenuhi batas minimum yang ditentukan pada latihan ini: 75"}
+              <p className="tw-mx-auto tw-px-10 tw-py-5 tw-pb-7 tw-text-[18px] tw-text-justify">
+                {isGraduate === true ? (
+                  <>{`Selamat! Anda telah Lulus dari ${text} ini`}</>
+                ) : (
+                  <>
+                    {`Nilai Anda belum memenuhi batas minimum yang ditentukan pada ${text} ini: ${graduate}`}
+                  </>
+                )}
               </p>
               <button
                 type="button"

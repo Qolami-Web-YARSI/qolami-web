@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import KursusData from '../data/KursusData';
-import PaginationDetail from './PaginationDetail';
-import DialogBerhasil3 from '../pages/DialogBerhasil3';
-import DialogHasilNilai from '../pages/DialogHasilNilai';
-import DialogAkhir from '../pages/DialogAkhir';
+import React, { useState, useEffect, useRef } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import KursusData from "../data/KursusData";
+import PaginationDetail from "./PaginationDetail";
+import DialogBerhasil3 from "../pages/DialogBerhasil3";
+import DialogHasilNilai from "../pages/DialogHasilNilai";
+import DialogAkhir from "../pages/DialogAkhir";
 
-const ContentDetailKursus = ({img2, img3}) => {
+const ContentDetailKursus = ({ img2, img3 }) => {
   const { id } = useParams();
-  localStorage.setItem(`id2`, id)
+  localStorage.setItem(`id2`, id);
   const navigate = useNavigate();
   const [pelajaran, setPelajaran] = useState(null);
   const [tempIdCourse, setTempIdCourse] = useState([]);
@@ -31,57 +31,77 @@ const ContentDetailKursus = ({img2, img3}) => {
   const [selectedButton9, setSelectedButton9] = useState(null);
   const [selectedButton10, setSelectedButton10] = useState(null);
   const [tempNilaiSoal, setTempNilaiSoal] = useState([]);
-  const initialTemp = JSON.parse(localStorage.getItem('temps')) || [];
+  const initialTemp = JSON.parse(localStorage.getItem("temps")) || [];
   const [temp, setTemp] = useState(initialTemp);
   const [panjangSoalJawaban, setPanjangSoalJawaban] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
   const intervalRef = useRef(null);
-  const [qaz, setQaz] = useState([selectedButton1, selectedButton2, selectedButton3, selectedButton4, selectedButton5, selectedButton6, selectedButton7, selectedButton8, selectedButton9, selectedButton10])
-  const [wsx, setWsx] = useState([setSelectedButton1, setSelectedButton2, setSelectedButton3, setSelectedButton4, setSelectedButton5, setSelectedButton6, setSelectedButton7, setSelectedButton8, setSelectedButton9, setSelectedButton10])
+  const [qaz, setQaz] = useState([
+    selectedButton1,
+    selectedButton2,
+    selectedButton3,
+    selectedButton4,
+    selectedButton5,
+    selectedButton6,
+    selectedButton7,
+    selectedButton8,
+    selectedButton9,
+    selectedButton10,
+  ]);
+  const [wsx, setWsx] = useState([
+    setSelectedButton1,
+    setSelectedButton2,
+    setSelectedButton3,
+    setSelectedButton4,
+    setSelectedButton5,
+    setSelectedButton6,
+    setSelectedButton7,
+    setSelectedButton8,
+    setSelectedButton9,
+    setSelectedButton10,
+  ]);
 
   const takeIdCourse = () => {
     KursusData.forEach((a) => {
-      if(a.nama.toLowerCase().includes("pelajaran")){
-        tempIdCourse.push(a.id)
+      if (a.nama.toLowerCase().includes("pelajaran")) {
+        tempIdCourse.push(a.id);
       }
-    })
-  }
+    });
+  };
 
   const takeLatihanContent = () => {
     KursusData.forEach((a) => {
       a.detail.forEach((b) => {
-        if(b.nama.toLowerCase().includes("1")){
-          tempExercise1.push(b)
-        }else if(b.nama.toLowerCase().includes("2")){
-          tempExercise2.push(b)
-        }else{
-          console.log("Ops!!!")
+        if (b.nama.toLowerCase().includes("1")) {
+          tempExercise1.push(b);
+        } else if (b.nama.toLowerCase().includes("2")) {
+          tempExercise2.push(b);
+        } else {
+          console.log("Ops!!!");
         }
-      })
-    })
+      });
+    });
     //console.log(tempExercise1)
-  }
+  };
 
   const takeExamContent = () => {
     KursusData.forEach((a) => {
       if (a.id.includes("exam-one")) {
         console.log(a);
         setTempExam1(a);
-        setPanjangSoalJawaban(a.soalJawaban2.length)
-        localStorage.setItem(`panjangSoal`, a.soalJawaban2.length)
+        setPanjangSoalJawaban(a.soalJawaban2.length);
+        localStorage.setItem(`panjangSoal`, a.soalJawaban2.length);
       } else if (a.id.includes("exam-two")) {
         console.log(a);
-        setTempExam2(a)
-        setPanjangSoalJawaban(a.soalJawaban2.length)
-        localStorage.setItem(`panjangSoal`, a.soalJawaban2.length)
+        setTempExam2(a);
+        setPanjangSoalJawaban(a.soalJawaban2.length);
+        localStorage.setItem(`panjangSoal`, a.soalJawaban2.length);
       } else {
-        console.log("no identify exam!")
+        console.log("no identify exam!");
       }
-      
-    })
-    
-  }
+    });
+  };
 
   const detailApiPelajaran = async () => {
     try {
@@ -94,7 +114,7 @@ const ContentDetailKursus = ({img2, img3}) => {
 
   const audioPlay = (audio_source) => {
     if (currentAudio) {
-      currentAudio.pause(); 
+      currentAudio.pause();
       currentAudio.currentTime = 0;
     }
     const newAudio = new Audio(audio_source);
@@ -107,37 +127,52 @@ const ContentDetailKursus = ({img2, img3}) => {
   const handleButtonClick = (index, optionId, correctAnswerId) => {
     let sum = 0;
     wsx[index](optionId);
-    localStorage.setItem(`opsiSoal_${index+1}`, optionId);
-    if(temp[index] === null){
-        temp.push(JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)));
-        localStorage.setItem(`temps`, JSON.stringify(temp.filter(item => item !== undefined || item !== null)));
-    }else{
-        temp[index] = JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`))
-        localStorage.setItem(`temps`, JSON.stringify(temp.filter(item => item !== undefined || item !== null)));
+    localStorage.setItem(`opsiSoal_${index + 1}`, optionId);
+    if (temp[index] === null) {
+      temp.push(JSON.parse(localStorage.getItem(`opsiSoal_${index + 1}`)));
+      localStorage.setItem(
+        `temps`,
+        JSON.stringify(
+          temp.filter((item) => item !== undefined || item !== null)
+        )
+      );
+    } else {
+      temp[index] = JSON.parse(localStorage.getItem(`opsiSoal_${index + 1}`));
+      localStorage.setItem(
+        `temps`,
+        JSON.stringify(
+          temp.filter((item) => item !== undefined || item !== null)
+        )
+      );
     }
-    let filteredArray = temp.filter(item => item !== undefined || item !== null);
-    console.log(filteredArray)
+    let filteredArray = temp.filter(
+      (item) => item !== undefined || item !== null
+    );
+    console.log(filteredArray);
 
-    if(filteredArray.length === panjangSoalJawaban){
-        localStorage.setItem(`semuaSoalTelahDiisi`, true)
-    }else{
-        localStorage.setItem(`semuaSoalTelahDiisi`, false)
+    if (filteredArray.length === panjangSoalJawaban) {
+      localStorage.setItem(`semuaSoalTelahDiisi`, true);
+    } else {
+      localStorage.setItem(`semuaSoalTelahDiisi`, false);
     }
 
     if (optionId === correctAnswerId) {
-        const updatedScore = 100 / tempExam1.soalJawaban2.length;
-        tempNilaiSoal[index] = Math.round(updatedScore);
+      const updatedScore = 100 / tempExam1.soalJawaban2.length;
+      tempNilaiSoal[index] = Math.round(updatedScore);
     } else {
-        tempNilaiSoal[index] = 0;
+      tempNilaiSoal[index] = 0;
     }
 
-    sum = tempNilaiSoal.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    sum = tempNilaiSoal.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
     setScore(sum);
-    localStorage.setItem(`score`, sum)
+    localStorage.setItem(`score`, sum);
   };
 
   const initialTime = () => {
-    const endTime = localStorage.getItem('endTime');
+    const endTime = localStorage.getItem("endTime");
     if (endTime) {
       const currentTime = Date.now();
       const remainingTime = Math.floor((endTime - currentTime) / 1000);
@@ -148,65 +183,100 @@ const ContentDetailKursus = ({img2, img3}) => {
 
   useEffect(() => {
     if (localStorage.getItem(`score`) === null) {
-      localStorage.setItem(`score`, 0)
+      localStorage.setItem(`score`, 0);
     } else {
-      localStorage.getItem(`score`)
+      localStorage.getItem(`score`);
     }
-  }, [])
+  }, []);
 
   const [time, setTime] = useState(initialTime);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}m:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}s`;
+    return `${minutes}m:${
+      remainingSeconds < 10 ? "0" : ""
+    }${remainingSeconds}s`;
   };
 
-  useEffect(()=>{
-    localStorage.setItem('idDetail', id)
-  }, [id])
+  useEffect(() => {
+    localStorage.setItem("idDetail", id);
+  }, [id]);
 
   useEffect(() => {
-    setQaz(prevQaz => [selectedButton1, selectedButton2, selectedButton3, selectedButton4, selectedButton5, selectedButton6, selectedButton7, selectedButton8, selectedButton9, selectedButton10]);
-    setWsx(prevWsx => [setSelectedButton1, setSelectedButton2, setSelectedButton3, setSelectedButton4, setSelectedButton5, setSelectedButton6, setSelectedButton7, setSelectedButton8, setSelectedButton9, setSelectedButton10]);
-  }, [selectedButton1, selectedButton2, selectedButton3, selectedButton4, selectedButton5, selectedButton6, selectedButton7, selectedButton8, selectedButton9, selectedButton10]);
-  
+    setQaz((prevQaz) => [
+      selectedButton1,
+      selectedButton2,
+      selectedButton3,
+      selectedButton4,
+      selectedButton5,
+      selectedButton6,
+      selectedButton7,
+      selectedButton8,
+      selectedButton9,
+      selectedButton10,
+    ]);
+    setWsx((prevWsx) => [
+      setSelectedButton1,
+      setSelectedButton2,
+      setSelectedButton3,
+      setSelectedButton4,
+      setSelectedButton5,
+      setSelectedButton6,
+      setSelectedButton7,
+      setSelectedButton8,
+      setSelectedButton9,
+      setSelectedButton10,
+    ]);
+  }, [
+    selectedButton1,
+    selectedButton2,
+    selectedButton3,
+    selectedButton4,
+    selectedButton5,
+    selectedButton6,
+    selectedButton7,
+    selectedButton8,
+    selectedButton9,
+    selectedButton10,
+  ]);
+
   useEffect(() => {
     detailApiPelajaran();
   }, [id, currentAudio, pelajaran]);
 
   useEffect(() => {
-    takeIdCourse()
-  }, [id])
+    takeIdCourse();
+  }, [id]);
 
   useEffect(() => {
-    takeLatihanContent()
-  }, [id, tempExercise1, tempExercise2])
+    takeLatihanContent();
+  }, [id, tempExercise1, tempExercise2]);
 
   useEffect(() => {
-    takeExamContent()
-  }, [id, tempExam1, tempExam2])
-    
+    takeExamContent();
+  }, [id, tempExam1, tempExam2]);
+
   useEffect(() => {
-    if(localStorage.getItem("idDetail").includes("exam")){
+    if (localStorage.getItem("idDetail").includes("exam")) {
       if (time > 0) {
         intervalRef.current = setInterval(() => {
           setTime((prevTime) => {
             const newTime = prevTime - 1;
             if (newTime === 0) {
               clearInterval(intervalRef.current);
-              localStorage.setItem('IsSubmit', true)
+              localStorage.setItem("IsSubmit", true);
               localStorage.setItem(`semuaSoalTelahDiisi`, true);
               setTimeout(() => {
                 window.location.reload();
               }, 1000);
             }
             if (newTime <= 120) {
-              localStorage.setItem('timeUnders2Minutes', true)
+              localStorage.setItem("timeUnders2Minutes", true);
             } else {
-              localStorage.setItem('timeUnders2Minutes', false)
+              localStorage.setItem("timeUnders2Minutes", false);
             }
-            if (newTime === 179) {
+            if (newTime === 178) {
               window.location.reload();
             }
             return newTime >= 0 ? newTime : 0;
@@ -215,568 +285,909 @@ const ContentDetailKursus = ({img2, img3}) => {
         return () => clearInterval(intervalRef.current);
       }
     }
-    
   }, [time]);
-    
+
   useEffect(() => {
     const endTime = Date.now() + time * 1000;
-    if(localStorage.getItem("idDetail").includes("exam")){
-      localStorage.setItem('endTime', endTime);
+    if (localStorage.getItem("idDetail").includes("exam")) {
+      localStorage.setItem("endTime", endTime);
     }
   }, [time]);
 
-   useEffect(() => {
-      if(localStorage.getItem("idDetail").includes("exam")){
-        if (JSON.parse(localStorage.getItem('TimeStop')) === true) {
-          clearInterval(intervalRef.current);
-        }
+  useEffect(() => {
+    if (localStorage.getItem("idDetail").includes("exam")) {
+      if (JSON.parse(localStorage.getItem("TimeStop")) === true) {
+        clearInterval(intervalRef.current);
       }
-   }, [])
+    }
+  }, []);
 
   useEffect(() => {
     window.onpopstate = () => {
-        localStorage.setItem('idDetail', id)
-        navigate(`/${localStorage.getItem('idDetail')}`)
-    }
-  })
+      localStorage.setItem("idDetail", id);
+      navigate(`/${localStorage.getItem("idDetail")}`);
+    };
+  });
 
   useEffect(() => {
-      if(JSON.parse(localStorage.getItem('IsSubmit')) === true){
-        const myModal = new window.bootstrap.Modal(document.getElementById('dialogHasilNilaiLatihan'));
-        myModal.show();
-      }
-  }, [])
+    if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
+      const myModal = new window.bootstrap.Modal(
+        document.getElementById("dialogHasilNilaiLatihan")
+      );
+      myModal.show();
+    }
+  }, []);
 
   return (
     <>
       {(() => {
         if (id.includes("lessons")) {
           if (id.includes("one")) {
-            return(
+            return (
               <>
                 {pelajaran && (
-                <div dir="ltr" className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
+                  <div
+                    dir="ltr"
+                    className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                  >
                     <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-pb-11">
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Pelajaran 1</p>
-                      <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>Huruf Hijaiyah</p>
+                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                        Pelajaran 1
+                      </p>
+                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                        Huruf Hijaiyah
+                      </p>
                     </div>
-                    <div className='tw-flex tw-w-[100%]'>
-                      <div className='tw-flex tw-flex-col tw-mx-auto tw-w-[100%]' dir="rtl">
-                        <div className='tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif'>
-                            {pelajaran.map((a, index)=> {
-                                if(["ج", "ح", "خ", "ر"].includes(a.hurufHijaiyah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                            {a.hurufHijaiyah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                }else if(["د", "ذ", "ك", "ط", "ظ", "ف"].includes(a.hurufHijaiyah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                    <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                    2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                      <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufHijaiyah}
-                                      </p>
-                                    </button>
-                                    </Link>
-                                  );
-                                }else if(["ي"].includes(a.hurufHijaiyah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                            {a.hurufHijaiyah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                }else if(["ن", "ق", "ع", "غ", "و"].includes(a.hurufHijaiyah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufHijaiyah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                }else if(["م"].includes(a.hurufHijaiyah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufHijaiyah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                } else {
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufHijaiyah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  )
-                                }
-                            })}
-                          </div>
-                          <PaginationDetail id={id} tempIdCourse={tempIdCourse}/>
+                    <div className="tw-flex tw-w-[100%]">
+                      <div
+                        className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
+                        dir="rtl"
+                      >
+                        <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
+                          {pelajaran.map((a, index) => {
+                            if (
+                              ["ج", "ح", "خ", "ر"].includes(a.hurufHijaiyah)
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufHijaiyah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (
+                              ["د", "ذ", "ك", "ط", "ظ", "ف"].includes(
+                                a.hurufHijaiyah
+                              )
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                    2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufHijaiyah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (["ي"].includes(a.hurufHijaiyah)) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufHijaiyah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (
+                              ["ن", "ق", "ع", "غ", "و"].includes(
+                                a.hurufHijaiyah
+                              )
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufHijaiyah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (["م"].includes(a.hurufHijaiyah)) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufHijaiyah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufHijaiyah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            }
+                          })}
                         </div>
+                        <PaginationDetail id={id} tempIdCourse={tempIdCourse} />
                       </div>
-                </div>            
+                    </div>
+                  </div>
                 )}
               </>
-            )
-          } else if (id.includes("two")){
-            return(
+            );
+          } else if (id.includes("two")) {
+            return (
               <>
                 {pelajaran && (
-                <div dir="ltr" className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
+                  <div
+                    dir="ltr"
+                    className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                  >
                     <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-pb-11">
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Pelajaran 2</p>
-                      <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>Huruf Berharakat Fathah</p>
+                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                        Pelajaran 2
+                      </p>
+                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                        Huruf Berharakat Fathah
+                      </p>
                     </div>
-                    <div className='tw-flex tw-w-[100%]'>
-                      <div className='tw-flex tw-flex-col tw-mx-auto tw-w-[100%]' dir="rtl">
-                        <div className='tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif'>
-                            {pelajaran.map((a, index)=> {
-                                if(["ج", "ح", "خ", "ر"].includes(a.hurufBerharakatFathah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
-                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                            {a.hurufBerharakatFathah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                }else if(["د", "ذ", "ك", "ط", "ظ", "ف"].includes(a.hurufBerharakatFathah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                    <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
-                                    lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                      <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufBerharakatFathah}
-                                      </p>
-                                    </button>
-                                    </Link>
-                                  );
-                                }else if(["ي"].includes(a.hurufBerharakatFathah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
-                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                            {a.hurufBerharakatFathah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                }else if(["ن", "ق", "ع", "غ", "و"].includes(a.hurufBerharakatFathah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
-                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufBerharakatFathah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                }else if(["م"].includes(a.hurufBerharakatFathah)){
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
-                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufBerharakatFathah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  );
-                                } else {
-                                  return(
-                                    <Link to={`/${id}/contents/${a.id}`} key={a.id}>
-                                      <button key={index} className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
-                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}>
-                                        <p className='tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold'>
-                                          {a.hurufBerharakatFathah}
-                                        </p>
-                                      </button>
-                                    </Link>
-                                  )
-                                }
-                            })}
-                          </div>
-                          <PaginationDetail id={id} tempIdCourse={tempIdCourse}/>
+                    <div className="tw-flex tw-w-[100%]">
+                      <div
+                        className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
+                        dir="rtl"
+                      >
+                        <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
+                          {pelajaran.map((a, index) => {
+                            if (
+                              ["ج", "ح", "خ", "ر"].includes(
+                                a.hurufBerharakatFathah
+                              )
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufBerharakatFathah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (
+                              ["د", "ذ", "ك", "ط", "ظ", "ف"].includes(
+                                a.hurufBerharakatFathah
+                              )
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
+                                    lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufBerharakatFathah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (
+                              ["ي"].includes(a.hurufBerharakatFathah)
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufBerharakatFathah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (
+                              ["ن", "ق", "ع", "غ", "و"].includes(
+                                a.hurufBerharakatFathah
+                              )
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufBerharakatFathah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else if (
+                              ["م"].includes(a.hurufBerharakatFathah)
+                            ) {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufBerharakatFathah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            } else {
+                              return (
+                                <Link to={`/${id}/contents/${a.id}`} key={a.id}>
+                                  <button
+                                    key={index}
+                                    className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
+                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                  >
+                                    <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      {a.hurufBerharakatFathah}
+                                    </p>
+                                  </button>
+                                </Link>
+                              );
+                            }
+                          })}
                         </div>
+                        <PaginationDetail id={id} tempIdCourse={tempIdCourse} />
                       </div>
-                </div>            
+                    </div>
+                  </div>
                 )}
               </>
-            )
+            );
           } else {
-            return(
-              <></>
-            )
+            return <></>;
           }
         } else if (id.includes("exercise")) {
           if (id.includes("one")) {
-            return(
+            return (
               <>
-              {tempExercise1 && (
-                <div dir="ltr" className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
-                <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
-                  <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Latihan 1</p>
-                  <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>Huruf Hijaiyah</p>
-                </div>
-                <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
-                  <ul className='tw-flex tw-mx-auto tw-justify-between tw-w-full'>
-                    {tempExercise1.map((a) => {
-                      return(
-                        <li key={a.id} data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal" className='tw-cursor-pointer'>
-                            <div className='tw-flex tw-flex-col'>
-                              <img src={a.gambar} alt={a.gambar}/>
-                              <p className='tw-text-[30px] tw-font-bold tw-mx-auto'>{a.nama2}</p>
-                            </div>
-                            <DialogBerhasil3 id={id} id2={a.id}/>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              </div>
-              )}
-            </>
-          )
-          } else if (id.includes("two")){
-            return(
-              <>
-              {tempExercise2 && (
-                <>
-                  <div dir="ltr" className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
+                {tempExercise1 && (
+                  <div
+                    dir="ltr"
+                    className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                  >
                     <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
-                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Latihan 2</p>
-                      <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>Huruf Berharakat Fathah</p>
+                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                        Latihan 1
+                      </p>
+                      <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                        Huruf Hijaiyah
+                      </p>
                     </div>
-                    <div className='tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
-                      <ul className='tw-flex tw-mx-auto tw-justify-between tw-w-full'>
-                        {tempExercise2.map((a) => {
-                          return(
-                            <>
-                              <li data-bs-target={`#dialogMulaiLatihan${a.id}`} data-bs-toggle="modal" className='tw-cursor-pointer'>
-                                  <div className='tw-flex tw-flex-col'>
-                                    <img src={a.gambar} alt={a.gambar}/>
-                                    <p className='tw-text-[30px] tw-font-bold tw-mx-auto'>{a.nama2}</p>
-                                  </div>
-                                  <DialogBerhasil3 id={id} id2={a.id}/>
-                              </li>
-                            </>
-                          )
+                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
+                      <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
+                        {tempExercise1.map((a) => {
+                          return (
+                            <li
+                              key={a.id}
+                              data-bs-target={`#dialogMulaiLatihan${a.id}`}
+                              data-bs-toggle="modal"
+                              className="tw-cursor-pointer"
+                            >
+                              <div className="tw-flex tw-flex-col">
+                                <img src={a.gambar} alt={a.gambar} />
+                                <p className="tw-text-[30px] tw-font-bold tw-mx-auto">
+                                  {a.nama2}
+                                </p>
+                              </div>
+                              <DialogBerhasil3 id={id} id2={a.id} />
+                            </li>
+                          );
                         })}
                       </ul>
                     </div>
                   </div>
-                </>
-              )}
-            </>
-            )
+                )}
+              </>
+            );
+          } else if (id.includes("two")) {
+            return (
+              <>
+                {tempExercise2 && (
+                  <>
+                    <div
+                      dir="ltr"
+                      className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                    >
+                      <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                          Latihan 2
+                        </p>
+                        <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                          Huruf Berharakat Fathah
+                        </p>
+                      </div>
+                      <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
+                        <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
+                          {tempExercise2.map((a) => {
+                            return (
+                              <>
+                                <li
+                                  data-bs-target={`#dialogMulaiLatihan${a.id}`}
+                                  data-bs-toggle="modal"
+                                  className="tw-cursor-pointer"
+                                >
+                                  <div className="tw-flex tw-flex-col">
+                                    <img src={a.gambar} alt={a.gambar} />
+                                    <p className="tw-text-[30px] tw-font-bold tw-mx-auto">
+                                      {a.nama2}
+                                    </p>
+                                  </div>
+                                  <DialogBerhasil3 id={id} id2={a.id} />
+                                </li>
+                              </>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </>
+            );
           } else {
-            return(
-              <></>
-            )
+            return <></>;
           }
         } else if (id.includes("exam")) {
           if (id.includes("one")) {
-            return(
+            return (
               <>
-                <div dir="ltr" className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
-                  <div className={`tw-flex tw-flex-col tw-pt-28 ${localStorage.getItem('idDetail').includes("exam") ? 'lg:tw-pt-10' : 'lg:tw-pt-32'} tw-w-full`}>
-                    <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Ujian 1</p>
-                    <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>Huruf Hijaiyah</p>
+                <div
+                  dir="ltr"
+                  className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                >
+                  <div
+                    className={`tw-flex tw-flex-col tw-pt-28 ${
+                      localStorage.getItem("idDetail").includes("exam")
+                        ? "lg:tw-pt-10"
+                        : "lg:tw-pt-32"
+                    } tw-w-full`}
+                  >
+                    <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                      Ujian 1
+                    </p>
+                    <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                      Huruf Hijaiyah
+                    </p>
                   </div>
-                  <div className='tw-flex tw-justify-between tw-px-36'>
-                    <div className='tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0'>
-                      <p className='tw-mx-auto'>{formatTime(time)}</p>
-                     </div>
-                    <div className='tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3'>
-                      {JSON.parse(localStorage.getItem('timeUnders2Minutes')) === true ?
-                      <p className='tw-mx-auto tw-text-[#FB7185]'>{formatTime(time)}</p>
-                      :
-                      <p className='tw-mx-auto tw-text-[#34D399]'>{formatTime(time)}</p>}
+                  <div className="tw-flex tw-justify-between tw-px-36">
+                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0">
+                      <p className="tw-mx-auto">{formatTime(time)}</p>
                     </div>
-                   </div>
-                  <div className='tw-flex tw-flex-col tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
-                    <ul className='tw-flex tw-mx-auto tw-justify-between tw-w-full'>
-                      <div className='tw-flex tw-flex-col tw-gap-5'>
+                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3">
+                      {JSON.parse(
+                        localStorage.getItem("timeUnders2Minutes")
+                      ) === true ? (
+                        <p className="tw-mx-auto tw-text-[#FB7185]">
+                          {formatTime(time)}
+                        </p>
+                      ) : (
+                        <p className="tw-mx-auto tw-text-[#34D399]">
+                          {formatTime(time)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="tw-flex tw-flex-col tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
+                    <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
+                      <div className="tw-flex tw-flex-col tw-gap-5">
                         {tempExam1 && (
                           <>
-                          {tempExam1.soalJawaban2.map((a, index) => {
-                            return(
-                              <div className='tw-pb-5' key={a.id}>
-                                <p className='tw-text-[24px]' dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
-                                {a.id.includes("video") ? 
-                                (<>
-                                  <div className='tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32'>
-                                    <video controls className='lg:tw-w-[85%] tw-mx-auto'>
-                                      <source src={a.video} type="video/mp4"/>
-                                      Your browser does not support the video tag.
-                                    </video>
-                                  </div>
-                                </>)
-                                : 
-                                (<>
-                                  {a.id.includes("audio") ? 
-                                  (<>
-                                    <div className='tw-flex tw-w-full tw-justify-center tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32'>
-                                      <button onClick={() => audioPlay(`${a.audio}`)}>
-                                        <img src={img3} alt="sound"/>
-                                      </button>
-                                    </div>
-                                  </>)
-                                  : 
-                                  (<>
-                                  </>)
-                                  }
-                                </>)
-                                }
-                                <div className='tw-flex tw-mx-auto tw-gap-8 tw-pt-10' key={a.id}>
-                                  <div className='tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between'>
-                                    {a.opsi.map((b) => {
-                                      return(
-                                        <div className='tw-flex'>
-                                          {JSON.parse(localStorage.getItem('IsSubmit')) === true ? 
-                                            <button className={`tw-flex 
-                                              ${JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id ?
-                                                (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem('IsSubmit')) === true ?
-                                                  (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === a.jawabanBenar ?
-                                                    ('tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]')
-                                                    :
-                                                    ('tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]')
-                                                  )
-                                                :
-                                                ('tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white')
-                                              )
-                                              : 
-                                              ('tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black')}
-                                            tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
-                                              <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                            {tempExam1.soalJawaban2.map((a, index) => {
+                              return (
+                                <div className="tw-pb-5" key={a.id}>
+                                  <p
+                                    className="tw-text-[24px]"
+                                    dangerouslySetInnerHTML={{
+                                      __html: index + 1 + ". " + a.soal,
+                                    }}
+                                  />
+                                  {a.id.includes("video") ? (
+                                    <>
+                                      <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
+                                        <video
+                                          controls
+                                          className="lg:tw-w-[85%] tw-mx-auto"
+                                        >
+                                          <source
+                                            src={a.video}
+                                            type="video/mp4"
+                                          />
+                                          Your browser does not support the
+                                          video tag.
+                                        </video>
+                                      </div>
+                                    </>
+                                  ) : (
+                                    <>
+                                      {a.id.includes("audio") ? (
+                                        <>
+                                          <div className="tw-flex tw-w-full tw-justify-center tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
+                                            <button
+                                              onClick={() =>
+                                                audioPlay(`${a.audio}`)
+                                              }
+                                            >
+                                              <img src={img3} alt="sound" />
                                             </button>
-                                            :
-                                            <button onClick={() => {handleButtonClick(index, b.id, a.jawabanBenar)}}
-                                              className={`tw-flex 
-                                              ${JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id ?
-                                                (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem('IsSubmit')) === true ?
-                                                  (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === a.jawabanBenar ?
-                                                    ('tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]')
-                                                    :
-                                                    ('tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]')
+                                          </div>
+                                        </>
+                                      ) : (
+                                        <></>
+                                      )}
+                                    </>
+                                  )}
+                                  <div
+                                    className="tw-flex tw-mx-auto tw-gap-8 tw-pt-10"
+                                    key={a.id}
+                                  >
+                                    <div className="tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
+                                      {a.opsi.map((b) => {
+                                        return (
+                                          <div className="tw-flex">
+                                            {JSON.parse(
+                                              localStorage.getItem("IsSubmit")
+                                            ) === true ? (
+                                              <button
+                                                className={`tw-flex 
+                                              ${
+                                                JSON.parse(
+                                                  localStorage.getItem(
+                                                    `opsiSoal_${index + 1}`
                                                   )
-                                                :
-                                                ('tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white')
-                                              )
-                                              : 
-                                              ('tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black')}
-                                              hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
-                                              <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
-                                            </button>}
-                                            <img src={b.imgSrc} className='tw-w-[200px] tw-rounded-lg' alt={b.id}/>
-                                         </div>
-                                        )
-                                      })};
+                                                ) === b.id
+                                                  ? JSON.parse(
+                                                      localStorage.getItem(
+                                                        `opsiSoal_${index + 1}`
+                                                      )
+                                                    ) === b.id &&
+                                                    JSON.parse(
+                                                      localStorage.getItem(
+                                                        "IsSubmit"
+                                                      )
+                                                    ) === true
+                                                    ? JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === b.id &&
+                                                      JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === a.jawabanBenar
+                                                      ? "tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]"
+                                                      : "tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]"
+                                                    : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
+                                                  : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
+                                              }
+                                            tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                              >
+                                                <p className="tw-m-auto tw-text-[20px]">
+                                                  {b.text}
+                                                </p>
+                                              </button>
+                                            ) : (
+                                              <button
+                                                onClick={() => {
+                                                  handleButtonClick(
+                                                    index,
+                                                    b.id,
+                                                    a.jawabanBenar
+                                                  );
+                                                }}
+                                                className={`tw-flex 
+                                              ${
+                                                JSON.parse(
+                                                  localStorage.getItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  )
+                                                ) === b.id
+                                                  ? JSON.parse(
+                                                      localStorage.getItem(
+                                                        `opsiSoal_${index + 1}`
+                                                      )
+                                                    ) === b.id &&
+                                                    JSON.parse(
+                                                      localStorage.getItem(
+                                                        "IsSubmit"
+                                                      )
+                                                    ) === true
+                                                    ? JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === b.id &&
+                                                      JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === a.jawabanBenar
+                                                      ? "tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]"
+                                                      : "tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]"
+                                                    : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
+                                                  : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
+                                              }
+                                              hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                              >
+                                                <p className="tw-m-auto tw-text-[20px]">
+                                                  {b.text}
+                                                </p>
+                                              </button>
+                                            )}
+                                            <img
+                                              src={b.imgSrc}
+                                              className="tw-w-[200px] tw-rounded-lg"
+                                              alt={b.id}
+                                            />
+                                          </div>
+                                        );
+                                      })}
+                                      ;
                                     </div>
+                                  </div>
                                 </div>
-                              </div>
-                            )
-                          })}
+                              );
+                            })}
                           </>
                         )}
-                      </div>   
+                      </div>
                     </ul>
-                    {JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)) === true ?
+                    {JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)) ===
+                    true ? (
                       <>
-                        {JSON.parse(localStorage.getItem(`IsSubmit`)) === true ?
-                          <button onClick={() => {
-                            navigate(`/kursus`); 
-                            window.location.reload();
-                            tempExam1.soalJawaban2.forEach((_, index) => {
-                              localStorage.removeItem(`opsiSoal_${index+1}`);
-                            });
-                            localStorage.removeItem(`temps`);
-                            localStorage.removeItem(`semuaSoalTelahDiisi`)
-                            localStorage.removeItem(`IsSubmit`)
-                            localStorage.removeItem('endTime')
-                            localStorage.removeItem('timeUnders2Minutes')
-                            localStorage.removeItem('TimeStop')
-                            localStorage.setItem('idDetail', "")
-                            localStorage.removeItem(`score`)
-                          }}  className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Ok</button> 
-                          :
-                          <button data-bs-target="#dialogAkhirUjian" data-bs-toggle="modal" className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Selesaikan</button> 
-                        }
+                        {JSON.parse(localStorage.getItem(`IsSubmit`)) ===
+                        true ? (
+                          <button
+                            onClick={() => {
+                              navigate(`/kursus`);
+                              window.location.reload();
+                              tempExam1.soalJawaban2.forEach((_, index) => {
+                                localStorage.removeItem(
+                                  `opsiSoal_${index + 1}`
+                                );
+                              });
+                              localStorage.removeItem(`temps`);
+                              localStorage.removeItem(`semuaSoalTelahDiisi`);
+                              localStorage.removeItem(`IsSubmit`);
+                              localStorage.removeItem("endTime");
+                              localStorage.removeItem("timeUnders2Minutes");
+                              localStorage.removeItem("TimeStop");
+                              localStorage.setItem("idDetail", "");
+                              localStorage.removeItem(`score`);
+                            }}
+                            className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                          >
+                            Ok
+                          </button>
+                        ) : (
+                          <button
+                            data-bs-target="#dialogAkhirUjian"
+                            data-bs-toggle="modal"
+                            className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                          >
+                            Selesaikan
+                          </button>
+                        )}
                       </>
-                      :
-                      <button className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold" disabled>Selesaikan</button>
-                    }
+                    ) : (
+                      <button
+                        className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                        disabled
+                      >
+                        Selesaikan
+                      </button>
+                    )}
                   </div>
                   {/* {localStorage.setItem(`score`, score)}
                   {localStorage.setItem(`panjangSoal`, panjangSoalJawaban)} */}
                   {/* <DialogAkhir id={"dialogAkhirUjian"} id2={"dialogHasilNilaiUjian"} text={"Apakah Anda yakin ingin mengakhiri ujian ini?"} text2={"Akhiri Ujian"}/> */}
                 </div>
               </>
-            )
-          } else if (id.includes("two")){
-            return(
+            );
+          } else if (id.includes("two")) {
+            return (
               <>
-                <div dir="ltr" className='tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]'>
+                <div
+                  dir="ltr"
+                  className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
+                >
                   <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
-                    <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">Ujian 2</p>
-                    <p className='tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto'>Huruf Berharakat Fathah</p>
+                    <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
+                      Ujian 2
+                    </p>
+                    <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
+                      Huruf Berharakat Fathah
+                    </p>
                   </div>
-                  <div className='tw-flex tw-flex-col tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32'>
-                    <ul className='tw-flex tw-mx-auto tw-justify-between tw-w-full'>
-                      <div className='tw-flex tw-flex-col tw-gap-5'>
+                  <div className="tw-flex tw-flex-col tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
+                    <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
+                      <div className="tw-flex tw-flex-col tw-gap-5">
                         {tempExam2 && (
                           <>
-                          {tempExam2.soalJawaban2.map((a, index) => {
-                            return(
-                              <div className='tw-pb-5' key={a.id}>
-                                <p className='tw-text-[24px]' dangerouslySetInnerHTML={{ __html: (index+1)+". "+a.soal }} />
-                                {a.id.includes("video") ? 
-                                (<>
-                                  <div className='tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32'>
-                                    <video controls className='lg:tw-w-[85%] tw-mx-auto'>
-                                      <source src={a.video} type="video/mp4"/>
-                                      Your browser does not support the video tag.
-                                    </video>
-                                  </div>
-                                </>)
-                                : 
-                                (<>
-                                  {a.id.includes("audio") ? 
-                                  (<>
-                                    <div className='tw-flex tw-w-full tw-justify-center tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32'>
-                                      <button onClick={() => audioPlay(`${a.audio}`)}>
-                                        <img src={img3} alt="sound"/>
-                                      </button>
-                                    </div>
-                                  </>)
-                                  : 
-                                  (<>
-                                  </>)
-                                  }
-                                </>)
-                                }
-                                <div className='tw-flex tw-mx-auto tw-gap-8 tw-pt-10' key={a.id}>
-                                  <div className='tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between'>
-                                    {a.opsi.map((b) => {
-                                      return(
-                                        <div className='tw-flex'>
-                                          {JSON.parse(localStorage.getItem('IsSubmit')) === true ? 
-                                            <button className={`tw-flex 
-                                              ${JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id ?
-                                                (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem('IsSubmit')) === true ?
-                                                  (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === a.jawabanBenar ?
-                                                    ('tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]')
-                                                    :
-                                                    ('tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]')
-                                                  )
-                                                :
-                                                ('tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white')
-                                              )
-                                              : 
-                                              ('tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black')}
-                                            tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
-                                              <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
+                            {tempExam2.soalJawaban2.map((a, index) => {
+                              return (
+                                <div className="tw-pb-5" key={a.id}>
+                                  <p
+                                    className="tw-text-[24px]"
+                                    dangerouslySetInnerHTML={{
+                                      __html: index + 1 + ". " + a.soal,
+                                    }}
+                                  />
+                                  {a.id.includes("video") ? (
+                                    <>
+                                      <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
+                                        <video
+                                          controls
+                                          className="lg:tw-w-[85%] tw-mx-auto"
+                                        >
+                                          <source
+                                            src={a.video}
+                                            type="video/mp4"
+                                          />
+                                          Your browser does not support the
+                                          video tag.
+                                        </video>
+                                      </div>
+                                    </>
+                                  ) : (
+                                    <>
+                                      {a.id.includes("audio") ? (
+                                        <>
+                                          <div className="tw-flex tw-w-full tw-justify-center tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
+                                            <button
+                                              onClick={() =>
+                                                audioPlay(`${a.audio}`)
+                                              }
+                                            >
+                                              <img src={img3} alt="sound" />
                                             </button>
-                                            :
-                                            <button onClick={() => {handleButtonClick(index, b.id, a.jawabanBenar)}}
-                                              className={`tw-flex 
-                                              ${JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id ?
-                                                (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem('IsSubmit')) === true ?
-                                                  (JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === b.id && JSON.parse(localStorage.getItem(`opsiSoal_${index+1}`)) === a.jawabanBenar ?
-                                                    ('tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]')
-                                                    :
-                                                    ('tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]')
+                                          </div>
+                                        </>
+                                      ) : (
+                                        <></>
+                                      )}
+                                    </>
+                                  )}
+                                  <div
+                                    className="tw-flex tw-mx-auto tw-gap-8 tw-pt-10"
+                                    key={a.id}
+                                  >
+                                    <div className="tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
+                                      {a.opsi.map((b) => {
+                                        return (
+                                          <div className="tw-flex">
+                                            {JSON.parse(
+                                              localStorage.getItem("IsSubmit")
+                                            ) === true ? (
+                                              <button
+                                                className={`tw-flex 
+                                              ${
+                                                JSON.parse(
+                                                  localStorage.getItem(
+                                                    `opsiSoal_${index + 1}`
                                                   )
-                                                :
-                                                ('tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white')
-                                              )
-                                              : 
-                                              ('tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black')}
-                                              hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}>
-                                              <p className='tw-m-auto tw-text-[20px]'>{b.text}</p>
-                                            </button>}
-                                            <img src={b.imgSrc} className='tw-w-[200px] tw-rounded-lg' alt={b.id}/>
-                                         </div>
-                                        )
-                                      })};
+                                                ) === b.id
+                                                  ? JSON.parse(
+                                                      localStorage.getItem(
+                                                        `opsiSoal_${index + 1}`
+                                                      )
+                                                    ) === b.id &&
+                                                    JSON.parse(
+                                                      localStorage.getItem(
+                                                        "IsSubmit"
+                                                      )
+                                                    ) === true
+                                                    ? JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === b.id &&
+                                                      JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === a.jawabanBenar
+                                                      ? "tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]"
+                                                      : "tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]"
+                                                    : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
+                                                  : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
+                                              }
+                                            tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                              >
+                                                <p className="tw-m-auto tw-text-[20px]">
+                                                  {b.text}
+                                                </p>
+                                              </button>
+                                            ) : (
+                                              <button
+                                                onClick={() => {
+                                                  handleButtonClick(
+                                                    index,
+                                                    b.id,
+                                                    a.jawabanBenar
+                                                  );
+                                                }}
+                                                className={`tw-flex 
+                                              ${
+                                                JSON.parse(
+                                                  localStorage.getItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  )
+                                                ) === b.id
+                                                  ? JSON.parse(
+                                                      localStorage.getItem(
+                                                        `opsiSoal_${index + 1}`
+                                                      )
+                                                    ) === b.id &&
+                                                    JSON.parse(
+                                                      localStorage.getItem(
+                                                        "IsSubmit"
+                                                      )
+                                                    ) === true
+                                                    ? JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === b.id &&
+                                                      JSON.parse(
+                                                        localStorage.getItem(
+                                                          `opsiSoal_${
+                                                            index + 1
+                                                          }`
+                                                        )
+                                                      ) === a.jawabanBenar
+                                                      ? "tw-bg-[#ECFDF5] tw-border-[#34D399] tw-text-[#34D399]"
+                                                      : "tw-bg-[#FFF1F2] tw-border-[#FB7185] tw-text-[#FB7185]"
+                                                    : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
+                                                  : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
+                                              }
+                                              hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                              >
+                                                <p className="tw-m-auto tw-text-[20px]">
+                                                  {b.text}
+                                                </p>
+                                              </button>
+                                            )}
+                                            <img
+                                              src={b.imgSrc}
+                                              className="tw-w-[200px] tw-rounded-lg"
+                                              alt={b.id}
+                                            />
+                                          </div>
+                                        );
+                                      })}
+                                      ;
                                     </div>
+                                  </div>
                                 </div>
-                              </div>
-                            )
-                          })}
+                              );
+                            })}
                           </>
                         )}
-                      </div>   
+                      </div>
                     </ul>
-                    {JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)) === true ?
-                        <>
-                          {JSON.parse(localStorage.getItem(`IsSubmit`)) === true ?
-                            <button onClick={() => {
-                              navigate(`/kursus`); 
+                    {JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)) ===
+                    true ? (
+                      <>
+                        {JSON.parse(localStorage.getItem(`IsSubmit`)) ===
+                        true ? (
+                          <button
+                            onClick={() => {
+                              navigate(`/kursus`);
                               window.location.reload();
                               tempExam2.soalJawaban2.forEach((_, index) => {
-                                localStorage.removeItem(`opsiSoal_${index+1}`);
+                                localStorage.removeItem(
+                                  `opsiSoal_${index + 1}`
+                                );
                               });
                               localStorage.removeItem(`temps`);
-                              localStorage.removeItem(`semuaSoalTelahDiisi`)
-                              localStorage.removeItem(`IsSubmit`)
-                              localStorage.removeItem('endTime')
-                              localStorage.removeItem('timeUnders2Minutes')
-                              localStorage.setItem('idDetail', "")
-                              localStorage.removeItem(`score`)
-                            }}  className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Ok</button> 
-                          :
-                          <button data-bs-target="#dialogAkhirUjian" data-bs-toggle="modal" className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold">Selesaikan</button> 
-                          }
-                        </>
-                        :
-                      <button className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold" disabled>Selesaikan</button>
-                    }
+                              localStorage.removeItem(`semuaSoalTelahDiisi`);
+                              localStorage.removeItem(`IsSubmit`);
+                              localStorage.removeItem("endTime");
+                              localStorage.removeItem("timeUnders2Minutes");
+                              localStorage.setItem("idDetail", "");
+                              localStorage.removeItem(`score`);
+                            }}
+                            className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                          >
+                            Ok
+                          </button>
+                        ) : (
+                          <button
+                            data-bs-target="#dialogAkhirUjian"
+                            data-bs-toggle="modal"
+                            className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                          >
+                            Selesaikan
+                          </button>
+                        )}
+                      </>
+                    ) : (
+                      <button
+                        className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                        disabled
+                      >
+                        Selesaikan
+                      </button>
+                    )}
                   </div>
                   {/* {localStorage.setItem(`score`, score)} */}
                   {/* <DialogAkhir id={"dialogAkhirUjian"} id2={"dialogHasilNilaiUjian"} text={"Apakah Anda yakin ingin mengakhiri ujian ini?"} text2={"Akhiri Ujian"}/> */}
                 </div>
               </>
-            )
+            );
           } else {
-            return(
-              <></>
-            )
+            return <></>;
           }
         } else {
-          return(
-            <></>
-          )
+          return <></>;
         }
       })()}
     </>
   );
-}
+};
 
 export default ContentDetailKursus;
