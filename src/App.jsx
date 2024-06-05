@@ -1,7 +1,8 @@
 import {
-  BrowserRouter as R1,
-  Routes as R2,
-  Route as R3,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
 } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Masuk from "./pages/Masuk.jsx";
@@ -21,11 +22,6 @@ import DialogHasilNilai from "./pages/DialogHasilNilai.jsx";
 
 const App = () => {
   const [tempToken, setTempToken] = useState(false);
-  const imageUrlPencil = `${process.env.PUBLIC_URL}/pensil_2.svg`;
-  const imageUrlLogo = `${process.env.PUBLIC_URL}/logo-qolami.svg`;
-  const imageUrlSound = `${process.env.PUBLIC_URL}/sound_latihanUjian.svg`;
-
-  useEffect(() => {}, [tempToken]);
 
   useEffect(() => {
     if (localStorage.getItem("idDetail") === null) {
@@ -36,118 +32,134 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <R1>
-        <DialogBerhasil
-          location2={"dialogBerhasilLupaSandi"}
-          text={
-            "Bila email ada, maka email untuk mengubah kata sandi akan dikirim ke email yang Anda masukkan"
-          }
-          location={"#masukModal"}
-        />
-        <DialogBerhasil
-          location2={"dialogBerhasilDaftar"}
-          text={"Pendaftaran berhasil! Akun Anda telah berhasil dibuat"}
-          location={"#masukModal"}
-        />
-        <DialogBerhasil2
-          location={"dialogBerhasilUbahSandi"}
-          text={"Kata Sandi berhasil disimpan"}
-        />
-        <DialogBerhasil2
-          location={"dialogBerhasilProfile"}
-          text={"Profil berhasil disimpan"}
-        />
-        <DialogAkhir
-          id={"dialogAkhirLatihan"}
-          id2={"dialogHasilNilaiLatihan"}
-          text={"Apakah Anda yakin ingin mengakhiri latihan ini?"}
-          text2={"Akhiri Latihan"}
-        />
-        <DialogAkhir
-          id={"dialogAkhirUjian"}
-          id2={"dialogHasilNilaiUjian"}
-          text={"Apakah Anda yakin ingin mengakhiri ujian ini?"}
-          text2={"Akhiri Ujian"}
-        />
-        <DialogHasilNilai
-          id={"dialogHasilNilaiUjian"}
-          img={imageUrlPencil}
-          graduate={75}
-          text={"ujian"}
-          panjangSoal={localStorage.getItem(`panjangSoal`)}
-          score={JSON.parse(localStorage.getItem(`score`))}
-        />
-        <DialogHasilNilai
-          id={"dialogHasilNilaiLatihan"}
-          img={imageUrlPencil}
-          graduate={75}
-          text={"latihan"}
-          panjangSoal={localStorage.getItem(`panjangSoal`)}
-          score={localStorage.getItem(`score`)}
-        />
+    <Router>
+      <InnerApp tempToken={tempToken} setTempToken={setTempToken} />
+    </Router>
+  );
+};
 
-        {/* <DialogHasilNilai id={"dialogHasilNilaiLatihan"} img={imageUrlPencil} score={localStorage.getItem('a')}/> */}
-        {/* <DialogHasilNilai id={"dialogHasilNilaiUjian"}/> */}
-        <Masuk img={imageUrlLogo} setTempToken={setTempToken} />
-        <Daftar img={imageUrlLogo} />
-        <LupaKataSandi img={imageUrlLogo} />
-        <R2>
-          <R3
-            path="/"
-            element={<Beranda tempToken={tempToken} img={imageUrlLogo} />}
-          />
-          <R3
-            path="/pengaturan"
-            element={<Pengaturan tempToken={tempToken} img={imageUrlLogo} />}
-          />
-          <R3
-            path="/tentang"
-            element={<Tentang tempToken={tempToken} img={imageUrlLogo} />}
-          />
-          <R3
-            path="/kursus"
-            element={<Kursus tempToken={tempToken} img={imageUrlLogo} />}
-          />
-          <R3
-            path="/:id"
-            element={
-              <DetailKursus
-                tempToken={tempToken}
-                img={imageUrlLogo}
-                img2={imageUrlPencil}
-                img3={imageUrlSound}
-              />
-            }
-          />
-          <R3
-            path="/:id/contents/:id"
-            element={
-              <Detail2Kursus
-                tempToken={tempToken}
-                img={imageUrlLogo}
-                img2={imageUrlPencil}
-                img3={imageUrlSound}
-              />
-            }
-          />
-          <R3
-            path="/:id/exercise/:id"
-            element={
-              <Detail2Kursus
-                tempToken={tempToken}
-                img={imageUrlLogo}
-                img2={imageUrlPencil}
-                img3={imageUrlSound}
-              />
-            }
-          />
-          <R3
-            path="/aktivitas"
-            element={<Aktifitas tempToken={tempToken} img={imageUrlLogo} />}
-          />
-        </R2>
-      </R1>
+const InnerApp = ({ tempToken, setTempToken }) => {
+  const imageUrlPencil = `${process.env.PUBLIC_URL}/pensil_2.svg`;
+  const imageUrlLogo = `${process.env.PUBLIC_URL}/logo-qolami.svg`;
+  const imageUrlSound = `${process.env.PUBLIC_URL}/sound_latihanUjian.svg`;
+  const navigate = useNavigate();
+
+  useEffect(() => {}, [tempToken]);
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("TimeStop")) === false) {
+      navigate(`/${localStorage.getItem("idDetail")}`, { replace: true });
+    }
+  }, []);
+
+  return (
+    <>
+      <DialogBerhasil
+        location2={"dialogBerhasilLupaSandi"}
+        text={
+          "Bila email ada, maka email untuk mengubah kata sandi akan dikirim ke email yang Anda masukkan"
+        }
+        location={"#masukModal"}
+      />
+      <DialogBerhasil
+        location2={"dialogBerhasilDaftar"}
+        text={"Pendaftaran berhasil! Akun Anda telah berhasil dibuat"}
+        location={"#masukModal"}
+      />
+      <DialogBerhasil2
+        location={"dialogBerhasilUbahSandi"}
+        text={"Kata Sandi berhasil disimpan"}
+      />
+      <DialogBerhasil2
+        location={"dialogBerhasilProfile"}
+        text={"Profil berhasil disimpan"}
+      />
+      <DialogAkhir
+        id={"dialogAkhirLatihan"}
+        id2={"dialogHasilNilaiLatihan"}
+        text={"Apakah Anda yakin ingin mengakhiri latihan ini?"}
+        text2={"Akhiri Latihan"}
+      />
+      <DialogAkhir
+        id={"dialogAkhirUjian"}
+        id2={"dialogHasilNilaiUjian"}
+        text={"Apakah Anda yakin ingin mengakhiri ujian ini?"}
+        text2={"Akhiri Ujian"}
+      />
+      <DialogHasilNilai
+        id={"dialogHasilNilaiUjian"}
+        img={imageUrlPencil}
+        graduate={75}
+        text={"ujian"}
+        panjangSoal={localStorage.getItem(`panjangSoal`)}
+        score={JSON.parse(localStorage.getItem(`score`))}
+      />
+      <DialogHasilNilai
+        id={"dialogHasilNilaiLatihan"}
+        img={"pensil_2.svg"}
+        graduate={75}
+        text={"latihan"}
+        panjangSoal={localStorage.getItem(`panjangSoal`)}
+        score={localStorage.getItem(`score`)}
+      />
+      <Masuk img={imageUrlLogo} setTempToken={setTempToken} />
+      <Daftar img={imageUrlLogo} />
+      <LupaKataSandi img={imageUrlLogo} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Beranda tempToken={tempToken} img={imageUrlLogo} />}
+        />
+        <Route
+          path="/pengaturan"
+          element={<Pengaturan tempToken={tempToken} img={imageUrlLogo} />}
+        />
+        <Route
+          path="/tentang"
+          element={<Tentang tempToken={tempToken} img={imageUrlLogo} />}
+        />
+        <Route
+          path="/kursus"
+          element={<Kursus tempToken={tempToken} img={imageUrlLogo} />}
+        />
+        <Route
+          path="/:id"
+          element={
+            <DetailKursus
+              tempToken={tempToken}
+              img={imageUrlLogo}
+              img2={imageUrlPencil}
+              img3={imageUrlSound}
+            />
+          }
+        />
+        <Route
+          path="/:id/contents/:id"
+          element={
+            <Detail2Kursus
+              tempToken={tempToken}
+              img={imageUrlLogo}
+              img2={imageUrlPencil}
+              img3={imageUrlSound}
+            />
+          }
+        />
+        <Route
+          path="/:id/exercise/:id"
+          element={
+            <Detail2Kursus
+              tempToken={tempToken}
+              img={imageUrlLogo}
+              img2={imageUrlPencil}
+              img3={imageUrlSound}
+            />
+          }
+        />
+        <Route
+          path="/aktivitas"
+          element={<Aktifitas tempToken={tempToken} img={imageUrlLogo} />}
+        />
+      </Routes>
     </>
   );
 };

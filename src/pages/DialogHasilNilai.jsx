@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
+  const imageUrlPencil = `${process.env.PUBLIC_URL}/pensil_2.svg`;
   const [isGraduate, setIsGraduate] = useState(false);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
           <div className="modal-content tw-w-[600px] tw-bg-[#FFF6D9] tw-py-2 tw-rounded-[25px] tw-mx-auto">
             <div className="tw-flex tw-flex-col modal-body tw-px-[50px] tw-rounded-[25px] tw-bg-[#FFF6D9] tw-font-poppins">
               <img
-                src={img}
+                src={imageUrlPencil}
                 className="tw-w-48 sm:tw-w-28 tw-mx-auto"
                 alt="pencil"
               />

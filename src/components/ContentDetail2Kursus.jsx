@@ -5,7 +5,6 @@ import PaginationDetail2 from "./PaginationDetail2";
 import KursusData from "../data/KursusData";
 import { IoVolumeHigh } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
-import DialogHasilNilai from "../pages/DialogHasilNilai";
 import DialogAkhir from "../pages/DialogAkhir";
 
 const ContentDetail2Kursus = ({ img2, img3 }) => {
@@ -17,7 +16,9 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
   const [latihanContent, setLatihanContent] = useState(null);
 
   //USESTATE LATIHAN
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(
+    parseInt(localStorage.getItem("score")) || 0
+  );
   const [selectedButton1, setSelectedButton1] = useState(null);
   const [selectedButton2, setSelectedButton2] = useState(null);
   const [selectedButton3, setSelectedButton3] = useState(null);
@@ -84,6 +85,29 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     takeLatihanContent();
   }, [id, latihanContent, item, tempNilaiSoal]);
 
+  useEffect(() => {
+    const savedScore = localStorage.getItem("score");
+    if (savedScore) {
+      setScore(parseInt(savedScore, 10));
+    }
+
+    const savedTemp = JSON.parse(localStorage.getItem("temps"));
+    if (savedTemp) {
+      setTemp(savedTemp);
+    }
+
+    const savedTempNilaiSoal = JSON.parse(
+      localStorage.getItem("tempNilaiSoal")
+    );
+    if (savedTempNilaiSoal) {
+      setTempNilaiSoal(savedTempNilaiSoal);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("score", score);
+  }, [score]);
+
   const handleButtonClick = (index, optionId, correctAnswerId) => {
     let sum = 0;
     wsx[index](optionId);
@@ -123,11 +147,15 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
       tempNilaiSoal[index] = 0;
     }
 
+    setTempNilaiSoal(tempNilaiSoal);
+    localStorage.setItem("tempNilaiSoal", JSON.stringify(tempNilaiSoal));
+
     sum = tempNilaiSoal.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
-    localStorage.setItem(`score`, sum);
+    setScore(sum);
+    localStorage.setItem("score", sum);
   };
 
   useEffect(() => {
@@ -162,50 +190,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
       window.removeEventListener("popstate", handlePopState);
     };
   }, [navigate]);
-
-  // const initialTime = () => {
-  //     const endTime = localStorage.getItem('endTime');
-  //     if (endTime) {
-  //       const currentTime = Date.now();
-  //       const remainingTime = Math.floor((endTime - currentTime) / 1000);
-  //       return remainingTime > 0 ? remainingTime : 0;
-  //     }
-  //     return 600; // 600 detik = 10 menit
-  //   };
-
-  //   const [time, setTime] = useState(initialTime);
-  //   const [isRunning, setIsRunning] = useState(true);
-  //   const intervalRef = useRef(null);
-
-  //   useEffect(() => {
-  //     if (time > 0 && isRunning) {
-  //       intervalRef.current = setInterval(() => {
-  //         setTime((prevTime) => {
-  //           const newTime = prevTime - 1;
-  //           if (newTime === 0) {
-  //             console.log("hahahaa");
-  //           }
-  //           return newTime >= 0 ? newTime : 0;
-  //         });
-  //       }, 1000);
-  //       return () => clearInterval(intervalRef.current);
-  //     }
-  //   }, [time, isRunning]);
-
-  //   useEffect(() => {
-  //     const endTime = Date.now() + time * 1000;
-  //     localStorage.setItem('endTime', endTime);
-  //   }, [time]);
-
-  //   const handleToggle = () => {
-  //     setIsRunning(!isRunning);
-  //     if (isRunning) {
-  //       clearInterval(intervalRef.current);
-  //     } else {
-  //       const endTime = Date.now() + time * 1000;
-  //       localStorage.setItem('endTime', endTime);
-  //     }
-  //   };
 
   const audioPlay = (audio_source) => {
     if (currentAudio) {
@@ -572,8 +556,10 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 onClick={() => {
                                   navigate(
-                                    `/${localStorage.getItem("idDetail")}`
+                                    `/${localStorage.getItem("idDetail")}`,
+                                    { replace: true }
                                   );
+                                  window.location.reload();
                                   latihanContent.soalJawaban.forEach(
                                     (_, index) => {
                                       localStorage.removeItem(
@@ -587,8 +573,11 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   );
                                   localStorage.removeItem(`IsSubmit`);
                                   localStorage.removeItem("endTime");
+                                  localStorage.removeItem("TimeStop");
+                                  localStorage.removeItem(`score`);
+                                  localStorage.removeItem(`tempNilaiSoal`);
                                 }}
-                                className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Ok
                               </button>
@@ -596,7 +585,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 data-bs-target={`#dialogAkhirLatihan`}
                                 data-bs-toggle="modal"
-                                className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Selesaikan
                               </button>
@@ -611,14 +600,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                           </button>
                         )}
                       </div>
-                      {/* {localStorage.setItem(`score`, score)}
-                                        {localStorage.setItem(`panjangSoal`, panjangSoalJawaban)} */}
-                      <DialogAkhir
-                        id={"dialogAkhirLatihan"}
-                        id2={"dialogHasilNilaiLatihan"}
-                        text={"Apakah Anda yakin ingin mengakhiri latihan ini?"}
-                        text2={"Akhiri Latihan"}
-                      />
                     </div>
                   </div>
                 )}
@@ -820,8 +801,10 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 onClick={() => {
                                   navigate(
-                                    `/${localStorage.getItem("idDetail")}`
+                                    `/${localStorage.getItem("idDetail")}`,
+                                    { replace: true }
                                   );
+                                  window.location.reload();
                                   latihanContent.soalJawaban.forEach(
                                     (_, index) => {
                                       localStorage.removeItem(
@@ -834,8 +817,11 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                     `semuaSoalTelahDiisi`
                                   );
                                   localStorage.removeItem(`IsSubmit`);
+                                  localStorage.removeItem("TimeStop");
+                                  localStorage.removeItem(`score`);
+                                  localStorage.removeItem(`tempNilaiSoal`);
                                 }}
-                                className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Ok
                               </button>
@@ -843,7 +829,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 data-bs-target={`#dialogAkhirLatihan`}
                                 data-bs-toggle="modal"
-                                className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Selesaikan
                               </button>
@@ -858,14 +844,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                           </button>
                         )}
                       </div>
-                      {/* {localStorage.setItem(`score`, score)}
-                                        {localStorage.setItem(`panjangSoal`, panjangSoalJawaban)} */}
-                      <DialogAkhir
-                        id={"dialogAkhirLatihan"}
-                        id2={"dialogHasilNilaiLatihan"}
-                        text={"Apakah Anda yakin ingin mengakhiri latihan ini?"}
-                        text2={"Akhiri Latihan"}
-                      />
                     </div>
                   </div>
                 )}
@@ -1064,8 +1042,10 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 onClick={() => {
                                   navigate(
-                                    `/${localStorage.getItem("idDetail")}`
+                                    `/${localStorage.getItem("idDetail")}`,
+                                    { replace: true }
                                   );
+                                  window.location.reload();
                                   latihanContent.soalJawaban.forEach(
                                     (_, index) => {
                                       localStorage.removeItem(
@@ -1081,8 +1061,11 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(
                                     "timeIUnders2Minutes"
                                   );
+                                  localStorage.removeItem("TimeStop");
+                                  localStorage.removeItem(`score`);
+                                  localStorage.removeItem(`tempNilaiSoal`);
                                 }}
-                                className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] tw-w-[10%] hover:tw-bg-[#007100] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Ok
                               </button>
@@ -1090,7 +1073,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 data-bs-target={`#dialogAkhirLatihan`}
                                 data-bs-toggle="modal"
-                                className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] tw-w-[10%] hover:tw-bg-[#007100] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Selesaikan
                               </button>
@@ -1105,14 +1088,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                           </button>
                         )}
                       </div>
-                      {/* {localStorage.setItem(`score`, score)}
-                                        {localStorage.setItem(`panjangSoal`, panjangSoalJawaban)} */}
-                      <DialogAkhir
-                        id={"dialogAkhirLatihan"}
-                        id2={"dialogHasilNilaiLatihan"}
-                        text={"Apakah Anda yakin ingin mengakhiri latihan ini?"}
-                        text2={"Akhiri Latihan"}
-                      />
                     </div>
                   </div>
                 )}

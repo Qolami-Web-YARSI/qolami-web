@@ -7,7 +7,9 @@ const DialogAkhir = ({ id, id2, text, text2 }) => {
 
   const handleSubmit = () => {
     localStorage.setItem("IsSubmit", true);
-    localStorage.setItem("TimeStop", true);
+    if (localStorage.getItem("idDetail").includes("exam")) {
+      localStorage.setItem("TimeStop", true);
+    }
     window.location.reload();
   };
 

@@ -5,11 +5,10 @@ const FooterComponent = () => {
 
   useEffect(() => {
     const idDetail = localStorage.getItem("idDetail");
-    const timeStop = localStorage.getItem("TimeStop");
     const shouldHideFooter = idDetail?.includes("exam");
 
     setIsHidden(shouldHideFooter);
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
   return (
     <footer hidden={isHidden}>
       <div className="tw-flex tw-bg-[#458200] tw-justify-between tw-p-2 tw-py-12 tw-font-poppins">

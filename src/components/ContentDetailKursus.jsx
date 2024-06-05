@@ -4,10 +4,6 @@ import axios from "axios";
 import KursusData from "../data/KursusData";
 import PaginationDetail from "./PaginationDetail";
 import DialogBerhasil3 from "../pages/DialogBerhasil3";
-import DialogHasilNilai from "../pages/DialogHasilNilai";
-import DialogAkhir from "../pages/DialogAkhir";
-import HeaderComponent2 from "./HeaderComponent2";
-import FooterComponent from "./FooterComponent";
 
 const ContentDetailKursus = ({ img, img2, img3 }) => {
   const { id } = useParams();
@@ -20,8 +16,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
   const [tempExam1, setTempExam1] = useState(null);
   const [tempExam2, setTempExam2] = useState(null);
 
-  //USESTATE LATIHAN
-  const [score, setScore] = useState(0);
+  //USESTATE UJIAN
+  const [score, setScore] = useState(
+    parseInt(localStorage.getItem("score")) || 0
+  );
   const [selectedButton1, setSelectedButton1] = useState(null);
   const [selectedButton2, setSelectedButton2] = useState(null);
   const [selectedButton3, setSelectedButton3] = useState(null);
@@ -84,7 +82,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
         }
       });
     });
-    //console.log(tempExercise1)
   };
 
   const takeExamContent = () => {
@@ -126,6 +123,29 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     setIsPlaying(true);
   };
 
+  useEffect(() => {
+    const savedScore = localStorage.getItem("score");
+    if (savedScore) {
+      setScore(parseInt(savedScore, 10));
+    }
+
+    const savedTemp = JSON.parse(localStorage.getItem("temps"));
+    if (savedTemp) {
+      setTemp(savedTemp);
+    }
+
+    const savedTempNilaiSoal = JSON.parse(
+      localStorage.getItem("tempNilaiSoal")
+    );
+    if (savedTempNilaiSoal) {
+      setTempNilaiSoal(savedTempNilaiSoal);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("score", score);
+  }, [score]);
+
   const handleButtonClick = (index, optionId, correctAnswerId) => {
     let sum = 0;
     wsx[index](optionId);
@@ -147,6 +167,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
         )
       );
     }
+
     let filteredArray = temp.filter(
       (item) => item !== undefined || item !== null
     );
@@ -165,12 +186,15 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
       tempNilaiSoal[index] = 0;
     }
 
+    setTempNilaiSoal(tempNilaiSoal);
+    localStorage.setItem("tempNilaiSoal", JSON.stringify(tempNilaiSoal));
+
     sum = tempNilaiSoal.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       0
     );
     setScore(sum);
-    localStorage.setItem(`score`, sum);
+    localStorage.setItem("score", sum);
   };
 
   const initialTime = () => {
@@ -180,25 +204,21 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
       const remainingTime = Math.floor((endTime - currentTime) / 1000);
       return remainingTime > 0 ? remainingTime : 0;
     }
-    return 60; // 180 detik = 3 menit
+    return 20; // 180 detik = 3 menit
   };
-
-  useEffect(() => {
-    if (localStorage.getItem(`score`) === null) {
-      localStorage.setItem(`score`, 0);
-    } else {
-      localStorage.getItem(`score`);
-    }
-  }, []);
 
   const [time, setTime] = useState(initialTime);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}m:${
-      remainingSeconds < 10 ? "0" : ""
-    }${remainingSeconds}s`;
+    if (minutes < 1) {
+      return `${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}s`;
+    } else {
+      return `${minutes}m:${
+        remainingSeconds < 10 ? "0" : ""
+      }${remainingSeconds}s`;
+    }
   };
 
   useEffect(() => {
@@ -276,7 +296,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
             } else {
               localStorage.setItem("TimeStop", false);
             }
-            if (newTime <= 30) {
+            if (newTime <= 10) {
               localStorage.setItem("timeUnders2Minutes", true);
             } else {
               localStorage.setItem("timeUnders2Minutes", false);
@@ -312,20 +332,23 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
   });
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
+    if (JSON.parse(localStorage.getItem("IsSubmit")) === true || time === 0) {
+      localStorage.setItem("IsSubmit", true);
+      localStorage.setItem("TimeStop", true);
+      localStorage.setItem("semuaSoalTelahDiisi", true);
       const myModal = new window.bootstrap.Modal(
-        document.getElementById("dialogHasilNilaiLatihan")
+        document.getElementById("dialogHasilNilaiUjian")
       );
       myModal.show();
       clearInterval(intervalRef.current);
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (JSON.parse(localStorage.getItem("TimeStop")) === false) {
-  //     navigate(`/${id}`);
-  //   }
-  // });
+  useEffect(() => {
+    if (time <= 10) {
+      localStorage.setItem("timeUnders2Minutes", true);
+    }
+  }, [time]);
 
   return (
     <>
@@ -766,7 +789,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       Huruf Hijaiyah
                     </p>
                   </div>
-                  <div className="tw-flex tw-justify-between tw-px-36">
+                  {/* <div className="tw-flex tw-justify-between tw-px-36">
                     <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0">
                       <p className="tw-mx-auto">{formatTime(time)}</p>
                     </div>
@@ -783,7 +806,32 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                         </p>
                       )}
                     </div>
-                  </div>
+                  </div> */}
+                  {JSON.parse(localStorage.getItem("IsSubmit")) === true ||
+                  JSON.parse(localStorage.getItem("TimeStop")) === true ? (
+                    <></>
+                  ) : (
+                    <>
+                      <div className="tw-flex tw-justify-between tw-px-36">
+                        <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0">
+                          <p className="tw-mx-auto">{formatTime(time)}</p>
+                        </div>
+                        <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3">
+                          {JSON.parse(
+                            localStorage.getItem("timeUnders2Minutes")
+                          ) === true ? (
+                            <p className="tw-mx-auto tw-text-[#FB7185]">
+                              {formatTime(time)}
+                            </p>
+                          ) : (
+                            <p className="tw-mx-auto tw-text-[#34D399]">
+                              {formatTime(time)}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  )}
                   <div className="tw-flex tw-flex-col tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32">
                     <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
                       <div className="tw-flex tw-flex-col tw-gap-5">
@@ -947,7 +995,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                           </div>
                                         );
                                       })}
-                                      ;
                                     </div>
                                   </div>
                                 </div>
@@ -964,7 +1011,8 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                         true ? (
                           <button
                             onClick={() => {
-                              navigate(`/kursus`);
+                              navigate(`/kursus`, { replace: true });
+                              window.location.reload();
                               tempExam1.soalJawaban2.forEach((_, index) => {
                                 localStorage.removeItem(
                                   `opsiSoal_${index + 1}`
@@ -978,8 +1026,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.removeItem("TimeStop");
                               localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
+                              localStorage.removeItem(`tempNilaiSoal`);
                             }}
-                            className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
                             Ok
                           </button>
@@ -987,7 +1036,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           <button
                             data-bs-target="#dialogAkhirUjian"
                             data-bs-toggle="modal"
-                            className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
                             Selesaikan
                           </button>
@@ -1214,6 +1263,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.removeItem("timeUnders2Minutes");
                               localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
+                              localStorage.removeItem(`tempNilaiSoal`);
                             }}
                             className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
