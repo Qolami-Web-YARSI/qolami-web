@@ -62,6 +62,20 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     setSelectedButton10,
   ]);
 
+  const handleActivity = async () => {
+    try {
+      const response = await axios.post("http://localhost:2024/activity", {
+        activityName: "",
+        date: "",
+        value: "",
+        status: "lulus",
+      });
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const takeIdCourse = () => {
     KursusData.forEach((a) => {
       if (a.nama.toLowerCase().includes("pelajaran")) {
@@ -204,7 +218,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
       const remainingTime = Math.floor((endTime - currentTime) / 1000);
       return remainingTime > 0 ? remainingTime : 0;
     }
-    return 20; // 180 detik = 3 menit
+    return 300; // 180 detik = 3 menit
   };
 
   const [time, setTime] = useState(initialTime);
@@ -296,7 +310,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
             } else {
               localStorage.setItem("TimeStop", false);
             }
-            if (newTime <= 10) {
+            if (newTime <= 120) {
               localStorage.setItem("timeUnders2Minutes", true);
             } else {
               localStorage.setItem("timeUnders2Minutes", false);
@@ -341,11 +355,12 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
       );
       myModal.show();
       clearInterval(intervalRef.current);
+      handleActivity();
     }
   }, []);
 
   useEffect(() => {
-    if (time <= 10) {
+    if (time <= 120) {
       localStorage.setItem("timeUnders2Minutes", true);
     }
   }, [time]);
