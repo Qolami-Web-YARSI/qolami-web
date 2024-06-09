@@ -7,12 +7,6 @@ const ActivityComponent = () => {
   const [getActivity, setActivity] = useState(null);
   const activityData = async () => {
     try {
-      //   const response = await axios.post("http://localhost:2024/activity", {
-      //     acticityName: "fdsdfsfsddsf",
-      //     date: "adadas",
-      //     value: "fdsdfsfsddsf",
-      //     status: "adadas",
-      //   });
       const response = await axios.get("http://localhost:2024/activity", {
         headers: {
           "Content-Type": "application/json",
@@ -20,7 +14,7 @@ const ActivityComponent = () => {
         },
       });
       //console.log(response.data.data);
-      setActivity(response.data.data);
+      setActivity(response.data.data.reverse());
     } catch (e) {
       console.log(e);
     }
