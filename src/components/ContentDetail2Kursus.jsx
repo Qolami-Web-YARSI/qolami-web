@@ -29,6 +29,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
   const [panjangSoalJawaban, setPanjangSoalJawaban] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
+  const [shuffledSoalJawaban, setShuffledSoalJawaban] = useState([]);
   const [qaz, setQaz] = useState([
     selectedButton1,
     selectedButton2,
@@ -67,15 +68,36 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     }
   };
 
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
   const takeLatihanContent = () => {
     KursusData.forEach((a) => {
-      a.detail.forEach((b) => {
-        if (b.id.includes(id)) {
-          setLatihanContent(b);
-          setPanjangSoalJawaban(b.soalJawaban.length);
-          localStorage.setItem(`panjangSoal`, b.soalJawaban.length);
-        }
-      });
+      if (
+        id.includes("gambar") ||
+        id.includes("video") ||
+        id.includes("audio")
+      ) {
+        a.detail.forEach((b) => {
+          if (b.id.includes(id)) {
+            setLatihanContent(b);
+            const savedShuffledSoal = localStorage.getItem("shuffledSoal1");
+            if (savedShuffledSoal) {
+              setShuffledSoalJawaban(JSON.parse(savedShuffledSoal));
+            } else {
+              const shuffled = shuffleArray([...b.soalJawaban]);
+              setShuffledSoalJawaban(shuffled);
+              localStorage.setItem("shuffledSoal1", JSON.stringify(shuffled));
+            }
+            setPanjangSoalJawaban(4);
+          }
+        });
+      }
     });
   };
 
@@ -141,7 +163,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     }
 
     if (optionId === correctAnswerId) {
-      const updatedScore = 100 / latihanContent.soalJawaban.length;
+      const updatedScore = 100 / panjangSoalJawaban;
       tempNilaiSoal[index] = updatedScore;
     } else {
       tempNilaiSoal[index] = 0;
@@ -159,8 +181,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
   };
 
   useEffect(() => {
-    //console.log(tempIsFill)
-    //console.log(JSON.parse(localStorage.getItem(`semuaSoalTelahDiisi`)));
     setQaz((prevQaz) => [
       selectedButton1,
       selectedButton2,
@@ -203,8 +223,41 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     setIsPlaying(true);
   };
 
+  const activityNameManipulasi = KursusData.map((a) => {
+    const detailItem = a.detail.find((detail) => detail.id === id);
+    return detailItem ? detailItem.nama : null;
+  }).filter((nama) => nama !== null); // Menghapus elemen null
+
+  const statusManipulasi =
+    JSON.parse(localStorage.getItem(`score`)) >= 75 ? "Lulus" : "Tidak Lulus";
+
+  const handleActivity = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:2024/activity",
+        {
+          activityName: `${activityNameManipulasi}`,
+          date: localStorage.getItem(`dateTime`),
+          value: JSON.parse(localStorage.getItem(`score`)),
+          status: statusManipulasi,
+          idUser: localStorage.getItem(`id`),
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
+      handleActivity();
       const myModal = new window.bootstrap.Modal(
         document.getElementById("dialogHasilNilaiLatihan")
       );
@@ -391,7 +444,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                       <div className="tw-flex tw-flex-col tw-w-[100%]">
                         <ul>
                           <div className="tw-flex tw-flex-col tw-gap-5">
-                            {latihanContent.soalJawaban.map((a, index) => {
+                            {shuffledSoalJawaban.slice(0, 4).map((a, index) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
@@ -402,7 +455,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   />
                                   <div
                                     className="tw-flex tw-mx-auto tw-gap-8"
-                                    key={a.id}
+                                    key={index}
                                   >
                                     <div className="tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
                                       {a.opsi.map((b) => {
@@ -576,6 +629,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem("TimeStop");
                                   localStorage.removeItem(`score`);
                                   localStorage.removeItem(`tempNilaiSoal`);
+                                  localStorage.removeItem("shuffledSoal1");
                                 }}
                                 className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
@@ -625,7 +679,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                       <div className="tw-flex tw-flex-col tw-w-[100%]">
                         <ul>
                           <div className="tw-flex tw-flex-col tw-gap-5">
-                            {latihanContent.soalJawaban.map((a, index) => {
+                            {shuffledSoalJawaban.slice(0, 4).map((a, index) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
@@ -820,6 +874,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem("TimeStop");
                                   localStorage.removeItem(`score`);
                                   localStorage.removeItem(`tempNilaiSoal`);
+                                  localStorage.removeItem("shuffledSoal1");
                                 }}
                                 className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
@@ -869,7 +924,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                       <div className="tw-flex tw-flex-col tw-w-[100%]">
                         <ul>
                           <div className="tw-flex tw-flex-col tw-gap-5">
-                            {latihanContent.soalJawaban.map((a, index) => {
+                            {shuffledSoalJawaban.slice(0, 4).map((a, index) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
@@ -1064,6 +1119,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem("TimeStop");
                                   localStorage.removeItem(`score`);
                                   localStorage.removeItem(`tempNilaiSoal`);
+                                  localStorage.removeItem("shuffledSoal1");
                                 }}
                                 className="tw-bg-[#009900] tw-w-[10%] hover:tw-bg-[#007100] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >

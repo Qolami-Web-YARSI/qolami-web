@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const DialogBerhasil4 = ({ id }) => {
@@ -6,6 +6,45 @@ const DialogBerhasil4 = ({ id }) => {
     window.scrollTo(0, 0);
     console.log(id);
   }, [id]);
+
+  const [dateTime, setDateTime] = useState("");
+
+  useEffect(() => {
+    const storedDateTime = localStorage.getItem("dateTime");
+    if (storedDateTime) {
+      setDateTime(storedDateTime);
+    }
+  }, []);
+
+  const handleButtonClick = () => {
+    const now = new Date();
+    const formattedDateTime = formatDate(now);
+    setDateTime(formattedDateTime);
+    localStorage.setItem("dateTime", formattedDateTime);
+  };
+
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, "0");
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${day} ${month} ${year} ${hours}:${minutes}`;
+  };
 
   return (
     <>
@@ -42,6 +81,7 @@ const DialogBerhasil4 = ({ id }) => {
                                         tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px]  
                                         tw-rounded-none tw-font-bold"
                       data-bs-dismiss="modal"
+                      onClick={handleButtonClick}
                     >
                       Mulai
                     </button>

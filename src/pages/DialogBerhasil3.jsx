@@ -6,6 +6,45 @@ const DialogBerhasil3 = ({ id, id2 }) => {
     window.scrollTo(0, 0);
   }, []);
 
+  const [dateTime, setDateTime] = useState("");
+
+  useEffect(() => {
+    const storedDateTime = localStorage.getItem("dateTime");
+    if (storedDateTime) {
+      setDateTime(storedDateTime);
+    }
+  }, []);
+
+  const handleButtonClick = () => {
+    const now = new Date();
+    const formattedDateTime = formatDate(now);
+    setDateTime(formattedDateTime);
+    localStorage.setItem("dateTime", formattedDateTime);
+  };
+
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, "0");
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${day} ${month} ${year} ${hours}:${minutes}`;
+  };
+
   return (
     <>
       <div
@@ -39,6 +78,7 @@ const DialogBerhasil3 = ({ id, id2 }) => {
                     <button
                       className="btn btn-secondary tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[100px] tw-rounded-none tw-font-bold"
                       data-bs-dismiss="modal"
+                      onClick={handleButtonClick}
                     >
                       Mulai
                     </button>

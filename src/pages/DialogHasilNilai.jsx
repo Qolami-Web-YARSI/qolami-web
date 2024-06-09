@@ -9,7 +9,7 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
   }, []);
 
   useEffect(() => {
-    if (score > graduate) {
+    if (score >= graduate) {
       setIsGraduate(true);
     } else {
       setIsGraduate(false);

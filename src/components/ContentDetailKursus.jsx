@@ -5,6 +5,14 @@ import KursusData from "../data/KursusData";
 import PaginationDetail from "./PaginationDetail";
 import DialogBerhasil3 from "../pages/DialogBerhasil3";
 
+const shuffleArray2 = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
 const ContentDetailKursus = ({ img, img2, img3 }) => {
   const { id } = useParams();
   localStorage.setItem(`id2`, id);
@@ -36,6 +44,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
   const [panjangSoalJawaban, setPanjangSoalJawaban] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
+  const [shuffledSoalJawaban, setShuffledSoalJawaban] = useState([]);
   const intervalRef = useRef(null);
   const [qaz, setQaz] = useState([
     selectedButton1,
@@ -62,20 +71,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     setSelectedButton10,
   ]);
 
-  const handleActivity = async () => {
-    try {
-      const response = await axios.post("http://localhost:2024/activity", {
-        activityName: "",
-        date: "",
-        value: "",
-        status: "lulus",
-      });
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   const takeIdCourse = () => {
     KursusData.forEach((a) => {
       if (a.nama.toLowerCase().includes("pelajaran")) {
@@ -100,18 +95,28 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
 
   const takeExamContent = () => {
     KursusData.forEach((a) => {
-      if (a.id.includes("exam-one")) {
-        console.log(a);
-        setTempExam1(a);
-        setPanjangSoalJawaban(a.soalJawaban2.length);
-        localStorage.setItem(`panjangSoal`, a.soalJawaban2.length);
-      } else if (a.id.includes("exam-two")) {
-        console.log(a);
-        setTempExam2(a);
-        setPanjangSoalJawaban(a.soalJawaban2.length);
-        localStorage.setItem(`panjangSoal`, a.soalJawaban2.length);
-      } else {
-        console.log("no identify exam!");
+      if (id.includes("exam")) {
+        if (a.id.includes("exam-one")) {
+          console.log(a);
+          setTempExam1(a);
+          const savedShuffledSoal2 = localStorage.getItem("shuffledSoal2");
+          if (savedShuffledSoal2) {
+            setShuffledSoalJawaban(JSON.parse(savedShuffledSoal2));
+          } else {
+            const shuffled2 = shuffleArray2([...a.soalJawaban2]);
+            setShuffledSoalJawaban(shuffled2);
+            localStorage.setItem("shuffledSoal2", JSON.stringify(shuffled2));
+          }
+          setPanjangSoalJawaban(10);
+          localStorage.setItem(`panjangSoal`, 10);
+        } else if (a.id.includes("exam-two")) {
+          console.log(a);
+          setTempExam2(a);
+          setPanjangSoalJawaban(a.soalJawaban2.length);
+          localStorage.setItem(`panjangSoal`, 10);
+        } else {
+          console.log("no identify exam!");
+        }
       }
     });
   };
@@ -340,13 +345,44 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
 
   useEffect(() => {
     window.onpopstate = () => {
-      localStorage.setItem("idDetail", id);
-      navigate(`/${localStorage.getItem("idDetail")}`);
+      if (localStorage.getItem("idDetail").includes("exam")) {
+        localStorage.setItem("idDetail", id);
+        navigate(`/${localStorage.getItem("idDetail")}`, { replace: true });
+      }
     };
   });
 
+  const activityNameManipulasi = KursusData.find((b) => b.id === id);
+  const statusManipulasi =
+    JSON.parse(localStorage.getItem(`score`)) >= 75 ? "Lulus" : "Tidak Lulus";
+
+  const handleActivity = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:2024/activity",
+        {
+          activityName: activityNameManipulasi.nama,
+          date: localStorage.getItem(`dateTime`),
+          value: JSON.parse(localStorage.getItem(`score`)),
+          status: statusManipulasi,
+          idUser: localStorage.getItem(`id`),
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("IsSubmit")) === true || time === 0) {
+      handleActivity();
       localStorage.setItem("IsSubmit", true);
       localStorage.setItem("TimeStop", true);
       localStorage.setItem("semuaSoalTelahDiisi", true);
@@ -355,7 +391,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
       );
       myModal.show();
       clearInterval(intervalRef.current);
-      handleActivity();
     }
   }, []);
 
@@ -363,6 +398,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     if (time <= 120) {
       localStorage.setItem("timeUnders2Minutes", true);
     }
+    console.log(activityNameManipulasi.name);
   }, [time]);
 
   return (
@@ -404,10 +440,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   >
                                     <button
                                       key={index}
-                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -425,10 +461,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   >
                                     <button
                                       key={index}
-                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                     2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -442,10 +478,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   >
                                     <button
                                       key={index}
-                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -463,10 +499,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   >
                                     <button
                                       key={index}
-                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -480,10 +516,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   >
                                     <button
                                       key={index}
-                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
+                                      className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -500,7 +536,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -561,7 +597,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
                                       lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -582,7 +618,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
                                     lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -601,7 +637,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
                                       lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -622,7 +658,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -641,7 +677,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -658,7 +694,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[40px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -852,7 +888,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       <div className="tw-flex tw-flex-col tw-gap-5">
                         {tempExam1 && (
                           <>
-                            {tempExam1.soalJawaban2.map((a, index) => {
+                            {shuffledSoalJawaban.map((a, index) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
@@ -1042,6 +1078,8 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
                               localStorage.removeItem(`tempNilaiSoal`);
+                              localStorage.removeItem("shuffledSoal2");
+                              localStorage.removeItem(`dateTime`);
                             }}
                             className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
@@ -1089,7 +1127,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       <div className="tw-flex tw-flex-col tw-gap-5">
                         {tempExam2 && (
                           <>
-                            {tempExam2.soalJawaban2.map((a, index) => {
+                            {shuffledSoalJawaban.slice(0, 2).map((a, index) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
@@ -1279,6 +1317,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
                               localStorage.removeItem(`tempNilaiSoal`);
+                              localStorage.removeItem("shuffledSoal");
                             }}
                             className="tw-bg-[#009900] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >

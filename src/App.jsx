@@ -91,7 +91,7 @@ const InnerApp = ({ tempToken, setTempToken }) => {
         img={imageUrlPencil}
         graduate={75}
         text={"ujian"}
-        panjangSoal={localStorage.getItem(`panjangSoal`)}
+        panjangSoal={10}
         score={JSON.parse(localStorage.getItem(`score`))}
       />
       <DialogHasilNilai
@@ -99,7 +99,7 @@ const InnerApp = ({ tempToken, setTempToken }) => {
         img={"pensil_2.svg"}
         graduate={75}
         text={"latihan"}
-        panjangSoal={localStorage.getItem(`panjangSoal`)}
+        panjangSoal={4}
         score={localStorage.getItem(`score`)}
       />
       <Masuk img={imageUrlLogo} setTempToken={setTempToken} />
