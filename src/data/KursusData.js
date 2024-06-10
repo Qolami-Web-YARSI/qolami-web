@@ -1043,6 +1043,7 @@ const KursusData = [
           },
         ],
       },
+      // Latihan 1 - Video
       {
         id: "video1",
         gambar: "latihan-video.svg",
@@ -1050,8 +1051,44 @@ const KursusData = [
         deskripsi: "Huruf Hijaiyah",
         nama2: "Video",
         soalJawaban: [
+          // Alif
           {
-            "id:": "video1_soal1",
+            "id:": "video1_alif",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/1-Alif.mp4",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/2-Ba.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/3-Ta.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/1-Alif.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
+              },
+            ],
+          },
+          // Ba
+          {
+            "id:": "video1_ba",
             soal: `Huruf apa yang diucapkan dari video berikut ini?`,
             audio: "",
             video:
@@ -1062,13 +1099,13 @@ const KursusData = [
                 id: 1,
                 text: "A",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/29-Hamzah.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/3-Ta.png",
               },
               {
                 id: 2,
                 text: "B",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/1-Alif.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/4-Tsa.png",
               },
               {
                 id: 3,
@@ -1080,46 +1117,328 @@ const KursusData = [
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/22-Kaf.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
               },
             ],
           },
+          // Ta
           {
-            "id:": "video1_soal2",
+            "id:": "video1_ta",
             soal: `Huruf apa yang diucapkan dari video berikut ini?`,
             audio: "",
             video:
-              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/7-Kho.mp4",
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/3-Ta.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/3-Ta.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/4-Tsa.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/2-Ba.png",
+              },
+            ],
+          },
+          // Tsa
+          {
+            "id:": "video1_tsa",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/4-Tsa.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/4-Tsa.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/3-Ta.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+              },
+            ],
+          },
+          // Jim
+          {
+            "id:": "video1_jim",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/5-Jim.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/6-Ha.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+            ],
+          },
+          // Ha
+          {
+            "id:": "video1_ha",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/6-Ha.mp4",
             jawabanBenar: 3,
             opsi: [
               {
                 id: 1,
                 text: "A",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/19-Ghain.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
               },
               {
                 id: 2,
                 text: "B",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/28-Lam-Alif.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
               },
               {
                 id: 3,
                 text: "C",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/6-Ha.png",
               },
               {
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/21-Qof.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
               },
             ],
           },
+          // Kho
           {
-            "id:": "video1_soal3",
+            "id:": "video1_kho",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/7-Kho.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/5-Jim.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/6-Ha.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+            ],
+          },
+          // Dal
+          {
+            "id:": "video1_dal",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/8-Dal.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/9-Dzal.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/8-Dal.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/10-Ra.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/11-Zay.png",
+              },
+            ],
+          },
+          // Dzal
+          {
+            "id:": "video1_dzal",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/9-Dzal.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/8-Dal.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/9-Dzal.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/10-Ra.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/11-Zay.png",
+              },
+            ],
+          },
+          // Ra
+          {
+            "id:": "video1_ra",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/10-Ra.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/11-Zay.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/10-Ra.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/9-Dzal.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/8-Dal.png",
+              },
+            ],
+          },
+          // Zay
+          {
+            "id:": "video1_zay",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/11-Zay.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/11-Zay.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/9-Dzal.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/10-Ra.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/26-Wau.png",
+              },
+            ],
+          },
+          // Sin
+          {
+            "id:": "video1_sin",
             soal: `Huruf apa yang diucapkan dari video berikut ini?`,
             audio: "",
             video:
@@ -1130,7 +1449,7 @@ const KursusData = [
                 id: 1,
                 text: "A",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/14-Shod.png",
               },
               {
                 id: 2,
@@ -1142,18 +1461,159 @@ const KursusData = [
                 id: 3,
                 text: "C",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/1-Alif.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/13-Syin.png",
               },
               {
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/20-Fa.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/15-Dhod.png",
               },
             ],
           },
+          // Syin
           {
-            "id:": "video1_soal4",
+            "id:": "video1_syin",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/13-Syin.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/12-Sin.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/13-Syin.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/14-Shod.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/15-Dhod.png",
+              },
+            ],
+          },
+          // Shod
+          {
+            "id:": "video1_shod",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/14-Shod.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/15-Dhod.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/14-Shod.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/12-Sin.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/16-Tho.png",
+              },
+            ],
+          },
+          // Dhod
+          {
+            "id:": "video1_dhod",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/15-Dhod.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/15-Dhod.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/14-Shod.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/16-Tho.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/17-Zho.png",
+              },
+            ],
+          },
+          // Tho
+          {
+            "id:": "video1_tho",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/16-Tho.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/17-Zho.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/16-Tho.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/14-Shod.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/18-Ain.png",
+              },
+            ],
+          },
+          // Zho
+          {
+            "id:": "video1_zho",
             soal: `Huruf apa yang diucapkan dari video berikut ini?`,
             audio: "",
             video:
@@ -1170,19 +1630,474 @@ const KursusData = [
                 id: 2,
                 text: "B",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/9-Dzal.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/15-Dhod.png",
               },
               {
                 id: 3,
                 text: "C",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/16-Tho.png",
               },
               {
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/10-Ra.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/18-Ain.png",
+              },
+            ],
+          },
+          // Ain
+          {
+            "id:": "video1_ain",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/18-Ain.mp4",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/19-Ghain.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/20-Fa.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/18-Ain.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/21-Qof.png",
+              },
+            ],
+          },
+          // Ghain
+          {
+            "id:": "video1_ghain",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/19-Ghain.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/19-Ghain.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/18-Ain.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/21-Qof.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/20-Fa.png",
+              },
+            ],
+          },
+          // Fa
+          {
+            "id:": "video1_fa",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/20-Fa.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/20-Fa.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/19-Ghain.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/21-Qof.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/22-Kaf.png",
+              },
+            ],
+          },
+          // Qof
+          {
+            "id:": "video1_qof",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/21-Qof.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/21-Qof.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/20-Fa.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/22-Kaf.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/23-Lam.png",
+              },
+            ],
+          },
+          // Kaf
+          {
+            "id:": "video1_kaf",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/22-Kaf.mp4",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/23-Lam.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/24-Mim.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/22-Kaf.png",
+              },
+            ],
+          },
+          // Lam
+          {
+            "id:": "video1_lam",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/23-Lam.mp4",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/24-Mim.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/22-Kaf.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/23-Lam.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+            ],
+          },
+          // Mim
+          {
+            "id:": "video1_mim",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/24-Mim.mp4",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/22-Kaf.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/23-Lam.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/24-Mim.png",
+              },
+            ],
+          },
+          // Nun
+          {
+            "id:": "video1_nun",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/25-Nun.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/24-Mim.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/23-Lam.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+            ],
+          },
+          // Wau
+          {
+            "id:": "video1_wau",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/26-Wau.mp4",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/26-Wau.png",
+              },
+            ],
+          },
+          // Ha
+          {
+            "id:": "video1_ha",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/27-Ha.mp4",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/26-Wau.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+            ],
+          },
+          // Lam Alif
+          {
+            "id:": "video1_lam-alif",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/28-Lam-Alif.mp4",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/26-Wau.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/28-Lam-Alif.png",
+              },
+            ],
+          },
+          // Hamzah
+          {
+            "id:": "video1_hamzah",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/29-Hamzah.mp4",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/29-Hamzah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/28-Lam-Alif.png",
+              },
+            ],
+          },
+          // Ya
+          {
+            "id:": "video1_Ya",
+            soal: `Huruf apa yang diucapkan dari video berikut ini?`,
+            audio: "",
+            video:
+              "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/video/30-Ya.mp4",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/26-Wau.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/27-Ha.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
               },
             ],
           },

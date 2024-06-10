@@ -24,7 +24,7 @@ const HeaderComponent2 = ({ img }) => {
     localStorage.removeItem("id");
     localStorage.removeItem("token");
     localStorage.setItem("isLogIn", false);
-    navigate("/");
+    navigate("/", { replace: true });
     window.location.reload();
     window.scrollTo(0, 0);
   };
@@ -74,17 +74,23 @@ const HeaderComponent2 = ({ img }) => {
           </div>
           <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">
             <ul>
-              <li className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]">
-                <a href="/">Beranda</a>
+              <li
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
+                onClick={() => navigate("/", { replace: true })}
+              >
+                Beranda
               </li>
               <li
                 className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
                 onClick={() => navigate("/kursus", { replace: true })}
               >
-                <a href="/kursus">Kursus</a>
+                Kursus
               </li>
-              <li className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]">
-                <a href="/tentang">Tentang</a>
+              <li
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
+                onClick={() => navigate("/tentang", { replace: true })}
+              >
+                Tentang
               </li>
             </ul>
           </div>
@@ -124,7 +130,7 @@ const HeaderComponent2 = ({ img }) => {
         onMouseLeave={() => setNav2(false)}
         onSubmit={klik}
       >
-        <div className="tw-w-full tw-flex tw-flex-row-reverse tw-px-36">
+        <div className="tw-w-full tw-flex tw-flex-row-reverse tw-px-16 lg:tw-px-20 xl:tw-px-36">
           <ul
             className={`${
               getNav2 ? "tw-block" : "tw-hidden"

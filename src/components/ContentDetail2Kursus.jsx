@@ -274,7 +274,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
               <>
                 {item && (
                   <div className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%] tw-font-poppins">
-                    <div className="tw-flex tw-flex-col tw-pt-20 sm:tw-pt-28 lg:tw-pt-40 tw-pb-8 sm:tw-pb-14">
+                    <div className="tw-flex tw-flex-col tw-pt-32 sm:tw-pt-28 lg:tw-pt-40 tw-pb-8 sm:tw-pb-14">
                       <p
                         className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] 
                                         tw-font-bold tw-text-center tw-pt-5 tw-mx-auto"
@@ -440,7 +440,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                         {latihanContent.deskripsi}
                       </p>
                     </div>
-                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32 tw-font-poppins">
+                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-5 xs:tw-px-10 md:tw-px-20 2xl:tw-px-32 tw-font-poppins">
                       <div className="tw-flex tw-flex-col tw-w-[100%]">
                         <ul>
                           <div className="tw-flex tw-flex-col tw-gap-5">
@@ -448,7 +448,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
-                                    className="tw-text-[24px]"
+                                    className="tw-text-[15px] sm:tw-text-[24px]"
                                     dangerouslySetInnerHTML={{
                                       __html: index + 1 + ". " + a.soal,
                                     }}
@@ -457,15 +457,15 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                     className="tw-flex tw-mx-auto tw-gap-8"
                                     key={index}
                                   >
-                                    <div className="tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
+                                    <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-gap-4 xl:tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
                                       {a.opsi.map((b) => {
                                         return (
-                                          <div className="tw-flex">
+                                          <div className="tw-flex tw-mx-auto">
                                             {JSON.parse(
                                               localStorage.getItem("IsSubmit")
                                             ) === true ? (
                                               <button
-                                                className={`tw-flex 
+                                                className={`tw-flex
                                                                                 ${
                                                                                   JSON.parse(
                                                                                     localStorage.getItem(
@@ -514,9 +514,9 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                                                       : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
                                                                                     : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                                                                 }
-                                                                                tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                                                                tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
                                               >
-                                                <p className="tw-m-auto tw-text-[20px]">
+                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
                                                   {b.text}
                                                 </p>
                                               </button>
@@ -529,7 +529,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                     a.jawabanBenar
                                                   );
                                                 }}
-                                                className={`tw-flex 
+                                                className={`tw-flex
                                                                                 ${
                                                                                   JSON.parse(
                                                                                     localStorage.getItem(
@@ -578,16 +578,16 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                                                       : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
                                                                                     : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                                                                 }
-                                                                                 hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                                                                 hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
                                               >
-                                                <p className="tw-m-auto tw-text-[20px]">
+                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
                                                   {b.text}
                                                 </p>
                                               </button>
                                             )}
                                             <img
                                               src={b.imgSrc}
-                                              className="tw-w-[200px] tw-rounded-lg"
+                                              className="tw-w-[90px] sm:tw-w-[100px] lg:tw-w-[150px] xl:tw-w-[200px] tw-rounded-lg"
                                               alt={b.id}
                                             />
                                           </div>
@@ -631,7 +631,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(`tempNilaiSoal`);
                                   localStorage.removeItem("shuffledSoal1");
                                 }}
-                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Ok
                               </button>
@@ -639,7 +639,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 data-bs-target={`#dialogAkhirLatihan`}
                                 data-bs-toggle="modal"
-                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Selesaikan
                               </button>
@@ -647,7 +647,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                           </>
                         ) : (
                           <button
-                            className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#979797] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                             disabled
                           >
                             Selesaikan
@@ -675,7 +675,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                         {latihanContent.deskripsi}
                       </p>
                     </div>
-                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32 tw-font-poppins">
+                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-5 xs:tw-px-10 md:tw-px-20 2xl:tw-px-32 tw-font-poppins">
                       <div className="tw-flex tw-flex-col tw-w-[100%]">
                         <ul>
                           <div className="tw-flex tw-flex-col tw-gap-5">
@@ -683,7 +683,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
-                                    className="tw-text-[24px]"
+                                    className="tw-text-[15px] sm:tw-text-[24px]"
                                     dangerouslySetInnerHTML={{
                                       __html: index + 1 + ". " + a.soal,
                                     }}
@@ -702,10 +702,10 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                     className="tw-flex tw-mx-auto tw-gap-8 tw-pt-5"
                                     key={a.id}
                                   >
-                                    <div className="tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
+                                    <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-gap-4 xl:tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
                                       {a.opsi.map((b) => {
                                         return (
-                                          <div className="tw-flex">
+                                          <div className="tw-flex tw-mx-auto">
                                             {JSON.parse(
                                               localStorage.getItem("IsSubmit")
                                             ) === true ? (
@@ -759,9 +759,9 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                                                       : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
                                                                                     : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                                                                 }
-                                                                                tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                                                                tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
                                               >
-                                                <p className="tw-m-auto tw-text-[20px]">
+                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
                                                   {b.text}
                                                 </p>
                                               </button>
@@ -823,16 +823,16 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                                                       : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
                                                                                     : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                                                                 }
-                                                                                 hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                                                                hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
                                               >
-                                                <p className="tw-m-auto tw-text-[20px]">
+                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
                                                   {b.text}
                                                 </p>
                                               </button>
                                             )}
                                             <img
                                               src={b.imgSrc}
-                                              className="tw-w-[200px] tw-rounded-lg"
+                                              className="tw-w-[90px] sm:tw-w-[100px] lg:tw-w-[150px] xl:tw-w-[200px] tw-rounded-lg"
                                               alt={b.id}
                                             />
                                           </div>
@@ -876,7 +876,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(`tempNilaiSoal`);
                                   localStorage.removeItem("shuffledSoal1");
                                 }}
-                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Ok
                               </button>
@@ -884,7 +884,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 data-bs-target={`#dialogAkhirLatihan`}
                                 data-bs-toggle="modal"
-                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Selesaikan
                               </button>
@@ -892,7 +892,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                           </>
                         ) : (
                           <button
-                            className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#979797] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                             disabled
                           >
                             Selesaikan
@@ -920,7 +920,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                         {latihanContent.deskripsi}
                       </p>
                     </div>
-                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-32 tw-font-poppins">
+                    <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-5 xs:tw-px-10 md:tw-px-20 2xl:tw-px-32 tw-font-poppins">
                       <div className="tw-flex tw-flex-col tw-w-[100%]">
                         <ul>
                           <div className="tw-flex tw-flex-col tw-gap-5">
@@ -928,26 +928,30 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               return (
                                 <div className="tw-pb-5" key={a.id}>
                                   <p
-                                    className="tw-text-[24px]"
+                                    className="tw-text-[15px] sm:tw-text-[24px]"
                                     dangerouslySetInnerHTML={{
                                       __html: index + 1 + ". " + a.soal,
                                     }}
                                   />
-                                  <div className="tw-flex tw-w-full tw-justify-center tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
+                                  <div className="tw-flex tw-bg-[#009900] tw-rounded-full hover:tw-bg-[#06D805] tw-size-28 xs:tw-size-36 md:tw-size-48  tw-justify-center tw-mt-5 tw-mx-auto">
                                     <button
                                       onClick={() => audioPlay(`${a.audio}`)}
                                     >
-                                      <img src={img3} alt="sound" />
+                                      <img
+                                        src={img3}
+                                        className="tw-w-16 xs:tw-w-20 md:tw-w-fit"
+                                        alt="sound"
+                                      />
                                     </button>
                                   </div>
                                   <div
                                     className="tw-flex tw-mx-auto tw-gap-8 tw-pt-10"
                                     key={a.id}
                                   >
-                                    <div className="tw-flex tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
+                                    <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-gap-4 xl:tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
                                       {a.opsi.map((b) => {
                                         return (
-                                          <div className="tw-flex">
+                                          <div className="tw-flex tw-mx-auto">
                                             {JSON.parse(
                                               localStorage.getItem("IsSubmit")
                                             ) === true ? (
@@ -1001,9 +1005,9 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                                                       : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
                                                                                     : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                                                                 }
-                                                                                tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                                                                tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
                                               >
-                                                <p className="tw-m-auto tw-text-[20px]">
+                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
                                                   {b.text}
                                                 </p>
                                               </button>
@@ -1065,16 +1069,16 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                                                                       : "tw-bg-[#1F4E78] tw-border-[#1F4E78] tw-text-white"
                                                                                     : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                                                                 }
-                                                                                 hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-12 tw-border-[3px] tw-rounded-lg`}
+                                                                                hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
                                               >
-                                                <p className="tw-m-auto tw-text-[20px]">
+                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
                                                   {b.text}
                                                 </p>
                                               </button>
                                             )}
                                             <img
                                               src={b.imgSrc}
-                                              className="tw-w-[200px] tw-rounded-lg"
+                                              className="tw-w-[90px] sm:tw-w-[100px] lg:tw-w-[150px] xl:tw-w-[200px] tw-rounded-lg"
                                               alt={b.id}
                                             />
                                           </div>
@@ -1121,7 +1125,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(`tempNilaiSoal`);
                                   localStorage.removeItem("shuffledSoal1");
                                 }}
-                                className="tw-bg-[#009900] tw-w-[10%] hover:tw-bg-[#007100] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Ok
                               </button>
@@ -1129,7 +1133,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                               <button
                                 data-bs-target={`#dialogAkhirLatihan`}
                                 data-bs-toggle="modal"
-                                className="tw-bg-[#009900] tw-w-[10%] hover:tw-bg-[#007100] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                                className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
                                 Selesaikan
                               </button>
@@ -1137,7 +1141,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                           </>
                         ) : (
                           <button
-                            className="tw-bg-[#979797] tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#979797] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                             disabled
                           >
                             Selesaikan

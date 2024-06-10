@@ -19,7 +19,7 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
   return (
     <>
       <div
-        className="modal fade"
+        className="modal fade tw-p-5"
         id={id}
         data-bs-keyboard="false"
         tabIndex="-1"
@@ -28,24 +28,24 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
       >
         <div className="tw-flex modal-dialog modal-dialog-centered modal-lg tw-mx-auto">
           <div className="modal-content tw-w-[600px] tw-bg-[#FFF6D9] tw-py-2 tw-rounded-[25px] tw-mx-auto">
-            <div className="tw-flex tw-flex-col modal-body tw-px-[50px] tw-rounded-[25px] tw-bg-[#FFF6D9] tw-font-poppins">
+            <div className="tw-flex tw-flex-col modal-body tw-px-[30px] xs:tw-px-[50px] tw-rounded-[25px] tw-bg-[#FFF6D9] tw-font-poppins">
               <img
                 src={imageUrlPencil}
-                className="tw-w-48 sm:tw-w-28 tw-mx-auto"
+                className="tw-w-32 sm:tw-w-28 tw-mx-auto"
                 alt="pencil"
               />
               <div className="tw-flex tw-gap-6 tw-pt-8 tw-mx-auto tw-w-full">
                 <div className="tw-flex tw-w-1/2 tw-flex-col tw-mx-auto">
-                  <p className="tw-mx-auto tw-font-bold tw-text-[25px]">
+                  <p className="tw-mx-auto tw-font-bold  tw-text-[15px] sm:tw-text-[25px]">
                     Total Soal
                   </p>
-                  <p className="tw-mx-auto tw-font-bold tw-text-[70px]">
+                  <p className="tw-mx-auto tw-font-bold tw-text-[50px] sm:tw-text-[70px]">
                     {panjangSoal}
                   </p>
                 </div>
                 <div className="tw-flex tw-w-1/2 tw-flex-col tw-mx-auto">
                   <p
-                    className={`tw-mx-auto tw-font-bold tw-text-[25px] ${
+                    className={`tw-mx-auto tw-font-bold tw-text-[15px] sm:tw-text-[25px] ${
                       isGraduate === true
                         ? "tw-text-[#34D399]"
                         : "tw-text-[#FB7185]"
@@ -54,7 +54,7 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
                     Nilai
                   </p>
                   <p
-                    className={`tw-mx-auto tw-font-bold tw-text-[70px] ${
+                    className={`tw-mx-auto tw-font-bold tw-text-[50px] sm:tw-text-[70px] ${
                       isGraduate === true
                         ? "tw-text-[#34D399]"
                         : "tw-text-[#FB7185]"
@@ -64,7 +64,7 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
                   </p>
                 </div>
               </div>
-              <p className="tw-mx-auto tw-px-10 tw-py-5 tw-pb-7 tw-text-[18px] tw-text-justify">
+              <p className="tw-mx-auto tw-px-7 sm:tw-px-10 tw-py-5 tw-pb-7 tw-text-[13px] xs:tw-text-[18px] tw-text-justify">
                 {isGraduate === true ? (
                   <>{`Selamat! Anda telah Lulus dari ${text} ini`}</>
                 ) : (
@@ -75,7 +75,7 @@ const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
               </p>
               <button
                 type="button"
-                className="btn btn-secondary tw-text-[18px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[80px] tw-mx-auto tw-rounded-[30px] tw-font-bold"
+                className="btn btn-secondary tw-text-[15px] xs:tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[80px] tw-mx-auto tw-rounded-[30px] tw-font-bold"
                 data-bs-dismiss="modal"
               >
                 OK
