@@ -651,7 +651,6 @@ const SettingsComponent = () => {
       );
       myModal.show();
       localStorage.setItem("settings", "profile");
-      activeTab = "profile";
     } catch (e) {
       console.log(e);
     }
@@ -696,9 +695,8 @@ const SettingsComponent = () => {
         document.getElementById("dialogBerhasilUbahSandi")
       );
       myModal.show();
-      activeTab = "ubahSandi";
     } catch (e) {
-      console.log(e.response.data);
+      console.log(e);
       if (e.response.data.includes("Invalid old password.")) {
         setNoticeKataSandiLama2(false);
       } else {

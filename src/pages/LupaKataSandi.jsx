@@ -89,7 +89,7 @@ const LupaKataSandi = ({ img }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div
-        className="modal fade"
+        className="modal fade tw-p-4"
         id="lupaPasswordModal"
         tabIndex="-1"
         aria-labelledby="lupaPasswordModalLabel"
