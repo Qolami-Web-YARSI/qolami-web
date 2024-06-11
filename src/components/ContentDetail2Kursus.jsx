@@ -630,6 +630,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(`score`);
                                   localStorage.removeItem(`tempNilaiSoal`);
                                   localStorage.removeItem("shuffledSoal1");
+                                  localStorage.removeItem(`dateTime`);
                                 }}
                                 className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
@@ -875,6 +876,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(`score`);
                                   localStorage.removeItem(`tempNilaiSoal`);
                                   localStorage.removeItem("shuffledSoal1");
+                                  localStorage.removeItem(`dateTime`);
                                 }}
                                 className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >
@@ -1124,6 +1126,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                   localStorage.removeItem(`score`);
                                   localStorage.removeItem(`tempNilaiSoal`);
                                   localStorage.removeItem("shuffledSoal1");
+                                  localStorage.removeItem(`dateTime`);
                                 }}
                                 className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                               >

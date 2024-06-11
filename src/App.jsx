@@ -102,6 +102,7 @@ const InnerApp = ({ tempToken, setTempToken }) => {
         panjangSoal={4}
         score={localStorage.getItem(`score`)}
       />
+
       <Masuk img={imageUrlLogo} setTempToken={setTempToken} />
       <Daftar img={imageUrlLogo} />
       <LupaKataSandi img={imageUrlLogo} />

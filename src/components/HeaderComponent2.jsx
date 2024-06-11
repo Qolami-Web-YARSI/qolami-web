@@ -63,14 +63,11 @@ const HeaderComponent2 = ({ img }) => {
         hidden={location.pathname.includes("exam")}
       >
         <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
-          <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
-            <a href="/">
-              <img
-                src={img}
-                className="tw-w-[92px] tw-mx-0"
-                alt="logo_qolami"
-              />
-            </a>
+          <div
+            className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%] tw-cursor-pointer"
+            onClick={() => navigate("/", { replace: true })}
+          >
+            <img src={img} className="tw-w-[92px] tw-mx-0" alt="logo_qolami" />
           </div>
           <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">
             <ul>
@@ -82,13 +79,13 @@ const HeaderComponent2 = ({ img }) => {
               </li>
               <li
                 className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
-                onClick={() => navigate("/kursus", { replace: true })}
+                onClick={() => navigate("/kursus")}
               >
                 Kursus
               </li>
               <li
                 className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
-                onClick={() => navigate("/tentang", { replace: true })}
+                onClick={() => navigate("/tentang")}
               >
                 Tentang
               </li>

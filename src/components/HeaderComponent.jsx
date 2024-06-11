@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
+import { useNavigate, useLocation } from "react-router-dom";
 import NavigationComponent from "./NavigationComponent";
 
 const HeaderComponent = ({ img }) => {
+  const navigate = useNavigate();
   const [getNav, setNav] = useState(false);
   const buttonNav = () => {
     setNav(!getNav);
@@ -12,34 +14,33 @@ const HeaderComponent = ({ img }) => {
   return (
     <>
       <NavigationComponent nav={getNav} buttonNavX={buttonNav} />
-      <header
-        className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins"
-        //     hidden={localStorage.getItem('idDetail') !== null ?
-        //     false
-        //     :
-        //     true
-        // }
-      >
+      <header className="tw-border-b-2 tw-border-[#009900] tw-fixed tw-w-full tw-z-20 tw-font-poppins">
         <nav className="tw-flex tw-bg-[#FFF6D9] tw-justify-between tw-py-4 tw-px-7 lg:tw-px-12 xl:tw-px-32">
-          <div className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%]">
-            <a href="/">
-              <img
-                src={img}
-                className="tw-w-[92px] tw-mx-0"
-                alt="logo_qolami"
-              />
-            </a>
+          <div
+            className="tw-flex tw-flex-col tw-w-[50%] md:tw-w-[30%] tw-cursor-pointer"
+            onClick={() => navigate("/", { replace: true })}
+          >
+            <img src={img} className="tw-w-[92px] tw-mx-0" alt="logo_qolami" />
           </div>
           <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">
             <ul>
-              <li className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]">
-                <a href="/">Beranda</a>
+              <li
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-cursor-pointer"
+                onClick={() => navigate("/", { replace: true })}
+              >
+                Beranda
               </li>
-              <li className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]">
-                <a href="/kursus">Kursus</a>
+              <li
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-cursor-pointer"
+                onClick={() => navigate("/kursus")}
+              >
+                Kursus
               </li>
-              <li className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]">
-                <a href="/tentang">Tentang</a>
+              <li
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-cursor-pointer"
+                onClick={() => navigate("/tentang")}
+              >
+                Tentang
               </li>
             </ul>
           </div>
