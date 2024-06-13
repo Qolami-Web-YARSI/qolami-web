@@ -72,20 +72,20 @@ const HeaderComponent2 = ({ img }) => {
           <div className="tw-hidden md:tw-flex tw-flex-col tw-justify-center">
             <ul>
               <li
-                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-cursor-pointer"
                 onClick={() => navigate("/", { replace: true })}
               >
                 Beranda
               </li>
               <li
-                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
-                onClick={() => navigate("/kursus")}
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-cursor-pointer"
+                onClick={() => navigate("/kursus", { replace: true })}
               >
                 Kursus
               </li>
               <li
-                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px]"
-                onClick={() => navigate("/tentang")}
+                className="tw-inline tw-mx-3 lg:tw-mx-5 tw-font-bold tw-text-[#009900] hover:tw-text-black tw-text-[15px] lg:tw-text-[20px] tw-cursor-pointer"
+                onClick={() => navigate("/tentang", { replace: true })}
               >
                 Tentang
               </li>

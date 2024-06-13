@@ -6190,45 +6190,13 @@ const KursusData = [
         id: "gambar2",
         gambar: "latihan-gambar.svg",
         nama: "Latihan 2 - Gambar",
-        deskripsi: "Huruf Hijaiyah",
+        deskripsi: "Huruf Berharakat Fathah",
         nama2: "Gambar",
         soalJawaban: [
+          // Alif Fathah
           {
-            id: "gambar2_soal1",
-            soal: `Yang manakah huruf <b>"Ba"</b>?`,
-            audio: "",
-            video: "",
-            jawabanBenar: 2,
-            opsi: [
-              {
-                id: 1,
-                text: "A",
-                imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
-              },
-              {
-                id: 2,
-                text: "B",
-                imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/2-Ba.png",
-              },
-              {
-                id: 3,
-                text: "C",
-                imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/8-Dal.png",
-              },
-              {
-                id: 4,
-                text: "D",
-                imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/24-Mim.png",
-              },
-            ],
-          },
-          {
-            id: "gambar2_soal2",
-            soal: `Yang manakah huruf <b>"Kho"</b>?`,
+            "id:": "gambar2_alif-fathah",
+            soal: `Yang manakah huruf <b>"Alif"</b>?`,
             audio: "",
             video: "",
             jawabanBenar: 3,
@@ -6237,31 +6205,134 @@ const KursusData = [
                 id: 1,
                 text: "A",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/2-Ba.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/2-Ba-Fathah.png",
               },
               {
                 id: 2,
                 text: "B",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/24-Mim.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/3-Ta-Fathah.png",
               },
               {
                 id: 3,
                 text: "C",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/1-Alif-Fathah.png",
               },
               {
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
               },
             ],
           },
+          // Ba Fathah
           {
-            id: "gambar2_soal3",
-            soal: `Yang manakah huruf <b>"Sin"</b>?`,
+            "id:": "gambar2_ba-fathah",
+            soal: `Yang manakah huruf <b>"Ba"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/3-Ta-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/4-Tsa-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/2-Ba-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
+              },
+            ],
+          },
+          // Ta Fathah
+          {
+            "id:": "gambar2_ta-fathah",
+            soal: `Yang manakah huruf <b>"Ta"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/3-Ta-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/4-Tsa-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/2-Ba-Fathah.png",
+              },
+            ],
+          },
+          // Tsa Fathah
+          {
+            "id:": "gambar2_tsa-fathah",
+            soal: `Yang manakah huruf <b>"Tsa"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/4-Tsa-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/3-Ta-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/7-Kho-Fathah.png",
+              },
+            ],
+          },
+          // Jim Fathah
+          {
+            "id:": "gambar2_jim-fathah",
+            soal: `Yang manakah huruf <b>"Jim"</b>?`,
             audio: "",
             video: "",
             jawabanBenar: 1,
@@ -6270,31 +6341,576 @@ const KursusData = [
                 id: 1,
                 text: "A",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/12-Sin.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
               },
               {
                 id: 2,
                 text: "B",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/7-Kho-Fathah.png",
               },
               {
                 id: 3,
                 text: "C",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/6-Ha-Fathah.png",
               },
               {
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/7-Kho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/27-Ha-Fathah.png",
               },
             ],
           },
+          // Ha Fathah
           {
-            id: "gambar2_soal4",
+            "id:": "gambar2_ha-fathah",
+            soal: `Yang manakah huruf <b>"Ha"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/7-Kho-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/6-Ha-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/1-Alif-Fathah.png",
+              },
+            ],
+          },
+          // Kho Fathah
+          {
+            "id:": "gambar2_kho-fathah",
+            soal: `Yang manakah huruf <b>"Kho"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/7-Kho-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/5-Jim-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/6-Ha-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/27-Ha-Fathah.png",
+              },
+            ],
+          },
+          // Dal Fathah
+          {
+            "id:": "gambar2_dal-fathah",
+            soal: `Yang manakah huruf <b>"Dal"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/9-Dzal-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/8-Dal-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/10-Ra-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/11-Zay-Fathah.png",
+              },
+            ],
+          },
+          // Dzal Fathah
+          {
+            "id:": "gambar2_dzal-fathah",
+            soal: `Yang manakah huruf <b>"Dzal"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/8-Dal-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/9-Dzal-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/10-Ra-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/11-Zay-Fathah.png",
+              },
+            ],
+          },
+          // Ra Fathah
+          {
+            "id:": "gambar2_ra-fathah",
+            soal: `Yang manakah huruf <b>"Ra"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/11-Zay-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/10-Ra-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/9-Dzal-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/8-Dal-Fathah.png",
+              },
+            ],
+          },
+          // Zay Fathah
+          {
+            "id:": "gambar2_zay-fathah",
+            soal: `Yang manakah huruf <b>"Zay"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/11-Zay-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/9-Dzal-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/10-Ra-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/26-Wau-Fathah.png",
+              },
+            ],
+          },
+          // Sin Fathah
+          {
+            "id:": "gambar2_sin-fathah",
+            soal: `Yang manakah huruf <b>"Sin"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/14-Shod-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/12-Sin-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/13-Syin-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/15-Dhod-Fathah.png",
+              },
+            ],
+          },
+          // Syin Fathah
+          {
+            "id:": "gambar2_syin-fathah",
+            soal: `Yang manakah huruf <b>"Syin"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/12-Sin-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/13-Syin-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/14-Shod-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/15-Dhod-Fathah.png",
+              },
+            ],
+          },
+          // Shod Fathah
+          {
+            "id:": "gambar2_shod-fathah",
+            soal: `Yang manakah huruf <b>"Shod"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/15-Dhod-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/14-Shod-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/12-Sin-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/16-Tho-Fathah.png",
+              },
+            ],
+          },
+          // Dhod Fathah
+          {
+            "id:": "gambar2_dhod-fathah",
+            soal: `Yang manakah huruf <b>"Dhod"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/15-Dhod-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/14-Shod-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/16-Tho-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/17-Zho-Fathah.png",
+              },
+            ],
+          },
+          // Tho Fathah
+          {
+            "id:": "gambar2_tho-fathah",
+            soal: `Yang manakah huruf <b>"Tho"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/17-Zho-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/16-Tho-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/14-Shod-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/18-Ain-Fathah.png",
+              },
+            ],
+          },
+          // Zho Fathah
+          {
+            "id:": "gambar2_zho-fathah",
             soal: `Yang manakah huruf <b>"Zho"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/17-Zho-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/15-Dhod-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/16-Tho-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/18-Ain-Fathah.png",
+              },
+            ],
+          },
+          // Ain Fathah
+          {
+            "id:": "gambar2_ain-fathah",
+            soal: `Yang manakah huruf <b>"Ain"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/19-Ghain-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/20-Fa-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/18-Ain-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/21-Qof-Fathah.png",
+              },
+            ],
+          },
+          // Ghain Fathah
+          {
+            "id:": "gambar2_ghain-fathah",
+            soal: `Yang manakah huruf <b>"Ghain"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/19-Ghain-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/18-Ain-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/21-Qof-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/20-Fa-Fathah.png",
+              },
+            ],
+          },
+          // Fa Fathah
+          {
+            "id:": "gambar2_fa-fathah",
+            soal: `Yang manakah huruf <b>"Fa"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/20-Fa-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/19-Ghain-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/21-Qof-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/22-Kaf-Fathah.png",
+              },
+            ],
+          },
+          // Qof Fathah
+          {
+            "id:": "gambar2_qof-fathah",
+            soal: `Yang manakah huruf <b>"Qof"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/21-Qof-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/20-Fa-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/22-Kaf-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/23-Lam-Fathah.png",
+              },
+            ],
+          },
+          // Kaf Fathah
+          {
+            "id:": "gambar2_kaf-fathah",
+            soal: `Yang manakah huruf <b>"Kaf"</b>?`,
             audio: "",
             video: "",
             jawabanBenar: 4,
@@ -6303,25 +6919,229 @@ const KursusData = [
                 id: 1,
                 text: "A",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/1-Alif.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/23-Lam-Fathah.png",
               },
               {
                 id: 2,
                 text: "B",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/30-Ya.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/24-Mim-Fathah.png",
               },
               {
                 id: 3,
                 text: "C",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/25-Nun.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
               },
               {
                 id: 4,
                 text: "D",
                 imgSrc:
-                  "https://storage.googleapis.com/qolami-web/pelajaran1-huruf-hijaiyah/image/17-Zho.png",
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/22-Kaf-Fathah.png",
+              },
+            ],
+          },
+          // Lam Fathah
+          {
+            "id:": "gambar2_lam-fathah",
+            soal: `Yang manakah huruf <b>"Lam"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 3,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/24-Mim-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/22-Kaf-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/23-Lam-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
+              },
+            ],
+          },
+          // Mim Fathah
+          {
+            "id:": "gambar2_mim-fathah",
+            soal: `Yang manakah huruf <b>"Mim"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/22-Kaf-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/23-Lam-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/24-Mim-Fathah.png",
+              },
+            ],
+          },
+          // Nun Fathah
+          {
+            "id:": "gambar2_nun-fathah",
+            soal: `Yang manakah huruf <b>"Nun"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 1,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/24-Mim-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/23-Lam-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/27-Ha-Fathah.png",
+              },
+            ],
+          },
+          // Wau Fathah
+          {
+            "id:": "gambar2_wau-fathah",
+            soal: `Yang manakah huruf <b>"Wau"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/27-Ha-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/28-Ya-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/26-Wau-Fathah.png",
+              },
+            ],
+          },
+          // Ha Fathah
+          {
+            "id:": "gambar2_ha-fathah",
+            soal: `Yang manakah huruf <b>"Ha"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 2,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/26-Wau-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/27-Ha-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/28-Ya-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
+              },
+            ],
+          },
+          // Ya Fathah
+          {
+            "id:": "gambar2_ya-fathah",
+            soal: `Yang manakah huruf <b>"Ya"</b>?`,
+            audio: "",
+            video: "",
+            jawabanBenar: 4,
+            opsi: [
+              {
+                id: 1,
+                text: "A",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/26-Wau-Fathah.png",
+              },
+              {
+                id: 2,
+                text: "B",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/27-Ha-Fathah.png",
+              },
+              {
+                id: 3,
+                text: "C",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/25-Nun-Fathah.png",
+              },
+              {
+                id: 4,
+                text: "D",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web/pelajaran2-huruf-berharakat-fathah/image/28-Ya-Fathah.png",
               },
             ],
           },

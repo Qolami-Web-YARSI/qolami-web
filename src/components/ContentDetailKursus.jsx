@@ -15,7 +15,6 @@ const shuffleArray2 = (array) => {
 
 const ContentDetailKursus = ({ img, img2, img3 }) => {
   const { id } = useParams();
-  localStorage.setItem(`id2`, id);
   const navigate = useNavigate();
   const [pelajaran, setPelajaran] = useState(null);
   const [tempIdCourse, setTempIdCourse] = useState([]);
@@ -345,7 +344,8 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     window.onpopstate = () => {
       if (localStorage.getItem("idDetail").includes("exam")) {
         localStorage.setItem("idDetail", id);
-        navigate(`/${localStorage.getItem("idDetail")}`, { replace: true });
+        //navigate(`/${localStorage.getItem("idDetail")}`);
+        navigate("/kursus");
       }
     };
   });
@@ -379,7 +379,10 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
   };
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("IsSubmit")) === true || time === 0) {
+    if (
+      (JSON.parse(localStorage.getItem("IsSubmit")) === true || time === 0) &&
+      localStorage.getItem("idDetail").includes("exam")
+    ) {
       handleActivity();
       localStorage.setItem("IsSubmit", true);
       localStorage.setItem("TimeStop", true);

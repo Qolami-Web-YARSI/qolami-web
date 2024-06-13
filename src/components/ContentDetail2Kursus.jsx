@@ -196,20 +196,17 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
   }, [selectedButton1, selectedButton2, selectedButton3, selectedButton4]);
 
   useEffect(() => {
-    const handlePopState = () => {
-      console.log("hahaha");
-      navigate(`/${localStorage.getItem("idDetail")}`, { replace: true });
-      window.location.reload();
+    window.onpopstate = () => {
+      if (
+        localStorage.getItem("idDetail").includes("exercise") &&
+        (localStorage.getItem("id2").includes("gambar") ||
+          localStorage.getItem("id2").includes("video") ||
+          localStorage.getItem("id2").includes("audio"))
+      ) {
+        navigate(`/kursus`);
+      }
     };
-    window.addEventListener("popstate", handlePopState);
-    const addHistoryEntry = () => {
-      window.history.pushState(null, "", window.location.pathname);
-    };
-    addHistoryEntry();
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, [navigate]);
+  });
 
   const audioPlay = (audio_source) => {
     if (currentAudio) {
@@ -256,7 +253,10 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
   };
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
+    if (
+      JSON.parse(localStorage.getItem("IsSubmit")) === true &&
+      localStorage.getItem("idDetail").includes("exercise")
+    ) {
       handleActivity();
       const myModal = new window.bootstrap.Modal(
         document.getElementById("dialogHasilNilaiLatihan")
@@ -608,11 +608,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                             true ? (
                               <button
                                 onClick={() => {
-                                  navigate(
-                                    `/${localStorage.getItem("idDetail")}`,
-                                    { replace: true }
-                                  );
-                                  window.location.reload();
+                                  navigate(`/kursus`, { replace: true });
                                   latihanContent.soalJawaban.forEach(
                                     (_, index) => {
                                       localStorage.removeItem(
@@ -839,7 +835,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                           </div>
                                         );
                                       })}
-                                      ;
                                     </div>
                                   </div>
                                 </div>
@@ -855,11 +850,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                             true ? (
                               <button
                                 onClick={() => {
-                                  navigate(
-                                    `/${localStorage.getItem("idDetail")}`,
-                                    { replace: true }
-                                  );
-                                  window.location.reload();
+                                  navigate(`/kursus`, { replace: true });
                                   latihanContent.soalJawaban.forEach(
                                     (_, index) => {
                                       localStorage.removeItem(
@@ -1086,7 +1077,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                           </div>
                                         );
                                       })}
-                                      ;
                                     </div>
                                   </div>
                                 </div>
@@ -1102,11 +1092,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                             true ? (
                               <button
                                 onClick={() => {
-                                  navigate(
-                                    `/${localStorage.getItem("idDetail")}`,
-                                    { replace: true }
-                                  );
-                                  window.location.reload();
+                                  navigate(`/kursus`, { replace: true });
                                   latihanContent.soalJawaban.forEach(
                                     (_, index) => {
                                       localStorage.removeItem(

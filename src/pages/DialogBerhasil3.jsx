@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const DialogBerhasil3 = ({ id, id2 }) => {
   useEffect(() => {
@@ -7,6 +7,7 @@ const DialogBerhasil3 = ({ id, id2 }) => {
   }, []);
 
   const [dateTime, setDateTime] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedDateTime = localStorage.getItem("dateTime");
@@ -20,6 +21,7 @@ const DialogBerhasil3 = ({ id, id2 }) => {
     const formattedDateTime = formatDate(now);
     setDateTime(formattedDateTime);
     localStorage.setItem("dateTime", formattedDateTime);
+    navigate(`/${id}/exercise/${id2}`);
   };
 
   const formatDate = (date) => {
@@ -74,15 +76,13 @@ const DialogBerhasil3 = ({ id, id2 }) => {
                   >
                     Batal
                   </button>
-                  <Link to={`/${id}/exercise/${id2}`} replace>
-                    <button
-                      className="btn btn-secondary tw-text-[15px] xs:tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[70px] xs:tw-w-[100px]  tw-rounded-none tw-font-bold"
-                      data-bs-dismiss="modal"
-                      onClick={handleButtonClick}
-                    >
-                      Mulai
-                    </button>
-                  </Link>
+                  <button
+                    className="btn btn-secondary tw-text-[15px] xs:tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[70px] xs:tw-w-[100px]  tw-rounded-none tw-font-bold"
+                    data-bs-dismiss="modal"
+                    onClick={handleButtonClick}
+                  >
+                    Mulai
+                  </button>
                 </div>
               </div>
             </div>

@@ -75,7 +75,7 @@ const DialogBerhasil4 = ({ id }) => {
                   >
                     Batal
                   </button>
-                  <Link to={`/${id}`} replace>
+                  <Link to={`/${id}`}>
                     <button
                       className="btn btn-secondary
                       tw-text-[15px] xs:tw-text-[20px] tw-bg-[#009900] hover:tw-bg-[#007100] tw-text-white tw-w-[70px] xs:tw-w-[100px]  
