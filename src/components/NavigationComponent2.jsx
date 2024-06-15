@@ -12,6 +12,8 @@ const NavigationComponent2 = (props) => {
     localStorage.removeItem("id");
     localStorage.removeItem("token");
     localStorage.setItem("isLogIn", false);
+    localStorage.setItem("id2", "");
+    localStorage.setItem("idDetail", "");
     navigate("/", { replace: true });
     window.location.reload();
     window.scrollTo(0, 0);

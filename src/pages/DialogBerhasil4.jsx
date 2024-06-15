@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import KursusData from "../data/KursusData";
 
 const DialogBerhasil4 = ({ id }) => {
   useEffect(() => {
@@ -20,6 +21,43 @@ const DialogBerhasil4 = ({ id }) => {
     const now = new Date();
     const formattedDateTime = formatDate(now);
     setDateTime(formattedDateTime);
+    localStorage.setItem("tombolDiklik", true);
+    localStorage.removeItem("shuffledSoal21");
+    localStorage.removeItem("shuffledSoal22");
+    localStorage.removeItem("dateTime");
+    localStorage.removeItem("score");
+    localStorage.removeItem("endTime");
+    localStorage.removeItem("TimeStop");
+    localStorage.removeItem("timeUnder2Minutes");
+    localStorage.removeItem("semuaSoalTelahDiisi");
+    localStorage.removeItem("temps");
+    localStorage.removeItem("tempNilaiSoal");
+    localStorage.removeItem("shuffledSoal1");
+    KursusData.forEach((a) => {
+      a.detail.forEach((b) => {
+        if (b.id.includes(localStorage.getItem(`id2`))) {
+          b.soalJawaban.forEach((_, index) => {
+            localStorage.removeItem(`opsiSoal_${index + 1}`);
+          });
+          localStorage.removeItem(`temps`);
+          localStorage.removeItem(`semuaSoalTelahDiisi`);
+          localStorage.removeItem(`IsSubmit`);
+        }
+      });
+    });
+    KursusData.forEach((a) => {
+      if (a.id.includes(localStorage.getItem(`id2`))) {
+        a.soalJawaban2.forEach((_, index) => {
+          localStorage.removeItem(`opsiSoal_${index + 1}`);
+        });
+        localStorage.removeItem(`temps`);
+        localStorage.removeItem(`semuaSoalTelahDiisi`);
+        localStorage.removeItem(`endTime`);
+        localStorage.removeItem(`IsSubmit`);
+        localStorage.removeItem("timeUnders2Minutes");
+        localStorage.removeItem("TimeStop");
+      }
+    });
     localStorage.setItem("dateTime", formattedDateTime);
   };
 

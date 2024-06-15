@@ -29,6 +29,16 @@ const App = () => {
     } else {
       localStorage.getItem("idDetail");
     }
+
+    if (!localStorage.getItem("idDetail").includes("exam")) {
+      if (localStorage.getItem("id2") === null) {
+        localStorage.setItem("id2", "");
+      } else {
+        localStorage.getItem("id2");
+      }
+    } else {
+      localStorage.removeItem("id2");
+    }
   }, []);
 
   return (
@@ -73,6 +83,18 @@ const InnerApp = ({ tempToken, setTempToken }) => {
       <DialogBerhasil2
         location={"dialogBerhasilProfile"}
         text={"Profil berhasil disimpan"}
+      />
+      <DialogBerhasil2
+        location={"lagiPosisiLatihan"}
+        text={
+          "Kamu harus menyelesaikan Latihan yang sedang dikerjakan terlebih dahulu"
+        }
+      />
+      <DialogBerhasil2
+        location={"lagiPosisiUjian"}
+        text={
+          "Kamu harus menyelesaikan Ujian yang sedang dikerjakan terlebih dahulu"
+        }
       />
       <DialogAkhir
         id={"dialogAkhirLatihan"}

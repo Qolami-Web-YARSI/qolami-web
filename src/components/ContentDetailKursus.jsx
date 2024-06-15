@@ -43,7 +43,8 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
   const [panjangSoalJawaban, setPanjangSoalJawaban] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentAudio, setCurrentAudio] = useState(null);
-  const [shuffledSoalJawaban, setShuffledSoalJawaban] = useState([]);
+  const [shuffledSoalJawaban1, setShuffledSoalJawaban1] = useState([]);
+  const [shuffledSoalJawaban2, setShuffledSoalJawaban2] = useState([]);
   const intervalRef = useRef(null);
   const [qaz, setQaz] = useState([
     selectedButton1,
@@ -98,17 +99,25 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
         if (a.id.includes("exam-one")) {
           console.log(a);
           setTempExam1(a);
-          const savedShuffledSoal2 = localStorage.getItem("shuffledSoal2");
-          if (savedShuffledSoal2) {
-            setShuffledSoalJawaban(JSON.parse(savedShuffledSoal2));
+          const savedShuffledSoal2_1 = localStorage.getItem("shuffledSoal2");
+          if (savedShuffledSoal2_1) {
+            setShuffledSoalJawaban1(JSON.parse(savedShuffledSoal2_1));
           } else {
-            const shuffled2 = shuffleArray2([...a.soalJawaban2]);
-            setShuffledSoalJawaban(shuffled2);
-            localStorage.setItem("shuffledSoal2", JSON.stringify(shuffled2));
+            const shuffled2_1 = shuffleArray2([...a.soalJawaban2]);
+            setShuffledSoalJawaban1(shuffled2_1);
+            localStorage.setItem("shuffledSoal21", JSON.stringify(shuffled2_1));
           }
         } else if (a.id.includes("exam-two")) {
           console.log(a);
           setTempExam2(a);
+          const savedShuffledSoal2_2 = localStorage.getItem("shuffledSoal22");
+          if (savedShuffledSoal2_2) {
+            setShuffledSoalJawaban2(JSON.parse(savedShuffledSoal2_2));
+          } else {
+            const shuffled2_2 = shuffleArray2([...a.soalJawaban2]);
+            setShuffledSoalJawaban2(shuffled2_2);
+            localStorage.setItem("shuffledSoal22", JSON.stringify(shuffled2_2));
+          }
           setPanjangSoalJawaban(a.soalJawaban2.length);
         } else {
           console.log("no identify exam!");
@@ -340,16 +349,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     }
   }, []);
 
-  useEffect(() => {
-    window.onpopstate = () => {
-      if (localStorage.getItem("idDetail").includes("exam")) {
-        localStorage.setItem("idDetail", id);
-        //navigate(`/${localStorage.getItem("idDetail")}`);
-        navigate("/kursus");
-      }
-    };
-  });
-
   const activityNameManipulasi = KursusData.find((b) => b.id === id);
   const statusManipulasi =
     JSON.parse(localStorage.getItem(`score`)) >= 75 ? "Lulus" : "Tidak Lulus";
@@ -401,6 +400,20 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
     }
     console.log(activityNameManipulasi.name);
   }, [time]);
+
+  useEffect(() => {
+    const tombolDiklik = localStorage.getItem("tombolDiklik");
+    if (tombolDiklik) {
+      localStorage.removeItem("tombolDiklik");
+      window.location.reload();
+    }
+  }, []);
+
+  useEffect(() => {
+    window.onpopstate = () => {
+      localStorage.setItem("id2", "");
+    };
+  });
 
   return (
     <>
@@ -736,22 +749,41 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 2xs:tw-px-[70px] xs:tw-px-[120px] sm:tw-px-[170px] md:tw-px-32">
                         <ul className="tw-flex tw-flex-col md:tw-flex-row tw-mx-auto tw-justify-between tw-w-full">
                           {tempExercise1.map((a) => {
-                            return (
-                              <li
-                                key={a.id}
-                                data-bs-target={`#dialogMulaiLatihan${a.id}`}
-                                data-bs-toggle="modal"
-                                className="tw-cursor-pointer"
-                              >
-                                <div className="tw-flex tw-flex-col">
-                                  <img src={a.gambar} alt={a.gambar} />
-                                  <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
-                                    {a.nama2}
-                                  </p>
-                                </div>
-                                <DialogBerhasil3 id={id} id2={a.id} />
-                              </li>
-                            );
+                            if (localStorage.getItem("id2").includes(a.id)) {
+                              return (
+                                <li
+                                  key={a.id}
+                                  onClick={() =>
+                                    navigate(`/${id}/exercise/${a.id}`)
+                                  }
+                                  className="tw-cursor-pointer"
+                                >
+                                  <div className="tw-flex tw-flex-col">
+                                    <img src={a.gambar} alt={a.gambar} />
+                                    <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
+                                      {a.nama2}
+                                    </p>
+                                  </div>
+                                </li>
+                              );
+                            } else {
+                              return (
+                                <li
+                                  key={a.id}
+                                  data-bs-target={`#dialogMulaiLatihan${a.id}`}
+                                  data-bs-toggle="modal"
+                                  className="tw-cursor-pointer"
+                                >
+                                  <div className="tw-flex tw-flex-col">
+                                    <img src={a.gambar} alt={a.gambar} />
+                                    <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
+                                      {a.nama2}
+                                    </p>
+                                  </div>
+                                  <DialogBerhasil3 id={id} id2={a.id} />
+                                </li>
+                              );
+                            }
                           })}
                         </ul>
                       </div>
@@ -780,22 +812,41 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 2xs:tw-px-[70px] xs:tw-px-[120px] sm:tw-px-[170px] md:tw-px-32">
                         <ul className="tw-flex tw-flex-col md:tw-flex-row tw-mx-auto tw-justify-between tw-w-full">
                           {tempExercise2.map((a) => {
-                            return (
-                              <li
-                                key={a.id}
-                                data-bs-target={`#dialogMulaiLatihan${a.id}`}
-                                data-bs-toggle="modal"
-                                className="tw-cursor-pointer"
-                              >
-                                <div className="tw-flex tw-flex-col">
-                                  <img src={a.gambar} alt={a.gambar} />
-                                  <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
-                                    {a.nama2}
-                                  </p>
-                                </div>
-                                <DialogBerhasil3 id={id} id2={a.id} />
-                              </li>
-                            );
+                            if (localStorage.getItem("id2").includes(a.id)) {
+                              return (
+                                <li
+                                  key={a.id}
+                                  onClick={() =>
+                                    navigate(`/${id}/exercise/${a.id}`)
+                                  }
+                                  className="tw-cursor-pointer"
+                                >
+                                  <div className="tw-flex tw-flex-col">
+                                    <img src={a.gambar} alt={a.gambar} />
+                                    <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
+                                      {a.nama2}
+                                    </p>
+                                  </div>
+                                </li>
+                              );
+                            } else {
+                              return (
+                                <li
+                                  key={a.id}
+                                  data-bs-target={`#dialogMulaiLatihan${a.id}`}
+                                  data-bs-toggle="modal"
+                                  className="tw-cursor-pointer"
+                                >
+                                  <div className="tw-flex tw-flex-col">
+                                    <img src={a.gambar} alt={a.gambar} />
+                                    <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
+                                      {a.nama2}
+                                    </p>
+                                  </div>
+                                  <DialogBerhasil3 id={id} id2={a.id} />
+                                </li>
+                              );
+                            }
                           })}
                         </ul>
                       </div>
@@ -877,7 +928,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       <div className="tw-flex tw-flex-col tw-gap-5">
                         {tempExam1 && (
                           <>
-                            {shuffledSoalJawaban
+                            {shuffledSoalJawaban1
                               .slice(0, 10)
                               .map((a, index) => {
                                 return (
@@ -1055,7 +1106,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           <button
                             onClick={() => {
                               navigate(`/kursus`, { replace: true });
-                              window.location.reload();
                               tempExam1.soalJawaban2.forEach((_, index) => {
                                 localStorage.removeItem(
                                   `opsiSoal_${index + 1}`
@@ -1070,8 +1120,11 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
                               localStorage.removeItem(`tempNilaiSoal`);
-                              localStorage.removeItem("shuffledSoal2");
+                              localStorage.removeItem("shuffledSoal21");
+                              localStorage.removeItem("shuffledSoal22");
                               localStorage.removeItem(`dateTime`);
+                              localStorage.setItem("id2", "");
+                              localStorage.setItem("idDetail", "");
                             }}
                             className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
@@ -1106,77 +1159,128 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                   dir="ltr"
                   className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%]"
                 >
-                  <div className="tw-flex tw-flex-col tw-pt-28 lg:tw-pt-32 tw-w-full">
+                  <div
+                    className={`tw-flex tw-flex-col tw-pt-6 md:tw-pt-10 ${
+                      localStorage.getItem("idDetail").includes("exam")
+                        ? "lg:tw-pt-10"
+                        : "lg:tw-pt-32"
+                    } tw-w-full`}
+                  >
                     <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
-                      Ujian 2
+                      Ujian 1
                     </p>
                     <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
-                      Huruf Berharakat Fathah
+                      Huruf Hijaiyah
                     </p>
                   </div>
+                  {/* <div className="tw-flex tw-justify-between tw-px-36">
+                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0">
+                      <p className="tw-mx-auto">{formatTime(time)}</p>
+                    </div>
+                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3">
+                      {JSON.parse(
+                        localStorage.getItem("timeUnders2Minutes")
+                      ) === true ? (
+                        <p className="tw-mx-auto tw-text-[#FB7185]">
+                          {formatTime(time)}
+                        </p>
+                      ) : (
+                        <p className="tw-mx-auto tw-text-[#34D399]">
+                          {formatTime(time)}
+                        </p>
+                      )}
+                    </div>
+                  </div> */}
+                  {JSON.parse(localStorage.getItem("IsSubmit")) === true ||
+                  JSON.parse(localStorage.getItem("TimeStop")) === true ? (
+                    <></>
+                  ) : (
+                    <>
+                      <div className="tw-flex tw-justify-between tw-px-10 sm:tw-px-24 lg:tw-px-36">
+                        <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[75px] sm:tw-w-[100px] lg:tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-6 lg:tw-px-8 tw-py-1 tw-mt-8 sm:tw-mt-8 lg:tw-py-3 tw-text-[#34D399] tw-opacity-0">
+                          <p className="tw-mx-auto">{formatTime(time)}</p>
+                        </div>
+                        <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[100px] lg:tw-w-[150px] tw-text-[15px] lg:tw-text-[20px] tw-font-poppins tw-px-6 tw-mt-8 sm:tw-mt-8 lg:tw-px-8 tw-py-1 lg:tw-py-3">
+                          {JSON.parse(
+                            localStorage.getItem("timeUnders2Minutes")
+                          ) === true ? (
+                            <p className="tw-m-auto tw-text-[#FB7185]">
+                              {formatTime(time)}
+                            </p>
+                          ) : (
+                            <p className="tw-m-auto tw-text-[#34D399] ">
+                              {formatTime(time)}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  )}
                   <div className="tw-flex tw-flex-col tw-mx-auto tw-w-full tw-py-9 tw-pb-16 tw-px-5 xs:tw-px-10 md:tw-px-20 2xl:tw-px-32 tw-font-poppins">
                     <ul className="tw-flex tw-mx-auto tw-justify-between tw-w-full">
                       <div className="tw-flex tw-flex-col tw-gap-5">
                         {tempExam2 && (
                           <>
-                            {shuffledSoalJawaban.slice(0, 2).map((a, index) => {
-                              return (
-                                <div className="tw-pb-5" key={a.id}>
-                                  <p
-                                    className="tw-text-[15px] sm:tw-text-[24px]"
-                                    dangerouslySetInnerHTML={{
-                                      __html: index + 1 + ". " + a.soal,
-                                    }}
-                                  />
-                                  {a.id.includes("video") ? (
-                                    <>
-                                      <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
-                                        <video
-                                          controls
-                                          className="lg:tw-w-[85%] tw-mx-auto"
-                                        >
-                                          <source
-                                            src={a.video}
-                                            type="video/mp4"
-                                          />
-                                          Your browser does not support the
-                                          video tag.
-                                        </video>
-                                      </div>
-                                    </>
-                                  ) : (
-                                    <>
-                                      {a.id.includes("audio") ? (
-                                        <>
-                                          <div className="tw-flex tw-bg-[#009900] tw-rounded-full hover:tw-bg-[#06D805] tw-size-28 xs:tw-size-36 md:tw-size-48  tw-justify-center tw-mt-5 tw-mx-auto">
-                                            <button
-                                              onClick={() =>
-                                                audioPlay(`${a.audio}`)
-                                              }
-                                              className="tw-w-16 xs:tw-w-20 md:tw-w-fit"
-                                            >
-                                              <img src={img3} alt="sound" />
-                                            </button>
-                                          </div>
-                                        </>
-                                      ) : (
-                                        <></>
-                                      )}
-                                    </>
-                                  )}
-                                  <div
-                                    className="tw-flex tw-mx-auto tw-gap-8 tw-pt-10"
-                                    key={a.id}
-                                  >
-                                    <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-gap-4 xl:tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
-                                      {a.opsi.map((b) => {
-                                        return (
-                                          <div className="tw-flex">
-                                            {JSON.parse(
-                                              localStorage.getItem("IsSubmit")
-                                            ) === true ? (
+                            {shuffledSoalJawaban2
+                              .slice(0, 10)
+                              .map((a, index) => {
+                                return (
+                                  <div className="tw-pb-5" key={a.id}>
+                                    <p
+                                      className="tw-text-[15px] sm:tw-text-[24px]"
+                                      dangerouslySetInnerHTML={{
+                                        __html: index + 1 + ". " + a.soal,
+                                      }}
+                                    />
+                                    {a.id.includes("video") ? (
+                                      <>
+                                        <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
+                                          <video
+                                            controls
+                                            className="lg:tw-w-[85%] tw-mx-auto"
+                                          >
+                                            <source
+                                              src={a.video}
+                                              type="video/mp4"
+                                            />
+                                            Your browser does not support the
+                                            video tag.
+                                          </video>
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {a.id.includes("audio") ? (
+                                          <>
+                                            <div className="tw-flex tw-bg-[#009900] tw-rounded-full hover:tw-bg-[#06D805] tw-size-28 xs:tw-size-36 md:tw-size-48  tw-justify-center tw-mt-5 tw-mx-auto">
                                               <button
-                                                className={`tw-flex 
+                                                onClick={() =>
+                                                  audioPlay(`${a.audio}`)
+                                                }
+                                                className="tw-w-16 xs:tw-w-20 md:tw-w-fit"
+                                              >
+                                                <img src={img3} alt="sound" />
+                                              </button>
+                                            </div>
+                                          </>
+                                        ) : (
+                                          <></>
+                                        )}
+                                      </>
+                                    )}
+                                    <div
+                                      className="tw-flex tw-mx-auto tw-gap-8 tw-pt-10"
+                                      key={a.id}
+                                    >
+                                      <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-gap-4 xl:tw-gap-7 tw-w-full tw-mx-auto tw-justify-between">
+                                        {a.opsi.map((b) => {
+                                          return (
+                                            <div className="tw-flex tw-mx-auto">
+                                              {JSON.parse(
+                                                localStorage.getItem("IsSubmit")
+                                              ) === true ? (
+                                                <button
+                                                  className={`tw-flex 
                                               ${
                                                 JSON.parse(
                                                   localStorage.getItem(
@@ -1213,21 +1317,21 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                                   : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                               }
                                             tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
-                                              >
-                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
-                                                  {b.text}
-                                                </p>
-                                              </button>
-                                            ) : (
-                                              <button
-                                                onClick={() => {
-                                                  handleButtonClick(
-                                                    index,
-                                                    b.id,
-                                                    a.jawabanBenar
-                                                  );
-                                                }}
-                                                className={`tw-flex 
+                                                >
+                                                  <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
+                                                    {b.text}
+                                                  </p>
+                                                </button>
+                                              ) : (
+                                                <button
+                                                  onClick={() => {
+                                                    handleButtonClick(
+                                                      index,
+                                                      b.id,
+                                                      a.jawabanBenar
+                                                    );
+                                                  }}
+                                                  className={`tw-flex 
                                               ${
                                                 JSON.parse(
                                                   localStorage.getItem(
@@ -1264,26 +1368,25 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                                   : "tw-bg-[#FFFFFF] tw-border-[#BABABA] tw-text-black"
                                               }
                                               hover:tw-bg-[#1F4E78] hover:tw-border-[#1F4E78] hover:tw-text-white tw-mt-4 tw-size-6 xs:tw-size-8 xl:tw-size-12 tw-border-[3px] tw-rounded-lg`}
-                                              >
-                                                <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
-                                                  {b.text}
-                                                </p>
-                                              </button>
-                                            )}
-                                            <img
-                                              src={b.imgSrc}
-                                              className="tw-w-[90px] sm:tw-w-[100px] lg:tw-w-[150px] xl:tw-w-[200px] tw-rounded-lg"
-                                              alt={b.id}
-                                            />
-                                          </div>
-                                        );
-                                      })}
-                                      ;
+                                                >
+                                                  <p className="tw-m-auto tw-text-[12px] xs:tw-text-[15px] xl:tw-text-[20px]">
+                                                    {b.text}
+                                                  </p>
+                                                </button>
+                                              )}
+                                              <img
+                                                src={b.imgSrc}
+                                                className="tw-w-[90px] sm:tw-w-[100px] lg:tw-w-[150px] xl:tw-w-[200px] tw-rounded-lg"
+                                                alt={b.id}
+                                              />
+                                            </div>
+                                          );
+                                        })}
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              );
-                            })}
+                                );
+                              })}
                           </>
                         )}
                       </div>
@@ -1295,9 +1398,8 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                         true ? (
                           <button
                             onClick={() => {
-                              navigate(`/kursus`);
-                              window.location.reload();
-                              tempExam2.soalJawaban2.forEach((_, index) => {
+                              navigate(`/kursus`, { replace: true });
+                              tempExam1.soalJawaban2.forEach((_, index) => {
                                 localStorage.removeItem(
                                   `opsiSoal_${index + 1}`
                                 );
@@ -1307,12 +1409,17 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.removeItem(`IsSubmit`);
                               localStorage.removeItem("endTime");
                               localStorage.removeItem("timeUnders2Minutes");
+                              localStorage.removeItem("TimeStop");
                               localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
                               localStorage.removeItem(`tempNilaiSoal`);
-                              localStorage.removeItem("shuffledSoal");
+                              localStorage.removeItem("shuffledSoal21");
+                              localStorage.removeItem("shuffledSoal22");
+                              localStorage.removeItem(`dateTime`);
+                              localStorage.setItem("id2", "");
+                              localStorage.setItem("idDetail", "");
                             }}
-                            className="tw-bg-[#009900] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
                             Ok
                           </button>
@@ -1320,7 +1427,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           <button
                             data-bs-target="#dialogAkhirUjian"
                             data-bs-toggle="modal"
-                            className="tw-bg-[#009900] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
+                            className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
                             Selesaikan
                           </button>
