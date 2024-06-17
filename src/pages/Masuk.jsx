@@ -75,11 +75,7 @@ const Masuk = ({ img, setTempToken }) => {
   const email = {
     change: (event) => {
       if (
-        !(
-          validateEmail1(event.target.value) &&
-          event.target.value.endsWith(".com") &&
-          event.target.value.length > 0
-        )
+        !(validateEmail1(event.target.value) && event.target.value.length > 0)
       ) {
         setNoticeEmail(false);
         setTempEmail(false);
