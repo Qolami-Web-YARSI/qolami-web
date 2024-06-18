@@ -358,11 +358,11 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
       const response = await axios.post(
         "http://localhost:2024/activity",
         {
-          activityName: activityNameManipulasi.nama,
-          date: localStorage.getItem(`dateTime`),
-          value: JSON.parse(localStorage.getItem(`score`)),
-          status: statusManipulasi,
-          idUser: localStorage.getItem(`id`),
+          activityName: `${activityNameManipulasi.nama}`,
+          date: `${localStorage.getItem(`dateTime`)}`,
+          value: `${JSON.parse(localStorage.getItem(`score`))}`,
+          status: `${statusManipulasi}`,
+          idUser: `${localStorage.getItem(`id`)}`,
         },
         {
           headers: {
@@ -411,7 +411,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
 
   useEffect(() => {
     window.onpopstate = () => {
-      localStorage.setItem("id2", "");
+      if (localStorage.getItem("idDetail").includes("exam")) {
+        localStorage.setItem("id2", "");
+      }
     };
   });
 
@@ -455,6 +457,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto tw-t-32 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
@@ -476,6 +562,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                     2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
@@ -493,6 +663,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
@@ -514,6 +768,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
@@ -531,6 +869,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
@@ -548,6 +970,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
                                       2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufHijaiyah}
@@ -607,6 +1113,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
                                       lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
@@ -628,6 +1218,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
                                     lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
@@ -647,6 +1321,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
                                       lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
@@ -668,6 +1426,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
@@ -687,6 +1529,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
@@ -704,6 +1630,90 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
                                       xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      onClick={() => {
+                                        if (
+                                          ![
+                                            "gambar",
+                                            "video",
+                                            "audio",
+                                          ].includes(
+                                            localStorage.getItem("idDetail")
+                                          )
+                                        ) {
+                                          localStorage.removeItem(
+                                            "shuffledSoal21"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal22"
+                                          );
+                                          localStorage.removeItem("score");
+                                          localStorage.removeItem("endTime");
+                                          localStorage.removeItem("TimeStop");
+                                          localStorage.removeItem(
+                                            "timeUnder2Minutes"
+                                          );
+                                          localStorage.removeItem(
+                                            "semuaSoalTelahDiisi"
+                                          );
+                                          localStorage.removeItem("temps");
+                                          localStorage.removeItem(
+                                            "tempNilaiSoal"
+                                          );
+                                          localStorage.removeItem(
+                                            "shuffledSoal1"
+                                          );
+                                          localStorage.removeItem("dateTime");
+                                        }
+                                        KursusData.forEach((a) => {
+                                          a.detail.forEach((b) => {
+                                            if (
+                                              b.id.includes(
+                                                localStorage.getItem(`id2`)
+                                              )
+                                            ) {
+                                              b.soalJawaban.forEach(
+                                                (_, index) => {
+                                                  localStorage.removeItem(
+                                                    `opsiSoal_${index + 1}`
+                                                  );
+                                                }
+                                              );
+                                              localStorage.removeItem(`temps`);
+                                              localStorage.removeItem(
+                                                `semuaSoalTelahDiisi`
+                                              );
+                                              localStorage.removeItem(
+                                                `IsSubmit`
+                                              );
+                                            }
+                                          });
+                                        });
+                                        KursusData.forEach((a) => {
+                                          if (
+                                            a.id.includes(
+                                              localStorage.getItem(`id2`)
+                                            )
+                                          ) {
+                                            a.soalJawaban2.forEach(
+                                              (_, index) => {
+                                                localStorage.removeItem(
+                                                  `opsiSoal_${index + 1}`
+                                                );
+                                              }
+                                            );
+                                            localStorage.removeItem(`temps`);
+                                            localStorage.removeItem(
+                                              `semuaSoalTelahDiisi`
+                                            );
+                                            localStorage.removeItem(`endTime`);
+                                            localStorage.removeItem(`IsSubmit`);
+                                            localStorage.removeItem(
+                                              "timeUnders2Minutes"
+                                            );
+                                            localStorage.removeItem("TimeStop");
+                                          }
+                                        });
+                                      }}
                                     >
                                       <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
@@ -964,7 +1974,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                                 onClick={() =>
                                                   audioPlay(`${a.audio}`)
                                                 }
-                                                className="tw-w-16 xs:tw-w-20 md:tw-w-fit"
+                                                className="tw-p-7 xs:tw-p-7 md:tw-p-10 tw-size-[100%] tw-rounded-full"
                                               >
                                                 <img src={img3} alt="sound" />
                                               </button>
@@ -1257,7 +2267,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                                 onClick={() =>
                                                   audioPlay(`${a.audio}`)
                                                 }
-                                                className="tw-w-16 xs:tw-w-20 md:tw-w-fit"
+                                                className="tw-p-7 xs:tw-p-7 md:tw-p-10 tw-size-[100%] tw-rounded-full"
                                               >
                                                 <img src={img3} alt="sound" />
                                               </button>

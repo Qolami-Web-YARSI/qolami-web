@@ -25,7 +25,6 @@ const DialogBerhasil3 = ({ id, id2 }) => {
     localStorage.setItem("tombolDiklik", true);
     localStorage.removeItem("shuffledSoal21");
     localStorage.removeItem("shuffledSoal22");
-    localStorage.removeItem("dateTime");
     localStorage.removeItem("score");
     localStorage.removeItem("endTime");
     localStorage.removeItem("TimeStop");

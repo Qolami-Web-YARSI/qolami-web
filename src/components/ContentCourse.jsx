@@ -51,15 +51,6 @@ const ContentCourse = ({ tempToken }) => {
     }
   });
 
-  useEffect(() => {
-    if (localStorage.getItem("dateTimeUjian") !== null) {
-      localStorage.getItem(
-        "idDetail",
-        "soafnioafnsiefnsiofnsdiofnsdifnsdiofnsdiofnsdiofnsdiofndsiofndsiofnoui"
-      );
-    }
-  }, []);
-
   return (
     <>
       <div className="tw-flex tw-flex-col tw-py-5 tw-bg-[#FFF6D9] tw-font-poppins">

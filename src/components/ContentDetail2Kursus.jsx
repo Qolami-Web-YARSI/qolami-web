@@ -85,6 +85,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
       ) {
         a.detail.forEach((b) => {
           if (b.id.includes(id)) {
+            console.log(b);
             setLatihanContent(b);
             const savedShuffledSoal = localStorage.getItem("shuffledSoal1");
             if (savedShuffledSoal) {
@@ -234,10 +235,10 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
         "http://localhost:2024/activity",
         {
           activityName: `${activityNameManipulasi}`,
-          date: localStorage.getItem(`dateTime`),
-          value: JSON.parse(localStorage.getItem(`score`)),
-          status: statusManipulasi,
-          idUser: localStorage.getItem(`id`),
+          date: `${localStorage.getItem(`dateTime`)}`,
+          value: `${JSON.parse(localStorage.getItem(`score`))}`,
+          status: `${statusManipulasi}`,
+          idUser: `${localStorage.getItem(`id`)}`,
         },
         {
           headers: {
@@ -258,6 +259,8 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
       localStorage.getItem("idDetail").includes("exercise")
     ) {
       handleActivity();
+      localStorage.setItem("IsSubmit", true);
+      localStorage.setItem("semuaSoalTelahDiisi", true);
       const myModal = new window.bootstrap.Modal(
         document.getElementById("dialogHasilNilaiLatihan")
       );
@@ -943,7 +946,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                     >
                                       <img
                                         src={img3}
-                                        className="tw-w-16 xs:tw-w-20 md:tw-w-fit"
+                                        className="tw-p-7 xs:tw-p-7 md:tw-p-10 tw-size-[100%] tw-rounded-full"
                                         alt="sound"
                                       />
                                     </button>

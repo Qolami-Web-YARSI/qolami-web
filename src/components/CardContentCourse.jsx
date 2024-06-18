@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DialogBerhasil4 from "../pages/DialogBerhasil4";
+import KursusData from "../data/KursusData";
 
 const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
   const navigate = useNavigate();
@@ -15,6 +16,46 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
             <div key={a.id}>
               <div
                 className={`tw-flex tw-flex-col tw-font-poppins tw-rounded-[20px] md:tw-rounded-[30px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-cursor-pointer tw-grayscale-0 tw-bg-[#C2EF90] tw-pb-14 tw-mx-auto`}
+                onClick={() => {
+                  if (localStorage.getItem("idDetail").includes("exam")) {
+                    localStorage.removeItem("shuffledSoal21");
+                    localStorage.removeItem("shuffledSoal22");
+                    localStorage.removeItem("score");
+                    localStorage.removeItem("endTime");
+                    localStorage.removeItem("TimeStop");
+                    localStorage.removeItem("timeUnder2Minutes");
+                    localStorage.removeItem("semuaSoalTelahDiisi");
+                    localStorage.removeItem("temps");
+                    localStorage.removeItem("tempNilaiSoal");
+                    localStorage.removeItem("shuffledSoal1");
+                    localStorage.removeItem("dateTime");
+                    KursusData.forEach((a) => {
+                      a.detail.forEach((b) => {
+                        if (b.id.includes(localStorage.getItem(`id2`))) {
+                          b.soalJawaban.forEach((_, index) => {
+                            localStorage.removeItem(`opsiSoal_${index + 1}`);
+                          });
+                          localStorage.removeItem(`temps`);
+                          localStorage.removeItem(`semuaSoalTelahDiisi`);
+                          localStorage.removeItem(`IsSubmit`);
+                        }
+                      });
+                    });
+                    KursusData.forEach((a) => {
+                      if (a.id.includes(localStorage.getItem(`id2`))) {
+                        a.soalJawaban2.forEach((_, index) => {
+                          localStorage.removeItem(`opsiSoal_${index + 1}`);
+                        });
+                        localStorage.removeItem(`temps`);
+                        localStorage.removeItem(`semuaSoalTelahDiisi`);
+                        localStorage.removeItem(`endTime`);
+                        localStorage.removeItem(`IsSubmit`);
+                        localStorage.removeItem("timeUnders2Minutes");
+                        localStorage.removeItem("TimeStop");
+                      }
+                    });
+                  }
+                }}
               >
                 <Link to={`/${a.id}`} key={a.id}>
                   <div className="tw-flex tw-bg-[#90C963] tw-backdrop-grayscale tw-rounded-t-[20px] md:tw-rounded-t-[30px] tw-py-2">
@@ -108,6 +149,46 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
               <div
                 className={`tw-flex tw-flex-col tw-font-poppins tw-rounded-[20px] md:tw-rounded-[30px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] 
                                     tw-cursor-pointer tw-grayscale-0 tw-bg-[#C2EF90] tw-pb-14 tw-mx-auto`}
+                onClick={() => {
+                  if (localStorage.getItem("idDetail").includes("exam")) {
+                    localStorage.removeItem("shuffledSoal21");
+                    localStorage.removeItem("shuffledSoal22");
+                    localStorage.removeItem("score");
+                    localStorage.removeItem("endTime");
+                    localStorage.removeItem("TimeStop");
+                    localStorage.removeItem("timeUnder2Minutes");
+                    localStorage.removeItem("semuaSoalTelahDiisi");
+                    localStorage.removeItem("temps");
+                    localStorage.removeItem("tempNilaiSoal");
+                    localStorage.removeItem("shuffledSoal1");
+                    localStorage.removeItem("dateTime");
+                    KursusData.forEach((a) => {
+                      a.detail.forEach((b) => {
+                        if (b.id.includes(localStorage.getItem(`id2`))) {
+                          b.soalJawaban.forEach((_, index) => {
+                            localStorage.removeItem(`opsiSoal_${index + 1}`);
+                          });
+                          localStorage.removeItem(`temps`);
+                          localStorage.removeItem(`semuaSoalTelahDiisi`);
+                          localStorage.removeItem(`IsSubmit`);
+                        }
+                      });
+                    });
+                    KursusData.forEach((a) => {
+                      if (a.id.includes(localStorage.getItem(`id2`))) {
+                        a.soalJawaban2.forEach((_, index) => {
+                          localStorage.removeItem(`opsiSoal_${index + 1}`);
+                        });
+                        localStorage.removeItem(`temps`);
+                        localStorage.removeItem(`semuaSoalTelahDiisi`);
+                        localStorage.removeItem(`endTime`);
+                        localStorage.removeItem(`IsSubmit`);
+                        localStorage.removeItem("timeUnders2Minutes");
+                        localStorage.removeItem("TimeStop");
+                      }
+                    });
+                  }
+                }}
               >
                 <Link to={`/${a.id}`} key={a.id}>
                   <div className="tw-flex tw-bg-[#90C963] tw-backdrop-grayscale tw-rounded-t-[20px] md:tw-rounded-t-[30px] tw-py-2">
