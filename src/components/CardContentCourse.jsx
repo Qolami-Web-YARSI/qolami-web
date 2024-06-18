@@ -29,6 +29,27 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
                     localStorage.removeItem("tempNilaiSoal");
                     localStorage.removeItem("shuffledSoal1");
                     localStorage.removeItem("dateTime");
+                    KursusData.forEach((a) => {
+                      a.detail.forEach((b) => {
+                        b.soalJawaban.forEach((_, index) => {
+                          localStorage.removeItem(`opsiSoal_${index + 1}`);
+                        });
+                        localStorage.removeItem(`temps`);
+                        localStorage.removeItem(`semuaSoalTelahDiisi`);
+                        localStorage.removeItem(`IsSubmit`);
+                      });
+                    });
+                    KursusData.forEach((a) => {
+                      a.soalJawaban2.forEach((_, index) => {
+                        localStorage.removeItem(`opsiSoal_${index + 1}`);
+                      });
+                      localStorage.removeItem(`temps`);
+                      localStorage.removeItem(`semuaSoalTelahDiisi`);
+                      localStorage.removeItem(`endTime`);
+                      localStorage.removeItem(`IsSubmit`);
+                      localStorage.removeItem("timeUnders2Minutes");
+                      localStorage.removeItem("TimeStop");
+                    });
                   }
                 }}
               >
@@ -137,6 +158,27 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
                     localStorage.removeItem("tempNilaiSoal");
                     localStorage.removeItem("shuffledSoal1");
                     localStorage.removeItem("dateTime");
+                    KursusData.forEach((a) => {
+                      a.detail.forEach((b) => {
+                        b.soalJawaban.forEach((_, index) => {
+                          localStorage.removeItem(`opsiSoal_${index + 1}`);
+                        });
+                        localStorage.removeItem(`temps`);
+                        localStorage.removeItem(`semuaSoalTelahDiisi`);
+                        localStorage.removeItem(`IsSubmit`);
+                      });
+                    });
+                    KursusData.forEach((a) => {
+                      a.soalJawaban2.forEach((_, index) => {
+                        localStorage.removeItem(`opsiSoal_${index + 1}`);
+                      });
+                      localStorage.removeItem(`temps`);
+                      localStorage.removeItem(`semuaSoalTelahDiisi`);
+                      localStorage.removeItem(`endTime`);
+                      localStorage.removeItem(`IsSubmit`);
+                      localStorage.removeItem("timeUnders2Minutes");
+                      localStorage.removeItem("TimeStop");
+                    });
                   }
                 }}
               >

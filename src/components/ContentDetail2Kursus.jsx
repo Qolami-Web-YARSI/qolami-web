@@ -268,13 +268,13 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     }
   }, []);
 
-  useEffect(() => {
-    const tombolDiklik = localStorage.getItem("tombolDiklik");
-    if (tombolDiklik) {
-      localStorage.removeItem("tombolDiklik");
-      window.location.reload();
-    }
-  }, []);
+  // useEffect(() => {
+  //   const tombolDiklik = localStorage.getItem("tombolDiklik");
+  //   if (tombolDiklik) {
+  //     localStorage.removeItem("tombolDiklik");
+  //     window.location.reload();
+  //   }
+  // }, []);
 
   return (
     <>

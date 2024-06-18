@@ -22,7 +22,7 @@ const DialogBerhasil3 = ({ id, id2 }) => {
     const formattedDateTime = formatDate(now);
     setDateTime(formattedDateTime);
     localStorage.setItem("dateTime", formattedDateTime);
-    localStorage.setItem("tombolDiklik", true);
+    //localStorage.setItem("tombolDiklik", true);
     localStorage.removeItem("shuffledSoal21");
     localStorage.removeItem("shuffledSoal22");
     localStorage.removeItem("score");
@@ -35,28 +35,24 @@ const DialogBerhasil3 = ({ id, id2 }) => {
     localStorage.removeItem("shuffledSoal1");
     KursusData.forEach((a) => {
       a.detail.forEach((b) => {
-        if (b.id.includes(localStorage.getItem(`id2`))) {
-          b.soalJawaban.forEach((_, index) => {
-            localStorage.removeItem(`opsiSoal_${index + 1}`);
-          });
-          localStorage.removeItem(`temps`);
-          localStorage.removeItem(`semuaSoalTelahDiisi`);
-          localStorage.removeItem(`IsSubmit`);
-        }
-      });
-    });
-    KursusData.forEach((a) => {
-      if (a.id.includes(localStorage.getItem(`id2`))) {
-        a.soalJawaban2.forEach((_, index) => {
+        b.soalJawaban.forEach((_, index) => {
           localStorage.removeItem(`opsiSoal_${index + 1}`);
         });
         localStorage.removeItem(`temps`);
         localStorage.removeItem(`semuaSoalTelahDiisi`);
-        localStorage.removeItem(`endTime`);
         localStorage.removeItem(`IsSubmit`);
-        localStorage.removeItem("timeUnders2Minutes");
-        localStorage.removeItem("TimeStop");
-      }
+      });
+    });
+    KursusData.forEach((a) => {
+      a.soalJawaban2.forEach((_, index) => {
+        localStorage.removeItem(`opsiSoal_${index + 1}`);
+      });
+      localStorage.removeItem(`temps`);
+      localStorage.removeItem(`semuaSoalTelahDiisi`);
+      localStorage.removeItem(`endTime`);
+      localStorage.removeItem(`IsSubmit`);
+      localStorage.removeItem("timeUnders2Minutes");
+      localStorage.removeItem("TimeStop");
     });
     navigate(`/${id}/exercise/${id2}`);
   };
