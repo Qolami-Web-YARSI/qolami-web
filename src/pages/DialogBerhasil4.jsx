@@ -21,7 +21,6 @@ const DialogBerhasil4 = ({ id }) => {
     const now = new Date();
     const formattedDateTime = formatDate(now);
     setDateTime(formattedDateTime);
-    //localStorage.setItem("tombolDiklik", true);
     localStorage.removeItem("shuffledSoal21");
     localStorage.removeItem("shuffledSoal22");
     localStorage.removeItem("score");

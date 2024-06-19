@@ -88,7 +88,7 @@ const InnerApp = ({ tempToken, setTempToken }) => {
       <DialogBerhasil2_2
         location={"ujianBerakhir"}
         text={
-          "Ujian yang Anda kerjakan sebelumnya telah berakhir. Mohon tetap berada di halaman ujian selama proses ujian berlangsung. Jika Anda sudah mengsubmit ujian dan telah memunculkan nilai, Abaikan pesan sebelumnya"
+          "Ujian yang Anda kerjakan sebelumnya telah berakhir. Mohon tetap berada di halaman ujian selama proses ujian berlangsung. Jika Anda sudah menyelesaikan ujian, abaikan pesan sebelumnya"
         }
       />
       <DialogBerhasil2_2

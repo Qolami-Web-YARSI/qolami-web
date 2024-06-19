@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import KursusData from "../data/KursusData";
 
 const DialogBerhasil3 = ({ id, id2 }) => {
@@ -22,7 +22,6 @@ const DialogBerhasil3 = ({ id, id2 }) => {
     const formattedDateTime = formatDate(now);
     setDateTime(formattedDateTime);
     localStorage.setItem("dateTime", formattedDateTime);
-    //localStorage.setItem("tombolDiklik", true);
     localStorage.removeItem("shuffledSoal21");
     localStorage.removeItem("shuffledSoal22");
     localStorage.removeItem("score");

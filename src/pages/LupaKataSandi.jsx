@@ -25,22 +25,14 @@ const LupaKataSandi = ({ img }) => {
     },
     focus: (event) => {
       if (
-        !(
-          validateEmail1(event.target.value) &&
-          event.target.value.includes(".com") &&
-          event.target.value.length > 0
-        )
+        !(validateEmail1(event.target.value) && event.target.value.length > 0)
       ) {
         setNoticeEmail(false);
       }
     },
     blur: (event) => {
       if (
-        !(
-          validateEmail1(event.target.value) &&
-          event.target.value.includes(".com") &&
-          event.target.value.length > 0
-        )
+        !(validateEmail1(event.target.value) && event.target.value.length > 0)
       ) {
         setNoticeEmail(true);
       }
@@ -57,8 +49,6 @@ const LupaKataSandi = ({ img }) => {
         }
       );
       console.log(response.data);
-      // const myModal = new window.bootstrap.Modal(document.getElementById('dialogBerhasilLupaSandi'));
-      // myModal.show();
       const myModal2 = window.bootstrap.Modal.getInstance(
         document.getElementById("lupaPasswordModal")
       );

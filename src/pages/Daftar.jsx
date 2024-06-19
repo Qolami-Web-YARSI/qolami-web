@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DialogBerhasil from "./DialogBerhasil";
 import { IoMdClose } from "react-icons/io";
 import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
@@ -44,7 +43,7 @@ const Daftar = ({ img }) => {
 
   const namaDepan = {
     change: (event) => {
-      if (event.target.value.length == 0) {
+      if (event.target.value.length === 0) {
         setNoticeNamaDepan(false);
         setTempNamaDepan(false);
       } else {
@@ -64,28 +63,6 @@ const Daftar = ({ img }) => {
     },
   };
 
-  // const namaBelakang = {
-  //   change: (event) => {
-  //     if(event.target.value.trim() === ''){
-  //       setNoticeNamaBelakang(false);
-  //       setTempNamaBelakang(false)
-  //     } else {
-  //       setNoticeNamaBelakang(true);
-  //       setTempNamaBelakang(true)
-  //     }
-  //   },
-  //   focus: (event) => {
-  //     if(event.target.value.trim() === ''){
-  //       setNoticeNamaBelakang(false);
-  //     }
-  //   },
-  //   blur: (event) => {
-  //     if(event.target.value.trim() === ''){
-  //       setNoticeNamaBelakang(true);
-  //     }
-  //   }
-  // }
-
   const email = {
     change: (event) => {
       if (
@@ -97,28 +74,6 @@ const Daftar = ({ img }) => {
         setNoticeEmail(true);
         setTempEmail(true);
       }
-      // try{
-      //   const response = await axios.get(`http://localhost:2002/pengguna`)
-      //   if (!(validateEmail1(event.target.value) && event.target.value.endsWith('.com') && event.target.value.length > 0)) {
-      //     setNoticeEmail(false);
-      //     setTempEmail(false)
-      //   } else {
-      //     setNoticeEmail(true);
-      //     setTempEmail(true)
-      //   }
-
-      //   response.data.map((a)=>{
-      //     if(a.email === event.target.value){
-      //       setNoticeEmail(false);
-      //       setTempEmail(false)
-      //     }else{
-      //       setNoticeEmail(true);
-      //       setTempEmail(true)
-      //     }
-      //   })
-      // }catch(e){
-      //   console.log(e)
-      // }
     },
     focus: (event) => {
       if (
@@ -197,7 +152,6 @@ const Daftar = ({ img }) => {
       setTempEmail(false);
       setTempKataSandi(false);
 
-      // console.log(response.data)
       const myModal = new window.bootstrap.Modal(
         document.getElementById("dialogBerhasilDaftar")
       );
@@ -206,7 +160,6 @@ const Daftar = ({ img }) => {
         document.getElementById("daftarModal")
       );
       myModal2.hide();
-      // setHtmlString("")
     } catch (e) {
       console.log(e);
       setHtmlString(`Email yang dimasukkan sudah terdaftar!`);

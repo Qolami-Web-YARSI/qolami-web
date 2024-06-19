@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 import HeaderComponent2 from "../components/HeaderComponent2";
@@ -25,6 +25,11 @@ const DetailKursus = ({ tempToken, img, img2, img3 }) => {
             localStorage.removeItem(`temps`);
             localStorage.removeItem(`semuaSoalTelahDiisi`);
             localStorage.removeItem(`IsSubmit`);
+            localStorage.removeItem(`tempNilaiSoal`);
+            localStorage.removeItem(`shuffledSoal1`);
+            localStorage.removeItem(`dateTime`);
+            localStorage.setItem("id2", "");
+            localStorage.setItem("score", 0);
           }
         }
       });

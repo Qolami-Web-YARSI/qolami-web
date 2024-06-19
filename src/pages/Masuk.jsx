@@ -117,25 +117,6 @@ const Masuk = ({ img, setTempToken }) => {
         setNoticeKataSandi(true);
         setTempKataSandi(true);
       }
-      // try {
-      //   const response = await axios.get(`http://localhost:2002/pengguna`)
-      //   if(event.target.value.length < 8){
-      //     setNoticeKataSandi(false);
-      //     setTempKataSandi(false)
-      //   } else {
-      //     setNoticeKataSandi(true);
-      //     setTempKataSandi(true)
-      //   }
-      //   response.data.map((a)=>{
-      //     if(a.email === event.target.value){
-      //       setTempKataSandi2(true)
-      //     }else{
-      //       setTempKataSandi2(false)
-      //     }
-      //   })
-      // }catch(e){
-      //   console.log(e)
-      // }
     },
     focus: (event) => {
       if (event.target.value.length < 8) {

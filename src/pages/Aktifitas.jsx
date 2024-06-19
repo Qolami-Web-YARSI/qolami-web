@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 import HeaderComponent2 from "../components/HeaderComponent2";
 import ActivityComponent from "../components/ActivityComponent";
 import KursusData from "../data/KursusData";
-import axios from "axios";
 
-const Aktifitas = ({ tempToken, img }) => {
+const Aktifitas = ({ img }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

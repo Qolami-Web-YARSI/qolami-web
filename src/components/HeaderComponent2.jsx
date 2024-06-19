@@ -11,7 +11,6 @@ const HeaderComponent2 = ({ img }) => {
   const [getNav, setNav] = useState(false);
   const [getNav2, setNav2] = useState(false);
   const [data, setData] = useState(null);
-  const [profileUrl, setProfileUrl] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 

@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PaginationDetail2 from "./PaginationDetail2";
 import KursusData from "../data/KursusData";
 import { IoVolumeHigh } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
-import DialogAkhir from "../pages/DialogAkhir";
 
-const ContentDetail2Kursus = ({ img2, img3 }) => {
+const ContentDetail2Kursus = ({ img3 }) => {
   const { id } = useParams();
   localStorage.setItem(`id2`, id);
   const navigate = useNavigate();
@@ -210,7 +209,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
   const activityNameManipulasi = KursusData.map((a) => {
     const detailItem = a.detail.find((detail) => detail.id === id);
     return detailItem ? detailItem.nama : null;
-  }).filter((nama) => nama !== null); // Menghapus elemen null
+  }).filter((nama) => nama !== null);
 
   const statusManipulasi =
     JSON.parse(localStorage.getItem(`score`)) >= 75 ? "Lulus" : "Tidak Lulus";
@@ -254,87 +253,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   if (
-  //     localStorage.getItem("idDetail").includes("exercise") &&
-  //     localStorage.getItem("dateTime") !== null
-  //   ) {
-  //     const myModal = new window.bootstrap.Modal(
-  //       document.getElementById("latihanPeringatan")
-  //     );
-  //     if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
-  //       myModal.hide();
-  //     } else {
-  //       myModal.show();
-  //     }
-  //   }
-  // }, []);
-
-  // function filterString(input) {
-  //   const match = input.match(/^(gambar1|video1|audio1|gambar2|video2|audio2)/);
-  //   return match ? match[0] : "";
-  // }
-
-  // JSON.parse(localStorage.getItem("shuffledSoal1")).map((a) => {
-  //   if (a.id.includes("gambar1")) {
-  //     localStorage.setItem("id2", filterString(a.id));
-  //   }
-  // });
-
-  // useEffect(() => {
-  //   // console.log(JSON.parse(localStorage.getItem("shuffledSoal1")));
-  //   // JSON.parse(localStorage.getItem("shuffledSoal1")).map((a) => {
-  //   //   if (
-  //   //     a.id.includes("gambar1") &&
-  //   //     localStorage.getItem("shuffledSoal1") !== null
-  //   //   ) {
-  //   //     localStorage.setItem("id2", filterString(a[0].id));
-  //   //   }
-  //   // });
-
-  //   // if(JSON.parse(localStorage.getItem("shuffledSoal1"))[0]){
-
-  //   // }
-  //   //console.log(JSON.parse(localStorage.getItem("shuffledSoal1"))[0]);
-  //   if (
-  //     ["gambar1", "video1", "audio1"].includes(
-  //       JSON.parse(localStorage.getItem("shuffledSoal1"))[0].id &&
-  //         localStorage.getItem("shuffledSoal1") !== null
-  //     )
-  //   ) {
-  //     localStorage.setItem(
-  //       "id2",
-  //       filterString(JSON.parse(localStorage.getItem("shuffledSoal1"))[0].id)
-  //     );
-  //   }
-  // });
-
-  // useEffect(() => {
-  //   window.onpopstate = () => {
-  //     // if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
-  //     //   localStorage.removeItem(`temps`);
-  //     //   localStorage.removeItem(`semuaSoalTelahDiisi`);
-  //     //   localStorage.removeItem(`IsSubmit`);
-  //     //   localStorage.removeItem("endTime");
-  //     //   localStorage.removeItem("TimeStop");
-  //     //   localStorage.removeItem(`score`);
-  //     //   localStorage.removeItem(`tempNilaiSoal`);
-  //     //   localStorage.removeItem("shuffledSoal1");
-  //     //   localStorage.removeItem(`dateTime`);
-  //     //   localStorage.setItem(`id2`, "");
-  //     // }
-
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const tombolDiklik = localStorage.getItem("tombolDiklik");
-  //   if (tombolDiklik) {
-  //     localStorage.removeItem("tombolDiklik");
-  //     window.location.reload();
-  //   }
-  // }, []);
-
   return (
     <>
       {(() => {
@@ -374,7 +292,11 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                      tw-px-5 sm:tw-px-2 md:tw-px-4 lg:tw-px-8 xl:tw-px-24 lg:tw-mx-auto"
                     >
                       <div className="tw-flex tw-w-[40%] sm:tw-w-[250px] xl:tw-w-[350px]">
-                        <img src={item.image} className="tw-m-auto" />
+                        <img
+                          src={item.image}
+                          className="tw-m-auto"
+                          alt={item.image}
+                        />
                       </div>
                       <div className="lg:tw-w-[60%] tw-flex tw-flex-col tw-gap-4 lg:tw-gap-7 tw-py-8">
                         <div className="tw-flex tw-gap-4">
@@ -444,7 +366,11 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                      tw-px-5 sm:tw-px-2 md:tw-px-4 lg:tw-px-8 xl:tw-px-24 lg:tw-mx-auto"
                     >
                       <div className="tw-flex tw-w-[40%] sm:tw-w-[250px] xl:tw-w-[350px]">
-                        <img src={item.image} className="tw-m-auto" />
+                        <img
+                          src={item.image}
+                          className="tw-m-auto"
+                          alt={item.image}
+                        />
                       </div>
                       <div className="lg:tw-w-[60%] tw-flex tw-flex-col tw-gap-4 lg:tw-gap-7 tw-py-8">
                         <div className="tw-flex tw-gap-4">

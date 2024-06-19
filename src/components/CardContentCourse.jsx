@@ -9,18 +9,6 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  // useEffect(() => {
-  //   if (
-  //     localStorage.getItem("idDetail").includes("exercise") &&
-  //     localStorage.getItem("dateTime") !== null
-  //   ) {
-  //     const myModal = new window.bootstrap.Modal(
-  //       document.getElementById("latihanPeringatan")
-  //     );
-  //     myModal.show();
-  //   }
-  // }, []);
-
   return (
     <>
       {tempDatas.map((a, b) => {

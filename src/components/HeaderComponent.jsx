@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavigationComponent from "./NavigationComponent";
 
 const HeaderComponent = ({ img }) => {

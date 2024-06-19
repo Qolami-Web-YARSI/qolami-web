@@ -13,7 +13,6 @@ const ActivityComponent = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      //console.log(response.data.data);
       setActivity(response.data.data.reverse());
     } catch (e) {
       console.log(e);

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import CardContentCourse from "./CardContentCourse";
 import Pagination from "./Pagination";
 import KursusData from "../data/KursusData";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 
 const ContentCourse = ({ tempToken }) => {
   const contentRef = useRef(null);
@@ -13,12 +12,9 @@ const ContentCourse = ({ tempToken }) => {
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const datas = () => {
     tempDatas.push(...KursusData);
-    //console.log(tempDatas)
 
     const tempUnlockArray = [];
     for (let i = 0; i < tempDatas.length; i++) {
@@ -32,7 +28,6 @@ const ContentCourse = ({ tempToken }) => {
         tempUnlockArray.push(false);
       }
     }
-    //console.log(tempUnlockArray)
     setTempUnlock(tempUnlockArray);
   };
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import { FiArrowLeft } from "react-icons/fi";
@@ -8,13 +8,6 @@ const PaginationDetail2 = ({ id, tempIdDetail }) => {
   const load = () => {
     window.location.reload();
   };
-
-  useEffect(() => {
-    // console.log(Number(id))
-    // console.log(tempIdDetail)
-    // console.log(tempIdDetail.indexOf(Number(id)))
-    // console.log(tempIdDetail.length - 1)
-  }, []);
 
   return (
     <>

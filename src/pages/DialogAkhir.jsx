@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 
-const DialogAkhir = ({ id, id2, text, text2 }) => {
+const DialogAkhir = ({ id, text, text2 }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

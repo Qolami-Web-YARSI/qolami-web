@@ -32,9 +32,6 @@ const NavigationComponent2 = (props) => {
           }
         );
         setData(response.data.data);
-        //   console.log(response.data.data)
-        //   console.log(response.data.data.firstName)
-        //   console.log(response.data.data.lastName)
       } catch (e) {
         console.log(e);
       }
@@ -93,12 +90,6 @@ const NavigationComponent2 = (props) => {
             >
               <a href="/pengaturan">Pengaturan</a>
             </li>
-            {/* <li
-              className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] 
-                        tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"
-            >
-              {data && data.firstName + " " + data.lastName}
-            </li> */}
             <li
               className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] 
                         tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"

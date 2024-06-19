@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 
 const DialogBerhasil2 = ({ text, location }) => {
   useEffect(() => {

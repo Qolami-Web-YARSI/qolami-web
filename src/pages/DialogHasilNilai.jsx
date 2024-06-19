@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const DialogHasilNilai = ({ id, img, graduate, text, panjangSoal, score }) => {
+const DialogHasilNilai = ({ id, graduate, text, panjangSoal, score }) => {
   const imageUrlPencil = `${process.env.PUBLIC_URL}/pensil_2.svg`;
   const [isGraduate, setIsGraduate] = useState(false);
 

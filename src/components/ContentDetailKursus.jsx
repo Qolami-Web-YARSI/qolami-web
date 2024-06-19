@@ -908,24 +908,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                       Huruf Hijaiyah
                     </p>
                   </div>
-                  {/* <div className="tw-flex tw-justify-between tw-px-36">
-                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0">
-                      <p className="tw-mx-auto">{formatTime(time)}</p>
-                    </div>
-                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3">
-                      {JSON.parse(
-                        localStorage.getItem("timeUnders2Minutes")
-                      ) === true ? (
-                        <p className="tw-mx-auto tw-text-[#FB7185]">
-                          {formatTime(time)}
-                        </p>
-                      ) : (
-                        <p className="tw-mx-auto tw-text-[#34D399]">
-                          {formatTime(time)}
-                        </p>
-                      )}
-                    </div>
-                  </div> */}
                   {JSON.parse(localStorage.getItem("IsSubmit")) === true ||
                   JSON.parse(localStorage.getItem("TimeStop")) === true ? (
                     <></>
@@ -1139,7 +1121,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   `opsiSoal_${index + 1}`
                                 );
                               });
-                              window.location.reload();
                               localStorage.removeItem(`temps`);
                               localStorage.removeItem(`semuaSoalTelahDiisi`);
                               localStorage.removeItem(`IsSubmit`);
@@ -1154,6 +1135,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.removeItem(`dateTime`);
                               localStorage.setItem("id2", "");
                               localStorage.setItem("idDetail", "");
+                              window.location.reload();
                             }}
                             className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
@@ -1196,30 +1178,12 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                     } tw-w-full`}
                   >
                     <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold tw-text-center tw-pt-5 tw-mx-auto">
-                      Ujian 1
+                      Ujian 2
                     </p>
                     <p className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-center tw-mx-auto">
-                      Huruf Hijaiyah
+                      Huruf Berharakat Fathah
                     </p>
                   </div>
-                  {/* <div className="tw-flex tw-justify-between tw-px-36">
-                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3 tw-text-[#34D399] tw-opacity-0">
-                      <p className="tw-mx-auto">{formatTime(time)}</p>
-                    </div>
-                    <div className="tw-flex tw-bg-white tw-border-[#BABABA] tw-border-[3px] tw-w-[150px] tw-text-[20px] tw-font-poppins tw-px-8 tw-py-3">
-                      {JSON.parse(
-                        localStorage.getItem("timeUnders2Minutes")
-                      ) === true ? (
-                        <p className="tw-mx-auto tw-text-[#FB7185]">
-                          {formatTime(time)}
-                        </p>
-                      ) : (
-                        <p className="tw-mx-auto tw-text-[#34D399]">
-                          {formatTime(time)}
-                        </p>
-                      )}
-                    </div>
-                  </div> */}
                   {JSON.parse(localStorage.getItem("IsSubmit")) === true ||
                   JSON.parse(localStorage.getItem("TimeStop")) === true ? (
                     <></>
@@ -1427,7 +1391,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                         true ? (
                           <button
                             onClick={() => {
-                              window.location.reload();
                               navigate(`/kursus`, { replace: true });
                               tempExam1.soalJawaban2.forEach((_, index) => {
                                 localStorage.removeItem(
@@ -1440,7 +1403,6 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.removeItem("endTime");
                               localStorage.removeItem("timeUnders2Minutes");
                               localStorage.removeItem("TimeStop");
-                              localStorage.setItem("idDetail", "");
                               localStorage.removeItem(`score`);
                               localStorage.removeItem(`tempNilaiSoal`);
                               localStorage.removeItem("shuffledSoal21");
@@ -1448,6 +1410,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                               localStorage.removeItem(`dateTime`);
                               localStorage.setItem("id2", "");
                               localStorage.setItem("idDetail", "");
+                              window.location.reload();
                             }}
                             className="tw-bg-[#009900] hover:tw-bg-[#007100] tw-w-[45%] xs:tw-w-[40%] sm:tw-w-[30%] lg:tw-w-[15%] xl:tw-w-[10%] tw-py-2 tw-mt-11 tw-mx-auto tw-text-white tw-font-bold"
                           >
