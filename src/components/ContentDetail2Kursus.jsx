@@ -336,7 +336,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
               <>
                 {item && (
                   <div className="tw-flex tw-flex-col tw-mx-auto tw-bg-[#FFF6D9] tw-w-[100%] tw-font-poppins">
-                    <div className="tw-flex tw-flex-col tw-pt-20 sm:tw-pt-28 lg:tw-pt-40 tw-pb-8 sm:tw-pb-14">
+                    <div className="tw-flex tw-flex-col tw-pt-32 sm:tw-pt-28 lg:tw-pt-40 tw-pb-8 sm:tw-pb-14">
                       <p
                         className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] tw-font-bold 
                                         tw-text-center tw-pt-5 tw-mx-auto"
