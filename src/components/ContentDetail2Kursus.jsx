@@ -85,7 +85,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
       ) {
         a.detail.forEach((b) => {
           if (b.id.includes(id)) {
-            console.log(b);
             setLatihanContent(b);
             const savedShuffledSoal = localStorage.getItem("shuffledSoal1");
             if (savedShuffledSoal) {
@@ -196,19 +195,6 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
     ]);
   }, [selectedButton1, selectedButton2, selectedButton3, selectedButton4]);
 
-  useEffect(() => {
-    window.onpopstate = () => {
-      if (
-        localStorage.getItem("idDetail").includes("exercise") &&
-        (localStorage.getItem("id2").includes("gambar") ||
-          localStorage.getItem("id2").includes("video") ||
-          localStorage.getItem("id2").includes("audio"))
-      ) {
-        navigate(`/kursus`);
-      }
-    };
-  });
-
   const audioPlay = (audio_source) => {
     if (currentAudio) {
       currentAudio.pause();
@@ -236,9 +222,9 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
         {
           activityName: `${activityNameManipulasi}`,
           date: `${localStorage.getItem(`dateTime`)}`,
-          value: `${JSON.parse(localStorage.getItem(`score`))}`,
-          status: `${statusManipulasi}`,
-          idUser: `${localStorage.getItem(`id`)}`,
+          value: JSON.parse(localStorage.getItem(`score`)),
+          status: statusManipulasi,
+          idUser: localStorage.getItem(`id`),
         },
         {
           headers: {
@@ -267,6 +253,79 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
       myModal.show();
     }
   }, []);
+
+  // useEffect(() => {
+  //   if (
+  //     localStorage.getItem("idDetail").includes("exercise") &&
+  //     localStorage.getItem("dateTime") !== null
+  //   ) {
+  //     const myModal = new window.bootstrap.Modal(
+  //       document.getElementById("latihanPeringatan")
+  //     );
+  //     if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
+  //       myModal.hide();
+  //     } else {
+  //       myModal.show();
+  //     }
+  //   }
+  // }, []);
+
+  // function filterString(input) {
+  //   const match = input.match(/^(gambar1|video1|audio1|gambar2|video2|audio2)/);
+  //   return match ? match[0] : "";
+  // }
+
+  // JSON.parse(localStorage.getItem("shuffledSoal1")).map((a) => {
+  //   if (a.id.includes("gambar1")) {
+  //     localStorage.setItem("id2", filterString(a.id));
+  //   }
+  // });
+
+  // useEffect(() => {
+  //   // console.log(JSON.parse(localStorage.getItem("shuffledSoal1")));
+  //   // JSON.parse(localStorage.getItem("shuffledSoal1")).map((a) => {
+  //   //   if (
+  //   //     a.id.includes("gambar1") &&
+  //   //     localStorage.getItem("shuffledSoal1") !== null
+  //   //   ) {
+  //   //     localStorage.setItem("id2", filterString(a[0].id));
+  //   //   }
+  //   // });
+
+  //   // if(JSON.parse(localStorage.getItem("shuffledSoal1"))[0]){
+
+  //   // }
+  //   //console.log(JSON.parse(localStorage.getItem("shuffledSoal1"))[0]);
+  //   if (
+  //     ["gambar1", "video1", "audio1"].includes(
+  //       JSON.parse(localStorage.getItem("shuffledSoal1"))[0].id &&
+  //         localStorage.getItem("shuffledSoal1") !== null
+  //     )
+  //   ) {
+  //     localStorage.setItem(
+  //       "id2",
+  //       filterString(JSON.parse(localStorage.getItem("shuffledSoal1"))[0].id)
+  //     );
+  //   }
+  // });
+
+  // useEffect(() => {
+  //   window.onpopstate = () => {
+  //     // if (JSON.parse(localStorage.getItem("IsSubmit")) === true) {
+  //     //   localStorage.removeItem(`temps`);
+  //     //   localStorage.removeItem(`semuaSoalTelahDiisi`);
+  //     //   localStorage.removeItem(`IsSubmit`);
+  //     //   localStorage.removeItem("endTime");
+  //     //   localStorage.removeItem("TimeStop");
+  //     //   localStorage.removeItem(`score`);
+  //     //   localStorage.removeItem(`tempNilaiSoal`);
+  //     //   localStorage.removeItem("shuffledSoal1");
+  //     //   localStorage.removeItem(`dateTime`);
+  //     //   localStorage.setItem(`id2`, "");
+  //     // }
+
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   const tombolDiklik = localStorage.getItem("tombolDiklik");
@@ -627,6 +686,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                       );
                                     }
                                   );
+                                  window.location.reload();
                                   localStorage.removeItem(`temps`);
                                   localStorage.removeItem(
                                     `semuaSoalTelahDiisi`
@@ -870,6 +930,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                       );
                                     }
                                   );
+                                  window.location.reload();
                                   localStorage.removeItem(`temps`);
                                   localStorage.removeItem(
                                     `semuaSoalTelahDiisi`
@@ -1114,6 +1175,7 @@ const ContentDetail2Kursus = ({ img2, img3 }) => {
                                       );
                                     }
                                   );
+                                  window.location.reload();
                                   localStorage.removeItem(`temps`);
                                   localStorage.removeItem(
                                     `semuaSoalTelahDiisi`

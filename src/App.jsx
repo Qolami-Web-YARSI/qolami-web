@@ -19,6 +19,7 @@ import DialogBerhasil2 from "./pages/DialogBerhasil2.jsx";
 import Aktifitas from "./pages/Aktifitas.jsx";
 import DialogAkhir from "./pages/DialogAkhir.jsx";
 import DialogHasilNilai from "./pages/DialogHasilNilai.jsx";
+import DialogBerhasil2_2 from "./pages/DialogBerhasil2_2.jsx";
 
 const App = () => {
   const [tempToken, setTempToken] = useState(false);
@@ -84,16 +85,16 @@ const InnerApp = ({ tempToken, setTempToken }) => {
         location={"dialogBerhasilProfile"}
         text={"Profil berhasil disimpan"}
       />
-      <DialogBerhasil2
-        location={"lagiPosisiLatihan"}
+      <DialogBerhasil2_2
+        location={"ujianBerakhir"}
         text={
-          "Kamu harus menyelesaikan Latihan yang sedang dikerjakan terlebih dahulu"
+          "Ujian yang Anda kerjakan sebelumnya telah berakhir. Mohon tetap berada di halaman ujian selama proses ujian berlangsung. Jika Anda sudah mengsubmit ujian dan telah memunculkan nilai, Abaikan pesan sebelumnya"
         }
       />
-      <DialogBerhasil2
-        location={"lagiPosisiUjian"}
+      <DialogBerhasil2_2
+        location={"ujianPeringatan"}
         text={
-          "Kamu harus menyelesaikan Ujian yang sedang dikerjakan terlebih dahulu"
+          "Selama ujian ini berlangsung, mohon untuk tidak keluar dari ujian. Hal ini untuk memastikan ujian Anda tercatat dengan baik dan tidak terjadi gangguan pada sistem"
         }
       />
       <DialogAkhir
