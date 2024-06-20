@@ -67,7 +67,7 @@ const ContentAboutComponent = () => {
                 className="tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px]
                              md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins"
               >
-                Tara Thania Anantha
+                Tara Thania Ananta
               </p>
             </div>
             <div className="tw-flex tw-flex-col tw-gap-0">
