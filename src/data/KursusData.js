@@ -6309,6 +6309,7 @@ const KursusData = [
     gambar: "img2-2.svg",
     deskripsi: "Huruf Berharakat Fathah",
     detail: [
+      //Latihan 2 - Gambar
       {
         id: "gambar2",
         gambar: "latihan-gambar.svg",
@@ -7269,6 +7270,7 @@ const KursusData = [
           },
         ],
       },
+      //Latihan 2 - Video
       {
         id: "video2",
         gambar: "latihan-video.svg",
@@ -8258,6 +8260,7 @@ const KursusData = [
           },
         ],
       },
+      // Latihan 2 - Audio
       {
         id: "audio2",
         gambar: "latihan-audio.svg",
@@ -9838,7 +9841,7 @@ const KursusData = [
       // Ain Fathah
       {
         id: "gambar2_ain-fathah",
-        soal: `Yang manakah huruf <b>"'A"</b>?`,
+        soal: `Yang manakah huruf <b>"Ain"</b>?`,
         audio: "",
         video: "",
         jawabanBenar: 3,
