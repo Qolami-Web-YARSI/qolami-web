@@ -5,7 +5,7 @@ const ContentAboutComponent = () => {
         <div className="tw-flex tw-flex-col tw-gap-5 tw-pt-32 lg:tw-pt-36 tw-pb-14 tw-bg-[#C2EF90]">
           <div className="tw-flex tw-justify-between">
             <p
-              className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
+              className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[40px] 
                             tw-text-[#009900] tw-font-bold tw-text-center tw-py-5 tw-mx-auto tw-font-poppins"
             >
               TENTANG QOLAMI
@@ -14,7 +14,7 @@ const ContentAboutComponent = () => {
           <div className="tw-flex tw-justify-between">
             <img
               src="logo-qolami.svg"
-              className=" tw-w-48 sm:tw-w-72 tw-mx-auto"
+              className=" tw-w-48 sm:tw-w-64 tw-mx-auto"
               alt="logo-qolami.svg"
             />
           </div>
@@ -36,10 +36,10 @@ const ContentAboutComponent = () => {
           </div>
         </div>
         <div className="tw-flex tw-gap-0 tw-py-14 tw-px-10 sm:tw-px-20 2xl:tw-px-20 tw-bg-[#FFF6D9] tw-justify-center">
-          <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] 2xl:tw-w-[700px] tw-gap-2 md:tw-gap-3 tw-mx-auto sm:tw-mx-0">
+          <div className="tw-flex tw-flex-col tw-w-[80%] md:tw-w-[50%] lg:tw-w-[40%] 2xl:tw-w-[600px] tw-gap-2 md:tw-gap-3 tw-mx-auto sm:tw-mx-0">
             <div className="tw-flex tw-flex-col tw-ps-4">
               <p
-                className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] tw-text-[#009900] 
+                className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[40px] tw-text-[#009900] 
                             tw-font-bold tw-text-center sm:tw-text-start tw-font-poppins"
               >
                 TIM PENGEMBANG
@@ -53,26 +53,26 @@ const ContentAboutComponent = () => {
               </p>
               <p
                 className="tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] 
-                            md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins"
+                            md:tw-text-[18px] lg:tw-text-[23px] tw-font-normal tw-font-poppins"
               >
                 Angga Aditya Putra Pratama
               </p>
               <p
                 className="tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px] 
-                            md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins"
+                            md:tw-text-[18px] lg:tw-text-[23px] tw-font-normal tw-font-poppins"
               >
                 Rizal Abimanyu
               </p>
               <p
                 className="tw-text-center sm:tw-text-start tw-text-[#009900] tw-text-[16px] sm:tw-text-[15px]
-                             md:tw-text-[18px] lg:tw-text-[25px] tw-font-normal tw-font-poppins"
+                             md:tw-text-[18px] lg:tw-text-[23px] tw-font-normal tw-font-poppins"
               >
                 Tara Thania Ananta
               </p>
             </div>
             <div className="tw-flex tw-flex-col tw-gap-0">
               <p
-                className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[45px] 
+                className="tw-text-[20px] sm:tw-text-[25px] md:tw-text-[35px] lg:tw-text-[40px] 
                             tw-text-[#009900] tw-font-bold tw-pt-5 tw-text-center sm:tw-text-start tw-font-poppins tw-ps-4"
               >
                 SOSIAL MEDIA
@@ -117,7 +117,7 @@ const ContentAboutComponent = () => {
               </div>
             </div>
           </div>
-          <div className="tw-hidden sm:tw-flex tw-w-[0%] sm:tw-w-[50%] lg:tw-w-[40%]">
+          <div className="tw-hidden sm:tw-flex tw-w-[0%] sm:tw-w-[50%] lg:tw-w-[30%]">
             <img src="pencil.svg" className="lg:tw-mx-auto" alt="pencil.svg" />
           </div>
         </div>

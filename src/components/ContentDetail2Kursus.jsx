@@ -284,7 +284,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
                       </div>
                     </div>
                     <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
-                      <video controls className="lg:tw-w-[65%] tw-mx-auto">
+                      <video controls className="lg:tw-w-[50%] tw-mx-auto">
                         <source src={item.video} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
@@ -307,7 +307,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
                           </button>
                           <div className="tw-flex tw-my-auto">
                             <p
-                              className="tw-text-[13px] sm:tw-text-[16px] md:tw-text-[20px] lg:tw-text-[25px] 2xl:tw-text-[35px] tw-font-bold 
+                              className="tw-text-[10px] sm:tw-text-[14px] md:tw-text-[25px] 2xl:tw-text-[30px] tw-font-bold 
                                                     sm:tw-leading-4 md:tw-leading-7 lg:tw-leading-8 xl:tw-leading-10"
                             >
                               Perhatikan huruf <br></br> hijaiyah di samping!
@@ -358,7 +358,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
                       </div>
                     </div>
                     <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
-                      <video controls className="lg:tw-w-[65%] tw-mx-auto">
+                      <video controls className="lg:tw-w-[50%] tw-mx-auto">
                         <source src={item.video} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
@@ -381,7 +381,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
                           </button>
                           <div className="tw-flex tw-my-auto">
                             <p
-                              className="tw-text-[13px] sm:tw-text-[16px] md:tw-text-[20px] lg:tw-text-[25px] 2xl:tw-text-[35px] tw-font-bold 
+                              className="tw-text-[10px] sm:tw-text-[14px] md:tw-text-[25px] 2xl:tw-text-[30px] tw-font-bold 
                                                     sm:tw-leading-4 md:tw-leading-7 lg:tw-leading-8 xl:tw-leading-10"
                             >
                               Perhatikan huruf <br></br> berharakat di samping!
@@ -688,7 +688,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
                                   <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
                                     <video
                                       controls
-                                      className="lg:tw-w-[85%] tw-mx-auto"
+                                      className="lg:tw-w-[50%] tw-mx-auto"
                                     >
                                       <source src={a.video} type="video/mp4" />
                                       Your browser does not support the video

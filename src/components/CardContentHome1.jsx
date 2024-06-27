@@ -7,7 +7,7 @@ const CardContentHome1 = (props) => {
       >
         <div className="tw-flex tw-h-24 xl:tw-h-40 tw-px-5 sm:tw-px-0">
           <p
-            className="tw-text-[28px] md:tw-text-[35px] xl:tw-text-[45px] 2xl:tw-text-[55px] tw-font-bold tw-text-center tw-text-[#009900]
+            className="tw-text-[28px] md:tw-text-[35px] xl:tw-text-[45px] 2xl:tw-text-[45px] tw-font-bold tw-text-center tw-text-[#009900]
                      tw-my-auto tw-mx-auto"
           >
             {props.judul}

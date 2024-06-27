@@ -24,10 +24,10 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
                       {a.nama}
                     </p>
                   </div>
-                  <div className="tw-flex tw-flex-col tw-bg-[#C2EF90] tw-rounded-b-[20px] md:tw-rounded-b-[30px] tw-pt-11 tw-pb-pb-7 tw-px-5">
+                  <div className="tw-flex tw-flex-col tw-bg-[#C2EF90] tw-rounded-b-[20px] md:tw-rounded-b-[30px] tw-pt-11  tw-px-5">
                     <img
                       src={a.gambar}
-                      className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-48"
+                      className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-40"
                       alt={a.gambar}
                     />
                     <p className="tw-mx-auto tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[19px] tw-font-poppins tw-text-center">
@@ -61,7 +61,7 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
                       <div className="tw-flex tw-flex-col tw-bg-[#C2EF90] tw-rounded-b-[20px] md:tw-rounded-b-[30px] tw-pt-11 tw-pb-pb-7 tw-px-5">
                         <img
                           src={a.gambar}
-                          className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-48"
+                          className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-40"
                           alt={a.gambar}
                         />
                         <p className="tw-mx-auto tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[19px] tw-font-poppins tw-text-center">
@@ -92,7 +92,7 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
                       <div className="tw-flex tw-flex-col tw-bg-[#C2EF90] tw-rounded-b-[20px] md:tw-rounded-b-[30px] tw-pt-11 tw-pb-pb-7 tw-px-5">
                         <img
                           src={a.gambar}
-                          className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-48"
+                          className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-40"
                           alt={a.gambar}
                         />
                         <p className="tw-mx-auto tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[19px] tw-font-poppins tw-text-center">
@@ -163,7 +163,7 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
                   <div className="tw-flex tw-flex-col tw-bg-[#C2EF90] tw-rounded-b-[20px] md:tw-rounded-b-[30px] tw-pt-11 tw-pb-pb-7 tw-px-5">
                     <img
                       src={a.gambar}
-                      className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-48"
+                      className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-40"
                       alt={a.gambar}
                     />
                     <p className="tw-mx-auto tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[19px] tw-font-poppins tw-text-center">
@@ -196,7 +196,7 @@ const CardContentCourse = ({ tempDatas, tempUnlock, tempToken }) => {
               <div className="tw-flex tw-flex-col tw-bg-[#C2EF90] tw-rounded-b-[20px] md:tw-rounded-b-[30px] tw-pt-11 tw-pb-pb-7 tw-px-5">
                 <img
                   src={a.gambar}
-                  className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-48"
+                  className="tw-mx-auto tw-pb-7 tw-size-28 lg:tw-size-40"
                   alt={a.gambar}
                 />
                 <p className="tw-mx-auto tw-text-[16px] sm:tw-text-[15px] md:tw-text-[18px] lg:tw-text-[19px] tw-font-poppins tw-text-center">

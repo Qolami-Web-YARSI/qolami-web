@@ -55,7 +55,7 @@ const ContentCourse = ({ tempToken }) => {
           </p>
         </div>
         <div
-          className="tw-grid tw-w-[90%] 2xl:tw-w-[80%] tw-grid-cols-1 md:tw-grid-cols-3 tw-bg-[#FFF6D9] tw-mx-auto tw-gap-9"
+          className="tw-grid tw-w-[90%] 2xl:tw-w-[70%] tw-grid-cols-1 md:tw-grid-cols-3 tw-bg-[#FFF6D9] tw-mx-auto tw-gap-9"
           ref={contentRef}
           id="a"
         >

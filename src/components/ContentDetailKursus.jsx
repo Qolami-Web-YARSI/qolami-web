@@ -471,7 +471,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
                           dir="rtl"
                         >
-                          <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
+                          <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-60 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
                             {pelajaran.map((a, index) => {
                               if (
                                 ["ج", "ح", "خ", "ر"].includes(a.hurufHijaiyah)
@@ -484,9 +484,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-8 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto tw-t-32 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto tw-t-32 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -505,9 +505,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pt-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                    2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -522,9 +522,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-10 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -543,9 +543,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -560,9 +560,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} sm:tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -577,9 +577,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 xl:tw-h-48 
-                                      2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufHijaiyah}
                                       </p>
                                     </button>
@@ -621,7 +621,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           className="tw-flex tw-flex-col tw-mx-auto tw-w-[100%]"
                           dir="rtl"
                         >
-                          <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-36 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
+                          <div className="tw-grid tw-grid-cols-5 tw-flex-wrap tw-px-7 lg:tw-px-12 xl:tw-px-60 2xs:tw-gap-3 xs:tw-gap-4 md:tw-gap-5 lg:tw-gap-7 tw-font-serif">
                             {pelajaran.map((a, index) => {
                               if (
                                 ["ج", "ح", "خ", "ر"].includes(
@@ -636,9 +636,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-8 tw-text-white sm:tw-h-32 
-                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -657,9 +657,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pt-5 tw-text-white sm:tw-h-32 
-                                    lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                    lg:tw-h-44 xl:tw-h-48 2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -676,9 +676,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-10 tw-text-white sm:tw-h-32 
-                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      lg:tw-h-44 xl:tw-h-48 2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -697,9 +697,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-5 tw-text-white sm:tw-h-32 lg:tw-h-44 
-                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      xl:tw-h-48 2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -716,9 +716,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-pb-14 tw-text-white sm:tw-h-32 lg:tw-h-44 
-                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      xl:tw-h-48 2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -733,9 +733,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                     <button
                                       key={index}
                                       className={`tw-flex bg-${a.colorCard} hover:bg-${a.hoverCard} tw-text-white sm:tw-h-32 lg:tw-h-44 
-                                      xl:tw-h-48 2xl:tw-h-56 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
+                                      xl:tw-h-48 2xl:tw-h-48 tw-rounded-xl lg:tw-rounded-[25px] tw-shadow-[0_4px_5px_0px_rgba(0,0,0,0.3)] tw-w-full`}
                                     >
-                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[110px] tw-font-bold">
+                                      <p className="tw-m-auto 2xs:tw-text-[35px] xs:tw-text-[50px] sm:tw-text-[70px] xl:tw-text-[85px] 2xl:tw-text-[90px] tw-font-bold">
                                         {a.hurufBerharakatFathah}
                                       </p>
                                     </button>
@@ -956,7 +956,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                         <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
                                           <video
                                             controls
-                                            className="lg:tw-w-[85%] tw-mx-auto"
+                                            className="lg:tw-w-[50%] tw-mx-auto"
                                           >
                                             <source
                                               src={a.video}
@@ -1232,7 +1232,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                         <div className="tw-flex tw-w-full tw-mt-5 tw-mx-auto tw-px-8 md:tw-px-10 lg:tw-px-14 xl:tw-px-32">
                                           <video
                                             controls
-                                            className="lg:tw-w-[85%] tw-mx-auto"
+                                            className="lg:tw-w-[50%] tw-mx-auto"
                                           >
                                             <source
                                               src={a.video}
