@@ -33,7 +33,9 @@ const HeaderComponent2 = ({ img }) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:2024/users/${localStorage.getItem("id")}`,
+        `https://qolami-web-golecrsfhq-uc.a.run.app/users/${localStorage.getItem(
+          "id"
+        )}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +45,7 @@ const HeaderComponent2 = ({ img }) => {
       );
       const userData = response.data.data;
       if (userData.profileUrl.includes("/uploads/")) {
-        userData.profileUrl = `http://localhost:2024${userData.profileUrl}`;
+        userData.profileUrl = `https://qolami-web-golecrsfhq-uc.a.run.app${userData.profileUrl}`;
       }
       setData(userData);
       console.log(userData.profileUrl);

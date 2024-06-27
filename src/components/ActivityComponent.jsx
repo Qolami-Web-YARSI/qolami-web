@@ -7,12 +7,15 @@ const ActivityComponent = () => {
   const [getActivity, setActivity] = useState(null);
   const activityData = async () => {
     try {
-      const response = await axios.get("http://localhost:2024/activity", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.get(
+        "https://qolami-web-golecrsfhq-uc.a.run.app/activity",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setActivity(response.data.data.reverse());
     } catch (e) {
       console.log(e);
@@ -22,7 +25,9 @@ const ActivityComponent = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:2024/users/${localStorage.getItem("id")}`,
+        `https://qolami-web-golecrsfhq-uc.a.run.app/users/${localStorage.getItem(
+          "id"
+        )}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -33,7 +38,7 @@ const ActivityComponent = () => {
       const userData = response.data.data;
       setData(userData);
       if (userData.profileUrl.includes("/uploads/")) {
-        userData.profileUrl = `http://localhost:2024${userData.profileUrl}`;
+        userData.profileUrl = `https://qolami-web-golecrsfhq-uc.a.run.app${userData.profileUrl}`;
       }
     } catch (e) {
       console.log(e);

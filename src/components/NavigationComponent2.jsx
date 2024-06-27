@@ -23,7 +23,9 @@ const NavigationComponent2 = (props) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:2024/users/${localStorage.getItem("id")}`,
+          `https://qolami-web-golecrsfhq-uc.a.run.app/users/${localStorage.getItem(
+            "id"
+          )}`,
           {
             headers: {
               "Content-Type": "application/json",

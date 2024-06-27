@@ -78,7 +78,9 @@ const SettingsComponent = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:2024/users/${localStorage.getItem("id")}`,
+        `https://qolami-web-golecrsfhq-uc.a.run.app/users/${localStorage.getItem(
+          "id"
+        )}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -89,7 +91,7 @@ const SettingsComponent = () => {
       const userData = response.data.data;
       setData(userData);
       if (userData.profileUrl.includes("/uploads/")) {
-        userData.profileUrl = `http://localhost:2024${userData.profileUrl}`;
+        userData.profileUrl = `https://qolami-web-golecrsfhq-uc.a.run.app${userData.profileUrl}`;
       }
     } catch (e) {
       console.log(e);
@@ -111,7 +113,7 @@ const SettingsComponent = () => {
     }
     try {
       await axios.patch(
-        `http://localhost:2024/users/settings/profile/${localStorage.getItem(
+        `https://qolami-web-golecrsfhq-uc.a.run.app/users/settings/profile/${localStorage.getItem(
           "id"
         )}`,
         formData,
@@ -148,7 +150,7 @@ const SettingsComponent = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:2024/users/settings/change-password`,
+        `https://qolami-web-golecrsfhq-uc.a.run.app/users/settings/change-password`,
         {
           id: localStorage.getItem("id"),
           oldPassword: event.target.passwordLama.value,

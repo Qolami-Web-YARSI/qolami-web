@@ -133,7 +133,7 @@ const Daftar = ({ img }) => {
     try {
       event.preventDefault();
       const response = await axios.post(
-        "http://localhost:2024/users/register",
+        "https://qolami-web-golecrsfhq-uc.a.run.app/users/register",
         {
           firstName: event.target.namaDepanDaftar.value,
           lastName: event.target.namaBelakangDaftar.value,

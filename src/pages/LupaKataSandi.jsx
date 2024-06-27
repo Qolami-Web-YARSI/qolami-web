@@ -43,7 +43,7 @@ const LupaKataSandi = ({ img }) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:2024/users/forgot-password",
+        "https://qolami-web-golecrsfhq-uc.a.run.app/users/forgot-password",
         {
           email: event.target.emailLupaPassword.value,
         }

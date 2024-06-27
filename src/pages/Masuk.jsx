@@ -41,10 +41,13 @@ const Masuk = ({ img, setTempToken }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:2024/users/login", {
-        email: event.target.emailMasuk.value,
-        password: event.target.passwordMasuk.value,
-      });
+      const response = await axios.post(
+        "https://qolami-web-golecrsfhq-uc.a.run.app/users/login",
+        {
+          email: event.target.emailMasuk.value,
+          password: event.target.passwordMasuk.value,
+        }
+      );
       setIsValidasi3(false);
       setIsValidasi4(true);
       console.log(response.data.data.accessToken);

@@ -45,7 +45,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
   const detail2Api = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:2024/${localStorage.getItem(
+        `https://qolami-web-golecrsfhq-uc.a.run.app/${localStorage.getItem(
           "idDetail"
         )}/contents/${id}`
       );
@@ -58,7 +58,9 @@ const ContentDetail2Kursus = ({ img3 }) => {
   const detailApi = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:2024/${localStorage.getItem("idDetail")}`
+        `https://qolami-web-golecrsfhq-uc.a.run.app/${localStorage.getItem(
+          "idDetail"
+        )}`
       );
       const ids = response.data.data.map((a) => a.id);
       setTempIdDetail(ids);
@@ -217,7 +219,7 @@ const ContentDetail2Kursus = ({ img3 }) => {
   const handleActivity = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:2024/activity",
+        "https://qolami-web-golecrsfhq-uc.a.run.app/activity",
         {
           activityName: `${activityNameManipulasi}`,
           date: `${localStorage.getItem(`dateTime`)}`,

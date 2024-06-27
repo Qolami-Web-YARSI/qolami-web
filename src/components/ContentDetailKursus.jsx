@@ -127,7 +127,9 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
 
   const detailApiPelajaran = async () => {
     try {
-      const response = await axios.get(`http://localhost:2024/${id}`);
+      const response = await axios.get(
+        `https://qolami-web-golecrsfhq-uc.a.run.app/${id}`
+      );
       setPelajaran(response.data.data);
     } catch (e) {
       console.log(e);
@@ -354,7 +356,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
   const handleActivity = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:2024/activity",
+        "https://qolami-web-golecrsfhq-uc.a.run.app/activity",
         {
           activityName: `${activityNameManipulasi.nama}`,
           date: `${localStorage.getItem(`dateTime`)}`,
