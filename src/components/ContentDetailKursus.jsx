@@ -776,7 +776,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           Huruf Hijaiyah
                         </p>
                       </div>
-                      <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 2xs:tw-px-[70px] xs:tw-px-[120px] sm:tw-px-[170px] md:tw-px-32">
+                      <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 2xs:tw-px-[70px] xs:tw-px-[120px] sm:tw-px-[170px] md:tw-px-32 lg:tw-px-56">
                         <ul className="tw-flex tw-flex-col md:tw-flex-row tw-mx-auto tw-justify-between tw-w-full">
                           {tempExercise1.map((a) => {
                             if (localStorage.getItem("id2").includes(a.id)) {
@@ -789,8 +789,12 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   className="tw-cursor-pointer"
                                 >
                                   <div className="tw-flex tw-flex-col">
-                                    <img src={a.gambar} alt={a.gambar} />
-                                    <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
+                                    <img
+                                      src={a.gambar}
+                                      alt={a.gambar}
+                                      className="lg:tw-w-[210px]"
+                                    />
+                                    <p className="tw-text-[15px] sm:tw-text-[10px] tw-font-bold tw-mx-auto">
                                       {a.nama2}
                                     </p>
                                   </div>
@@ -805,7 +809,11 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   className="tw-cursor-pointer"
                                 >
                                   <div className="tw-flex tw-flex-col">
-                                    <img src={a.gambar} alt={a.gambar} />
+                                    <img
+                                      src={a.gambar}
+                                      alt={a.gambar}
+                                      className="lg:tw-w-[210px]"
+                                    />
                                     <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
                                       {a.nama2}
                                     </p>
@@ -839,7 +847,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                           Huruf Berharakat Fathah
                         </p>
                       </div>
-                      <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 2xs:tw-px-[70px] xs:tw-px-[120px] sm:tw-px-[170px] md:tw-px-32">
+                      <div className="tw-flex tw-mx-auto tw-w-full tw-py-9 tw-pb-16 2xs:tw-px-[70px] xs:tw-px-[120px] sm:tw-px-[170px] md:tw-px-32 lg:tw-px-56">
                         <ul className="tw-flex tw-flex-col md:tw-flex-row tw-mx-auto tw-justify-between tw-w-full">
                           {tempExercise2.map((a) => {
                             if (localStorage.getItem("id2").includes(a.id)) {
@@ -852,7 +860,11 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   className="tw-cursor-pointer"
                                 >
                                   <div className="tw-flex tw-flex-col">
-                                    <img src={a.gambar} alt={a.gambar} />
+                                    <img
+                                      src={a.gambar}
+                                      alt={a.gambar}
+                                      className="lg:tw-w-[210px]"
+                                    />
                                     <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
                                       {a.nama2}
                                     </p>
@@ -868,7 +880,11 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                   className="tw-cursor-pointer"
                                 >
                                   <div className="tw-flex tw-flex-col">
-                                    <img src={a.gambar} alt={a.gambar} />
+                                    <img
+                                      src={a.gambar}
+                                      alt={a.gambar}
+                                      className="lg:tw-w-[210px]"
+                                    />
                                     <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
                                       {a.nama2}
                                     </p>
