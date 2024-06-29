@@ -794,7 +794,7 @@ const ContentDetailKursus = ({ img, img2, img3 }) => {
                                       alt={a.gambar}
                                       className="lg:tw-w-[210px]"
                                     />
-                                    <p className="tw-text-[15px] sm:tw-text-[10px] tw-font-bold tw-mx-auto">
+                                    <p className="tw-text-[15px] sm:tw-text-[30px] tw-font-bold tw-mx-auto">
                                       {a.nama2}
                                     </p>
                                   </div>
