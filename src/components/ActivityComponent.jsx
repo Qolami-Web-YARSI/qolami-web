@@ -19,6 +19,7 @@ const ActivityComponent = () => {
       setActivity(response.data.data.reverse());
     } catch (e) {
       console.log(e);
+      console.log(e);
     }
   };
 
