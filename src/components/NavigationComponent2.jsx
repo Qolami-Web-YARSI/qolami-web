@@ -72,13 +72,13 @@ const NavigationComponent2 = (props) => {
               className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] 
                         tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"
             >
-              <a href="/tentang">Tentang</a>
+              <a href="/kursus">Kursus</a>
             </li>
             <li
               className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] 
                         tw-font-semibold hover:tw-bg-[#C2EF90] hover:tw-text-black"
             >
-              <a href="/kursus">Kursus</a>
+              <a href="/tentang">Tentang</a>
             </li>
             <li
               className="tw-block tw-px-7 tw-py-5 tw-text-2xl tw-text-[#C2EF90] 

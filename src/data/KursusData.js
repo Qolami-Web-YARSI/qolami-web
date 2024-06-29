@@ -6482,7 +6482,8 @@ const KursusData = [
               {
                 id: 4,
                 text: "D",
-                imgSrc: "",
+                imgSrc:
+                  "https://storage.googleapis.com/qolami-web-bucket/pelajaran2-huruf-berharakat-fathah/image/1-Alif-Fathah.png",
               },
             ],
           },
